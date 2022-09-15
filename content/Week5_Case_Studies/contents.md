@@ -1,10 +1,4 @@
-# Contents
-
-- Problems, problems, problems...
-- Simulating the Brain
-- Exploring Galaxies
-- Discovering new materials
-- Towards the Future
+# Case Studies
 
 
 ```{toctree}
