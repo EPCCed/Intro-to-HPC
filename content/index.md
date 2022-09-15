@@ -19,6 +19,7 @@ Week2_Parallel_Computers/contents
 Week3_Parallel_Computing/contents
 Week4_Computer_Simulations/contents
 Week5_Case_Studies/contents
+Week6_Exercises/contents
 ```
 
 
