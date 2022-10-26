@@ -1,20 +1,8 @@
 # How does your laptop work?
 
-## Welcome to Week 2
-
-### Video
-
-Welcome_to_week2_hd
-
-### Transcript
-
-0:11 - This week, we’ll start looking in more detail at how the many CPU-cores that make up a parallel supercomputer are put together. We’ll see that the way that the CPU-cores are connected to the memory is actually the key issue. And this leads to two distinct types of parallel computer. One approach leads to relatively small scale, everyday, parallel systems, such as your laptop, mobile phone, or the graphics card in a games console. The other approach is more unique to supercomputing, allowing us to scale up to the hundreds of thousands of cores we need to tackle the world’s largest computer simulations.
-
-### Text
-
-In Week 2 we look at supercomputing hardware and architectures.
-
-We will talk about the main building blocks of supercomputers and introduce the concepts of shared and distributed memory architectures. You will also learn about the main differences between your laptop and a node of a supercomputer. You will also have an opportunity to build and manage your own supercomputer by playing the Supercomputing App game.
+```{figure} ./images/hero_506fdfe2-9cb8-4e6d-9c7c-c62c6f286dc1.jpg
+© iStock.com/Denis83
+```
 
 ## Computer Basics
 
@@ -24,7 +12,8 @@ Things have become slightly more complicated in the past decade, so for a short 
 
 A personal computer from 2005 had three major components: a single processor for performing calculations, Random Access Memory (RAM) for temporary storage of data and a hard-disk for long-term storage of programs and files.
 
-diagram of computer memory structure (image)
+```{figure} ./images/hero_9090d93c-0a48-4a33-8ed4-3b8fc6acf6cf.png
+```
 
 For us, it turns out that the way memory is configured is the most fundamental aspect so we’ll not worry about the disk for now.
 
@@ -40,11 +29,19 @@ We now have two complementary ways of building a parallel computer: we can build
 
 What do you think the main differences between these two approaches are? Can you think of any advantages and/or disadvantages for both of them?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_55c8a23e-686f-42a9-b7e9-de0a12208486.jpg
+© iStock.com/oonal
+```
 ## Share Memory Architecture
 
 The fundamental feature of a shared-memory computer is that all the CPU-cores are connected to the same piece of memory.
 
-Memory structure of Modern computer (image)
+```{figure} ./images/hero_2160d5f2-d404-4b10-b77e-e7b2a04ac529.png
+```
 
 This is achieved by having a memory bus that takes requests for data from multiple sources (here, each of the four separate CPU-cores) and fetches the data from a single piece of memory. The term bus apparently comes from the Latin omnibus meaning for all, indicating that it is a single resource shared by many CPU-cores.
 
@@ -54,9 +51,11 @@ A good analogy here is to think of four office-mates or workers (the CPU-cores) 
 
 Later on, we’ll start to think about how we can use this shared whiteboard to get the four workers to cooperate to solve the same problem more quickly than they can do it alone. However, the analogy already illustrates two key limitations of this approach:
 
-memory capacity: there is a limit to the size of the whiteboard that you can fit into an office, i.e. there is a limit to the amount of memory you can put into a single shared-memory computer;
-memory access speed: imagine that there were ten people in the same office - although they can in principle all read and write to the whiteboard, there’s simply not enough room for more than around four of them to do so at the same time as they start to get in each other’s way. Although you can fill the office full of more and more workers, their productivity will stall after about 4 workers because the additional workers will spend more and more time idle as they have to queue up to access the shared whiteboard.
-Limitations
+1) **memory capacity**: there is a limit to the size of the whiteboard that you can fit into an office, i.e. there is a limit to the amount of memory you can put into a single shared-memory computer;
+2) **memory access speed**: imagine that there were ten people in the same office - although they can in principle all read and write to the whiteboard, there’s simply not enough room for more than around four of them to do so at the same time as they start to get in each other’s way. Although you can fill the office full of more and more workers, their productivity will stall after about 4 workers because the additional workers will spend more and more time idle as they have to queue up to access the shared whiteboard.
+
+### Limitations
+
 It turns out that memory access speed is a real issue in shared-memory machines. If you look at the processor diagram above, you’ll see that all the CPU-cores share the same bus: the connection between the bus and the memory eventually becomes a bottleneck and there is simply no point in adding additional CPU-cores. Coupled with the fact that the kinds of programs we run on supercomputers tend to read and write large quantities of data, it is often memory access speed that is the limiting factor controlling how fast we can do a calculation, not the floating-point performance of the CPU-cores.
 
 There are various tricks to overcoming these two issues, but the overcrowded office clearly illustrates the fundamental challenges of this approach if we require many hundreds of thousands of CPU-cores.
@@ -65,21 +64,41 @@ Despite its limitations, shared memory architectures are universal in modern pro
 
 Think of owning one quad-core laptop compared to two dual-core laptops - which is more useful to you and why?
 
-## Simple Parallel Calculation (Discussion)
+© EPCC at The University of Edinburgh
 
-### Text
+---
+
+```{figure} ./images/hero_658e81ad-80f0-4383-8c94-f469ace0b757.jpg
+© iStock.com/silverjohn
+```
+
+## Simple Parallel Calculation
+
+```{danger}
+
+discussion section
+
+```
 
 We can investigate a very simple example of how we might use multiple CPU-cores by returning to the calculation we encountered in the first week: computing the average income of the entire world’s population.
 
 If we’re a bit less ambitious and think about several hundred people rather than several billion, we can imagine that all the individual salaries are already written on the shared whiteboard. Let’s imagine that the whiteboard is just large enough to fit 80 individual salaries.
 
-how could four workers cooperate to add up the salaries faster than a single worker?
-using the estimates of how fast a human is from last week, how long would a single worker take to add up all the salaries?
-how long would 4 workers take for the same number of salaries?
-how long would 8 workers take (you can ignore the issue of overcrowding)?
-would you expect to get exactly the same answer as before?
+- how could four workers cooperate to add up the salaries faster than a single worker?
+- using the estimates of how fast a human is from last week, how long would a single worker take to add up all the salaries?
+- how long would 4 workers take for the same number of salaries?
+- how long would 8 workers take (you can ignore the issue of overcrowding)?
+- would you expect to get exactly the same answer as before?
+
 We’ll revisit this problem in much more detail next week but you know enough already to start thinking about the fundamental issues.
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_57d4f566-8830-4f0e-a6a9-e48351b03a5c.jpg
+© iStock.com/Rost-9D
+```
 ## Who needs a multicore laptop?
 
 We’ve motivated the need for many CPU-cores in terms of the need to build more powerful computers in an era when the CPU-cores themselves aren’t getting any faster. Although this argument makes sense for the world’s largest supercomputers, we now have multicore laptops and mobile phones - why do we need them?
@@ -88,17 +107,19 @@ You might think the answer is obvious: surely two CPU-cores will run my computer
 
 So what is the advantage for a normal user who is not running parallel programs? We call these serial programs.
 
-Operating Systems
+### Operating Systems
 The important point is that, as a user, you don’t actually say please run this program on that CPU-core. There is a piece of software that sits between you and the hardware, the Operating System or OS, that isolates you from direct access to the CPU-cores, memory etc. There are several common OS’s around today - e.g. Windows, macOS, Linux and Android - but they all perform the same basic function: you ask the OS to execute a program, and it then decides if and when to actually run it on a physical CPU-core.
 
-Serial app (image)
+```{figure} ./images/hero_6d93ece3-84b2-495f-b5c5-0e0f652196ea.png
+```
 
 This enables even a single CPU-core machine to appear to be doing more than one thing at once - it will seem to be running dozens of programs at the same time. What is actually happening is that the OS is running one program for, say, a hundredth of a second, then stopping that program and running another one for a hundredth of a second, etc. Just like an animation running at many individual frames per second, this gives the illusion of continuous motion.
 
-How the OS exploits many CPU-cores
+### How the OS exploits many CPU-cores
 On a shared-memory computer, the important point is that all the CPU-cores are under the control of a single OS (meaning you don’t need to buy 4 Windows licences for your quadcore laptop!). This means that your computer can genuinely run more than one program at the same time. It’s a bit more complicated for the OS - it has to decide not just which programs to run but also where to run them - but a good OS performs a juggling act to keep all the CPU-cores busy.
 
-Multicore app (image)
+```{figure} ./images/hero_4a65543e-9635-4624-9811-5da1a0ab431e.png
+```
 
 This means that you can run a web browser, listen to music, edit a document and run a spreadsheet all at the same time without these different programs slowing each other down. Because of the shared memory, the OS can stop a program on CPU-core 1 and then restart it later on CPU-core 3: all the workers can read and write to the same shared whiteboard so can easily pick up where someone else has left off.
 
@@ -108,13 +129,17 @@ So, for home use, the Operating System does everything for us, running many sepa
 
 In your opinion what are the downsides of this more advanced ‘single-core computer’ approach?
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## How does your laptop use multiple CPU-cores?
 
 ### Video
 
 Laptop_Multiple_CPU-cores_hd
 
-### Transcript
+```{solution} Transcript
 
 0:15 - This short video is just a screencast to capture a session I’m running. And it’s really just to illustrate this diagram, here. We’ve seen here that the way that a shared memory machine works is that you have a single block of memory, and multiple CPU cores connected to that memory. But I’m really interested, here in the role that the operating system plays. And we’ve seen here that the user sits outside this bubble, here, and really just asks the operating system to run programs, run applications, and it’s the operating system that schedules these programs onto the different CPU cores.
 
@@ -140,13 +165,14 @@ Laptop_Multiple_CPU-cores_hd
 
 6:02 - And, the reason I’m talking about three and six and not four and eight, when I have four CPU-cores, is because I’m trying to leave one of the CPU-cores free to run the screen grabbing software, which seems to be taking up about the whole of one CPU-core equivalent.
 
-### Text
+```
 
 This video shows a simple demo to illustrate how modern operating systems take advantage of many CPU-cores.
 
 Watch what happens when David runs multiple copies of a simple income calculation program on his quad-core laptop. Do you find this behaviour surprising?
 
-(image)
+```{figure} ./images/hero_4a65543e-9635-4624-9811-5da1a0ab431e.png
+```
 
 Note that, although we are running few instances of our toy program at the same time, there is no time advantage in doing so. We are running exactly the SAME program many times, so each run will give us exactly the same results in approximately the same time. This demo illustrates nicely how an operating system handles execution on multiple CPU-cores, but otherwise is a waste of resources.
 
@@ -158,6 +184,7 @@ Share your thoughts in the comments section!
 
 If you are interested, here is the function that David actually timed. It’s written in the C language - it’s purely here for reference and its not meant to be compiled or run as it stands.
 
+```
 // Add up a given number of salaries to compute total income.
 // Use floating-point numbers to better represent real calculations.
 
@@ -175,13 +202,23 @@ double salarysum(double salarylist[], int npeople)
 
   return total;
 }
+```
+
 David: I re-ran the same studies covered in the video but with almost all other tasks disabled , for example I did not run the graphical performance monitor, which allowed me to have access to all four CPU-cores. Here are the results.
 
-dataset	#copies	runtime (seconds)
-small	1	9.7
-small	4	11.1
-small	8	22.2
+| dataset	| #copies	| runtime (seconds)|
+| --- | --- | --- |
+| small |	1	| 9.7 |
+| small	| 4	| 11.1 |
+| small	| 8 |	22.2 |
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_e4699d69-bd25-4d86-b020-f3ad31557589.jpg
+© iStock.com/4x6
+```
 ## Memory Caches
 
 We mentioned before that memory access speeds are a real issue in supercomputing, and adding more and more CPU-cores to the same memory bus just makes the contention even worse.
@@ -203,11 +240,17 @@ This is the fundamental dilemma: memory access is so slow that we need small, fa
 
 Keeping the data consistent and up-to-date on all the CPU-cores is called cache coherency. It means that we always have up-to-date values in our notebook (or, at the very least, that we know when our notebook is out of date and we must return to the whiteboard). Ensuring cache coherency is the major obstacle to building very large multicore processors.
 
-Memory cache in single and multiple CPUs (image)
+
+```{figure} ./images/hero_f158c8fd-2092-4272-a9dc-e4806b44f9cc.png
+```
 
 Keeping all the caches coherent when we write data is the major challenge.
 
 What do you think is the current state-of-the-art? How many CPU-cores do high-end processors have?
+
+© EPCC at The University of Edinburgh
+
+--- 
 
 ## Resource Contention
 
@@ -215,7 +258,7 @@ What do you think is the current state-of-the-art? How many CPU-cores do high-en
 
 Resource_Contenttion_hd
 
-### Transcript
+```{solution} Transcript
 
 0:12 - Although it’s a very simple program, it can show some very interesting affects. Now, our key observation, was that we could run three copies of this program in the same time as if we ran one copy. In 10 seconds, we could run three copies on three CPU-cores in the same time as we ran one copy on one CPU core. However, this week we’ve been talking about the shared-memory architecture, how one of the critical features of it is that all the CPU-cores share access to the shared memory. There’s a single memory bus that they have to go through. And so, they can affect each other, they can slow each other down. Why didn’t that happen here?
 
@@ -231,7 +274,8 @@ Resource_Contenttion_hd
 
 3:43 - And there, it took about 35 seconds. So, over twice the time to do the same calculation. So, you can see it’s absolutely clear from this simple experimental result, that, even on my laptop, this shared memory bus– which mediates the memory transactions from the CPU-core to the physical memory– is not capable of sustaining all the traffic from three very, very simple programs running at once.
 
-### Text
+```
+
 
 This video shows a simple demo to illustrate what happens when multiple cores try to use the same resources at the same time.
 
@@ -245,13 +289,68 @@ Note that I accidentally mis-spoke in the video and the larger calculation actua
 
 As for Step 2.6, I also re-ran the same calculations with the graphical monitor turned off so I had access to all 4 CPU-cores. Here are the timings for this large dataset where I reproduce the previous small dataset results for comparison.
 
-dataset	#copies	runtime (seconds)
-small	1	9.7
-small	4	11.1
-small	8	22.2
-large	1	10.7
-large	4	28.5
-large	8	57. 0
+|dataset | #copies | runtime (seconds)|
+| --- | --- | --- |
+|small |	1	| 9.7 |
+|small |	4	| 11.1 |
+|small |	8	| 22.2 |
+|large |	1	| 10.7 |
+|large |	4 |	28.5 |
+|large |	8 |	57.0 |
+
+© EPCC at The University of Edinburgh
+
+---
 
 ## Terminology Quiz
 
+```{questions} Question 1
+
+A system built from a single multicore processor (perhaps with a few tens of CPU-cores) is an example of the ____ ____
+architecture, whereas a system composed of many separate processors connected via a high-speed network is referred to as the
+____ ____ architecture.
+
+```
+
+```{solution}
+
+1) shared memory
+
+2) distributed memory
+
+
+```
+
+```{questions} Qestion 2
+
+The two main limitations of the shared-memory architecture are: memory ____
+and memory ____ ____. The hierarchical memory structure is used to improve the memory access speeds. The smallest but also the fastest memory is called ____
+memory. And keeping the data consistent and up-to-date on all the CPU-cores is called ____ ____.
+
+```
+
+```{solution}
+
+1) capacity
+
+2) access speed
+
+3) cache
+
+4) cache coherency
+
+```
+
+```{questions} Question 3
+
+The situation when multiple CPU-cores try to use the same resources, e.g. memory, disk storage or network buses, is called ____ ____.
+
+```
+
+```{solution}
+
+1) resource contention
+
+```
+
+---

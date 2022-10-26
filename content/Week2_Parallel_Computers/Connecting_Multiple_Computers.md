@@ -1,26 +1,33 @@
 # Connecting Multiple Computers
 
+```{figure} ./images/hero_cc560367-265d-4dd8-aaf1-330a55528278.jpg
+© iStock.com/3D_generator
+```
+
 ## Distributed Memory Architecture
 
 Because of the difficulty of having very large numbers of CPU-cores in a single shared-memory computer, all of today’s supercomputers use the same basic approach to build a very large system: take lots of separate computers and connect them together with a fast network.
 
 For the moment, let’s ignore the complication that each computer is itself a shared-memory computer, and just say we have one processor in each computer:
 
-Diagram of distributed memory system (image)
+```{figure} ./images/hero_cb43e824-caf6-43f9-9d5c-85f347dc7373.png
+```
 
 The most important points are:
 
-every separate computer is usually called a node
-each node has its own memory, totally separate from all the other nodes
-each node runs a separate copy of the operating system
-the only way that two nodes can interact with each other is by communication over the network.
+- every separate computer is usually called a node
+- each node has its own memory, totally separate from all the other nodes
+- each node runs a separate copy of the operating system
+- the only way that two nodes can interact with each other is by communication over the network.
+
 The office analogy is very useful here: a distributed-memory parallel computer is like workers all in separate offices, each with their own personal whiteboard, who can only communicate by phoning each other.
 
-Advantages	Disadvantages
-the number of whiteboards (i.e. the total memory) grows as we add more offices	if we have large amounts of data, we have to decide how to split it up across all the different offices
-there is no overcrowding so every worker has easy access to a whiteboard	we need to have lots of separate copies of the operating system
-we can, in principle, add as many workers as we want provided the telephone network can cope.	it is more difficult to communicate with each other as you cannot see each others whiteboards so you have to make a phone call
-(table)
+| Advantages |	Disadvantages|
+| --- | --- | 
+| the number of whiteboards (i.e. the total memory) grows as we add more offices |	if we have large amounts of data, we have to decide how to split it up across all the different offices |
+| there is no overcrowding so every worker has easy access to a whiteboard |	we need to have lots of separate copies of the operating system |
+| we can, in principle, add as many workers as we want provided the telephone network can cope. | it is more difficult to communicate with each other as you cannot see each others whiteboards so you have to make a phone call |
+
 
 The second disadvantage can be a pain when we do software updates - we have to upgrade thousands of copies of the OS! However, it doesn’t have any direct cost implications as almost all supercomputers use some version of the Linux OS which is free.
 
@@ -32,6 +39,14 @@ Well, unfortunately not. The compromises we have had to make (many separate comp
 
 Why do you think the distributed memory architecture is common in supercomputing but is not used in your laptop?
 
+© EPCC at The University of Edinburgh
+
+--- 
+
+```{figure} ./images/hero_91d652a7-98f2-49d1-85ee-62d3ff46bac6.jpg
+© iStock.com/Maxiphoto
+```
+
 ## Simple Parallel Calculation (Discussion)
 
 Let’s return to the income calculation example. This time we’ll be a bit more ambitious and try and add up 800 salaries rather than 80. This list of salaries fills 8 whiteboards (100 on each) all in separate offices.
@@ -40,11 +55,26 @@ Here we are exploiting the fact that distributed-memory architectures allow us t
 
 If we have one worker per office, think about how you could get them all to cooperate to add up all the salaries. Consider two cases:
 
-only one boss worker needs to know the final result;
-all the workers need to know the final result.
+- only one boss worker needs to know the final result;
+- all the workers need to know the final result.
+
 To minimise the communication-related costs, try to make as few phone calls as possible.
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_ed9a5a3d-1021-4d98-9128-d8e4e9399dc7.webp
+© ARCHER
+```
+
 ## Case study of a real machine
+
+```{danger}
+
+Update this section to discuss archer2 instead of archer.
+
+```
 
 To help you understand the general concepts we have introduced this week, we’ll now look at a specific supercomputer. I’m going to use the UK National Supercomputer, ARCHER, as a concrete example. As well as being a machine I’m very familiar with, it has a relatively straightforward construction and is therefore a good illustration of supercomputer hardware in general.
 
@@ -68,7 +98,8 @@ This gives a peak performance of 118,080 * 2.7 * 8 Gflop/s = 2550528 Gflop/s, ag
 
 ARCHER comprises 26 separate cabinets, each about the height and width of a standard door, with around 4,500 CPU-cores (188 nodes) or about 9000 virtual cores (using multi-threading) in each cabinet.
 
-ARCHER's cabinets (image)
+```{figure} ./images/hero_73afa9aa-74db-4ad2-893e-971956518bdf.jpg
+```
 
 ### Storage
 Most of the ARCHER nodes have 64 GByte of memory (some have 128 GByte), giving a total memory in excess of 300 Tbyte of RAM.
@@ -80,9 +111,18 @@ If all the CPU-cores are fully loaded, ARCHER requires in excess of 2 Megwatts o
 
 The ARCHER cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy.
 
-Diagram of ARCHER's cooling system © Mike Brown (image)
 
-ARCHER's cooling towers © Mike Brown (image)
+```{figure} ./images/hero_87e2018b-86eb-4aa5-a7c4-efd271a505b2.webp
+© Mike Brown
+```
+
+```{figure} ./images/hero_a887d8cf-e9a0-4810-b7ab-b7a016dfc47f.webp
+ARCHER’s cooling towers © Mike Brown
+```
+
+© EPCC at The University of Edinburgh
+
+---
 
 ## Wee ARCHIE case study
 
@@ -90,7 +130,7 @@ ARCHER's cooling towers © Mike Brown (image)
 
 Wee_Archie_case_study_hd
 
-### Transcript
+```{solution} Transcript
 
 0:11 - So in this video we’re going to talk about Wee ARCHIE. So you’ve already seen a promotional video about Wee ARCHIE, but here we’re going to go into a bit more technical detail. Now Wee ARCHIE is a machine that we’ve built at EPCC specifically for outreach events to illustrate how parallel computing, supercomputing works. And what we do is we take it to conferences and workshops and schools to try and explain the basic concepts. But here I’m going to use it as a way of explaining the kinds of things we’ve been learning this week, which is things like distributed memory computing, shared memory computing, and how they’re put together into a real computer.
 
@@ -113,8 +153,8 @@ Wee_Archie_case_study_hd
 5:06 - And just to reiterate, they’re things like having a distributed-memory architecture of different nodes, each running their own operating system. The nodes are connected by networking. And each node is actualy a small shared-memory computer. The main way in which Wee ARCHIE differs from a real supercomputer, like ARCHER, is really in some of the performance characteristics. So for example, the processors aren’t as fast as you’d find on a real supercomputer, the networking isn’t as fast. The ethernet we have here is a lot slower than the dedicated Aries network we have on ARCHER. And also, of course, the sheer scale.
 
 5:41 - Here we only have 16 nodes, each of which has four CPU-cores, as opposed to thousands of nodes with tens of CPU-cores in them. And so Wee ARCHIE mirrors a real supercomputer such as ARCHER in almost every way, except for just the speed and the scale.
+```
 
-### Text
 
 Finally, Wee ARCHIE makes its appearance again! This video uses Wee ARCHIE to explain the parallel computer architecture concepts introduced in this week.
 
@@ -124,9 +164,20 @@ As usual, share your thought with your fellow learners!
 
 For anyone interested in how Wee ARCHIE has been put together (and possibly wanting to build their own cluster), we invite you to follow the links from this blog article - Setting up your own Raspberry Pi cluster.
 
-Wee Archie close-up (image)
+```{figure} ./images/hero_d827be57-5840-4339-b47c-f70c0d36fcd1.jpg
+```
 
-Wee Archie logo (image)
+```{figure} ./images/hero_5bca5e55-5548-4a13-8f20-f07f498cec7e.jpg
+```
+
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_eee58e21-6f26-4139-b812-54694c3d254e.jpg
+© iStock.com/filonmar
+```
 
 ## ARCHER - it's more complicated...
 
@@ -134,25 +185,39 @@ In the last few steps we have glossed over a few details of the processors and t
 
 If you look up the specifications of the Intel E5-2697 v2 processor you will see that it has 12 CPU-cores, whereas the ARCHER nodes have 24 CPU-cores. This is possible because each node actually contains two physical processors. However, they are put together so that both processors share the same memory so, to the user, it basically looks identical to a single 24-core processor. How this is done is illustrated below and is called a Non-Uniform Memory Access (NUMA) architecture.
 
+```{figure} ./images/hero_9f93cf41-f24d-4ab2-8a7e-d25a78a8089c.png
+```
+
 NUMA architecture (image)
 
 Although every CPU-core can access all the memory regardless of which processor it is located on, this can involve going through an additional memory bus so reading data from another CPU’s memory is slower than reading from your own memory. This hardware arrangement is really a detail that isn’t usually very important - the most important feature is that the 24 CPU-cores form a single shared-memory computer, all under the control of a single operating system.
 
-An ARCHER compute blade (image)
+```{figure} ./images/hero_efa5daca-9408-42c7-a2ed-d67136458d27.jpg
 
-"An ARCHER compute blade - One blade holds four nodes, each node has two processors, and each processor has 12 CPU-cores. The shiny copper heatsinks help keep the processors cool. © ARCHER"
+An ARCHER compute blade - One blade holds four nodes, each node has two processors, and each processor has 12 CPU-cores. The shiny copper heatsinks help keep the processors cool. © ARCHER
+```
 
 The details of the network are even more complicated with four separate levels ranging from direct connections between the four nodes packaged together on the same blade, up to fibre-optic connections between separate cabinets. If you are interested in the details see the ARCHER website or this more detailed presentation from Cray.
 
 Archer is a Tier-1 system within PRACE, whereas the Cray Piz Daint system in Switzerland is a more powerful Tier-0 system, despite having a similar number of nodes. Can you find out why this is? What are the similarities and differences?
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## MARCONI: building a real supercomputer
+
+
+```{danger} 
+
+Do we want to replace this section with an Archer2 build video?
+```
 
 ### Video
 
 MRCONI_build_hd
 
-### Transcript
+```{solution} Transcript
 
 0:12 - Having taken a look at how Wee ARCHIE was constructed we thought it’d be interesting to look at how a real supercomputer is put together. So here we have some time-lapse photography of the MARCONI system being put in, which is a large Tier-0 system for PRACE, which is located at the CINECA supercomputing centre at Bologna in Italy. And you’ll see here they’re putting in the infrastructure. There’s some fairly heavy engineering going on, welding and such like, to put in all the services which are required. And the main one here is you’re seeing the cooling infrastructure, the pipes which carry the water, which cools the main machine. Next, we can start laying the raised floor which sits above all the pipework.
 
@@ -167,8 +232,7 @@ MRCONI_build_hd
 2:51 - So we’ve largely finished the cabling, the interconnect, on the second row. Now they’re working on the third row. And you’ll see there a lot of human work here and that is because, although supercomputers are made by a few manufacturers, they’re quite similar to each other, each individual installation is largely bespoke. This MARCONI system, which is delivered by Lenovo, is of a certain class. But it won’t be the same as any other particular machine. It will be slightly different. And so each machine has to be constructed very carefully to make sure it all works together. And so here we have people doing the final networking.
 
 3:24 - And also what they’re doing is, you’ll see they’re bringing out these power cables onto the top. In this system the power is actually delivered from the ceiling as well. So we won’t see in this video, but in the final system these cables are attached up the way into power which comes in above. That’s as far as this video goes in the construction of MARCONI. I hope you found that interesting and instructive.
-
-### Text
+```
 
 Wee ARCHIE is very small and was built on someone’s desk. Real supercomputers are very large and require a lot of infrastructure to support them and manpower to build them.
 
@@ -176,10 +240,166 @@ This time lapse video documents the installation of the PRACE MARCONI system at 
 
 Is there anything that surprised you? We are curious to know so share your impressions in the comments section!
 
-MARCONI @ CINECA - Power connections
-MARCONI - power connections (ph. MMLibouri) (image)
+```{figure} ./images/hero_ef09a80d-be29-4f1b-b3fd-bed24e6e791b.jpg
+MARCONI @ CINECA - Power connections - (ph. MMLibouri)
+```
 
-MARCONI @ CINECA - Power and networking cables
-MARCONI - cables (image)
+```{figure} ./images/hero_cf7c2aaf-65a8-4fe0-8656-b6945ee7d99a.jpg
+MARCONI @ CINECA - Power and networking cables - (ph. MMLibouri)
+```
 
-## Processors, ARCHER and Wee ARCHIE (Quiz)
+© CINECA, EPCC at The University of Edinburgh
+
+---
+
+## Processors, ARCHER and Wee ARCHIE
+
+```{questions} Question 1
+
+Which of these are true about a typical processor in a modern supercomputer?
+
+Select all the answers you think are correct.
+
+A) it contains a single CPU-core
+
+
+B) it contains many separate CPU-cores
+
+
+C) it is a special processor, custom-designed for supercomputing
+
+
+D) it is basically the same processor you would find in a high-end PC or compute server
+
+```
+
+```{solution}
+
+A) and C)
+
+That’s right - today almost all processors have multiple CPU-cores.
+
+Correct - the leading-edge CPU designs of today are those produced for general-purpose computing because the massive market for home and business computing means that billions of dollars can be invested in R&D.
+
+```
+
+```{questions} Question 2
+
+How are the CPU-cores attached to the memory in a modern multicore processor?
+
+Select all the answers you think are correct.
+
+A) the memory is physically sliced up between them
+
+
+B) the memory is shared between all the CPU-cores
+
+
+C) cores share access to the memory so they can sometimes slow each other down
+
+
+D) each core can access the memory completely unaffected by the other cores
+
+```
+
+```{solution}
+
+B) and C)
+
+The distinction between shared and distributed memory is one of the most fundamental concepts in parallel computer architecture
+
+Yes - a modern multicore processor is a small shared-memory parallel computer
+
+Yes - you’ve correctly identified one of the challenges of shared memory: contention for a single shared memory bus
+
+```
+
+```{questions} Question 3
+
+Like almost all supercomputers, ARCHER is constructed as a series of separate cabinets (26 in the case of ARCHER), each standing about as high and wide as a standard door. Why do you think this size of cabinet is chosen?
+
+A) it is the minimum size that can be cooled effectively
+
+
+B) it is the maximum size that can be run from a single power supply
+
+
+C) any larger and the cabinets would not fit through the doors of the computer room
+
+
+D) freight companies will not ship anything larger than this
+
+```
+
+```{solution}
+
+C)
+
+Even high-tech supercomputing is influenced by everyday issues!
+
+Spot on! It’s the age-old problem of trying to get a grand piano into a high-rise apartment - if it’s too big or heavy to fit through the door then things get really complicated
+
+```
+
+```{questions} Question 4
+
+How are ARCHER’s 118,080 cores arranged?
+
+
+A) as one large shared-memory system
+
+
+B) as 118,080 separate nodes
+
+
+C) as 4,920 nodes each with 24 cores
+
+
+D) as 9,840 nodes each with 12 cores
+
+```
+
+```{solution}
+
+C)
+
+It is essential to understand the way of shared and distributed memory computing are combined in a single supercomputer - this is now universal across every system.
+
+That’s correct - although the numbers will vary from system to system, a modern supercomputer comprises thousands of nodes each with many CPU-cores.
+
+```
+
+```{questions} Question 5
+
+Which of these features make the UK national Supercomputer ARCHER different from the toy system Wee ARCHIE?
+
+Select all the answers you think are correct.
+
+
+A) it has multicore CPUs
+
+
+B) it has multiple nodes connected by a network
+
+
+C) it runs the Linux operating system
+
+
+D) it has a much faster network
+
+
+E) it has many more CPU-cores
+
+```
+
+```{solution}
+
+D) and E)
+
+Wee ARCHIE is dwarfed in practice by a real supercomputer such as ARCHER, but how different are they in principle? Is a formula-1 racing car fundamentally different from a Volkswagen Beetle?
+
+Correct - we spend money on very fast supercomputer networks to ensure the minimum of delay when different nodes to communicate with each other
+
+That’s right - ARCHER has almost 2000 times as many CPU-cores as Wee ARCHIE so it is built on a much larger scale
+
+```
