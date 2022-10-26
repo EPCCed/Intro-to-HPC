@@ -1,5 +1,8 @@
 # Parallel Programming
 
+```{figure} ./images/hero_081de380-fc9a-42b0-8312-f414667ccd0d.jpg
+© iStock.com/Photokanok
+```
 ## Shared-Variables Model
 
 On a computer, a variable corresponds to some piece of information that we need to store in memory. In the traffic model, for example, we need to store all the cells in the old (containing the state from the previous step) and new roads (containing the current state of the road), and other quantities that we calculate such as the number of cars that move or the density of the cars. All of these are variables — they take different values throughout the calculation.
@@ -19,26 +22,37 @@ In the shared-variables model, the workers are often referred to as threads.
 
 When parallelising a calculation in the shared-variables model, the most important questions are:
 
-which variables are shared (stored on the whiteboard) and which are private (written in your own notepad);
-how to divide up the calculation between workers;
-how to ensure that, when workers need to coordinate with each other, they do so correctly;
-how to minimise the number of times workers must coordinate with each other.
+- which variables are shared (stored on the whiteboard) and which are private (written in your own notepad);
+- how to divide up the calculation between workers;
+- how to ensure that, when workers need to coordinate with each other, they do so correctly;
+- how to minimise the number of times workers must coordinate with each other.
+
 The most basic methods of coordination are:
 
-master region: certain calculations are only carried out by one of the workers - a nominated boss worker;
-barrier: everybody waits until all workers have reached a certain point in the calculation; when everyone has reached that point, workers can then proceed;
-locking: if you are working with a variable and don’t want anyone else to touch it, you can lock it. This means that only one worker can access the variable at a time - if the variable is locked by someone else, you have to wait until they unlock it. On a shared whiteboard you could imagine circling a variable to show to everyone else that you have it locked, then erasing the circle when you are finished.
+- master region: certain calculations are only carried out by one of the workers - a nominated boss worker;
+- barrier: everybody waits until all workers have reached a certain point in the calculation; when everyone has reached that point, workers can then proceed;
+- locking: if you are working with a variable and don’t want anyone else to touch it, you can lock it. This means that only one worker can access the variable at a time - if the variable is locked by someone else, you have to wait until they unlock it. On a shared whiteboard you could imagine circling a variable to show to everyone else that you have it locked, then erasing the circle when you are finished.
+
 Clearly, all of these have the potential to slow things down as they can lead to workers waiting around for others to finish, so you should try and do as little coordination as possible (while still ensuring that you get the correct result!).
 
 ### Adding to a Variable
 One of our basic operations is to increment a variable, for example to add up the total number of cars that move each iteration. It may not be obvious but, on a computer, adding one to a variable does not comprise a single operation. Using the whiteboard analogy, it has the following stages:
 
-take a copy of the value on the whiteboard and write it in your notepad (load a value from memory into register);
-add one to the value on your notepad (issue an increment instruction on the register);
-copy the new value back to the whiteboard (store the new value from register to memory).
+- take a copy of the value on the whiteboard and write it in your notepad (load a value from memory into register);
+- add one to the value on your notepad (issue an increment instruction on the register);
+- copy the new value back to the whiteboard (store the new value from register to memory).
+
 In the shared-variables model, the problem occurs if two or more workers try and do this at the same time: if one worker takes a copy of the variable while another worker is modifying it on their notepad, then you will not get the correct answer. Sometimes you might be lucky and no-one else modifies the variable while you are working on your notepad, but there is no guarantee.
 
 This situation is called a race condition and is a disaster for parallel programming: sometimes you get the right answer, but sometimes the wrong answer. To fix this you need to coordinate the actions of the workers, for example using locking as described above.
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_fefa5108-2096-4de1-a50c-275f73bfe94d.jpg
+© iStock.com/Dutko
+```
 
 ## How to parallelise the Income Calculation example? (Discussion)
 
@@ -52,13 +66,17 @@ Remember that you are not allowed to talk directly to your office mates - all co
 
 Can you think of any other aspects that should be taken into account?
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## Solution to Income calculation in Shared-Variables
 
 ### Video
 
 Solution_income_shared_variables_hd
 
-### Transcript
+```{solution} Transcript
 
 0:11 - Here we’re going to revisit the very simple calculation which I introduced in the first week, where we were adding up lots and lots of numbers there to compute the total income of the world by adding up everyone’s salaries. And we’re going to now revisit that, not with a serial program, but look at how we do it in parallel in the shared variables model on a shared memory computer. And what I’ll do is I’ll illustrate how we’re going to split the calculation up between the different CPU-cores. But more important, the subtleties of synchronisation which are introduced. Just to re-iterate the analogy, this white board represents the shared memory which is in an office.
 
@@ -84,13 +102,21 @@ Solution_income_shared_variables_hd
 
 5:58 - Everyone does that and when everyone is finished, we have all the subtotals here in shared memory. But to get the right answer, we need to add them together. And then we need a master region. We nominate one thread to be the master, who would then add these numbers up together and update the total. And because we only have one thread updating this total at once through the master region rather than through a lock, we don’t have any problems with multiple people updating shared memory at the same time.
 
-### Text
+```
 
 In this video David outlines how to parallelise the income calculation on a shared whiteboard.
 
 Making sure that the workers cooperate correctly is the main issue - ensuring correct synchronisation can be surprisingly subtle.
 
 Compare your answers from the last step with this solution. How did you do? Have you learned anything surprising? We are curious to know!
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_b3c04339-9b4e-4471-a57b-295a8ac2c1e5.jpg
+© iStock.com/erhui1979
+```
 
 ## Message-Passing Model
 
@@ -105,6 +131,7 @@ The fundamental points of message passing are:
 - the sender decides what data to communicate and sends it to a specific destination (i.e. you make a phone call to another office);
 - the data is only fully communicated after the destination worker decides to receive the data (i.e. the worker in the other office picks up the phone);
 - there are no time-outs: if a worker decides they need to receive data, they wait by the phone for it to ring; if it never rings, they wait forever!
+
 The message-passing model requires participation at both ends: for it to be successful, the sender has to actively send the message and the receiver has to actively receive it. It is very easy to get this wrong and write a program where the sends and receives do not match up properly, resulting in someone waiting for a phone call that never arrives. This situation is called deadlock and typically results in your program grinding to a halt.
 
 In this model, each worker is called a process rather than a thread as it is in shared-variables, and each worker is given a number to uniquely identify it.
@@ -121,6 +148,14 @@ Because there are no shared variables (i.e. no shared whiteboard), you do not us
 
 To communicate a lot of data we can send one big message or lots of small ones, what do you think is more efficient? Why?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_43a975cf-2390-4948-8ac2-9d596a2214b0.jpg
+© iStock.com/adrian825
+```
+
 ## How to parallelise the traffic simulation? (Discussion)
 
 
@@ -134,6 +169,7 @@ To get you started:
 - think about the characteristics of the message-passing model;
 - how can you combine them?
 - which workers need to phone each other, when and how often?
+
 You do not need to provide a clear-cut answer. Instead, list the things that you think need to be considered and why. Discuss your ideas with your fellow learners.
 
 ### Extra Exercises
@@ -141,11 +177,16 @@ In fact, sending a message can be implemented in two different ways:
 
 - like making a phone call (synchronously) or
 - like sending an email (asynchronously).
+
 The difference is whether the sender waits until the receiver is actively taking part (a phone call) or carries on with their own work regardless (sending an email).
 
 Do you think that solving the traffic model in parallel is simpler using synchronous or asynchronous messages? Which do you think might be faster? Do you think the boundary conditions are important here?
 
 Imagine that you want all workers to know the average speed of the cars at every iteration. How could you achieve this using as few phone calls as possible?
+
+© EPCC at The University of Edinburgh
+
+---
 
 ## Solution to Traffic simulation in Message-Passing
 
@@ -153,7 +194,7 @@ Imagine that you want all workers to know the average speed of the cars at every
 
  Solution_Traffic_Message_passing_hd
 
-### Transcript
+```{solution} Transcript
 
 0:11 - Now we’re going to look at the traffic simulation but imagine how we could operate it in parallel. So I’ve got an even bigger board here, a bigger road. I’ve got three Chess boards stuck together. And so I have a road of length 24. And I have cars all over the road. So if we were operating on a shared memory computer in the shared-variables model, it wouldn’t really be a problem in running this simulation in parallel. This would be our very large, shared whiteboard, and there would be lots of workers together in the same office– all able to read and write to the whiteboard.
 
@@ -173,13 +214,21 @@ Imagine that you want all workers to know the average speed of the cars at every
 
 4:10 - So whenever I want to work out what the average speed is, I have to pick up the phone and phone all of my fellow workers– that’s the simple way of doing it. Asking them how many of their pawns have moved. And then I get the totals and I can add them all together. So you can see that not only does updating the simulation require communication, even simple calculations like how many pawns have moved requires communication. Because I only know how many pawns have moved on my piece of road, but not what’s happening on the other pieces of road which are on other people’s whiteboards in other offices.
 
-### Text
+```
 
 In this video David describes the basics of how you can parallelise the traffic model using message passing, i.e. on a distributed-memory machine.
 
 Try to list the most important points of this parallelisation. Was there anything that you failed to consider when coming up with your answer? For example, how does each worker know whether it’s supposed to call or wait for a call? Can you think of any other rules that need to be established for this to work?
 
 Hopefully, you now have a better understanding of how both programming models work and how they differ from each other. In the next two steps we will talk about the actual implementations of both models.
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_1ea03df9-7321-4b2f-ac7c-8a400de20bc6.jpg
+© iStock.com/georgeclerk
+```
 
 ## MPI and processes
 
@@ -204,9 +253,19 @@ So, to summarise:
 - inter-process communication is enabled by using the MPI library and so does not require a special compiler;
 - this is also called the SPMD approach.
 
-MPI and OpenMP diagram (image)
+
+```{figure} ./images/hero_4177e963-f697-4b49-bcce-01940d651fd3.png
+```
 
 Can you see any problems with the Message-Passing approach if one of the nodes has a hardware failure and crashes? As supercomputers are getting larger does this become a more or less of an issue?
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_45bcc77c-696b-4e72-a685-2f93205b0aa6.jpg
+© iStock.com/Westhoff
+```
 
 ## OpenMP and threads
 
@@ -232,11 +291,20 @@ To summarise:
 - each thread can only run on a single CPU-core, but they can all share memory belonging to their parent process;
 - in supercomputing, we usually create threads using a special compiler that understands OpenMP.
 
-MPI and OpenMP diagram (image)
+```{figure} ./images/hero_fdf2bb5d-b1af-4305-aa9b-795c7cd61fec.png
+```
 
 When we create threads we rely on the OS to assign them to different CPU-cores. How do think the OS makes that decision? What does it need to take into account, when there may be many more threads than CPU-cores?
 
-## Comparing the Message-passing and Shared-Variables models (Discussion)
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_25614aaf-f218-4284-af91-503871ddae9f.jpg
+© iStock.com/vkbhat
+```
+
+## Comparing the Message-passing and Shared-Variables models
 
 
 In your opinion, what are the pros and cons of the two models of parallel programming?
@@ -249,4 +317,129 @@ Things to consider include:
 - what happens if you do it incorrectly - will the program ever complete? will it get the right answer?
 - how does the speed of the two models compare - what are the overheads of each?
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## Terminology (Quiz)
+
+```{questions} Question 1
+
+What does the term programming model describe?
+
+A) a particular kind of computer simulation
+
+
+B) a specific computer programming language
+
+
+C) a high-level view of how to solve a problem using a computer
+
+
+D) the low-level details of how a particular computer is constructed
+
+```
+
+```{solution} 
+
+C) - it is concerned with the high-level methods we use to solve a problem, not the low-level details.
+
+```
+
+```{questions} Question 2
+
+What is a race condition in the shared-variables model?
+
+
+A) when a CPU-core is expecting to receive a message but it never arrives
+
+
+B) when two CPU-cores have different values for some private variable
+
+
+C) when lack of synchronisation leads to one CPU-core running ahead of the others
+
+
+D) when two CPU-cores try to modify the same shared variable at the same time
+
+```
+
+```{solution}
+
+D) - this can cause erratic results and we need some form of synchronisation to fix it.
+
+```
+
+```{questions} Question 3
+
+Which of these could cause deadlock in the message-passing model?
+
+
+A) a CPU-core asks to receive a message but no message is ever sent to it
+
+
+B) a CPU-core asks to receive a message from another a few seconds before it is sent
+
+
+C) a CPU-core sends a message to another a few seconds before it is ready to receive it
+
+
+D) two CPU-cores try to modify the same shared variable at the same time
+
+```
+
+```{solution}
+
+A) - this is like waiting forever for someone to phone you.
+
+```
+
+```{questions} Question 4
+
+Which of the following best describes the process of decomposing a calculation?
+
+
+A) deciding which variables should be private and which should be shared
+
+
+B) deciding which parts of a calculation can be done independently by different CPU-cores
+
+
+C) choosing between the shared-variables and message-passing models
+
+
+D) running a parallel program on a parallel computer
+
+```
+
+```{solution}
+
+B) - Decomposing a problem means deciding how to do it in parallel on multiple CPU-cores
+
+```
+
+```{questions} Question 5
+
+What is a cellular automaton?
+
+
+A) a type of computer specifically built to run simple computer simulations
+
+
+B) a modular system for building parallel computers from simple cellular components
+
+
+C) a computer simulation technique based on repeated application of simple rules to a grid of cells
+
+
+D) a parallel programming model
+
+```
+
+```{solution}
+
+C) - the traffic model is a good example of a simple cellular automaton
+
+```
+
+---

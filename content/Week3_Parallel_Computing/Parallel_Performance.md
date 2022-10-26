@@ -1,5 +1,9 @@
 # Parallel Performance
 
+```{figure} ./images/hero_7da8a105-3777-4870-bf25-e7dc7f358303.jpg
+© iStock.com/npstockphoto
+```
+
 ## Parallel Performance
 
 We have seen that parallel supercomputers have enormous potential computing power - the largest machines in the Top500 list have peak performances in excess of 10 Petaflops. This is achieved by having hundreds of thousands of CPU-cores in the same distributed-memory computer, connected with a fast network.
@@ -10,32 +14,50 @@ We therefore need some way of measuring how well our parallel computation is per
 
 The standard measure of parallel performance is called the parallel speedup. We measure the time taken to do the calculation on a single CPU-core, and the time taken on P CPU-cores, and compute the parallel speedup S:
 
- S_p = T_1 / T_P
- 
+```
+S_p = T_1 / T_P
+```
+
 For example, if the program took 200 seconds on 1 CPU-core (i.e. running in serial) and 25 seconds on 10 CPU-cores then the parallel speed-up is
 
+```
 S_{10} = T_1 / T_{10} = 100 / 25 = 8
- 
+```
  
 Ideally we would like our parallel program to run 10 times faster on 10 CPU-cores, but this is not normally possible due to the inevitable overheads. In general, SP will be less than P.
 
-Another way of quantifying this is to compute the parallel efficiency  E_P = S_P/P.
+Another way of quantifying this is to compute the parallel efficiency:   
+
+```
+E_P = S_P/P 
+```
 
 This gives us an idea of how efficiently we are using the CPU-cores. For the example given above, the parallel efficiency is
 
+```
 E_{10} = S_{10} / 10 = 8 / 10 = 0.80 = 80 % 
- 
+```
+
 Ideally we would like our parallel program to be 100% efficient, but in general EP will be less than 1.0 (i.e. less than 100%).
 
 When considering the way a parallel program behaves, the standard approach is to measure the performance for increasing values of P and to plot a graph of either parallel speedup or parallel efficiency against the number of CPU-cores.
 
 We call this a scaling curve - we are trying to understand how well the performance scales with increasing numbers of CPU-cores. We talk about whether or not a program scales well or scales poorly (or has good or bad scalability).
 
-An example speedup (image)
+```{figure} ./images/hero_afc04aae-ee23-4f71-8df0-80c3bf10d38e.png
+```
 
 For some problems a parallel efficiency of 80% will be considered to be very good and for others not so good. Can you think of a reason why that is?
 
-## Scaling and Parallel Overheads (Discussion)
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_e5dfe526-b743-4b37-88a2-9dd7a83c16ab.jpg
+© iStock.com/Pepperz
+```
+
+## Scaling and Parallel Overheads
 
 It is always useful to have some simple examples to help us understand why a parallel program scales the way it does. If we double the number of CPU-cores, does the performance double? If not, why not?
 
@@ -50,12 +72,13 @@ We will consider two possible aeroplanes: a Jumbo Jet (top speed 700 kph) and Co
 
 The important observation is that the total journey time is the flight time plus the additional overheads of travelling between the city centre and the airport, waiting at check-in, clearing security or passport control, collecting your luggage etc. For simplicity, let’s assume that travel to the airport takes an hour by bus each way, and that you spend an hour in the airport at each end.
 
-Plane	Destination	Flight Time (hh:mm)	Over-head (hh:mm)	Total Journey (hh:mm)	Speed-up S3	Efficiency E3
-Jumbo Jet	New York	8:00	4:00	12:00	 	 
-Concorde	New York	2:40	4:00	6:40	1.8	60%
-Jumbo Jet	Sydney	24:00	4:00	28:00	 	 
-Concorde	Sydney	8:00	4:00	12:00	2.3	78%
-(table)
+| Plane	| Destination |	Flight Time | Over-head | Total Journey | Speed-up S3 | Efficiency E3 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Jumbo Jet |	New York | 8:00 | 4:00 | 12:00 |	 	 
+| Concorde	| New York | 2:40 |	4:00 | 6:40 | 1.8 | 60% |
+| Jumbo Jet | Sydney | 24:00 | 4:00 | 28:00 |
+| Concorde | Sydney | 8:00 | 4:00 |	12:00 |	2.3	| 78% |
+
 
 Try to answer the following questions:
 
@@ -65,6 +88,14 @@ Try to answer the following questions:
 - what is the speedup for the second journey for a plane 10 or 100 times faster than Concorde?
 - why do you think it’s different from the first journey’s speedup?
 - what does it tell you about the possibilities of parallel computing?
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_b4c77d32-4595-475c-9f1f-a7d0fc1e708c.jpg
+© iStock.com/the-lightwriter
+```
 
 ## Parallel Performance Laws
 
@@ -80,21 +111,36 @@ In fact, Gene Amdahl used this simple example to argue, way back in 1967, that p
 
 However, the journey to Sydney illustrates Gustafson’s Law - things get better if you tackle larger problems because the serial overheads stay the same but the parallel part gets larger. For the large problem, our maximum speedup would be 7.0.
 
+```{figure} ./images/hero_38f91e44-13fa-4d56-bd8f-1ff3b86002ff.png
+```
+
 Scaling plot for New York and Sydney Journeys (image)
 
 Amdahl’s law can be expressed in equations as:
 
+```
 S_P = P / (\alpha P + (1-\alpha))
- 
+```
+
 where alpha is the fraction of the calculation that is entirely serial. For example, for the New York journey then
 
+```
  \alpha = 4 hours / 12 hours = 0.33 
- 
+```
+
 Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/\alpha. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
 
-If you are interested in more details (and more maths!) then you can visit Wikipedia (Amdahl’s Law and Gustafson’s Law), but all the equations can sometimes obscure what is really a common-sense result.
+If you are interested in more details (and more maths!) then you can visit Wikipedia ([Amdahl’s Law](https://en.wikipedia.org/wiki/Amdahl%27s_law) and [Gustafson’s Law](https://en.wikipedia.org/wiki/Gustafson%27s_law)), but all the equations can sometimes obscure what is really a common-sense result.
 
-## Scaling Behaviour of the Traffic Simulation (Discussion)
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_38bd405f-b483-4faf-8b0d-aa6c6939d3d3.jpg
+© iStock.com/wakila
+```
+
+## Scaling Behaviour of the Traffic Simulation
 
 Let’s consider the traffic model parallelised using message-passing – you and three colleagues are working together on the traffic model in different offices. You each have your own chess set with pawns representing the cars, but you need to phone each other if you want to exchange information.
 
@@ -114,5 +160,53 @@ To what extent do these figures agree or disagree with Amdahl’s law and Gustaf
 
 These calculations, require you to make a number of assumptions so when comparing answers with your fellow learners you should not focus on the numerical results so much. Looking at the reasoning behind each of the assumptions and comparing your overall conclusions should be more interesting.
 
-## Terminology Recap (Quiz)
+© EPCC at The University of Edinburgh
 
+---
+## Terminology Recap
+
+```{questions} Question 1
+
+The standard measure of parallel performance is called the parallel ____ .
+For P CPU-cores it is calculated as the time taken to run a program on ____
+CPU-core divided by the time taken to run it on ____ CPU-cores.
+
+```
+
+```{solution}
+
+A) speed up
+
+B) one
+
+C) P
+
+```
+
+```{questions} Question 2
+
+In parallel computing, the parallel ____ is used to measure how efficiently the CPU-cores are utilised. Although, we would like this to be as high as possible, it is typically less than ____.
+
+```
+
+```{solutions}
+
+A) efficency 
+
+B) 1.0
+
+```
+
+```{questions} Question 3
+
+The plot showing the performance of a parallel program with increasing number of CPU-cores is referred to as a ____ ____ . The fact that parallel programs do not scale perfectly (i.e. the speedup is not equal to the number of CPU-cores) is explained by an equation called ____ ____ .
+
+```
+
+```{solutions}
+
+A) scaling curve
+
+B) Amdahl's Law
+
+```
