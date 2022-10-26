@@ -1,10 +1,24 @@
 # Towards the future
 
+```{figure} ./images/hero_4c1c8a04-c056-418c-a617-a2780f86ad05.jpg
+
+Snapshot of the simulated cardiac electrical activity.
+
+© 2016 ARCHER image competition
+
+```
+
 ## So why are supercomputers needed? (discussion)
+
+```{danger}
+
+update archer links for archer2.
+
+```
 
 In the previous steps you have familiarised yourself with three different large scale computer simulations so you should have a good understanding of why supercomputers are needed.
 
-In this discussion step we would like you to have a look at ARCHER’s case studies. Pick one of them and try to answer the following questions:
+In this discussion step we would like you to have a look at [ARCHER’s case studies](http://www.archer.ac.uk/casestudies/). Pick one of them and try to answer the following questions:
 
 - which discipline does the case study belong to?
 - is there any social or economic benefit to it?
@@ -12,11 +26,17 @@ In this discussion step we would like you to have a look at ARCHER’s case stud
 - in your opinion, what is the most surprising or interesting aspect of this case study?
 - are there any similarities between the case study you picked and the three case studies we have discussed in this week? Why do you think that is?
 
-Share and discuss your opinions with your fellow learners! Find one person who picked the same case study as you - are your answers similar or different? Also, find one person who picked a different case study - are any of your answers similar?
-
-ARCHER panels logo (image)
-
 © EPCC at The University of Edinburgh, ARCHER
+
+---
+
+
+```{figure} ./images/hero_8f0729e1-c470-4727-9a76-3ae17151e8f3.jpg
+
+© iStock.com/StockFinland
+
+```
+
 
 ## Future of Supercomputing - the Exascale
 
@@ -52,11 +72,19 @@ So that’s where HPC is heading in the next 5 years – a strong push towards E
 
 In your opinion, which of the above barriers is the hardest to breach? Why do you think so?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_30edbaf8-a0ca-4666-b10e-a0df9d319bfc.jpg
+© iStock.com/agsandrew
+```
+
 ## Quantum Computing
 
 There has been a lot of excitement in recent years about the possibilities of quantum computers. These are systems that use the quantum mechanical effects of superposition and entanglement to do calculations at a much faster rate than is possible with classical computers based on binary logic.
 
-In this article, we are not going to talk about how it actually works, you can read about that in an online article published on the Plus Maths website - How does quantum computing work?
+In this article, we are not going to talk about how it actually works, you can read about that in an online article published on the Plus Maths website - [How does quantum computing work?](https://plus.maths.org/content/how-does-quantum-commuting-work)
 
 There are many research efforts going on right now into the fundamental technology to build such a machine: it is not yet possible to make the quantum states exist for long enough, or in large enough numbers to do any more than the very simplest computations.
 
@@ -67,6 +95,14 @@ A much more interesting potential use of quantum computers is to simulate quantu
 The one type of quantum computer that does exist today is built by D-Wave Systems, and relies on rather different quantum effects (so-called quantum annealing) to solve a certain type of optimisation problem. So far, however, it has been difficult to demonstrate that the D-Wave machine is really reliant on quantum behaviour, and it has not been possible to show any meaningful performance advantage over conventional methods for solving the same problem on classical computers.
 
 For sure, quantum computers are an exciting new field, but they are not going to replace classical supercomputers any time soon, and even if they do, they will probably only be useable for solving a few, very specialised problems.
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_b46624d6-64ac-4da7-b76b-ff23ea9cbca3.jpg
+© iStock.com/Menno van Dijk
+```
 
 ## Artificial Intelligence
 
@@ -94,7 +130,73 @@ We are still a long way from creating an artificially intelligent computer. Alth
 
 © EPCC at The University of Edinburgh
 
-## Terminology Recap (Quiz)
+---
+
+## Terminology Recap
+
+```{questions} Question 1
+
+The term ____ programming refers to an approach of combining more than one programming model in the same parallel program. The most common combination is to use the ____
+library and ____ together. In this approach, ____ allows communication between different compute nodes over the network. We use ____ to take advantage of the shared memory within each node.
+
+```
+
+```{solution}
+
+A) hybrid
+
+B) mpi
+
+C) openMP
+
+D) MPI
+
+E) openmp
+
+```
+
+```{questions} Question 2
+
+
+The term ____ ____ refers to a situation where the computational work is not distributed equally among the CPU-cores.
+
+```
+
+```{soultion}
+
+Load imbalance
+
+```
+
+```{questions} Question 3
+
+We have mentioned four main barriers to building a useful and economically viable Exascale machine. There are: 
+- ____ limitations (e.g. speed) - the clock frequency of processors has stagnated in the recent years. 
+- ____ consumption - the target for an exascale system is 20-30 megawatts.
+- ____ - As the number of cores, and other components such as memory, network links and disks, increases, so does the risk that components will fail more often.
+- application ____ - at the moment there is only a small number (maybe only in the low tens) of application codes that could usefully exploit exascale machines.
+
+
+```
+
+
+```{solution}
+
+A) hardware
+
+B) power
+
+C) reliability
+
+D) scalability
+
+```
+
+---
+
+```{figure} ./images/hero_b755041e-877c-4b23-a780-ca11fb023d50.jpg
+© iStock.com/shutter_m
+```
 
 ## What do you think the future holds?
 
@@ -108,3 +210,7 @@ Things to consider:
 - What applications could they have?
 - Have we reached a point similar to commercial aircraft - it’s too expensive to make them go faster so investment is focused on saving cost, fuel economy, reliability etc.?
 - Will the possibilities opened up by exascale supercomputers be enough to drive new technologies?
+
+© EPCC at the University of Edinburgh
+
+---

@@ -1,5 +1,13 @@
 # Discovering new materials
 
+```{figure} ./images/hero_00a565ef-c294-4b52-902c-f904048bb8ad.jpg
+
+Photo-excitation dynamics in organic solar cells.
+
+© 2016 ARCHER image competition
+
+```
+
 ## Materials Science
 
 We live in an age of engineered materials. New batteries, fuel and solar cells, computer chips, and fiber-optic glass are just a few examples of materials that changed our every-day lives. Yet designing new materials has never been easy and usually involved a lot of guesswork and accidental discoveries. Using the power of supercomputers to solve the equations of quantum mechanics allows new technologies to be developed more efficiently.
@@ -8,9 +16,13 @@ From the socio-economic perspective, the most important aspect of new materials 
 
 Quantum mechanics is the theory on which the behavior of atoms and molecules is based. Material physics has to use quantum theory in systems that contain a huge number of atoms and/or molecules. This makes it extremely difficult to derive the properties of matter. Despite the adoption of approximations and theoretical methods, studying the electronic structure of materials is impossible without the help of computer simulations.
 
-Researchers use specialised software such as Quantum ESPRESSO in conducting quantum materials research. Quantum ESPRESSO is an integrated suite of computer codes for electronic-structure calculations and materials modelling. Its intensive use of dense mathematical routines makes it an ideal candidate for many-core architectures, such as the Intel Xeon Phi processor.
+Researchers use specialised software such as Quantum ESPRESSO in conducting quantum materials research. [Quantum ESPRESSO](http://www.quantum-espresso.org/) is an integrated suite of computer codes for electronic-structure calculations and materials modelling. Its intensive use of dense mathematical routines makes it an ideal candidate for many-core architectures, such as the Intel Xeon Phi processor.
 
 Together with the theoretical approach and the experimental studies, why do you think computational studies are a key to studying fundamental properties of the physics and chemistry of materials?
+
+© CINECA
+
+---
 
 ## Why use supercomputers in materials science? 
 
@@ -18,7 +30,7 @@ Together with the theoretical approach and the experimental studies, why do you 
 
 Discovering_new_materials_hd
 
-### Transcript
+```{solution} Transcript
 
 0:11 - My name is Arrigo Calzolari. I am a researcher at the Instituto of Nanoscienze of the National Research Council of Italy. And I just talk about why simulations with supercomputers are so important in our research activity. When you talk about simulation of materials, actually, you are dealing with a very broad area of interest. You are dealing with different kind of system, different kind of chemical composition, different kind of morphologies, from bulk to surfaces or interfaces, but also nano structures, so different kind of dimensionalities and different kind of properties that you are potentially interested in, so electronic properties, optical ones, mechanical properties, and so on and so forth.
 
@@ -30,13 +42,23 @@ Discovering_new_materials_hd
 
 4:26 - But if you want to understand, for instance, what is the relationship between a material and interfaces and what is the behaviour of a material with the rest of the environment, in this case, it’s absolutely necessary to understand what happens, for instance, at the external layer, what is the effect of the formation of the breaking of chemical bonds, for instance, at the interfaces. In all these cases, it’s really necessary to understand what happened, specifically and locally, in this kind of situation.
 
-### Text
+```
 
 In this video, Dr. Arrigo Calzolari talks about the role of supercomputers in discovering new materials.
 
 Having watched the video, what do you think are the main reasons for using supercomputers to study the properties of new materials?
 
 © CINECA
+
+---
+
+```{figure} ./images/hero_2b49ff3b-bdca-487e-9723-dcd51bc649b3.jpg
+
+A flexible display based on Organic Field-Effect Transistor
+
+© RDECOM (http://www.flickr.com/photos/rdecom/4146880795/)
+
+```
 
 ## Understanding new materials
 
@@ -48,17 +70,24 @@ Carlo Cavazzoni (senior technologist at CINECA) explains the importance of the r
 
 “Based on the results obtained from this study, we will gain a deep understanding in the intimate conduction mechanisms of this type of organic device, going a step forward in the direction of utilizing the new OFET technologies that will soon replace traditional silicon devices. Quantum ESPRESSO and new supercomputing facilities will make it possible to study and better understand the physics of the devices that, in the future, will be the building blocks for new photovoltaics cells, next-generation displays and molecular computers.”
 
-The simulated system is composed of two gold electrodes, each of them made from 162 gold atoms. Between the electrodes, there is a PDI-FCN2 molecule. The system is made of 390 atoms and 3852 electrons. The metallic nature of the electrodes requires the simulated space to be represented by many points to describe the electronic structure accurately (more precisely, it requires a fine sampling of the Brillouin Zone). This further increases the computational effort required to simulate this system.
+The simulated system is composed of two gold electrodes, each of them made from 162 gold atoms. Between the electrodes, there is a PDI-FCN2 molecule. The system is made of 390 atoms and 3852 electrons. The metallic nature of the electrodes requires the simulated space to be represented by many points to describe the electronic structure accurately (more precisely, it requires a fine sampling of the [Brillouin Zone](https://en.wikipedia.org/wiki/Brillouin_zone)). This further increases the computational effort required to simulate this system.
 
-The PDI-FCN2 molecule interposed between two golden electrodes (image)
+```{figure} ./images/hero_85c10ac4-765c-418c-b940-d3bbc138948e.png
+```
 
-The use of Quantum ESPRESSO with the supercomputers at CINECA permitted researchers to calculate the electrical transport properties of the PDI-FCN2 molecule, opening the way to new bio-transistors. In order to compute these properties, up to some tens of thousands of cores on the FERMI supercomputing cluster were used.
+The use of Quantum ESPRESSO with the supercomputers at CINECA permitted researchers to calculate the electrical transport properties of the PDI-FCN2 molecule, opening the way to new bio-transistors. In order to compute these properties, up to some tens of thousands of cores on the [FERMI supercomputing cluster](http://www.hpc.cineca.it/hardware/fermi) were used.
 
 Quantum ESPRESSO implements the distributed memory model with several levels of parallelisation, in which both calculations and data structures are distributed across CPU-cores. CPU-cores are organized in a hierarchy of groups, corresponding to the structure levels of the studied material. CPU-cores belonging to different communication levels have different communication patterns - lower level groups are more tightly coupled and require more communication. This essentially means that near neighbours talk more to each other than CPU-cores that are further away from each other.
 
 An important aspect we have not discussed is how the MPI processes are assigned to physical CPU-cores. MPI processes can always communicate with each other regardless of their physical location, but clearly the time taken will vary. Given the above communications patterns, how would you assign the MPI processes to CPU-cores? You should consider a standard supercomputer i.e. a network of shared-memory nodes - Wee ARCHIE is a good example.
 
 © CINECA
+
+---
+
+```{figure} ./images/hero_c952b5d9-2328-4b4a-b1b0-9733c5f96b15.jpg
+© iStock.com/nikolay100
+```
 
 ## Benefits of Hybrid Programming (Discussion)
 
@@ -67,6 +96,10 @@ A significant part of this course is about shared and distributed memory models 
 That is not completely true. As you have learned the major drawback of shared memory approach is its scale - it’s simply not feasible to run code using more threads than there are cores available. However, it is possible to combine both approaches - using a shared memory model within the nodes and distributed memory model to communicate between the nodes.
 
 Quantum ESPRESSO uses a mixed MPI-OpenMP implementation. The idea is to have one (or more) MPI process(es) per multicore node, with OpenMP parallelisation inside the same node.
+
+
+```{figure} ./images/hero_5ecd9fac-24c3-435a-ad62-0081447ec565.png
+```
 
 Hybrid programming diagram (image)
 
@@ -82,3 +115,5 @@ The term load imbalance refers to a situation where the computational work is no
 - Can you think of any way to to address this issue?
 
 © CINECA, EPCC at The University of Edinburgh
+
+---
