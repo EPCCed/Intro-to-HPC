@@ -5,9 +5,16 @@
 ---
 maxdepth: 2
 ---
-Hello World
-sharpen
-Traffic
-Fracual
-Gromacs
+exercise0/index
+exercise1/index
+exercise2/index
+exercise3/index
+exercise4/index
 ```
+
+
+- Hello World
+- Sharpen
+- Traffic
+- Fracual
+- Gromacs
