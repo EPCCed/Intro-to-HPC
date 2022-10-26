@@ -1,5 +1,10 @@
 # Introduction to supercomputing
 
+```{figure} ./images/large_hero_5149d40f-0a9b-42af-a930-413d00bc1c6c.jpg
+© iStock.com/shironosov
+```
+
+
 ## Supercomputers - what are they?
 
 A supercomputer is a computer with very high-level computational capacities compared to a general-purpose computer such as a personal desktop or laptop.
@@ -30,19 +35,21 @@ Also keep in mind that although supercomputers provide enormous computational ca
 
 Can you think of other examples of parallelism in everyday life, where many hands make light work?
 
+© SURFsara
+
+---
+
 ## Supercomputers - why do we need them?
 
 ### Video
 
 Why_Supercomputers_hd
 
-### Transcript 
-
+```{solution} Transcript
 0:10 - What was the start of the universe like? Are there other Earth-like planets? Can we predict earthquakes? Can we cure cancer? Can we predict and prevent heart attacks? Can we sustainably fuel the world? Supercomputing turns dreams into ideas that can change the world. Dare to think the impossible. High performance computing is like all of the big instruments of science combined into one. So it’s a telescope that enables us to view the entire universe. It’s a microscope or a particle accelerator which enables us to explore the quantum world of the very small. It’s a reactor that enables us to study plasmas and what’s going on in the interior of stars.
 
 1:05 - And it’s even a time machine which enables us to recreate the past or to predict what’s going to happen in the future. Almost all of the major challenges that society faces, whether it’s preserving our environment, improving our health care, or rebuilding our economy, are underpinned in some way or another by high performance computing.
-
-### Text
+```
 
 This PRACE video gives you a taste of the various different areas where supercomputers are used.
 
@@ -54,6 +61,16 @@ Are there any applications of supercomputers you know of, that made you interest
 
 For more examples of how supercomputers are used in science you will need to wait until we reach week 4 and 5.
 
+© PRACE
+
+---
+
+```{figure} ./images/large_hero_e0df48e4-9b4d-422c-a18f-d7898b9578d8.jpg
+
+Computer simulation covering multiple physical phenomena and machine learning predict how dinosaurs moved. The laws of physics apply for extinct animals exactly as they do for living ones.
+
+© 2016 ARCHER image competition
+```
 ## Supercomputers - how are they used?
 
 To do science in the real world we have to build complicated instruments for each experiment: vast telescopes for astronomers to look deep into space, powerful particle accelerators so physicists can smash atoms together at almost the speed of light, or enormous wind tunnels where engineers can study how an aeroplane wing will operate in flight.
@@ -80,6 +97,9 @@ Andy: “You’re missing the point between something that hasn’t been done be
 
 Nowadays you can actually produce a computer model in a supercomputer and spend literally years researching a programme down to an extraordinarily fine level of detail so that when you actually go out to push back the boundary of human endeavour, to achieve something absolutely remarkable that will make everybody look round and go ‘wow, that was impressive!’, you can actually do it in a safe, step-by-step controlled way. You can actually understand the problem in advance and that’s all the difference.”
 
+© SURFsara, EPCC at the University of Edinburgh, BBC
+
+---
 
 ## Introducing Wee Archie
 
@@ -87,26 +107,78 @@ Nowadays you can actually produce a computer model in a supercomputer and spend 
 
 Introducing_Wee_Archie_hd
 
-### Transcript
-
+```{solution} Transcript
 0:31 - So ARCHER is the UK National Supercomputing Service that we house here in Edinburgh as part of the University. And it’s funded by the UK Research Councils. And it can do many, many calculations per second. Actually, if you took all the people on the planet, then it would be the equivalent of all these people doing many, many, many calculations per second.
 
 1:17 - It’s absolutely crucially important for simulation, things like simulation of weather, simulation of the cosmology, things like cancer analysis, cancer research, all sorts of different applications that maybe you wouldn’t have foreseen.
 
 1:47 - There’s a real keen push to encourage the next generation of scientists to get into science, and to get into computing in general.
-
-### Text
+```
 
 In your mind, you probably already have an image of a supercomputer as a massive black box. Well, they usually are just that - dull looking cabinets connected by a multitude of cables. To make things more interesting, we introduce Wee ARCHIE!
 
 Wee ARCHIE is a suitcase-sized supercomputer designed and built to explain what a supercomputer is.
 
-Wee ARCHIE (image)
+
+```{figure} ./images/large_hero_a7d4002a-8164-4a13-8bfc-31f9b8074a31.jpg
+```
 
 We will return to Wee ARCHIE next week and use it, and its big brother ARCHER, to explain the hardware details of supercomputers.
 
 Wee ARCHIE is part of the ARCHER public outreach programme and many of the materials are freely available online. There is a special “super squirrel” logo that is used when promoting HPC to schools:
 
-Wee ARCHIE logo (image)
+
+```{figure} ./images/large_hero_d293ae1b-6cce-4e10-a3d1-720040e38401.png
+```
+
+You can find instructions on how to configure your very own Raspberry Pi cluster [here](https://epcced.github.io/wee_archlet/).
+
+
+© The University of Edinburgh
+
+---
 
 ## Terminology Recap
+
+```{questions} Question 1
+Performing computations in _____
+means carrying out many calculations simultaneously.
+```
+
+```{solution}
+Parallel
+```
+
+```{questions} Question 2
+The term HPC stands for ?
+```
+
+```{solution}
+High Performance Computing
+```
+
+```{questions} Question 3
+The process of running a virtual experiment is called?
+```
+
+```{solution}
+A computer simulation
+```
+
+```{questions} Question 4
+The term number-crunching refers to large-scale ____ ____.
+```
+
+```{solution}
+numerical simulations
+```
+
+```{questions} Question 5
+The typical power consumption of a supercomputer is in the order of several
+____, where ____ is 1 000 000.
+```
+
+```{solution}
+1) megawatts
+2) mega
+```

@@ -1,5 +1,9 @@
 # Superconputing World
 
+```{figure} ./images/large_hero_598109b6-63fa-4f43-b07f-a0f787b26fcf.jpg
+© iStock.com/rzoze19
+```
+
 ## Current Trends and Moore's Law
 
 Over recent decades, computers have become more and more powerful. New computing devices appear on the market at a tremendous rate, and if you like to always have the fastest available personal computer, you need to visit your local computer store very frequently! But how did computers become so powerful, and are there any fundamental limits to how fast a computer can be? To answer these questions, we need to understand what CPUs are made up of.
@@ -10,7 +14,9 @@ Most transistors nowadays are created with silicon, a type of semiconductor. A s
 
 In 1965, the co-founder of Fairchild Semiconductor and Intel, Gordon E. Moore, made an observation and forecast. He noticed that manufacturing processes were continually improving to the extent that:
 
+
 "The number of transistors that could be placed on an integrated circuit was doubling approximately every two years."
+
 
 He predicted that this would continue into the future. This observation is named after him, and is called Moore’s law. Although it is really a forecast and not a fundamental law of nature, the prediction has been remarkably accurate for over 50 years.
 
@@ -24,8 +30,10 @@ We saw clock speeds steadily increasing, finally breaking the GHz barrier (a bil
 
 The problem is that increasing clock frequency comes at a cost: it takes more power. Above a few GHz, our processors become too power hungry and too hot to use in everyday devices. But Moore’s law continues, so rather than increasing the frequency we put more processors on the same physical chip. We call these CPU-cores, and we now have multicore processors. The below image shows a schematic of a modern processor (Intel’s Core i7) with four CPU-cores (four pinkish rectangles).
 
-Intel's  Core i7 A modern quad-core CPU - Intel’s Core i7 © Intel (image)
 
+```{figure} ./images/large_hero_cafacb0d-898b-44b4-9290-5c25c211fc03.jpg
+Intel's  Core i7 A modern quad-core CPU - Intel’s Core i7 © Intel
+```
 So for the past, decade Moore’s law has meant:
 
 "Every two years the number of CPU-cores in a processor now doubles."
@@ -34,11 +42,22 @@ In the last few years the process of doubling transistors in integrated circuits
 
 So what happens if the CPU-cores are not getting any faster? How are we going to build faster supercomputers to cope with the increasing size and complexity of our computer simulations? The current trend in the supercomputing world is that supercomputers are getting bigger not faster. Since the speed of a single CPU-core cannot be increased any more, having more and more cores working together is the only way to meet our computational requirements.
 
+```{figure} ./images/large_hero_7dbadb03-cbbb-464b-a622-519a208f6693.png
 Moore's Law plot ©By Wgsimon - Own work, CC BY-SA 3.0, (image)
-
+```
 Your next mobile phone will probably have more CPU-cores than your current one. Do you think this is more useful than a faster CPU? Can you see any problems in making use of all these CPU-cores?
 
+© SURFsara
+
+---
+
 ## Abreif history of Supercomputing (Exercise)
+
+```{danger}
+
+Future learn time line interface used here so little chance of replicating that functionality so will have to remove this section.
+
+```
 
 It is interesting to look at the history of supercomputers. Here we have put together some interactive graphical timelines of notable supercomputers on a worldwide scale.
 
@@ -51,13 +70,17 @@ Can you find the EPCC machine that appeared in the the first Jurassic Park film 
 ### Timeline
 Here is an illustrated history of the last 75 years of supercomputing until 2016. Can you spot any trends e.g. in performance, parallelism or physical size? Do you prefer the vintage or modern design aesthetic?
 
+© SURFsara, EPCC at the University of Edinburgh
+
+---
+
 ## How to calculate the world's yearly income?
 
 ### Video
 
 worlds_yearly_income_hd
 
-### Transcript
+```{solution} Transcript
 
 0:11 - Here, we’re going to introduce a very simple example, of calculating the world’s yearly income. It’s a bit of a toy example. But, we’re going to imagine that we have a list of the incomes, the salaries, of everybody in the entire world, and we’re going to add them all up to work out what the total income of the world is. Now this is obviously a very simple example, and slightly artificial. But, we’ll actually use it, and come back to it, in a number of contexts. First of all, it is very useful as a specific example of a real calculation, where we can illustrate how much faster calculations have got, through the developments in processor technology over the years.
 
@@ -71,7 +94,7 @@ worlds_yearly_income_hd
 
 3:04 - But, the most important point is the core loop, the one that’s executed seven billion times, has three distinct steps in it. And, we’re going to assume that each one of these corresponds to a single instruction issued by the CPU, by the processor. Now, it’s quite a naive assumption, but it’s perfectly OK for our purposes here.
 
-### Text
+```
 
 How would you go about calculating the world’s yearly income? Well, it’s simple adding up of numbers but there are many of them… so the real question is: how long would it take?
 
@@ -79,13 +102,17 @@ In this video David describes how to tackle the calculation in serial on his lap
 
 We will use this example in other steps on this course to better illustrate some of the key concepts, so make sure you understand how it works.
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## Moore's Law in practice
 
 ### Video
 
 Moores_Law_hd
 
-### Transcript
+```{solution} Transcript
 
 0:12 - So the question is, how long does this calculation take? So, what I’m going to do is I’m going to do a bit of history. I’m going to look at the history of processors over about the past five decades to see how long it would have taken to do this calculation on a particular processor from that time. I’m going to focus on Intel as a manufacturer. Intel is a very successful manufacturer today of processors– they are very prevalent in desktops and laptops– but there are other designers or manufacturers of processors you may have heard of. ARM, for example, who design a lot of the processors which go into mobile devices like mobile phones, and Nvidia who produce graphics processors.
 
@@ -105,7 +132,7 @@ Moores_Law_hd
 
 5:05 - So, hopefully that illustrates the impact of Moore’s law. How, from 1971 to 2012, over the period of four decades, this relentless increase in the speed of CPUs has gone from a calculation taking two and a half days, to taking seven seconds.
 
-### Text
+```
 
 So how long does it take to add up 7 billion numbers? Well, it depends on what you are using to add them…
 
@@ -117,13 +144,30 @@ Every two years the number of CPU-cores in a processor now doubles.
 
 In this video David uses the income calculation example to illustrate what is the impact of the first point in practice. We will return to the second point next week.
 
+
+© EPCC at The University of Edinburgh
+
+---
+
 ## Supercomputing world (Exercise)
 
-We are going to look at the top 10 supercomputers from a November 2019 snapshot of the Top 500 list, and also look at the various PRACE systems.
+```{danger}
+Uses Future learn exercise interface so will be dificult to replicate this in mark down. Remove section.
+```
+
+We are going to look at the top 10 supercomputers from a June 2022 snapshot of the Top 500 list, and also look at the various PRACE systems.
 
 You can see on the map where these systems are located and learn more details by clicking on the name or location of the system.
 
 What do you think about the distribution of the top 10 systems? Do you find it surprising? Where was your nearest supercomputer?
+
+© SURFsara
+
+---
+
+```{figure} ./images/large_hero_de817f13-08fc-48f3-a1ad-675868f70f3d.jpg
+© iStock.com/retrorocket
+```
 
 ## Top500 list: Supercomputing hit parade
 
@@ -137,9 +181,68 @@ The site provides news with respect to supercomputers and HPC, it also has a han
 
 Have a look at the most recent list and briefly comment on the following question:
 
-What manufacturers produce the world’s largest supercomputers?
-What types of processors do they use?
-What fraction of peak performance is typically achieved for the LINPACK benchmark?
-Play with the statistics tool on top500.org and share your findings with others in the discussion area. For example, how many supercomputers in the Top500 are classed as being for use by industry?
+- What manufacturers produce the world’s largest supercomputers?
+- What types of processors do they use?
+- What fraction of peak performance is typically achieved for the LINPACK benchmark?
+- Play with the statistics tool on top500.org and think about the trends in current HPC systems. For example, how many supercomputers in the Top500 are classed as being for use by industry?
+
+© SURFsara, EPCC at the University of Edinburgh
+
+---
 
 ## Terminology recap
+
+
+(image) under the heat sink of the cpu...
+
+```{questions} Question 1
+Historically, a ____ contained a single "brain" but nowadays it contains multiple ____.
+
+```
+
+```{solution}
+
+1) Processor
+
+2) Cores
+
+```
+
+```{questions} Question 2
+The mode of computing in which a single CPU-core is doing a single computation is called ____ computing, as opposed to ____ computing, where all CPU-cores work together at the same time.
+
+```
+
+```{solution}
+
+1) Serial
+
+2) Parallel
+
+```
+
+```{questions} Question 3
+The process of evaluating the performance of a supercomputer by running a standard program is called ____. The standard calculation used to compile the top500 list is called ____.
+
+```
+
+```{solution}
+
+1) Benchmarking
+
+2) LINPACK
+
+```
+
+```{questions} Question 3
+The process of evaluating the performance of a supercomputer by running a standard program is called ____. The standard calculation used to compile the top500 list is called ____.
+
+```
+
+```{solution}
+
+1) Benchmarking
+
+2) LINPACK
+
+```

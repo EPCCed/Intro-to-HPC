@@ -1,10 +1,14 @@
 # Understanding Supercomputing
 
+```{figure} ./images/large_hero_fa026d7f-4b55-44e4-a94f-051574e1bd87.jpg
+© iStock.com/adventtr
+```
+
 ## Understanding Supercomputing - Processors
 
 So what are supercomputers made of? Are the building components really so different from personal computers? And what determines how fast a supercomputer is?
 
-In this step, we start to outline the answers to these questions. We will go into a lot more detail next week, but for now we will cover enough of the basics for you to be able to understand the characteristics of the supercomputers in the Top500 list (the linked list is from Nov 2019).
+In this step, we start to outline the answers to these questions. We will go into a lot more detail next week, but for now we will cover enough of the basics for you to be able to understand the characteristics of the supercomputers in the [Top500](https://www.top500.org/lists/top500/2022/06/) list (the linked list is from June 2022).
 
 It may surprise you to learn that supercomputers are built using the same basic elements that you normally find in your desktop, such as processors, memory and disk. The difference is largely a matter of scale. The reason is quite simple: the cost of developing new hardware is measured in billions of euros, and the market for consumer products is vastly larger than that for supercomputing, so the most advanced technology you can find is actually what you find in general-purpose computers.
 
@@ -14,15 +18,30 @@ A modern domestic device (e.g. a laptop, mobile phone or iPad) will usually have
 
 Interestingly, the same approach is used for computer graphics - the graphics processor (or GPU) in a home games console will have hundreds of cores. Special-purpose processors like GPUs are now being used to increase the power of supercomputers - in this context they are called accelerators. We will talk more about GPUs in Week 2.
 
-Difference between CPU and GPU (image)
+```{figure} ./images/large_hero_8408f33c-87f5-4061-aec7-42ef976e83fd.webp
 
 A typical CPU has a small number of powerful, general-purpose cores; a GPU has many more specialised cores. © NVIDIA
+
+```
 
 To use all of these CPU-cores together means they must be able to talk to each other. In a supercomputer, connecting very large numbers of CPU-cores together requires a communications network, which is called the interconnect in the jargon of the field. A large parallel supercomputer may also be called a Massively Parallel Processor or MPP.
 
 Does it surprise you to learn that games console components and other general-purpose hardware are also used in supercomputers?
 
+© SURFsara, EPCC at the University of Edinburgh
+
+
+```{figure} ./images/large_hero_9c54a5dc-d810-4c39-aa57-92c15bb303d2.jpg
+
+© iStock.com/firina
+```
 ## Understanding Supercomputing - Performance
+
+```{danger}
+
+Do we want to update to give more modern reference CPU part and corresponding performance figures?
+
+```
 
 The Top500 list ranks supercomputers by their floating-point performance - let’s take a look at what that means.
 
@@ -36,21 +55,30 @@ We say peak performance because this is the absolute maximum, never-to-be-exceed
 
 Clearly, with many thousands of CPU-cores we’re going to encounter some big numbers so here is a table summarising the standard abbreviations you’ll come across:
 
-Ops per second	Scientific Notation	Metric Prefix	Unit
-1 000	103	Kilo	Kflops
-1 000 000	106	Mega	Mflops
-1 000 000 000	109	Giga	Gflops
-1 000 000 000 000	1012	Tera	Tflops
-1 000 000 000 000 000	1015	Peta	Pflops
-1 000 000 000 000 000 000	1018	Exa	Eflops
-(table)
+|Ops per second  |	Scientific Notation	Metric | Prefix	| Unit |
+|---|---|---|---|
+| 1 000	| 10^3  |	Kilo	| Kflops |
+| 1 000 000 |	10^6|	Mega	Mflops |
+| 1 000 000 000	| 10^9 |	Giga |	Gflops |
+| 1 000 000 000 000 |	10^12 |	Tera |	Tflops |
+| 1 000 000 000 000 000 |	10^15 |	Peta |	Pflops |
+| 1 000 000 000 000 000 000 |	10^18 |	Exa | Eflops |
+
+```{note}
 
 A quick word of warning here: when talking about performance measures such as Gflops, we are talking about powers of ten. For other aspects such as memory, it is more natural to work in powers of 2 - computers are binary machines after all.
 
-It is something of a coincidence that 210 = 1024 is very close to 103 = 1000, so we are often sloppy in the terminology. However, we should really be clear if a kiloByte (Kbyte) is 1000 Bytes or 1024 Bytes. By KByte, people usually mean 1024 Bytes but, strictly speaking, a Kbyte is actually 1000 Bytes. The technically correct terminology for 1024 Bytes is KibiByte written as KiByte.
+```
+
+It is something of a coincidence that 2^10 = 1024 is very close to 10^3 = 1000, so we are often sloppy in the terminology. However, we should really be clear if a kiloByte (Kbyte) is 1000 Bytes or 1024 Bytes. By KByte, people usually mean 1024 Bytes but, strictly speaking, a Kbyte is actually 1000 Bytes. The technically correct terminology for 1024 Bytes is KibiByte written as KiByte.
 
 This might seem like an academic point since, for a KByte, the difference is only about 2%. However, the difference between a PByte and a PiByte is more than 12%. If your supercomputer salesman quotes you a price for a PetaByte of disk, make sure you know exactly how much storage you’re getting!
 
+© SURFsara
+
+```{figure} ./images/large_hero_b1c107b7-2f0d-4e8c-bdd8-10ac0bf6d4dd.jpg
+© iStock.com/bowie15
+```
 ## Understanding Supercomputing - Benchmarking
 
 If we are going to compare performance we need some standard measure. When buying a car, we don’t just take the manufacturer’s word for how good the car is - we take it for a test drive car and see how well it performs in practice. For cars we might be interested in top speed or fuel economy, and it turns out that we are interested in the equivalent quantities for supercomputers: maximum floating-point performance and power consumption.
@@ -67,25 +95,40 @@ Supercomputers are not only expensive to purchase, but they are also expensive t
 
 For example, the fourth on the top500 list, Tianhe-2 system has a peak power consumption of 18.5 megawatts and, including external cooling, the system drew an aggregate of 24 megawatts when running the LINPACK benchmark. If a kilowatt of power costs 10 cents per hour, Tianhe-2’s peak power consumption will be 2400 euros per hour, which is in excess of 21 million euros per year.
 
-Rpeak and Rmax are what Top500 uses to rank supercomputers. Also quoted is the electrical power consumption, which leads to the creation of another list - the Green 500 (Nov 2019)- which ranks supercomputers on their fuel economy in terms of Flops perWatt. Despite its massive power bill, Tianhe-2 is quite power-efficient. The top ranked system (Summit) holds 5th position on the Green 500.
+Rpeak and Rmax are what Top500 uses to rank supercomputers. Also quoted is the electrical power consumption, which leads to the creation of another list - the [Green 500](https://www.top500.org/lists/green500/2022/06/) (June 2022)- which ranks supercomputers on their fuel economy in terms of Flops perWatt. Despite its massive power bill, Frontier is quite power-efficient. The top ranked system (Frontier) holds 2nd position on the Green 500.
 
-Take a look at the top500 list (Nov 2019) - does anything surprise you?
+Take a look at the [Top500](https://www.top500.org/lists/top500/2022/06/) list  - does the fact the top supercomputer for performance is also the to for power efficeny surprise you? What could be the reason for this?
 
+© SURFsara
+
+---
+
+```{figure} ./images/large_hero_9150f201-3215-41f7-8ae2-d88821e7525a.jpg
+© iStock.com/RichVintage
+```
 ## Supercomputing Word Search
 
 To help you familiarise with the supercomputing terminology we have prepared a word search for you to print out!
 
+```{figure} ./images/large_hero_9748869f-e962-4c23-a6b6-8216e757920c.png
+```
+
 The word search contains 19 words that have been mentioned in the previous steps. Can you find all of them? Do you know how to explain all of them?
 
-wordsearch (image)
+© EPCC at the University of Edinburgh
 
+---
+```{figure} ./images/large_hero_81d5664c-efa9-46cd-9129-547c2167f93a.jpg
+© iStock.com/ThomasVogel
+```
 ## HPC System Design
 
 Now you understand the basic hardware of supercomputers, you might be wondering what a complete system looks like. Let’s have a look at the high-level architecture of supercomputer, mainly pointing out how it differs from a desktop machine.
 
 The figure below shows the building blocks of a complete supercomputer system and how they are connected together. Most systems in the world will look like this at an abstract level, so understanding this simple figure will give you a good model for how all supercomputers are put together.
 
-Supercomputer architecture (image)
+```{figure} ./images/large_hero_a3db6ae7-8a0e-4fe4-b2da-302380de963a.png
+```
 
 Let’s go through the figure step by step.
 
@@ -107,8 +150,16 @@ It is the job of the batch scheduler to look at all the jobs in the queue and de
 
 The compute nodes are at the core of the system and the part that we’ve concentrated on for most of this week. They contain the resources to execute user jobs - the thousands of CPU-cores operating in parallel that give a supercomputer its power. They are connected by fast interconnect, so that the communication time between CPU-cores impacts program run times as little as possible.
 
-Storage
+### Storage
 Although the compute nodes may have disks attached to them, they are only used for temporary storage while a job is running. There will be some large external storage, comprising thousands of disks, to store the input and output files for each computation. This is connected to the compute nodes using fast interconnect so that computations which have large amounts of data as input or output don’t spend too much time accessing their files. The main storage area will also be accessible from the interactive nodes, e.g. so you can visualise your results.
+
+© SURFsara
+
+---
+
+```{figure} ./images/large_hero_0f828adf-3adc-4c16-b8b3-77614555e059.jpg
+© iStock.com/marekuliasz
+```
 
 ## What Supercomputing is not ...
 
@@ -122,7 +173,124 @@ However, you may have heard of ongoing developments that take more unconventiona
 - Artificial Intelligence tackles problems in a completely different way from the computer software we run in traditional computational science.
 We will touch on these alternative approaches in some of the final week’s articles. In the meantime, feel free to raise any questions you have about how they relate to supercomputing by commenting in any of the discussion steps.
 
+© EPCC at The University of Edinburgh
+
+---
+
 ## Supercomputing Terminology
 
-### Quiz
+```{questions} Question 1
+If someone quotes the performance of a computer in terms of “Flops”, what do they mean?
 
+A) the total number of floating-point operations needed for a computation
+
+B) the number of float-point operations performed per second
+
+C) the clock frequency of the CPU-cores
+
+D) the total memory
+
+```
+
+```{solution}
+
+B) - it’s our basic measure of supercomputer speed.
+
+```
+
+```{questions} Question 2
+What is a benchmark in computing?
+
+A) a hardware component of a computer system
+
+B) a computer program that produces scientific results
+
+C) a computer program specifically designed to assess performance
+
+D) the peak performance of a computer
+
+```
+
+```{solution}
+
+C) - it’s the equivalent of a standard consumer test for a product, like “how many litres per second can my electric shower deliver water at 40 degrees centigrade?”
+
+```
+
+```{questions} Question 3
+Which one below represents the right order of number of Flops (from small to large)?
+
+A) Kflops Gflops Mflops Tflops Eflops Pflops
+
+B) Mflops Gflops Kflops Pflops Tflops
+
+C) Kflops Mflops Gflops Tflops Pflops Eflops
+
+D) Gflops Kflops Tflops Mflops Pflops Eflops
+
+```
+
+```{solution}
+
+C) - computers started in the Kiloflops range and we are now approaching Exaflops.
+
+```
+
+```{questions} Question 4
+What does clock speed typically refer to?
+
+A) the speed at which a CPU-core executes instructions
+
+B) memory access speed
+
+C) the I/O speed of hard disks
+
+D) the performance achieved using the LINPACK benchmark
+
+```
+
+```{solution}
+
+A) - it’s basically the heartbeat of the processor.
+
+```
+
+```{questions} Question 5
+What processor technologies are used to build supercomputers (compared to, for example, a desktop PC)?
+
+A) a special CPU operating at a superfast clock speed
+
+B) a large number of special CPUs operating at very fast speeds
+
+C) a large number of standard CPUs with specially boosted clock speeds
+
+D) a very large number of standard CPUs at standard clock speeds
+
+```
+
+```{solution}
+
+D) - we take standard desktop technology but use vast numbers of CPUs to increase the computational power.
+
+```
+
+```{questions} Question 6
+A parallel computer has more than one CPU-core. Which of the following are examples of parallel computers?
+
+A) a modern laptop
+
+B) a modern mobile phone
+
+C) a supercomputer
+
+D) a home games console
+
+E) all of the above
+
+```
+
+```{solution}
+
+E) - That’s right - parallelism is ubiquitous across almost all modern computer devices and is not restricted to just a few high-end supercomputers.
+
+```
