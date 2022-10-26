@@ -6,7 +6,7 @@
 
 Predicting_weather_Climate_hd
 
-### Transcript
+```{solution} Transcript
 
 0:12 - Climate science.
 
@@ -14,7 +14,7 @@ Predicting_weather_Climate_hd
 
 1:06 - And we can do this for actually hundreds to thousands of years of simulation, which is not available in our observations. So in many ways, we are using the computer simulation as a synthesis of observations we’ve never had. It’s also true that natural catastrophes are among the most costly to society. And this is very important for government, but also for industry. And much of my activity deals with your insurance industry and understanding how we can reduce losses to business, to society, and also loss of life. And we do need to understand how these weather and climate phenomena are changing with time. This is crucial to our society
 
-### Text 
+```
 
 In this short PRACE video, Prof. Pier Luigi Vidale talks about possibilities and challenges of weather and climate simulations.
 
@@ -25,6 +25,15 @@ Despite many weather forecasts being widely available to the public, not many pe
 For example, processes that do not have a clear impact on day-to-day forecasts, such as deep ocean circulation or carbon cycle, are absolutely essential to long range forecasts and climate modelling. That’s why climate projections use coupled ocean-atmosphere models, while short range weather forecasts do not.
 
 How often do you check weather forecasts? Usually, how much in advance are you checking them? From your own experience, how often are short-term forecasts correct? What about longer-term forecasts? Why makes you think this?
+
+© PRACE
+
+---
+
+```{figure} ./images/hero_b2a09350-d6c6-41b9-ae7e-07c50dbbb0cf.jpg
+© iStock.com/South_agency
+```
+
 
 ## Weather simulation - how does it work?
 
@@ -54,6 +63,14 @@ Typically, to lessen the uncertainty in weather predictions, ensemble forecastin
 
 Does this explain why the public weather forecasts should be taken with a pinch of salt? Does weather forecasting work as you expected? Do you find anything surprising?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_143bd3a7-550d-4a0a-9eba-e180753e3fb8.jpg
+© iStock.com/nadla
+```
+
 ## Pre-processing in Weather Simulations
 
 You have seen how important initial conditions are, this is even more true for modelling chaotic systems such as weather. To produce any useful forecast, it is absolutely essential to start with the right set of parameters. However, do we actually know the current state of the atmosphere? How well do we understand processes governing it?
@@ -74,21 +91,30 @@ Among the processes that are to complex to be directly included in weather model
 
 Do you think we will ever reach a point in the history of weather simulation when the steps of data assimilation and parametrisation will become unnecessary? Why do you think so?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_4ab4d092-a615-40d9-b6ce-9e40d39220e6.jpg
+© iStock.com/teekid
+```
 ## Running Weather Simulations
 
 There are many different models and each of them is run in different configurations - over different forecast ranges, over different land scales and with different resolutions. Do they have anything in common then?
 
 What they have in common is that we want them to provide us with forecasts containing as much detail as possible, but at the same time being produced in a timely fashion. The problem is the increased complexity of simulations demands more computing power to issue forecasts within schedule and at a reasonable cost.
 
-For example, at the European Centre for Medium-Range Weather Forecasts (ECMWF), a single 10-day forecast is run in one hour. However, as we mentioned before, to estimate the effect of uncertainties the ensemble forecasting is commonly used. The ECMWF typically runs the ensemble consisting of 50 single forecasts. Compared to a single forecast at the same resolution, the ensemble run is 50 times more expensive and produces 50 times as much data.
+For example, at the European Centre for Medium-Range Weather Forecasts ([ECMWF](http://www.ecmwf.int/en/about)), a single 10-day forecast is run in one hour. However, as we mentioned before, to estimate the effect of uncertainties the ensemble forecasting is commonly used. The ECMWF typically runs the ensemble consisting of 50 single forecasts. Compared to a single forecast at the same resolution, the ensemble run is 50 times more expensive and produces 50 times as much data.
 
-This is only possible thanks to their supercomputing system consisting of over 100,000 CPU-cores. The problem is that with the rate at which the models are being improved, it is estimated that in the future 20 million cores would be needed to do the same job.
+This is only possible thanks to their [supercomputing system](http://www.ecmwf.int/en/computing/our-facilities/supercomputer) consisting of over 100,000 CPU-cores. The problem is that with the rate at which the models are being improved, it is estimated that in the future 20 million cores would be needed to do the same job.
 
 ### Resolution
 
 One of the ways to improve the forecasts is to increase the model resolution. Constructing a finer grid means providing more details of the surface characteristics (e.g. mountains, seas) and reducing errors in the descriptions of smaller-scale physical processes. Another way to improve a forecast is to add more complexity to the model, for example by adding aerosols containing particles such as dust, volcanic ash, and pollution, or including more atmosphere-ocean interactions.
 
-grid © ECMWF (image)
+```{figure} ./images/hero_314aac5e-0e8a-4049-becd-db3d5d99ee30.png
+© ECMWF
+```
 
 These improvements are not easy to implement, and at the same time increase the computational intensity tremendously. If the model was perfectly scalable it would be enough to increase the number of CPU-cores used in the simulation. Then you could increase the resolution by doubling the number of grid points, run the simulation on twice as many cores and expect it to be completed in the same time as the original simulation. Unfortunately, this only works if calculations are independent from each other.
 
@@ -97,6 +123,14 @@ Even if there is no coupling between different variables (i.e. they do not affec
 Global communication across a large number of CPU-cores can have a significant impact on computing performance. The improvements to the model may also result in an increased amount of data processed during the simulation, and more data being communicated between the CPU-cores. This may simply kill scalability!
 
 Do you think running a weather simulation on 20 million CPU-cores is possible? Why? Are there any conditions that weather models would have to meet to make it possible?
+
+© EPCC at The University of Edinburgh, the ECMWF
+
+---
+
+```{figure} ./images/hero_ee2275be-6a29-4403-891c-3ec5a69c175f.jpg
+© iStock.com/AdrianHillman
+```
 
 ### Visualisation and post-processing in Weather Simulations
 
@@ -116,15 +150,60 @@ Quite often special software is required to allow post-processing and then visua
 
 At any given moment in time, a weather state is represented by at least tens of thousands of data points. Can you imagine a weather forecast presented just with words and numbers? It would be completely incomprehensible! The amount of processed and produced data is so vast that some visual form is needed to make sense of it.
 
-One of the earliest visualisations techniques used in weather science were maps. They usually focus on a few variables only (e.g. temperature and cloud/rain cover) and show how they will behave over the next hours or days. If you are interested in seeing how weather maps used in TV weather forecasts changed over time, visit the BBC article - Presenting a warm front: 60 years of the British TV weather forecast.
+One of the earliest visualisations techniques used in weather science were maps. They usually focus on a few variables only (e.g. temperature and cloud/rain cover) and show how they will behave over the next hours or days. If you are interested in seeing how weather maps used in TV weather forecasts changed over time, visit the BBC article - [Presenting a warm front: 60 years of the British TV weather forecast](https://www.bbc.co.uk/news/magazine-25665340).
 
 More recently, emphasis is put on the use of interactive displays, especially on the web, giving users control over the type and form of the displayed information. Animations are also widely used because they are able to effectively condense vast amounts of data into memorable visual sequences.
 
-If you are interested in new cutting edge visualisation techniques developed for weather and environmental science, we invite you to watch the introduction to the Informatics Lab run by the Met Office (UK’s official weather service provider). On the Lab’s website you will also find different demos that you can play with. Especially interesting is Fly Through Model Fields project.
+If you are interested in new cutting edge visualisation techniques developed for weather and environmental science, we invite you to watch the introduction to the [Informatics Lab](https://www.youtube.com/watch?v=s6ito6QxbH4) run by the Met Office (UK’s official weather service provider). On the [Lab’s website](http://www.informaticslab.co.uk/) you will also find different demos that you can play with. Especially interesting is [Fly Through Model Fields](https://archived.informaticslab.co.uk/projects/three-d-vis.html) project.
 
 Can you imagine any of the Informatics Lab projects being used in real life situations? Would they be useful? Why do you think so?
 
-## Terminology Recap (Quiz)
+© EPCC at The University of Edinburgh
+
+---
+
+## Terminology Recap
+
+```{questions} Question 1
+
+From the user perspective, the simulation process can be thought of as consisting of three linked steps. The first one, taking care of model settings and input data, is referred to as the ____ stage. Then comes the ____
+stage, which on large machines is handled by the batch system. Finally, we have the ____ stage which takes the results of a simulation and puts them into a usable form.
+
+```
+
+```{solution}
+
+A) Preprocessing
+
+B) Execution
+
+C) post-processing
+
+```
+
+```{questions} Question 2
+
+The process by which observations of the actual system are incorporated into the model state of a numerical model of that system is called ____ ____ . Introducing additional parameters into a model to account for the processes that are too small or too complex to be explicitly represented is called ____ .
+
+```
+
+```{solution}
+
+A) data
+
+B) assimilation
+
+C) parameterisation
+
+```
+
+---
+
+```{figure} ./images/hero_851adb44-88af-4ed3-98a9-523c192be510.jpg
+
+© iStock.com/Pitiphothivichit
+
+```
 
 ## Scalability of weather simulations
 
@@ -132,7 +211,8 @@ The need for greater computing power in weather forecasting is driven by advance
 
 In March 2016 ECMWF launched a new model, which reduced the horizontal grid spacing from 16 to 9 km, resulting in 3 times as many prediction points which now total 904 million. It’s estimated that the increased resolution improves the accuracy of forecasts by 2-3% for many parameters. The graph below shows the results of simulations carried out by ECMWF at a range of hypothetical model grid resolutions.
 
-ECMWF scaling graph (image)
+```{figure} ./images/hero_ef5206cc-5956-4ce2-a77f-054447fce6a9.png
+```
 
 Using the graph and what you have learnt so far, try to answer the following questions:
 
@@ -142,6 +222,16 @@ Using the graph and what you have learnt so far, try to answer the following que
 - What do you think about this scaling behaviour? Is it good or bad?
 - What do you think the existence of a power limit means?
 - What do you think should be changed to realise the goal of 5km horizontal resolution for ensemble forecasting by 2025?
+
+If you would like to learn more about the upgraded model visit the dedicated [ECMWF’s media centre page](http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution).
+
+© EPCC at The University of Edinburgh, the ECMWF
+
+---
+
+```{figure} ./images/hero_3a023b51-36d6-457c-8815-cce09d554fe9.jpg
+© iStock.com/3quarks
+```
 
 ## Bottlenecks of Weather Simulations
 
@@ -170,3 +260,7 @@ After the storm, ECMWF run a number of experiments to determine the role of sate
 You may think that with the technological advances the number of satellites is steadily increasing so there is no danger of not being able to provide enough data to the weather models. However, in fact, a number of the satellites are ageing and funding their replacement is not always easy. It seems that governments are not very keen on spending money on new satellites. This could definitely prove to be a problem and cause degradation in our ability to predict the weather but also impact our understanding of Earth’s climate and life support systems.
 
 In your opinion, what is the most limiting factor in our current ability to forecast the weather?
+
+© EPCC at The University of Edinburgh
+
+---

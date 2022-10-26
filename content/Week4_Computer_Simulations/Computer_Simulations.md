@@ -1,22 +1,8 @@
 # Computer Simulations
 
-## Welcome to Week 4
-
-### Video
-
-Welcome_to_week4_hd
-
-### Transcript
-
-0:12 - From the first three weeks, you should now have a good understanding of what supercomputers are, how they’re built, and how they’re programmed. However, other than the traffic simulation, we haven’t covered how computers are used to simulate the real world. This week we’ll cover the basic concepts of computer simulation– the methods, the approximations, and the end-to-end process from inputting the initial data to visualising the final results. We’re going to use weather forecasting as a key example. Now it’s a field that’s always been at the forefront of computer simulation, and it’s an area where supercomputers are absolutely central in letting you know in advance whether you should have an outdoor barbecue tomorrow, or order pizza and eat inside.
-
-0:54 - We won’t go into the details of parallelisation, but from what you’ve learned so far, you should be able to start to think about how these simulations can be broken down into many separate tasks, and then mapped onto a large parallel supercomputer.
-
-### Text
-
-In this short video David gives an introduction to Week 4.
-
-In the previous weeks we talked about the hardware of supercomputers and how to program them, this week we will focus on computer simulations. We will use weather simulations to illustrate the key concepts.
+```{figure} ./images/hero_9b0e33b8-9b70-4edc-bf26-6f4110781038.jpg
+© iStock.com/slavemotion
+```
 
 ## Computer simulations
 
@@ -33,6 +19,14 @@ For simulations like weather forecasting, or wildfire modelling, the time-to-sol
 Moreover, regardless of how complex a model is, the actual physical system will always contain phenomena that are not represented in the model. This is not a problem, as long as the model still provides insight into the behaviour of the system. That’s why a truly useful model should be able to determine all relevant behaviour and properties of the studied system using a relatively small number of variables and relations between them. The predictive power of a model does not directly depend on its completeness or complexity but on its ability to correctly identify the dominant controlling factors and hence, the necessary approximations.
 
 Now, how one goes about creating a model and a simulation? Any ideas?
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_bd3c2838-0873-4170-a3eb-5f53462415c4.png
+© 1979 by Simulation Councils, Inc.
+```
 
 ## Errors and approximations
 
@@ -62,6 +56,13 @@ The key point to remember about models, and hence simulations, is that although 
 
 Think back to our toy traffic model, how many approximations, uncertainties or potential sources of errors can you think of?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_da00f904-73a8-4673-b50c-4e9276d84e41.png
+© iStock.com/dedMazay
+```
 ## Wolf-sheep predation simulation
 
 In this step we are going to use the wolf-sheep predation model to illustrate how models and simulations work. Hopefully, this will allow you to better understand the concepts introduced in the previous steps.
@@ -72,11 +73,12 @@ In the first variation, wolves and sheep wander randomly around the landscape, w
 
 The second variation includes grass (green) in addition to wolves and sheep. The behavior of the wolves is identical to the first variation, however this time the sheep must eat grass in order to maintain their energy - when they run out of energy they die. Once grass is eaten it will only regrow after a fixed amount of time. This variation is more complex than the first, but it is generally stable.
 
-To play with the model, or to have a look at the code, go to the Modelling Commons page dedicated to the wolf-sheep model and first click on the SETUP button and then on the GO button. For more information on the model see the INFO tab.
+To play with the model, or to have a look at the code, go to the Modelling Commons page dedicated to the [wolf-sheep model](http://modelingcommons.org/browse/one_model/1390#model_tabs_browse_nlw) and first click on the SETUP button and then on the GO button. For more information on the model see the INFO tab.
 
-We know that the web version of the model works on Chrome and Safari browsers. If you cannot get it to work on your browser you can try downloading the netlogo software from here. It comes with a library full of interesting models and the wolf-sheep model can be found under the biology section.
+We know that the web version of the model works on Chrome and Safari browsers. If you cannot get it to work on your browser you can try downloading the netlogo software from [here](https://ccl.northwestern.edu/netlogo/s). It comes with a library full of interesting models and the wolf-sheep model can be found under the biology section.
 
-wolf-sheep predation (image)
+```{figure} ./images/hero_b12d1403-058b-4971-9417-f188a1440b3a.png
+```
 
 The wolf-sheep model is very simplistic and would not be useful in studying the actual dynamic between both populations, but it is good enough to illustrate some of the concepts we covered in the previous step.
 
@@ -84,10 +86,20 @@ The wolf-sheep model is very simplistic and would not be useful in studying the 
 
 When we were talking about nondeterministic characteristics of the systems we mentioned uncertainties and other factors that could impact our conceptual model of the systems. Clearly, the wolf-sheep predation model ignores all of the nondeterministic aspects of the systems, for example:
 
-What happened to the meteorological seasons? Surely, no one needs convincing that a harsh and longer than usual winter would affect both animal populations negatively, right? The seasons could be considered as one of the inherent variations of the system - they always happen but with a varying duration and intensity;
-What about the health state of both populations? If either of the populations was infected with some disease it would have a great impact on the other but it may not manifest immediately - hence, our lack of knowledge;
-Or what would happen if annoyed shepherds decided to deal with the wolves? There is no easy way of predicting the extent of human intervention.
+- What happened to the meteorological seasons? Surely, no one needs convincing that a harsh and longer than usual winter would affect both animal populations negatively, right? The seasons could be considered as one of the inherent variations of the system - they always happen but with a varying duration and intensity;
+- What about the health state of both populations? If either of the populations was infected with some disease it would have a great impact on the other but it may not manifest immediately - hence, our lack of knowledge;
+- Or what would happen if annoyed shepherds decided to deal with the wolves? There is no easy way of predicting the extent of human intervention.
+
 Does that give you a better idea of what uncertainties are? Can you think of any other sources of uncertainties in this model?
+
+
+© Modelling Commons - 1997 Uri Wilensky; EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_95b97602-f62e-43d8-9084-159a21df0a0d.jpg
+© iStock.com/Crystal-K
+```
 
 ## Wolf-sheep predation simulation - Initial and Boundary Conditions (Discussion)
 
@@ -102,12 +114,59 @@ To understand the importance of choosing the right input parameters, and see the
 - allow both populations to be stable (i.e. neither population is dying out) even after 1000 time steps
 - allow the sheep population to die out
 - allow the wolf population to die out
-- 
+
 How difficult was it to find the sets of parameters to meet the conditions? Have you noticed anything unexpected?
 
-## terminology Recap (Quiz)
+© EPCC at The University of Edinburgh
+
+---
+## Terminology Recap
+
+```{questions} Question 1
+
+A ____ ____ is a description of a physical system using mathematical concepts and language, and an act of running such model on a computer is called
+____ ____ . It is not possible for a model to capture all physical phenomena, therefore they are ____ as best as possible.
+
+```
+
+```{solution}
+
+A) mathematical model
+
+B) computer simulation
+
+C) approximated
+
+```
+
+```{questions} Question 2
+
+The inaccuracies that are not caused by the lack of knowledge are known as
+____ . The difference between the real number and its approximation is referred to as the
+____ ____ .
+
+```
+
+```{solution}
+
+A) errors
+
+B) rounding error
+
+```
+
+---
+
+```{figure} ./images/hero_e436356c-c306-4ece-bcb6-b2c906973579.png
+```
 
 ## Computational Science
+
+```{danger}
+
+update archer reference here to archer2
+
+```
 
 Computational science is a rapidly growing interdisciplinary field. There are many problems in science and technology that cannot be sufficiently studied experimentally or theoretically. It may be too expensive or too dangerous, or simply impossible due to the space and timescales involved.
 
@@ -127,17 +186,31 @@ However, more recently, other disciplines, such as medicine (e.g. medical imagin
 
 If you want to know what sorts of applications are run on the UK’s national supercomputer ARCHER, visit the relevant page on the ARCHER website. Is there anything that surprises you there?
 
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_8a5c78fe-7ea4-4a9b-a5d1-c9b389829d15.jpg
+© iStock.com/Ivcandy
+```
+
 ## Why use supercomputers? (Discussion)
 
 Having learned how computer simulations work and what supercomputers are capable of you should have a good idea why we need them.
 
 In this exercise we want you to have a look at three examples of computer simulations and answer the following questions:
 
-In your opinion, what are three main reasons for using supercomputers in science and industry?
-Can you think of any problems that are still too difficult to be solved with our current computing technology?
+- In your opinion, what are three main reasons for using supercomputers in science and industry?
+- Can you think of any problems that are still too difficult to be solved with our current computing technology?
 The excerpts below are from three different projects involving computer simulations, and should provide you enough food for thought.
 
 ### Protein Folding
+
+```{danger}
+
+website no longer exists
+
+```
 
 (The Folding@Home Project page can be found here):
 
@@ -149,18 +222,26 @@ The Folding@Home project is actually an example of a distributed computing proje
 
 ### Recreating the Big Bang
 
-(The Illustris project page can be found here):
+(The Illustris project page can be found [here](http://www.illustris-project.org/)):
 
 “The Illustris project is a set of large-scale cosmological simulations, including the most ambitious simulation of galaxy formation yet performed. The calculation tracks the expansion of the universe, the gravitational pull of matter onto itself, the motion or “hydrodynamics” of cosmic gas, as well as the formation of stars and black holes. These physical components and processes are all modeled starting from initial conditions resembling the very young universe 300,000 years after the Big Bang until the present day, spanning over 13.8 billion years of cosmic evolution. The simulated volume contains tens of thousands of galaxies captured in high-detail, covering a wide range of masses, rates of star formation, shapes, sizes, and with properties that agree well with the galaxy population observed in the real universe.”
 
 ### Weather modelling
 
-(More information about ensemble forecasting done by the UK Met Office can be found here):
+(More information about ensemble forecasting done by the UK Met Office can be found [here](https://www.metoffice.gov.uk/research/weather/ensemble-forecasting/what-is-an-ensemble-forecast)):
 
 “A forecast is an estimate of the future state of the atmosphere. It is created by estimating the current state of the atmosphere using observations, and then calculating how this state will evolve in time using a numerical weather prediction computer model. As the atmosphere is a chaotic system, very small errors in its initial state can lead to large errors in the forecast.
 
 This means that we can never create a perfect forecast system because we can never observe every detail of the atmosphere’s initial state. Tiny errors in the initial state will be amplified, so there is always a limit to how far ahead we can predict any detail. To test how these small differences in the initial conditions may affect the outcome of the forecast, an ensemble system can be used to produce many forecasts.”
 
+
+© EPCC at The University of Edinburgh
+
+---
+
+```{figure} ./images/hero_fa194728-44a5-4969-9338-30c7c88ab717.jpg
+© iStock.com/cnythzl
+```
 
 ## Simulation steps
 
@@ -180,9 +261,10 @@ Quite often, especially on a large machines, once the simulation has been starte
 
 There are a number of reasons why supercomputing facilities use this approach but the main ones are:
 
-a machine is a shared resource but most users want/need an exclusive access to the compute resources;
-most of the applications are written in a way that require dedicated resources to scale efficiently;
-the whole system must be utilised as fully as possible (even during weekends and public holidays!) otherwise its resources are being wasted.
+1) a machine is a shared resource but most users want/need an exclusive access to the compute resources;
+2) most of the applications are written in a way that require dedicated resources to scale efficiently;
+3) the whole system must be utilised as fully as possible (even during weekends and public holidays!) otherwise its resources are being wasted.
+
 The point is that real-time visualisations (in situ visualisations), although slowly making their appearance, are not really used in a large scale simulations run on supercomputers. Downloading data to off-site locations (i.e. off the compute nodes of a supercomputer) allows interactive visualisations to be performed, without issues caused by limiting batch-mode workflows necessary on supercomputers. This means that to see what has happened during the simulation, i.e. to create a step-by-step visualisation of the simulation, it is necessary to save a lot of data at each time step.
 
 ### Post-processing
@@ -193,4 +275,161 @@ For example, in weather forecasting it is common to show the movement of rain or
 
 What do you think may be required to perform the pre- and post-processing steps? Do you think they have to be done on the same machine the simulation is run on? Do you think these steps have different hardware or software requirements than the execution step?
 
-## Questions on Computer Simulations (Quiz)
+© EPCC at The University of Edinburgh
+
+---
+
+## Questions on Computer Simulations
+
+
+```{questions} Question 1
+
+What are the main reasons for running computer simulations on supercomputers?
+
+Select all the answers you think are correct.
+
+
+A) to solve larger or more complex problems
+
+
+B) to solve problems faster
+
+
+C) it’s often cheaper than carrying out experiments
+
+
+D) computer simulations may be the only way of studying some problems
+
+```
+
+```{solution} 
+
+All are correct!
+
+Think of time and cost benefits of using computer simulations over other methods and means of doing science.
+
+Correct! - Having more computational power means you can tackle larger or more complex problems in a relatively short amount of time.
+
+Correct! - in most simulations directly linked to our everyday lives (e.g. weather forecasting, medical modelling) the time-to-solution is very important. Being able to solve problems faster is important.
+
+Correct! - if you need to test hundreds of different problem settings it’s often cheaper to run hundreds of simulations than carry out hundreds of experiments.
+
+Correct! - problems dealing with extremely small or large time and space-scales are often difficult, if not impossible to study otherwise.
+
+```
+
+```{questions} Question 2
+
+Which of the following statements about simulations and models are true?
+
+
+A) a simulation is an act of running a model
+
+
+B) a model is an exact representation of reality
+
+
+C) a model should always capture all interactions between the components of the system it models
+
+
+D) all of the above are true
+
+```
+
+```{solution}
+
+A) 
+
+Think about the relation between a model, simulation and reality.
+
+Correct! - the execution of mathematical model on a computer is called simulation
+
+```
+
+```{questions} Question 3
+
+Which of the following aspects of a computer simulation are never approximated?
+
+
+A) interactions between the system’s components
+
+
+B) initial and boundary conditions
+
+
+C) numerical values of simulation variables during the simulation run
+
+
+D) none of the above
+
+```
+
+```{solution}
+
+D) 
+
+Think about why approximations are necessary.
+
+Correct! - above approximations are necessary to allow computer simulations to study the behaviour of systems in time and cost effective manner.
+
+```
+
+```{questions} 
+
+Which of the following statements about computational science are true?
+
+Select all the answers you think are correct.
+
+
+A) computational science can be considered to be an intersection between mathematics, computer science and applied disciplines
+
+
+B) computational science is a rigid discipline, which is not evolving in time
+
+
+C) only classical fields like physics and chemistry are making use of computational science
+
+
+D) computational science is focused on using computational methods to solve scientific problems
+
+```
+
+```{solution}
+
+A) and D)
+
+Think about what computational science is and how and when it came about.
+
+Correct! - computational science draws upon these three fields to solve scientific problems.
+
+Correct! - solving scientific problems is the main goal of computational science, and computational methods are tools used to achieve that.
+
+```
+
+```{questions} Question 5
+
+Which of the following statements about computer simulations are true?
+
+
+A) pre- and post-processing steps of computer simulations are not very important
+
+
+B) computer simulations are usually run interactively on supercomputers
+
+
+C) the pre-processing step usually prepares initial parameters and data, and the post-processing step puts the results in a more useable formats
+
+
+D) all of the above
+
+```
+
+```{solution}
+
+C)
+
+Think about what computer simulations are meant to do and how they do it.
+
+Correct! - pre-processing is necessary to ensure that simulation is run with correct settings; post-processing makes sure that the simulation’s output is readable or ready for further processing.
+
+```
