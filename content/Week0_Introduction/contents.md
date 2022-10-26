@@ -8,25 +8,46 @@ This course aims to inform users of the principles of how high perofrmance compu
 
 ```
 
+---
+
 ## Arrangements for this unfacilitated run
 
-This course has already run five times in the standard FutureLearn format since it first launched in March 2017. We are still keen for the material to be available for learners, but we have decided that the interest in the course doesn’t justify a facilitated run with substantial involvement, input and direction from the Educators. We have therefore decided to continue to offer the course but using the “unfaciliated” model.
+```{danger}
+
+How do we want to present the structure of the document/course?
+
+Week by week keeps this too close to the original Future learn course
+
+```
+
+This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the github repository which the course is hosted from if there are issues with the material. 
+
+
+
+five times in the standard Future Learn format since it first launched in March 2017. We are still keen for the material to be available for learners, but we have decided that the interest in the course doesn’t justify a facilitated run with substantial involvement, input and direction from the Educators. We have therefore decided to continue to offer the course but using the “unfaciliated” model.
 
 The Educators won’t be able to join the discussions themselves or respond to individual comments, but the course encourages a strong learning community. The learning is focussed around debate and discussion - supporting other learners, sharing your own experience and knowledge, and listening to new perspectives. We hope that you will enjoy interacting with and learning from each other in this way. Don’t forget to comment, reply to other learners and ‘like’ comments.
 
 To make things more interesting, occasionally, Mentors from different HPC institutions will appear to participate in the discussions.
 
+---
+
 ## Welcome
 
-```{raw} html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Cj8n4MfhjUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
+[comment]: <> (```{raw} html)
+[comment]: <> (<iframe width="560" height="315" src="https://www.youtube.com/embed/Cj8n4MfhjUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+[comment]: <> (```)
+
 ```{raw} html
     <video width="700px" height="500px" 
         controls="controls"/> 
         <source src="/home/jpr/Projects/EuroCC/MOOC/content/Week1_Supercomputing/video/Welcome_to_week1_hd.mp4" 
             type="video/mp4"> 
     </video>
+```
+
+```{raw} html
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_j7mdt8di&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_tsiu9191" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Welcome_to_week1_hd"></iframe>
 ```
 
 Welcome_hd
@@ -51,8 +72,17 @@ The course material is presented as a mixture of videos, articles, discussions, 
 
 The course is no longer fully facilitated so we would like to encourage you with your fellow learners. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge. And more importantly, it’s fun! So if you have an opinion share it!
 
+© EPCC at The University of Edinburgh
+
+---
 
 ## About PRACE
+
+```{danger}
+
+How much do we want to focus on PRACE work and do we need to move this to a EuroCC focus
+
+```
 
 ### Video
 
@@ -74,17 +104,22 @@ PRACE stands for Partnership for Advanced Computing in Europe. The mission of PR
 
 PRACE is established as an international not-for-profit association (aisbl) with its seat in Brussels. It has 24 member countries whose representative organisations create a pan-European supercomputing infrastructure, providing access to computing and data management resources and services for large-scale scientific and engineering applications at the highest performance level.
 
-Both EPCC (at the University of Edinburgh) and SURFsara (in Amsterdam), the developers of this course, are active members of PRACE. EPCC hosts a PRACE Advanced Training Centre, and SURFsara was recently selected as one of four new PRACE Training Centres.
+Both [EPCC](https://www.epcc.ed.ac.uk/) (at the University of Edinburgh) and [SURFsara](https://www.surf.nl/en/about-surf/subsidiaries/surfsara/) (in Amsterdam), the developers of this course, are active members of PRACE. EPCC hosts a PRACE Advanced Training Centre, and SURFsara was recently selected as one of four new PRACE Training Centres.
 
-The national supercomputers at these centres, ARCHER and Cartesius, are Tier-1 systems within PRACE, accessible via four different access types. Tiers are used to describe the hierarchy of supercomputers and supercomputing clusters on an international, national and local scale: Tier-0 are pan-European systems; Tier-1 are national systems; Tier-2 are regional systems; and Tier-3 are local clusters (mostly university resources).
+The national supercomputers at these centres, ARCHER and Cartesius, are Tier-1 systems within PRACE, accessible via [four different access types](https://prace-ri.eu/hpc-access/). Tiers are used to describe the hierarchy of supercomputers and supercomputing clusters on an international, national and local scale: Tier-0 are pan-European systems; Tier-1 are national systems; Tier-2 are regional systems; and Tier-3 are local clusters (mostly university resources).
 
-The Tier-0 computer systems and their operations accessible through PRACE are provided by five PRACE members: BSC representing Spain, CINECA representing Italy, ETH Zurich and CSCS representing Switzerland, GCS and HLRZ representing Germany and GENCI representing France. Four hosting members (France, Germany, Italy, and Spain) secured funding for the initial period from 2010 to 2015. In 2016 a fifth Hosting Member (CSCS, Switzerland) opened its system via the PRACE Peer Review Process to researchers from academia and industry.
+The [Tier-0 computer systems](https://prace-ri.eu/hpc-access/hpc-systems/) and their operations accessible through PRACE are provided by five PRACE members: BSC representing Spain, CINECA representing Italy, ETH Zurich and CSCS representing Switzerland, GCS and HLRZ representing Germany and GENCI representing France. Four hosting members (France, Germany, Italy, and Spain) secured funding for the initial period from 2010 to 2015. In 2016 a fifth Hosting Member (CSCS, Switzerland) opened its system via the PRACE Peer Review Process to researchers from academia and industry.
 
-For more information on all of the activities of PRACE including gaining access to its HPC facilities and training programmes, see the PRACE website.
+For more information on all of the activities of PRACE including gaining access to its HPC facilities and training programmes, see the [PRACE website](https://prace-ri.eu/).
+
+© PRACE
+
+---
 
 ## About EuroCC
 
 
+---
 
 ## People
 
@@ -101,5 +136,13 @@ The lead educator, Dr David Henty, is responsible for HPC Training at EPCC, The 
 The other educator is:
 
 Weronika Filinger is an HPC applications consultant at EPCC, The University of Edinburgh.
+
+```{danger}
+Who should be named publically associated with this material needs to be confirmed!
+
+Additionally we don't have any interactivity so this needs removing
+```
+
+© EPCC at The University of Edinburgh
 
 [comment]: <> (Be sure to view their profiles and follow them so you can keep track in the course discussions.)
