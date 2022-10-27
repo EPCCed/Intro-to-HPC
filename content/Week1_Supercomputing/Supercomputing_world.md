@@ -50,30 +50,6 @@ Your next mobile phone will probably have more CPU-cores than your current one. 
 © SURFsara
 
 ---
-
-## Abreif history of Supercomputing (Exercise)
-
-```{danger}
-
-Future learn time line interface used here so little chance of replicating that functionality so will have to remove this section.
-
-```
-
-It is interesting to look at the history of supercomputers. Here we have put together some interactive graphical timelines of notable supercomputers on a worldwide scale.
-
-As well as the timeline exercise below, we also have some histories of various systems hosted by EPCC over the past 30 years - see them here.
-
-This contains separate histories for several different systems, highlighting the science done on them as well as the details of the hardware.
-
-Can you find the EPCC machine that appeared in the the first Jurassic Park film in 1993: “You know anybody who can network 8 machines and debug 2 million lines of code for what I bid for this job?”
-
-### Timeline
-Here is an illustrated history of the last 75 years of supercomputing until 2016. Can you spot any trends e.g. in performance, parallelism or physical size? Do you prefer the vintage or modern design aesthetic?
-
-© SURFsara, EPCC at the University of Edinburgh
-
----
-
 ## How to calculate the world's yearly income?
 
 ### Video
@@ -149,21 +125,6 @@ In this video David uses the income calculation example to illustrate what is th
 
 ---
 
-## Supercomputing world (Exercise)
-
-```{danger}
-Uses Future learn exercise interface so will be dificult to replicate this in mark down. Remove section.
-```
-
-We are going to look at the top 10 supercomputers from a June 2022 snapshot of the Top 500 list, and also look at the various PRACE systems.
-
-You can see on the map where these systems are located and learn more details by clicking on the name or location of the system.
-
-What do you think about the distribution of the top 10 systems? Do you find it surprising? Where was your nearest supercomputer?
-
-© SURFsara
-
----
 
 ```{figure} ./images/large_hero_de817f13-08fc-48f3-a1ad-675868f70f3d.jpg
 © iStock.com/retrorocket
