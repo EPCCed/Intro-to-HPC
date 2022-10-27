@@ -27,7 +27,7 @@ The input file can be obtained from [https://www.hecbiosim.ac.uk/access-hpc/benc
 
 An example script to run the benchmark on {{ machine_name }} is shown below.
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/gmx_slurm_part1.md\n```'.replace("REPLACE",machine_name) }}
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise_gmx/gmx_slurm_part1.md\n```'.replace("REPLACE",machine_name) }}
 
 The bottom of the ``md.log`` file will contain the performance timings, e.g:
 

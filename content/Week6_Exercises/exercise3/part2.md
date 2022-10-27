@@ -25,7 +25,7 @@ The benchmarks are designed such that ``water_x1.tpr`` is a suitable size for ru
 
 An example script to run the benchmark on {{ machine_name }} is shown below.
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/gmx_slurm_part2.md\n```'.replace("REPLACE",machine_name) }}
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise_gmx/gmx_slurm_part2.md\n```'.replace("REPLACE",machine_name) }}
 
 Once again the important number is the ns/day figure.
 

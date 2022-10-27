@@ -17,7 +17,7 @@ git clone https://github.com/sfarr-epcc/fractal.git
 
 Enter the directory and compile the code using the Makefile.
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/ex2_make.md\n```'.replace("REPLACE",machine_name) }}
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise2/ex2_make.md\n```'.replace("REPLACE",machine_name) }}
 
 The compiled program will be called ``fractal``.
 

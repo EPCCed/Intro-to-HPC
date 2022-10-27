@@ -1,4 +1,4 @@
-# Part 3: Parallel execution on compute nodes
+# Part 2: Parallel execution on compute nodes
 
 This page covers running parallel code on compute nodes using the job submission system.
 
@@ -23,7 +23,7 @@ To run this code in parallel it should be submitted to the compute nodes using S
 
 ## Running on the {{ machine_name }} compute nodes
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/ex1_slurm.md\n```'.replace("REPLACE",machine_name) }}
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise1/ex1_slurm.md\n```'.replace("REPLACE",machine_name) }}
 
 
 ## Investigating the parallel speedup
