@@ -5,8 +5,8 @@
 jupyter_execute
 .DS_Store
 .vscode/
-./content/Week1_Supercomputing/video/*
-./content/Week2_Parallel_Computers/video/*
-./content/Week3_Parallel_Computing/video/*
-./content/Week4_Computing_Simulations/video/*
-./content/Week5_Case_Studies/video/*
+content/Week1_Supercomputing/video/*
+content/Week2_Parallel_Computers/video/*
+content/Week3_Parallel_Computing/video/*
+content/Week4_Computer_Simulations/video/*
+content/Week5_Case_Studies/video/*
