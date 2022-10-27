@@ -1,7 +1,7 @@
 # Part 2: Compiling and running Hello world!
 
 
-This example is both meant to get you used to the command line envrionment of a high perofrmance computer aswell as submitting jobs to the batch system, while learning about the hardware of a HPC system.
+This example is both meant to get you used to the command line envrionment of a high performance computer aswell as submitting jobs to the batch system, while learning about the hardware of a HPC system.
 
 In the following programs we are going to look at a hello world program and look at two types of parallelism both on  both shared memory and distributed memory systems.
 
