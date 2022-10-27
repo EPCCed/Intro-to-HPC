@@ -8,12 +8,10 @@ This page covers how to download, compile, and run code.
 In this exercise we will be using a image sharpening program. The source code is available in a Github repository.
 
 
-
-
 To download the code you will need to clone the repository. To do this execute the following command
 
 >```
->    git clone https://github.com/sfarr-epcc/sharpen.git
+>    git clone https://github.com/EPCCed/EPCC-Exercises
 >```
 
 The output will look similar to this
@@ -113,7 +111,7 @@ Output:
 
 To view the images on the remote machine you will need to make sure you an X window client installed on your local machine and you have logged into the remote machine with X forwarding enabled.
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/view_pgm.md\n```'.replace("REPLACE",machine_name) }}
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise1/view_pgm.md\n```'.replace("REPLACE",machine_name) }}
 
 Alternatively you can download the files to your local machine via SSH (``scp``, ``rysnc``, or ``stfp``) and open them with an image viewing program e.g. preview on MacOS.
 
