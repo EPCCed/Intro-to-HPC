@@ -7,7 +7,7 @@ In this practical exercise you will:
 -   Compile and run serial code interactively.
 -   Submit serial and parallel programs to run using the batch system.
 
-The case study code for this exercise is a image sharpening program. The source code we will use is on this Github repo: [https://github.com/sfarr-epcc/sharpen](https://github.com/sfarr-epcc/sharpen)
+The case study code for this exercise is a image sharpening program. The source code we will use is on this [Github repository](https://github.com/EPCCed/EPCC-Exercises).
 
 ```{toctree}
 ---

@@ -20,7 +20,7 @@ Week by week keeps this too close to the original Future learn course
 
 ```
 
-This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the github repository which the course is hosted from if there are comments on the material. 
+This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
 
 ---
 

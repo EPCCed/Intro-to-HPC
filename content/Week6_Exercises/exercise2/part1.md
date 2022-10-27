@@ -8,7 +8,7 @@ This page covers how to download, compile, and run the example code.
 To download the code you will need to clone the repository. To do this execute the following command:
 
 ```
-git clone https://github.com/sfarr-epcc/fractal.git
+git clone https://github.com/EPCCed/EPCC-Exercises
 ```
 
 
