@@ -20,15 +20,7 @@ Week by week keeps this too close to the original Future learn course
 
 ```
 
-This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the github repository which the course is hosted from if there are issues with the material. 
-
-
-
-five times in the standard Future Learn format since it first launched in March 2017. We are still keen for the material to be available for learners, but we have decided that the interest in the course doesn’t justify a facilitated run with substantial involvement, input and direction from the Educators. We have therefore decided to continue to offer the course but using the “unfaciliated” model.
-
-The Educators won’t be able to join the discussions themselves or respond to individual comments, but the course encourages a strong learning community. The learning is focussed around debate and discussion - supporting other learners, sharing your own experience and knowledge, and listening to new perspectives. We hope that you will enjoy interacting with and learning from each other in this way. Don’t forget to comment, reply to other learners and ‘like’ comments.
-
-To make things more interesting, occasionally, Mentors from different HPC institutions will appear to participate in the discussions.
+This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the github repository which the course is hosted from if there are comments on the material. 
 
 ---
 
@@ -66,11 +58,11 @@ Welcome_hd
 
 Welcome! Meet the lead educator of the Supercomputing course by PRACE, Dr David Henty who will guide you through the course.
 
-This may be the first course you have undertaken on FutureLearn so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
+This may be the first self service course you have worked through so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
 
-The course material is presented as a mixture of videos, articles, discussions, exercises, quizzes and tests. Once you have gone through a step and decided that you have familiarised yourself with its content, you can mark it as complete. However, even after you have completed a step don’t forget to have a look at its comment section.
+The course material is presented as a mixture of videos, articles, exercises and quizzes. Once you have gone through a step and decided that you have familiarised yourself with its content, you can mark it as complete.
 
-The course is no longer fully facilitated so we would like to encourage you with your fellow learners. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge. And more importantly, it’s fun! So if you have an opinion share it!
+The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of you local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge. And more importantly, it’s fun! So if you have an opinion share it!
 
 © EPCC at The University of Edinburgh
 
@@ -118,24 +110,21 @@ For more information on all of the activities of PRACE including gaining access 
 
 ## About EuroCC
 
+The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to... This course has been adapted with EuroCC funding to update the original course developed unde prace and improve course flexibility.
 
 ---
-
+```{figure} ./../Week1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
+cite!
+```
 ## People
 
-[comment]: <> (image large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg)
-
-```{figure} ./../Week1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
-```
-
-Please introduce yourself in the comments area on this page, saying why you are interested in the Supercomputing course and what you hope to gain from it. Are there any specific aspects of the subject that you would like to learn about?
-
-About us
 The lead educator, Dr David Henty, is responsible for HPC Training at EPCC, The University of Edinburgh.
 
-The other educator is:
+The other educators are:
 
 Weronika Filinger is an HPC applications consultant at EPCC, The University of Edinburgh.
+
+James Richings is a HPC applications consultant at EPCC, The University of Edinburgh.
 
 ```{danger}
 Who should be named publically associated with this material needs to be confirmed!
@@ -144,5 +133,3 @@ Additionally we don't have any interactivity so this needs removing
 ```
 
 © EPCC at The University of Edinburgh
-
-[comment]: <> (Be sure to view their profiles and follow them so you can keep track in the course discussions.)
