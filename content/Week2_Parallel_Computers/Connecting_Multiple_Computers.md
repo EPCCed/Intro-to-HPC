@@ -47,7 +47,7 @@ Why do you think the distributed memory architecture is common in supercomputing
 © iStock.com/Maxiphoto
 ```
 
-## Simple Parallel Calculation (Discussion)
+## Simple Parallel Calculation
 
 Let’s return to the income calculation example. This time we’ll be a bit more ambitious and try and add up 800 salaries rather than 80. This list of salaries fills 8 whiteboards (100 on each) all in separate offices.
 
@@ -76,18 +76,31 @@ Update this section to discuss archer2 instead of archer.
 
 ```
 
-To help you understand the general concepts we have introduced this week, we’ll now look at a specific supercomputer. I’m going to use the UK National Supercomputer, ARCHER, as a concrete example. As well as being a machine I’m very familiar with, it has a relatively straightforward construction and is therefore a good illustration of supercomputer hardware in general.
+To help you understand the general concepts we have introduced this week, we’ll now look at a specific supercomputer. I’m going to use the UK National Supercomputer, ARCHER2, as a concrete example. As well as being a machine I’m very familiar with, it has a relatively straightforward construction and is therefore a good illustration of supercomputer hardware in general.
 
 ### General
 ARCHER is a Cray XC30 machine, built by the American supercomputer company Cray Inc. It contains 118,080 CPU-cores and has a theoretical peak performance of 2.55 Pflop/s. It is operated by EPCC at the University of Edinburgh on behalf of EPSRC and NERC, and is the major HPC resource for UK research in engineering and in physical and environmental science.
 
 Note that ARCHER is due to be replaced by ARCHER2 built by Cray, a Hewlett Packard Enterprise company. ARCHER2 will be operated and supported by EPCC at the University of Edinburgh on behalf of UKRI. For full details, see the ARCHER2 web site.
 
+
+### General (Archer2)
+
+Archer2 is a HPE Cray EX machine, built by American supercomputer company Cray, a Hewlett Packard Enterprises company. It contains 750,080 CPU-cores and has a theoretical performance of 28 Pflop/s. It is operated by EPCC at the University of Edinburgh on behalf of EPSRC and NERC, and is the major HPC resource for UK research in engineering and in physical and environmental science.
+
 ### Node design
 The basic processor used in ARCHER is the Intel E5-2697 v2 (Ivy Bridge) CPU, which has a clock speed of 2.7 GHz. The nodes on ARCHER have 24 CPU-cores; all 24 cores in a node are under the control of a single operating system. The OS is the Cray Linux Environment, which is a specialised version of SUSE Linux tailored for Cray systems.
 
+### Node design (Archer2)
+
+The basic processor used in ARCHER2 is the AMD Zen2 (Rome) EPYC 7742 CPU, which has a clock speed of 2.25 Ghz . The nodes on ARCHER2 have 128 cores across two of the AMD processors. All the cores are under the control of a single operating system. The OS is the HPE Cray Linux Environment, which is a specialised version of SUSE Linux.
+
 ### Network
 The complete ARCHER system contains 4,920 nodes, i.e. ARCHER is effectively around 5,000 separate computers each running their own copy of Linux. They are connected by the Cray Aries network, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over 10 TByte/s (the so-called bisection bandwidth). To put this in context, this is almost a million times faster than what is possible over a 100 Mb fast broadband connection!
+
+### Network (Archer2)
+
+The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over XXX (the so-called bisection bandwidth). To put this in context, this is almost a XXX times faster than what is possible over a 100 Mb fast broadband connection!
 
 ### System performance
 ARCHER has a total of 118,080 CPU-cores: 4,920 nodes each with 24 CPU-cores. With a clock frequency of 2.7 GHz, the CPU-cores can operate at 2.7 billion instructions per second. However, on a modern processor, a single instruction can perform more than one floating-point operation.
@@ -98,7 +111,18 @@ This gives a peak performance of 118,080 * 2.7 * 8 Gflop/s = 2550528 Gflop/s, ag
 
 ARCHER comprises 26 separate cabinets, each about the height and width of a standard door, with around 4,500 CPU-cores (188 nodes) or about 9000 virtual cores (using multi-threading) in each cabinet.
 
+### System performance (Archer2)
+ARCHER2 has a total of 750,080 CPU-cores: 5,860 nodes wch with 128 CPU-cores. With a Clock frequency of 2.25 Ghz, the CPU-cores can operate at 2.25 billion instructions per second. However, on a modern processor, a single instruction can perform more than one floating-point operation.
+
+For example, on ARCHER2 one instruction can perform up to four separate additions. In fact, the cores have separate units for doing additions and for doing multiplications that run in parallel. With the wind in the right direction and everything going to plan, a core can therefore perform 16 floating-point operations per cycle: eight additions and eight multiplications.
+
+This gives a peak performance of 750,080 * 2.25 * 16 Gflop/s = 27,002,880 Glop/s, agreeing with the 25.8 Pflop/s figure in the top500 list.
+
+ARCHER2 comprises 23 seperate cabinets, each about the height and width of a standard door, with around 32,768 CPU-cores (256 nodes) or about 60,000 virtual cores (using multi-threading) in each cabinet.
+
+
 ```{figure} ./images/hero_73afa9aa-74db-4ad2-893e-971956518bdf.jpg
+© EPCC
 ```
 
 ### Storage
@@ -106,10 +130,21 @@ Most of the ARCHER nodes have 64 GByte of memory (some have 128 GByte), giving a
 
 Disk storage systems are quite complicated, but they follow the same basic approach as supercomputers themselves: connect many standard units together to create a much more powerful parallel system. ARCHER has over a thousand 4 Tbyte disks, giving total disk storage in excess of 4 Pbyte.
 
+### Storage (Archer2)
+Most of the ARCHER2 nodes have 256 GByte of memory (some have 512 GByte), giving a total memory in excess of 1.5 PByte of RAM. 
+
+Disk storage systems are quite complicated, but they follow the same basic approach as supercomputers themselves: connect many standard units together to create a much more powerful parallel system. ARCHER2 has over a 15 PByte of Disk storage. 
+
 ### Power and Cooling
 If all the CPU-cores are fully loaded, ARCHER requires in excess of 2 Megwatts of power, roughly equivalent to a small town of around 2000 houses.
 
 The ARCHER cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy.
+
+### Power and Cooling (Archer2)
+
+If all the CPU-cores are fully loaded, ARCHER2 requires in excess of XXX Megwatts of power, roughly equivalent to a small town of around XXX houses.
+
+The ARCHER2 cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER2 can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy. ???
 
 
 ```{figure} ./images/hero_87e2018b-86eb-4aa5-a7c4-efd271a505b2.webp
@@ -205,13 +240,32 @@ Archer is a Tier-1 system within PRACE, whereas the Cray Piz Daint system in Swi
 
 ---
 
-## MARCONI: building a real supercomputer
-
-
-```{danger} 
-
-Do we want to replace this section with an Archer2 build video?
+```{figure} ./images/hero_eee58e21-6f26-4139-b812-54694c3d254e.jpg
+© iStock.com/filonmar
 ```
+## ARCHER2 - it's more complicated...
+
+In the last few steps we have glossed over a few details of the processors and the network.
+
+If you look up the specifications of the AMD Zen2 (Rome) EPYC 7742 processor you will see that it has 64 CPU-cores, whereas the ARCHER2 nodes have 128 CPU-cores. This is possible because each node actually contains two physical processors. However, they are put together so that both processors share the same memory so, to the user, it basically looks identical to a single 128-core processor. How this is done is illustrated below and is called a Non-Uniform Memory Access (NUMA) architecture.
+
+```{figure} ./images/hero_9f93cf41-f24d-4ab2-8a7e-d25a78a8089c.png
+NUMA architecture
+```
+
+Although every CPU-core can access all the memory regardless of which processor it is located on, this can involve going through an additional memory bus so reading data from another CPU’s memory is slower than reading from your own memory. This hardware arrangement is really a detail that isn’t usually very important - the most important feature is that the 128 CPU-cores form a single shared-memory computer, all under the control of a single operating system.
+
+```{danger}
+Need archer 2 node picture
+```
+
+The details of the network are even more complicated with four separate levels ranging from direct connections between the nodes packaged together on the same blade, up to fibre-optic connections between separate cabinets. If you are interested in the details see the ARCHER2 website.
+
+© EPCC at The University of Edinburgh
+
+---
+
+## MARCONI: building a real supercomputer
 
 ### Video
 
@@ -252,7 +306,7 @@ MARCONI @ CINECA - Power and networking cables - (ph. MMLibouri)
 
 ---
 
-## Processors, ARCHER and Wee ARCHIE
+## Processors, ARCHER2 and Wee ARCHIE
 
 ```{questions} Question 1
 
@@ -316,7 +370,7 @@ Yes - you’ve correctly identified one of the challenges of shared memory: cont
 
 ```{questions} Question 3
 
-Like almost all supercomputers, ARCHER is constructed as a series of separate cabinets (26 in the case of ARCHER), each standing about as high and wide as a standard door. Why do you think this size of cabinet is chosen?
+Like almost all supercomputers, ARCHER2 is constructed as a series of separate cabinets (23 in the case of ARCHER2), each standing about as high and wide as a standard door. Why do you think this size of cabinet is chosen?
 
 A) it is the minimum size that can be cooled effectively
 
@@ -343,19 +397,19 @@ Spot on! It’s the age-old problem of trying to get a grand piano into a high-r
 
 ```{questions} Question 4
 
-How are ARCHER’s 118,080 cores arranged?
+How are ARCHER2’s 750,080 cores arranged?
 
 
 A) as one large shared-memory system
 
 
-B) as 118,080 separate nodes
+B) as 750,080 separate nodes
 
 
-C) as 4,920 nodes each with 24 cores
+C) as 5,860 nodes each with 128 cores
 
 
-D) as 9,840 nodes each with 12 cores
+D) as 11,720 nodes each with 64 cores
 
 ```
 
@@ -371,7 +425,7 @@ That’s correct - although the numbers will vary from system to system, a moder
 
 ```{questions} Question 5
 
-Which of these features make the UK national Supercomputer ARCHER different from the toy system Wee ARCHIE?
+Which of these features make the UK national Supercomputer ARCHER2 different from the toy system Wee ARCHIE?
 
 Select all the answers you think are correct.
 
@@ -400,6 +454,6 @@ Wee ARCHIE is dwarfed in practice by a real supercomputer such as ARCHER, but ho
 
 Correct - we spend money on very fast supercomputer networks to ensure the minimum of delay when different nodes to communicate with each other
 
-That’s right - ARCHER has almost 2000 times as many CPU-cores as Wee ARCHIE so it is built on a much larger scale
+That’s right - ARCHER2 has almost 13000 times as many CPU-cores as Wee ARCHIE so it is built on a much larger scale
 
 ```

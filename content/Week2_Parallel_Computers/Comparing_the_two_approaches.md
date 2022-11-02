@@ -35,12 +35,6 @@ But wait, ARCHER looks very different from your laptop! In this video David deco
 
 ## How similar is your laptop to a node of a supercomputer?
 
-```{danger}
-
-This discusses HeCToR should be updated? 
-
-```
-
 ### Video
 
 Laptop_V_node_hd
@@ -149,6 +143,21 @@ In practice things aren’t this bad, largely due to the availability of cache m
 
 In reality, the performance of the processors in a modern supercomputer is limited by the memory bandwidth and not the clock frequency.
 
+
+### Numbers for ARCHER2
+
+For access to memory (not cache! - access to cache is faster), the latency (delay between asking for a byte of data and reading it) is around XXX nanoseconds (XXX x 10-9 or XXX billionths of a second). On ARCHER2, each node has a bandwidth of around XXX GBytes/second.
+
+These figures might sound impressive, but remember that at a clock speed of 2.25 GHz, each CPU-core is issuing instructions roughly every 0.4 nanoseconds, so waiting for data from memory takes the equivalent of around 200 instructions!
+
+Remember also that, on ARCHER2, 128 CPU-cores are sharing access to memory so this latency can only increase due to congestion on the memory bus. They also share the bandwidth, so each CPU-core only really has just over XXX GBytes/second to itself. Again, at a clock frequency of 2.25 GHz this means that a CPU-core can only read or write a single byte per cycle in the worst case where all CPU-cores are accessing memory simultaneously.
+
+A simple operation such as a = b + c processes 24 bytes of memory (read a and b, write c, each floating-point number occupying 8 bytes) so we are a long way off being able to supply the CPU-core with data at the rate it requires.
+
+In practice things aren’t this bad, largely due to the availability of cache memory which has much smaller latency and much larger bandwidth. However, back-of-the-envelope calculations such as we have done above are enough to illustrate one of the most important points about supercomputing:
+
+In reality, the performance of the processors in a modern supercomputer is limited by the memory bandwidth and not the clock frequency.
+
 ### Interconnect
 ARCHER has a very high-performance network with the following characteristics:
 
@@ -156,6 +165,21 @@ ARCHER has a very high-performance network with the following characteristics:
 - a bandwidth between 2 nodes of around 15 GBytes/second.
 
 A 2 microseconds latency corresponds to around 5000 instruction cycles, so even communicating over a network as fast as ARCHER’s is a substantial overhead. Although the bandwidth is shared between all the CPU-cores on a node, there are thousands of separate network links so, overall, ARCHER can in principle transfer many TBytes/second.
+
+We will see next week that if we are careful about how we split our calculation up amongst all the CPU-cores we can accommodate these overheads to a certain extent, enabling real programs to run effectively on tens of thousands of cores. Despite this, it is still true that:
+
+**The maximum useful size of a modern supercomputer is limited by the performance of the network.**
+
+Large internet companies like Amazon and Google also use distributed memory architectures for their computational needs. They also offer access to their machines via something known as cloud computing. Do you think Amazon and Google services have the same requirements as we do in supercomputing? What limits the performance of their computers? Are they interested in Pflops?
+
+### Interconnect Archer2
+
+ARCHER2 has a very high-performance network with the following characteristics:
+
+- a latency (time to send a single byte between two nodes over the network) of around XXX microseconds (XXX x 10-6 or XXX millionths of a second);
+- a bandwidth between 2 nodes of around XXX GBytes/second.
+
+A XXX microseconds latency corresponds to around 5000 instruction cycles, so even communicating over a network as fast as ARCHER2’s is a substantial overhead. Although the bandwidth is shared between all the CPU-cores on a node, there are thousands of separate network links so, overall, ARCHER2 can in principle transfer many TBytes/second.
 
 We will see next week that if we are careful about how we split our calculation up amongst all the CPU-cores we can accommodate these overheads to a certain extent, enabling real programs to run effectively on tens of thousands of cores. Despite this, it is still true that:
 

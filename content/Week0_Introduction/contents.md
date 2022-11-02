@@ -110,7 +110,14 @@ For more information on all of the activities of PRACE including gaining access 
 
 ## About EuroCC
 
-The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to... This course has been adapted with EuroCC funding to update the original course developed unde prace and improve course flexibility.
+The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to...
+
+```{danger}
+need to add some words about the EuroCC project
+```
+
+
+This course has been adapted with EuroCC funding to update the original course developed under Prace and improve course flexibility to allow it to be tailored to multiple NCC's needs while keeping the core theme of the course.
 
 ---
 ```{figure} ./../Week1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg

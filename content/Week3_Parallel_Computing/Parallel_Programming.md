@@ -54,9 +54,9 @@ This situation is called a race condition and is a disaster for parallel program
 © iStock.com/Dutko
 ```
 
-## How to parallelise the Income Calculation example? (Discussion)
+## How to parallelise the Income Calculation example?
 
-Consider how to parallelise the salaries example using the shared-variables model, i.e. how could 4 officemates add up the numbers correctly on a shared whiteboard?
+Consider how to parallelise the salaries example using the shared-variables model, i.e. how could 4 office mates add up the numbers correctly on a shared whiteboard?
 
 Remember that you are not allowed to talk directly to your office mates - all communications must take place via the whiteboard. Things to consider include:
 
@@ -156,8 +156,7 @@ To communicate a lot of data we can send one big message or lots of small ones, 
 © iStock.com/adrian825
 ```
 
-## How to parallelise the traffic simulation? (Discussion)
-
+## How to parallelise the traffic simulation?
 
 Consider how you could parallelise the traffic model among 4 workers, each with their own whiteboards in separate offices, communicating by making phone calls to each other.
 
@@ -170,7 +169,7 @@ To get you started:
 - how can you combine them?
 - which workers need to phone each other, when and how often?
 
-You do not need to provide a clear-cut answer. Instead, list the things that you think need to be considered and why. Discuss your ideas with your fellow learners.
+You do not need to provide a clear-cut answer. Instead, list the things that you think need to be considered and why.
 
 ### Extra Exercises
 In fact, sending a message can be implemented in two different ways:
@@ -321,7 +320,7 @@ Things to consider include:
 
 ---
 
-## Terminology (Quiz)
+## Terminology Quiz
 
 ```{questions} Question 1
 

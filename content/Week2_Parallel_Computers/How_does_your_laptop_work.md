@@ -74,15 +74,9 @@ Think of owning one quad-core laptop compared to two dual-core laptops - which i
 
 ## Simple Parallel Calculation
 
-```{danger}
-
-discussion section
-
-```
-
 We can investigate a very simple example of how we might use multiple CPU-cores by returning to the calculation we encountered in the first week: computing the average income of the entire world’s population.
 
-If we’re a bit less ambitious and think about several hundred people rather than several billion, we can imagine that all the individual salaries are already written on the shared whiteboard. Let’s imagine that the whiteboard is just large enough to fit 80 individual salaries.
+If we’re a bit less ambitious and think about several hundred people rather than several billion, we can imagine that all the individual salaries are already written on the shared whiteboard. Let’s imagine that the whiteboard is just large enough to fit 80 individual salaries. Think about the following:
 
 - how could four workers cooperate to add up the salaries faster than a single worker?
 - using the estimates of how fast a human is from last week, how long would a single worker take to add up all the salaries?
@@ -90,7 +84,7 @@ If we’re a bit less ambitious and think about several hundred people rather th
 - how long would 8 workers take (you can ignore the issue of overcrowding)?
 - would you expect to get exactly the same answer as before?
 
-We’ll revisit this problem in much more detail next week but you know enough already to start thinking about the fundamental issues.
+We’ll revisit this problem in much more detail later but you know enough already to start thinking about the fundamental issues.
 
 © EPCC at The University of Edinburgh
 

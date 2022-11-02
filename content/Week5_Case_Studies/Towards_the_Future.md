@@ -8,17 +8,11 @@ Snapshot of the simulated cardiac electrical activity.
 
 ```
 
-## So why are supercomputers needed? (discussion)
-
-```{danger}
-
-update archer links for archer2.
-
-```
+## So why are supercomputers needed?
 
 In the previous steps you have familiarised yourself with three different large scale computer simulations so you should have a good understanding of why supercomputers are needed.
 
-In this discussion step we would like you to have a look at [ARCHER’s case studies](http://www.archer.ac.uk/casestudies/). Pick one of them and try to answer the following questions:
+In this discussion step we would like you to have a look at [ARCHER2’s case studies](https://www.archer2.ac.uk/research/case-studies/). Pick one of them and try to answer the following questions:
 
 - which discipline does the case study belong to?
 - is there any social or economic benefit to it?
@@ -42,9 +36,9 @@ In this discussion step we would like you to have a look at [ARCHER’s case stu
 
 So what does the future of supercomputing look like? Much of the current research and development in HPC is focused on Exascale computing.
 
-For HPC architectures, this can be taken to mean working towards a system with a floating point performance of at least 1 Exaflop/s (i.e. 1018 or a million million million floating point calculations per second). This is around 10 times more than the number one system in the Top500 list at the end of 2016 (China’s Sunway TaihuLight). Although at some level this is just an arbitrary number, it has become a significant technological (and political) milestone.
+For HPC architectures, this can be taken to mean working towards a system with a floating point performance of at least 1 Exaflop/s (i.e. 1018 or a million million million floating point calculations per second). So far this has only been acheived by one system (Frontier)[https://www.top500.org/system/180047/]. Although at some level this is just an arbitrary number, it has become a significant technological (and political) milestone.
 
-Both China and Japan are known to be working on Exascale systems with a projected date of 2020. In 2016, the US government announced the Exascale Computing Project, which aims to have its first supercomputer operating at 1 Exaflop/s or more in production by 2021. If past trends in the Top500 list had been followed, then a 1 Exaflop/s system would have been expected in 2018 – the fact that this date will be missed by at least 2 or 3 years is a measure of the technical challenges involved, both in the hardware and software.
+Both China and Japan are known to be working on Exascale systems with and had projected to have systems in palce by 2020. In 2016, the US government announced the Exascale Computing Project, which aims to have its first supercomputer operating at 1 Exaflop/s or more in production by 2021. If past trends in the Top500 list had been followed, then a 1 Exaflop/s system would have been expected in 2018 – the fact that this date will be missed by at least 2 or 3 years is a measure of the technical challenges involved, both in the hardware and software.
 
 Some of the main barriers to building a useful and economically viable Exascale machine are:
 

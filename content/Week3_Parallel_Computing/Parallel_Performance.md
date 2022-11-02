@@ -6,7 +6,7 @@
 
 ## Parallel Performance
 
-We have seen that parallel supercomputers have enormous potential computing power - the largest machines in the Top500 list have peak performances in excess of 10 Petaflops. This is achieved by having hundreds of thousands of CPU-cores in the same distributed-memory computer, connected with a fast network.
+We have seen that parallel supercomputers have enormous potential computing power - the largest machine in the Top500 list has peak performances in excess of 1000 Petaflops. This is achieved by having hundreds of thousands of CPU-cores and GPGPU's in the same distributed-memory computer, connected with a fast network.
 
 When considering how to parallelise even the simplest calculations (such as the traffic model) using the message-passing model, we have seen that this introduces overheads: making a phone call to someone in a another office takes time, and this is time when you are not doing any useful calculations.
 
@@ -189,7 +189,7 @@ In parallel computing, the parallel ____ is used to measure how efficiently the 
 
 ```
 
-```{solutions}
+```{solution}
 
 A) efficency 
 
@@ -203,7 +203,7 @@ The plot showing the performance of a parallel program with increasing number of
 
 ```
 
-```{solutions}
+```{solution}
 
 A) scaling curve
 

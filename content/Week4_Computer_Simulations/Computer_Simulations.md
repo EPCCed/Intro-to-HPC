@@ -101,9 +101,9 @@ Does that give you a better idea of what uncertainties are? Can you think of any
 © iStock.com/Crystal-K
 ```
 
-## Wolf-sheep predation simulation - Initial and Boundary Conditions (Discussion)
+## Wolf-sheep predation simulation - Initial and Boundary Conditions
 
-Other concepts that we have not talked about yet, are boundary and initial condition. In this discussion we would like you to explore how they affect the wolf-sheep predation model.
+Other concepts that we have not talked about yet, are boundary and initial condition. In order to discuss these concepts we would like you to explore how they affect the wolf-sheep predation model.
 
 In this case the boundary conditions define what happens to wolves and sheep that get to the edge of the area covered by the simulation. Try to stop the simulation when one of the animals is about to go out of the frame. Did you notice that it appears immediately on the opposite side of the frame? This behaviour is due to the periodic boundary conditions.
 
@@ -154,6 +154,7 @@ A) errors
 B) rounding error
 
 ```
+© EPCC at The University of Edinburgh
 
 ---
 
@@ -161,12 +162,6 @@ B) rounding error
 ```
 
 ## Computational Science
-
-```{danger}
-
-update archer reference here to archer2
-
-```
 
 Computational science is a rapidly growing interdisciplinary field. There are many problems in science and technology that cannot be sufficiently studied experimentally or theoretically. It may be too expensive or too dangerous, or simply impossible due to the space and timescales involved.
 
@@ -184,7 +179,7 @@ Some of the disciplines traditionally associated with computational science incl
 
 However, more recently, other disciplines, such as medicine (e.g. medical imaging, blood flow simulations, bone structure simulations), biology (e.g. ecosystem and environmental modelling) and economics became part of computational science as well. It is quite common nowadays to come across terms like computational economics or computational biology.
 
-If you want to know what sorts of applications are run on the UK’s national supercomputer ARCHER, visit the relevant page on the ARCHER website. Is there anything that surprises you there?
+If you want to know what sorts of applications are run on the UK’s national supercomputer ARCHER2, visit the relevant page on the ARCHER2 website. Is there anything that surprises you there?
 
 © EPCC at The University of Edinburgh
 
@@ -194,7 +189,7 @@ If you want to know what sorts of applications are run on the UK’s national su
 © iStock.com/Ivcandy
 ```
 
-## Why use supercomputers? (Discussion)
+## Why use supercomputers?
 
 Having learned how computer simulations work and what supercomputers are capable of you should have a good idea why we need them.
 
@@ -202,6 +197,7 @@ In this exercise we want you to have a look at three examples of computer simula
 
 - In your opinion, what are three main reasons for using supercomputers in science and industry?
 - Can you think of any problems that are still too difficult to be solved with our current computing technology?
+  
 The excerpts below are from three different projects involving computer simulations, and should provide you enough food for thought.
 
 ### Protein Folding

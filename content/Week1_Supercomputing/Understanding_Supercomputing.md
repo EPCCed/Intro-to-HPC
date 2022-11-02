@@ -37,19 +37,13 @@ Does it surprise you to learn that games console components and other general-pu
 ```
 ## Understanding Supercomputing - Performance
 
-```{danger}
-
-Do we want to update to give more modern reference CPU part and corresponding performance figures?
-
-```
-
 The Top500 list ranks supercomputers by their floating-point performance - let’s take a look at what that means.
 
 In supercomputing, we are normally interested in numerical computations: what is the answer to 0.234 + 3.456, or 1.4567 x 2.6734? Computers store numbers like these in floating-point format, so they are called floating-point numbers. A single instruction like addition or multiplication is called an operation, so we measure the speed of supercomputers in terms of floating-point operations per second or Flop/s, which is sometimes written and said more simply as Flops.
 
-So how many Flops can a modern CPU-core perform? Let’s take a high-end processor like the Intel Haswell CPU (which happens to be the processor used in the Cartesius system at SURFsara). The way a processor is normally marketed is to quote its clock frequency, which here is 2.6 GHz. This is the rate at which each CPU-core operates. Clock speed is expressed in cycles per second (Hertz), and the prefix Giga means a billion (a thousand million), so this CPU-core is working at the almost mind-blowing rate of 2.6 billion cycles per second. Under favourable circumstances, an Intel Haswell CPU-core can perform 16 floating-point operations per cycle, which means each CPU-core can perform 16 x 2.6 billion = 41.6 billion floating-point operations per second.
+So how many Flops can a modern CPU-core perform? Let’s take a high-end processor like the AMD EPYC Zen2 (Rome) 7F32 CPU (which happens to be the processor used in the Snellius system at SURFsara). The way a processor is normally marketed is to quote its clock frequency, which here is 3.7 GHz. This is the rate at which each CPU-core operates. Clock speed is expressed in cycles per second (Hertz), and the prefix Giga means a billion (a thousand million), so this CPU-core is working at the almost mind-blowing rate of 3.7 billion cycles per second. Under favourable circumstances, an AMD EPYC CPU-core can perform 16 floating-point operations per cycle, which means each CPU-core can perform 16 x 3.7 billion = 59.2 billion floating-point operations per second.
 
-So, the peak performance of one of our CPU-cores is 41.6 GFlops.
+So, the peak performance of one of our CPU-cores is 59.2 GFlops.
 
 We say peak performance because this is the absolute maximum, never-to-be-exceeded figure which it is very hard to achieve in practice. However, it’s a very useful figure to know for reference.
 

@@ -14,6 +14,6 @@
 
 
 
-## conclusion
+## Conclusion
 
 - The simulation bares out a plot of what we expected that as te traffic density increases the speed of the traffic drops.

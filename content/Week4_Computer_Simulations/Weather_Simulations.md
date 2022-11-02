@@ -197,6 +197,8 @@ C) parameterisation
 
 ```
 
+© EPCC at The University of Edinburgh
+
 ---
 
 ```{figure} ./images/hero_851adb44-88af-4ed3-98a9-523c192be510.jpg

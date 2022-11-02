@@ -32,10 +32,9 @@ Illustris poster © 2015 The Illustris Collaboration (image)
 
 ## The most detailed simulation of our Universe
 
-### Video
-
- not downloadable but on webpage
-
+```{danger}
+need to source video
+```
 
 The above video is a compilation made from some of the movies available on the project’s [Media page](http://www.illustris-project.org/media/), where many additional visualisations are available.
 
@@ -82,12 +81,6 @@ These ghost points provide the glue that gives the proper connectivity across do
 
 ### Supercomputing resources 
 
-```{danger}
-
-This supercomputing resource list needs updating.
-
-```
-
 In addition to being accurate, the AREPO code is also efficient – it can run on tens of thousands of computer cores simultaneously, leveraging some of the largest computers that currently exist for scientific research within the high performance computing (HPC) community.
 
 The Illustris simulations were run on the following supercomputers:
@@ -108,7 +101,7 @@ The largest simulation was run on 8,192 compute cores, and took 19 million CPU h
 © iStock.com/AndreyPopov
 ```
 
-## Communication Costs (Discussion)
+## Communication Costs
 
 In the last step, you have learned that each CPU-core is responsible for a volume of space and all physical processes occurring inside it. Naturally, the physical laws do not care about our artificial division of space, and effects such as short-range gravitational field or zone of accretion around a supermassive black hole, may affect the space belonging to multiple CPU-cores.
 
@@ -119,8 +112,6 @@ Therefore, to calculate these spilled over effects, each MPI process does a [ran
 Notice that using the dynamic unstructured mesh technique to divide the simulated space amongst the processes means that most of the calculations are local. What does that mean? It means that a large number of the messages exchanged through the MPI all-to-all function have zero entries i.e. the MPI processes don’t really need to talk to each other. This is an area which could be made more efficient.
 
 Recall what you have learned about the effect of bandwidth and latency on the speed of supercomputers. What do you think that means for the code performance? Why does it become an issue in simulations with more than 10,000 MPI processes? Do you have any ideas how to fix this?
-
-Share and discuss your ideas in the comment section!
 
 © 2015 The Illustris Collaboration, EPCC at The University of Edinburgh
 
