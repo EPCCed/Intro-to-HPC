@@ -64,54 +64,34 @@ To minimise the communication-related costs, try to make as few phone calls as p
 
 ---
 
-```{figure} ./images/hero_ed9a5a3d-1021-4d98-9128-d8e4e9399dc7.webp
-© ARCHER
+```{figure} ./images/ARCHER2.jpg
+© ARCHER2
 ```
 
 ## Case study of a real machine
 
-```{danger}
-
-Update this section to discuss archer2 instead of archer.
-
-```
 
 To help you understand the general concepts we have introduced this week, we’ll now look at a specific supercomputer. I’m going to use the UK National Supercomputer, ARCHER2, as a concrete example. As well as being a machine I’m very familiar with, it has a relatively straightforward construction and is therefore a good illustration of supercomputer hardware in general.
 
 ### General
-ARCHER is a Cray XC30 machine, built by the American supercomputer company Cray Inc. It contains 118,080 CPU-cores and has a theoretical peak performance of 2.55 Pflop/s. It is operated by EPCC at the University of Edinburgh on behalf of EPSRC and NERC, and is the major HPC resource for UK research in engineering and in physical and environmental science.
-
-Note that ARCHER is due to be replaced by ARCHER2 built by Cray, a Hewlett Packard Enterprise company. ARCHER2 will be operated and supported by EPCC at the University of Edinburgh on behalf of UKRI. For full details, see the ARCHER2 web site.
-
-
-### General (Archer2)
 
 Archer2 is a HPE Cray EX machine, built by American supercomputer company Cray, a Hewlett Packard Enterprises company. It contains 750,080 CPU-cores and has a theoretical performance of 28 Pflop/s. It is operated by EPCC at the University of Edinburgh on behalf of EPSRC and NERC, and is the major HPC resource for UK research in engineering and in physical and environmental science.
 
 ### Node design
-The basic processor used in ARCHER is the Intel E5-2697 v2 (Ivy Bridge) CPU, which has a clock speed of 2.7 GHz. The nodes on ARCHER have 24 CPU-cores; all 24 cores in a node are under the control of a single operating system. The OS is the Cray Linux Environment, which is a specialised version of SUSE Linux tailored for Cray systems.
-
-### Node design (Archer2)
 
 The basic processor used in ARCHER2 is the AMD Zen2 (Rome) EPYC 7742 CPU, which has a clock speed of 2.25 Ghz . The nodes on ARCHER2 have 128 cores across two of the AMD processors. All the cores are under the control of a single operating system. The OS is the HPE Cray Linux Environment, which is a specialised version of SUSE Linux.
 
-### Network
-The complete ARCHER system contains 4,920 nodes, i.e. ARCHER is effectively around 5,000 separate computers each running their own copy of Linux. They are connected by the Cray Aries network, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over 10 TByte/s (the so-called bisection bandwidth). To put this in context, this is almost a million times faster than what is possible over a 100 Mb fast broadband connection!
-
-### Network (Archer2)
+### Network 
 
 The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over XXX (the so-called bisection bandwidth). To put this in context, this is almost a XXX times faster than what is possible over a 100 Mb fast broadband connection!
 
+```{danger}
+
+this subsection needs finalising
+
+```
+
 ### System performance
-ARCHER has a total of 118,080 CPU-cores: 4,920 nodes each with 24 CPU-cores. With a clock frequency of 2.7 GHz, the CPU-cores can operate at 2.7 billion instructions per second. However, on a modern processor, a single instruction can perform more than one floating-point operation.
-
-For example, on ARCHER one instruction can perform up to four separate additions. In fact, the cores have separate units for doing additions and for doing multiplications that run in parallel. With the wind in the right direction and everything going to plan, a core can therefore perform 8 floating-point operations per cycle: four additions and four multiplications.
-
-This gives a peak performance of 118,080 * 2.7 * 8 Gflop/s = 2550528 Gflop/s, agreeing with the 2.55 Pflop/s figure in the top500 list.
-
-ARCHER comprises 26 separate cabinets, each about the height and width of a standard door, with around 4,500 CPU-cores (188 nodes) or about 9000 virtual cores (using multi-threading) in each cabinet.
-
-### System performance (Archer2)
 ARCHER2 has a total of 750,080 CPU-cores: 5,860 nodes wch with 128 CPU-cores. With a Clock frequency of 2.25 Ghz, the CPU-cores can operate at 2.25 billion instructions per second. However, on a modern processor, a single instruction can perform more than one floating-point operation.
 
 For example, on ARCHER2 one instruction can perform up to four separate additions. In fact, the cores have separate units for doing additions and for doing multiplications that run in parallel. With the wind in the right direction and everything going to plan, a core can therefore perform 16 floating-point operations per cycle: eight additions and eight multiplications.
@@ -126,21 +106,11 @@ ARCHER2 comprises 23 seperate cabinets, each about the height and width of a sta
 ```
 
 ### Storage
-Most of the ARCHER nodes have 64 GByte of memory (some have 128 GByte), giving a total memory in excess of 300 Tbyte of RAM.
-
-Disk storage systems are quite complicated, but they follow the same basic approach as supercomputers themselves: connect many standard units together to create a much more powerful parallel system. ARCHER has over a thousand 4 Tbyte disks, giving total disk storage in excess of 4 Pbyte.
-
-### Storage (Archer2)
 Most of the ARCHER2 nodes have 256 GByte of memory (some have 512 GByte), giving a total memory in excess of 1.5 PByte of RAM. 
 
 Disk storage systems are quite complicated, but they follow the same basic approach as supercomputers themselves: connect many standard units together to create a much more powerful parallel system. ARCHER2 has over a 15 PByte of Disk storage. 
 
 ### Power and Cooling
-If all the CPU-cores are fully loaded, ARCHER requires in excess of 2 Megwatts of power, roughly equivalent to a small town of around 2000 houses.
-
-The ARCHER cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy.
-
-### Power and Cooling (Archer2)
 
 If all the CPU-cores are fully loaded, ARCHER2 requires in excess of 4 Megwatts of power, roughly equivalent to a small town of around 4000 houses. This is a significant amount of power to consume and has an associated environmental imact that we must look to mitigate therefore ARCHER2 is supplied by a 100% renewable energy contract.
 
@@ -210,35 +180,6 @@ For anyone interested in how Wee ARCHIE has been put together (and possibly want
 
 ---
 
-```{figure} ./images/hero_eee58e21-6f26-4139-b812-54694c3d254e.jpg
-© iStock.com/filonmar
-```
-
-## ARCHER - it's more complicated...
-
-In the last few steps we have glossed over a few details of the processors and the network.
-
-If you look up the specifications of the Intel E5-2697 v2 processor you will see that it has 12 CPU-cores, whereas the ARCHER nodes have 24 CPU-cores. This is possible because each node actually contains two physical processors. However, they are put together so that both processors share the same memory so, to the user, it basically looks identical to a single 24-core processor. How this is done is illustrated below and is called a Non-Uniform Memory Access (NUMA) architecture.
-
-```{figure} ./images/hero_9f93cf41-f24d-4ab2-8a7e-d25a78a8089c.png
-```
-
-NUMA architecture (image)
-
-Although every CPU-core can access all the memory regardless of which processor it is located on, this can involve going through an additional memory bus so reading data from another CPU’s memory is slower than reading from your own memory. This hardware arrangement is really a detail that isn’t usually very important - the most important feature is that the 24 CPU-cores form a single shared-memory computer, all under the control of a single operating system.
-
-```{figure} ./images/hero_efa5daca-9408-42c7-a2ed-d67136458d27.jpg
-
-An ARCHER compute blade - One blade holds four nodes, each node has two processors, and each processor has 12 CPU-cores. The shiny copper heatsinks help keep the processors cool. © ARCHER
-```
-
-The details of the network are even more complicated with four separate levels ranging from direct connections between the four nodes packaged together on the same blade, up to fibre-optic connections between separate cabinets. If you are interested in the details see the ARCHER website or this more detailed presentation from Cray.
-
-Archer is a Tier-1 system within PRACE, whereas the Cray Piz Daint system in Switzerland is a more powerful Tier-0 system, despite having a similar number of nodes. Can you find out why this is? What are the similarities and differences?
-
-© EPCC at The University of Edinburgh
-
----
 
 ```{figure} ./images/hero_eee58e21-6f26-4139-b812-54694c3d254e.jpg
 © iStock.com/filonmar
@@ -265,48 +206,24 @@ The details of the network are even more complicated with four separate levels r
 
 ---
 
-## MARCONI: building a real supercomputer
 
-### Video
+## ARCHER2: building a real supercomputer
 
-MRCONI_build_hd
 
-```{solution} Transcript
+```{raw} html
 
-0:12 - Having taken a look at how Wee ARCHIE was constructed we thought it’d be interesting to look at how a real supercomputer is put together. So here we have some time-lapse photography of the MARCONI system being put in, which is a large Tier-0 system for PRACE, which is located at the CINECA supercomputing centre at Bologna in Italy. And you’ll see here they’re putting in the infrastructure. There’s some fairly heavy engineering going on, welding and such like, to put in all the services which are required. And the main one here is you’re seeing the cooling infrastructure, the pipes which carry the water, which cools the main machine. Next, we can start laying the raised floor which sits above all the pipework.
-
-0:50 - And the supercomputer cabinets will actually sit on top of this raised floor. Now we jump forward quite a bit and you can see the raised floor is practically complete. And what they’re doing now is they’re working on the ceiling. They’re attaching these rows of trays to the ceiling and we’ll see later why these are needed.
-
-1:12 - Now the major infrastructure work is complete and we’re just having a bit of a spruce up, a clean and a tidy, to make sure that the machine room is spotless before the arrival of the main system. Now the system engineers are having various conferences and conversations just to make sure they’re well-prepared, that they all know what they’re doing, before the arrival of the cabinets. Now the cabinets start to arrive. And you can see we take out tiles in the raised floor so we can move the cabinets into the right place and connect them to the infrastructure below.
-
-1:40 - Now we can’t see exactly what’s going on on the right-hand side when the first row goes in– we’ll get a better view of the second row. It’s worth looking at these cabinets. You’ll see that they’re about the size of a door. They’re very deep, but their profile is about the size of a door. And that’s because they have to get through a standard door to get into the machine room. You’ll see as the second row goes in, it goes in very, very quickly. The tiles are taken up, the cabinets are put in place, and they’re all connected up. And there we have a completed second row. Just a little bit more work to the floor on the second row.
-
-2:12 - And then we’re ready for putting the third row in. And here it comes. Just the same procedure, take up a tile, move the cabinet into place, and connect it up. So you’ll see very quickly we have three rows of cabinets comprising the main supercomputer, but you might ask, where’s the networking? Networking a real supercomputer is a lot more work than networking a small toy machine, like Wee ARCHIE. And you’ll see there’s lots of people involved here laying and connecting cables. And we immediately see what these raised trays are for. They’re there to carry the cables between the cabinets to keep them neat and tidy away from the cabinets and keep them so they’re not all tangled up.
-
-2:51 - So we’ve largely finished the cabling, the interconnect, on the second row. Now they’re working on the third row. And you’ll see there a lot of human work here and that is because, although supercomputers are made by a few manufacturers, they’re quite similar to each other, each individual installation is largely bespoke. This MARCONI system, which is delivered by Lenovo, is of a certain class. But it won’t be the same as any other particular machine. It will be slightly different. And so each machine has to be constructed very carefully to make sure it all works together. And so here we have people doing the final networking.
-
-3:24 - And also what they’re doing is, you’ll see they’re bringing out these power cables onto the top. In this system the power is actually delivered from the ceiling as well. So we won’t see in this video, but in the final system these cables are attached up the way into power which comes in above. That’s as far as this video goes in the construction of MARCONI. I hope you found that interesting and instructive.
+<iframe width="700" height="400" src="https://www.youtube.com/embed/UXHE7ljmhaQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 Wee ARCHIE is very small and was built on someone’s desk. Real supercomputers are very large and require a lot of infrastructure to support them and manpower to build them.
 
-This time lapse video documents the installation of the PRACE MARCONI system at CINECA in Bologna, Italy. We use it to pick out various aspects of supercomputer hardware that are not so well illustrated by Wee ARCHIE.
+This time lapse video documents the installation of the ARCHER2 system at EPCC in Edinburgh, UK. We use it to pick out various aspects of supercomputer hardware that are not so well illustrated by Wee ARCHIE.
 
 Is there anything that surprised you? We are curious to know so share your impressions in the comments section!
 
-```{figure} ./images/hero_ef09a80d-be29-4f1b-b3fd-bed24e6e791b.jpg
-MARCONI @ CINECA - Power connections - (ph. MMLibouri)
-```
-
-```{figure} ./images/hero_cf7c2aaf-65a8-4fe0-8656-b6945ee7d99a.jpg
-MARCONI @ CINECA - Power and networking cables - (ph. MMLibouri)
-```
-
-© CINECA, EPCC at The University of Edinburgh
 
 ---
-
-## Processors, ARCHER2 and Wee ARCHIE
+## Quiz -  Processors, ARCHER2 and Wee ARCHIE
 
 ```{questions} Question 1
 

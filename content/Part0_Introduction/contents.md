@@ -68,53 +68,38 @@ The course is no longer fully facilitated so we would like to encourage you to i
 
 ---
 
-## About PRACE
-
-```{danger}
-
-How much do we want to focus on PRACE work and do we need to move this to a EuroCC focus
-
-```
-
-### Video
-
-PRACE_hd
-
-
-```{solution} Transcript
-0:11 - High performance computing is essential for European scientific, industrial, and social advances, whether it’s preserving our environment, improving our health care, designing new technology, or transforming our economy. High performance computing is at the heart of innovation. The Partnership for Advanced Computing in Europe, PRACE, supports this objective, providing access to top level supercomputers. High performance computing combines all the biggest instruments used in science. It’s a telescope that enables us to view the entire universe, a microscope that lets us explore the quantum world at very small scales, a reactor that enables us to study plasmas and stars, and even a time machine that allows us to recreate the past or to predict the future.
-
-1:02 - It helps modern medicine to develop drugs for widespread diseases more rapidly and produce individually tailored medicine more precisely. Energy efficient solutions can be modelled and analysed with supercomputers to develop alternatives and create a low carbon society. Climate change can also be tackled using simulations to improve weather forecasts and mitigate risks to food production and urban environments. For industry and SMEs, the use of high performance computing is becoming crucial in handling all big data issues and for planning the entire production chain. Numerical simulations can replace expensive and time consuming real life tests and prototypes. For example, PRACE supported a European car manufacturer to perform the first ever and to date biggest crash optimisation study.
-
-1:53 - And through the SHAPE programme, it supports European SMEs to bring their innovative products to market faster. This strengthens the European economy, creating and securing jobs. Moving forward the next step in the evolution of high performance computing is the Exascale supercomputer, which will allow even faster simulations to bolster Europe’s place in the top tier of supercomputers.
+```{figure} ./../Part1_Supercomputing/images/BayesInterior.jpg
 ```
 
 
-This video, produced by PRACE, explains the aims of this international association.
+## About EPCC
 
-PRACE stands for Partnership for Advanced Computing in Europe. The mission of PRACE is to enable high impact scientific discovery and engineering research and development across all disciplines to enhance European competitiveness for the benefit of society.
+Since 1990, EPCC has developed a reputation for leading-edge capability in all aspects of High Performance Computing (HPC). Based at the University of Edinburgh, we work with industry, academia, public and third-sector organisations to promote the adoption and value of HPC.
 
-PRACE is established as an international not-for-profit association (aisbl) with its seat in Brussels. It has 24 member countries whose representative organisations create a pan-European supercomputing infrastructure, providing access to computing and data management resources and services for large-scale scientific and engineering applications at the highest performance level.
+With a team of more than 110 highly qualified specialists, we have an exceptional pool of talent. Our engineers and technical staff have a powerful combination of practical and theoretical knowledge that keeps EPCC at the forefront of industry and research.
 
-Both [EPCC](https://www.epcc.ed.ac.uk/) (at the University of Edinburgh) and [SURFsara](https://www.surf.nl/en/about-surf/subsidiaries/surfsara/) (in Amsterdam), the developers of this course, are active members of PRACE. EPCC hosts a PRACE Advanced Training Centre, and SURFsara was recently selected as one of four new PRACE Training Centres.
-
-The national supercomputers at these centres, ARCHER and Cartesius, are Tier-1 systems within PRACE, accessible via [four different access types](https://prace-ri.eu/hpc-access/). Tiers are used to describe the hierarchy of supercomputers and supercomputing clusters on an international, national and local scale: Tier-0 are pan-European systems; Tier-1 are national systems; Tier-2 are regional systems; and Tier-3 are local clusters (mostly university resources).
-
-The [Tier-0 computer systems](https://prace-ri.eu/hpc-access/hpc-systems/) and their operations accessible through PRACE are provided by five PRACE members: BSC representing Spain, CINECA representing Italy, ETH Zurich and CSCS representing Switzerland, GCS and HLRZ representing Germany and GENCI representing France. Four hosting members (France, Germany, Italy, and Spain) secured funding for the initial period from 2010 to 2015. In 2016 a fifth Hosting Member (CSCS, Switzerland) opened its system via the PRACE Peer Review Process to researchers from academia and industry.
-
-For more information on all of the activities of PRACE including gaining access to its HPC facilities and training programmes, see the [PRACE website](https://prace-ri.eu/).
-
-© PRACE
-
-
-```{danger}
-
-Remove about prace section
-
-add acknowledgemetns
-
-developed by EPCC with funding from prace and input from surfsara
+```{raw} html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NEgbVNIo560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
+
+EPCC aims to accelerate the effective exploitation of novel computing throughout industry, academia and commerce. 
+
+This has been our mission for over 30 years as we strive to be the UK’s premier Supercomputing centre, renowned internationally for innovation and leading-edge research.
+
+Our work is guided by key goals and objectives that support this mission and place EPCC at the heart of the Exascale era.
+
+Delivering world-class services
+We will continue to deliver world-class High Performance Computing (HPC) and data services to benefit our users and partners. As well as supporting businesses with our advanced computing facilities and capabilities.
+
+Leading data-driven innovation 
+We are a pivotal element in the success of the Edinburgh and South East Scotland City Region Deal and its Data-Driven Innovation initiative.
+
+Collaborating globally
+We will continue to build and maintain collaborations and strong relationships with key organisations worldwide, undertaking globally-important computing research.
+
+Promoting teaching excellence
+We endeavour to maintain our position as a major provider of HPC training in Europe.
+
 
 ---
 
@@ -130,29 +115,18 @@ need to add some words about the EuroCC project
 This course has been adapted with EuroCC funding to update the original course developed under Prace and improve course flexibility to allow it to be tailored to multiple NCC's needs while keeping the core theme of the course.
 
 ---
-```{figure} ./../Week1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
+```{figure} ./../Part1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
 cite!
 ```
-## People
+## Acknowledgements
 
-The lead educator, Dr David Henty, is responsible for HPC Training at EPCC, The University of Edinburgh.
+This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty and Weronika Filinger at the EPCC under funding from EuroCC.
+This was developed from original material developed with included contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
 
-The other educators are:
+This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
 
-Weronika Filinger is an HPC applications consultant at EPCC, The University of Edinburgh.
-
-James Richings is a HPC applications consultant at EPCC, The University of Edinburgh.
-
-```{danger}
-Who should be named publically associated with this material needs to be confirmed!
-
-Additionally we don't have any interactivity so this needs removing
-
-David comment:
-"Developed by James, Stephen, Manos Farsarakis, David and Weronika from original material also included contributions from Zheng Meyer-Zhao at Surfsara."
-
-
-The use the sphinx template from the Swedish NCC.
 ```
 
 © EPCC at The University of Edinburgh
+
+---
