@@ -12,34 +12,15 @@ This course aims to inform users of the principles of how high perofrmance compu
 
 ## Arrangements for this unfacilitated run
 
-```{danger}
 
-How do we want to present the structure of the document/course?
-
-Week by week keeps this too close to the original Future learn course
-
-```
-
-This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
+This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course as hosted on github will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
 
 ---
 
 ## Welcome
 
-[comment]: <> (```{raw} html)
-[comment]: <> (<iframe width="560" height="315" src="https://www.youtube.com/embed/Cj8n4MfhjUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
-[comment]: <> (```)
-
 ```{raw} html
-    <video width="700px" height="500px" 
-        controls="controls"/> 
-        <source src="/home/jpr/Projects/EuroCC/MOOC/content/Week1_Supercomputing/video/Welcome_to_week1_hd.mp4" 
-            type="video/mp4"> 
-    </video>
-```
-
-```{raw} html
-<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_j7mdt8di&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_tsiu9191" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Welcome_to_week1_hd"></iframe>
+<iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_j7mdt8di&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_tsiu9191" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Welcome_to_week1_hd"></iframe>
 ```
 
 Welcome_hd
@@ -64,13 +45,11 @@ The course material is presented as a mixture of videos, articles, exercises and
 
 The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of you local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge. And more importantly, it’s fun! So if you have an opinion share it!
 
-© EPCC at The University of Edinburgh
-
 ---
+
 
 ```{figure} ./../Part1_Supercomputing/images/BayesInterior.jpg
 ```
-
 
 ## About EPCC
 
@@ -79,7 +58,7 @@ Since 1990, EPCC has developed a reputation for leading-edge capability in all a
 With a team of more than 110 highly qualified specialists, we have an exceptional pool of talent. Our engineers and technical staff have a powerful combination of practical and theoretical knowledge that keeps EPCC at the forefront of industry and research.
 
 ```{raw} html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NEgbVNIo560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="700" height="400" src="https://www.youtube.com/embed/NEgbVNIo560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
 EPCC aims to accelerate the effective exploitation of novel computing throughout industry, academia and commerce. 
@@ -125,7 +104,7 @@ This was developed from original material developed with included contributions 
 
 This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
 
-```
+---
 
 © EPCC at The University of Edinburgh
 

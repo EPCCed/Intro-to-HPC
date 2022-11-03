@@ -41,39 +41,17 @@ Can you think of other examples of parallelism in everyday life, where many hand
 
 ## Supercomputers - why do we need them?
 
-### Video
-
-Why_Supercomputers_hd
-
-```{solution} Transcript
-0:10 - What was the start of the universe like? Are there other Earth-like planets? Can we predict earthquakes? Can we cure cancer? Can we predict and prevent heart attacks? Can we sustainably fuel the world? Supercomputing turns dreams into ideas that can change the world. Dare to think the impossible. High performance computing is like all of the big instruments of science combined into one. So it’s a telescope that enables us to view the entire universe. It’s a microscope or a particle accelerator which enables us to explore the quantum world of the very small. It’s a reactor that enables us to study plasmas and what’s going on in the interior of stars.
-
-1:05 - And it’s even a time machine which enables us to recreate the past or to predict what’s going to happen in the future. Almost all of the major challenges that society faces, whether it’s preserving our environment, improving our health care, or rebuilding our economy, are underpinned in some way or another by high performance computing.
+```{raw} html
+<iframe width="700" height="400" src="https://www.youtube.com/embed/NEgbVNIo560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
+This UKRI video gives you an overview of why high performance computing is important aspect of modern scientific research.
 
-```{danger}
+In the video Prof. Mark Parsons uses the term of High Performance Computing (HPC). When reading about supercomputing, you will encounter this term quite often. HPC is a general term that includes all the activities and components associated with supercomputers, including aspects such as software and data storage as well as the bare supercomputer hardware.
 
-Remove prace video and change the section
+Are there any applications of supercomputers you know of, that made you interested in this course?
 
-
-ukri archer2 the uks new supercomputer mark p on you tube
-
-replace this section with abotu epcc
-
-```
-
-This PRACE video gives you a taste of the various different areas where supercomputers are used.
-
-This was recorded a few years ago – the current chair of the PRACE Scientific Steering Committee is Prof. Sinéad Ryan from Trinity College Dublin.
-
-In the video Prof. Richard Kenway uses the term of High Performance Computing (HPC). When reading about supercomputing, you will encounter this term quite often. HPC is a general term that includes all the activities and components associated with supercomputers, including aspects such as software and data storage as well as the bare supercomputer hardware.
-
-Are there any applications of supercomputers you know of, that made you interested in this course? Let other learners know in the comments!
-
-For more examples of how supercomputers are used in science you will need to wait until we reach week 4 and 5.
-
-© PRACE
+For more examples of how supercomputers are used in science you will need to wait until we reach sections 4 and 5.
 
 ---
 

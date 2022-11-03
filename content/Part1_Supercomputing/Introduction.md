@@ -14,5 +14,8 @@ In this very short video Dr. David Henty talks about what is to come in part 1.
 
 The main aim of part 1 is to give you a general idea of what supercomputers are and why we need them. It will also introduce you to the terminology required to understand what supercomputing is all about.
 
+---
+
 © EPCC at The University of Edinburgh
 
+---

@@ -1,4 +1,4 @@
-## Welcome to Partk 3
+## Welcome to Part 3
 
 ### Video
 
