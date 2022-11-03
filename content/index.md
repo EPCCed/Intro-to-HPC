@@ -5,13 +5,13 @@
 ---
 maxdepth: 2
 ---
-Week0_Introduction/contents
-Week1_Supercomputing/contents
-Week2_Parallel_Computers/contents
-Week3_Parallel_Computing/contents
-Week4_Computer_Simulations/contents
-Week5_Case_Studies/contents
-Week6_Exercises/contents
+Part0_Introduction/contents
+Part1_Supercomputing/contents
+Part2_Parallel_Computers/contents
+Part3_Parallel_Computing/contents
+Part4_Computer_Simulations/contents
+Part5_Case_Studies/contents
+Part6_Exercises/contents
 ```
 
 
