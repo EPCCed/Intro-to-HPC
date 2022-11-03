@@ -36,7 +36,7 @@ What do you think are the most important Grand Challenges facing us today - you 
 © iStock.com/adempercem
 ```
 
-## How to solve them? (Discussion)
+## How to solve them?
 
 It’s much easier to pose a problem than to solve it!
 

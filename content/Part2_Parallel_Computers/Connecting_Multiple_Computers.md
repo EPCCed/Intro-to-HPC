@@ -142,9 +142,9 @@ The ARCHER cabinets are kept cool by pumping water through cooling pipes. The wa
 
 ### Power and Cooling (Archer2)
 
-If all the CPU-cores are fully loaded, ARCHER2 requires in excess of XXX Megwatts of power, roughly equivalent to a small town of around XXX houses.
+If all the CPU-cores are fully loaded, ARCHER2 requires in excess of 4 Megwatts of power, roughly equivalent to a small town of around 4000 houses. This is a significant amount of power to consume and has an associated environmental imact that we must look to mitigate therefore ARCHER2 is supplied by a 100% renewable energy contract.
 
-The ARCHER2 cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER2 can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy. ???
+The ARCHER2 cabinets are kept cool by pumping water through cooling pipes. The water enters at approximately 18°C and, after passing through the cabinets, comes out at around 29°C; it can then be cooled back down and re-circulated. When necessary the water is cooled by electrical chillers but, most of the time, ARCHER2 can take advantage of the mild Scottish climate and cool the water for free simply by pumping it through external cooling towers, so saving significant amounts of energy.
 
 
 ```{figure} ./images/hero_87e2018b-86eb-4aa5-a7c4-efd271a505b2.webp
