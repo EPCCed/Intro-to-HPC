@@ -12,7 +12,6 @@ This course aims to inform users of the principles of how high perofrmance compu
 
 ## Arrangements for this unfacilitated run
 
-
 This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course as hosted on github will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
 
 ---
