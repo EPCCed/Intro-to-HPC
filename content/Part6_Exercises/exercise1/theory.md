@@ -19,7 +19,7 @@ Image sharpening steps.
 ```
 
 
-
+---
 
 ## Edge detection
 
@@ -54,6 +54,8 @@ class: with-border
 ---
 Gaussian and Laplacian of Gaussian filters.
 ```
+
+---
 
 
 ## Implementation

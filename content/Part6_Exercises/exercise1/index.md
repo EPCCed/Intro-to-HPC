@@ -16,4 +16,5 @@ maxdepth: 2
 theory
 part1
 part2
+part3
 ```

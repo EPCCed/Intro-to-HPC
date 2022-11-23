@@ -1,44 +1,132 @@
-# Part 2: Parallel execution on compute nodes
+# Part 2: Download,Compile, Run
 
-This page covers running parallel code on compute nodes using the job submission system.
+This page covers how to download, compile, and run code.
 
 
-## Compile the parallel version of the code
+## Downloading the source code
+
+In this exercise we will be using a image sharpening program. The source code is available in a Github repository.
+
+
+To download the code you will need to clone the repository. To do this execute the following command,
+
+>```
+>    git clone https://github.com/EPCCed/EPCC-Exercises
+>```
+
+Alternatively you might have already cloned the repository as part of another exercise in which case skip this step.
+
+If you clone the repository the output will look similar to this
+```
+    Cloning into 'EPCC-Exercises'...
+    remote: Enumerating objects: 21, done.
+    remote: Counting objects: 100% (21/21), done.
+    remote: Compressing objects: 100% (15/15), done.
+    remote: Total 21 (delta 7), reused 16 (delta 5), pack-reused 0
+    Receiving objects: 100% (21/21), 314.18 KiB | 2.51 MiB/s, done.
+    Resolving deltas: 100% (7/7), done.
 
 ```
-    cd C-OMP
-    make
+
+You will now have a folder called ``sharpen``. Change directory into it and list the contents
+
 ```
+    cd EPCC-Exercises/Sharpen/C
+    ls
+```
+
 Output:
 ```
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -c sharpen.c
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -c dosharpen.c
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -c filter.c
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -c cio.c
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -c utilities.c
-    cc -fopenmp -g -DC_OPENMP_PRACTICAL -o sharpen sharpen.o dosharpen.o filter.o cio.o utilities.o -lm
+  C-Common  C-HYB  C-MPI  C-OMP  C-SER  C-SHM  README.md
 ```
 
-To run this code in parallel it should be submitted to the compute nodes using Slurm workload manager.
+There are several version of the code, a serial version and a number of parallel versions. Initially we will be looking at the serial version located in the ``C-SER`` folder.
 
-## Running on the {{ machine_name }} compute nodes
+## Compiling the source code
 
-{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise1/ex1_slurm.md\n```'.replace("REPLACE",machine_name) }}
+We will compile the serial version of the source code using a Makefile.
+
+Move into the ``C-SER`` directory and list the contents.
+
+>```
+>    cd C-SER
+>    ls
+>```
+
+Output:
+```
+    Makefile  cio.c  dosharpen.c  filter.c  fuzzy.pgm  sharpen.c  sharpen.h  utilities.c  utilities.h
+```
+
+You will see that there are various code files. The Makefile contains the commands to compile them together to produce the executable program. To use the Makefile type ``make`` command.
+
+>```bash
+>    make
+>```
+
+Output:
+```
+cc -g -c sharpen.c
+cc -g -c dosharpen.c
+cc -g -c filter.c
+cc -g -c cio.c
+cc -g -c utilities.c
+cc -g -o sharpen sharpen.o dosharpen.o filter.o cio.o utilities.o -lm
+```
+
+This should produce an executable file called ``sharpen``.  
+
+## Running the serial program
+
+We can run the serial program directly on the login nodes
+
+>```
+>    ./sharpen
+>```
+
+Output:
+```
+    Image sharpening code running in serial
+
+    Input file is: fuzzy.pgm
+    Image size is 564 x 770
+
+    Using a filter of size 17 x 17
+
+    Reading image file: fuzzy.pgm
+    ... done
+
+    Starting calculation ...
+    Program on core 0-255
+    ... finished
+
+    Writing output file: sharpened.pgm
+
+    ... done
+
+    Calculation time was 3.697039 seconds
+    Overall run time was 3.923524 seconds
+```
 
 
-## Investigating the parallel speedup
+## Viewing the images
 
-You will notice that two timings are reported: the calculation time, and the overall runtime. The first excludes the file input/output operations.
+To view the images on the remote machine you will need to make sure you an X window client installed on your local machine and you have logged into the remote machine with X forwarding enabled.
 
-The speedup is calculated by diving the the time taken to run on one core by the time taken to run using N cores. For this program you can calculate the speedup for both the calculation time and the overall runtime
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise1/view_pgm.md\n```'.replace("REPLACE",machine_name) }}
 
-Example speedup results for ARCHER2 are shown below.
+Alternatively you can download the files to your local machine via SSH (``scp``, ``rysnc``, or ``stfp``) and open them with an image viewing program e.g. preview on MacOS.
 
-```{figure} ./images/sharpen_speedup.svg
+The images should look like this:
+
+```{figure} ./images/both_images.png
 ---
 class: with-border
-alt: speedup graph
+alt: Fuzzy and sharpened image
 ---
 
-Speedup results for ARCHER2
+Fuzzy and sharpened image.
 ```
+
+
+In the next step we will run the parallel version of the code on the compute nodes using a batch submission system.
