@@ -20,8 +20,6 @@ Moreover, regardless of how complex a model is, the actual physical system will 
 
 Now, how one goes about creating a model and a simulation? Any ideas?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_bd3c2838-0873-4170-a3eb-5f53462415c4.png
@@ -55,8 +53,6 @@ The aim of the verification stage is to ensure that the model is implemented cor
 The key point to remember about models, and hence simulations, is that although they simplify and idealise, they are still able to tell us something about the nature of the system they describe.
 
 Think back to our toy traffic model, how many approximations, uncertainties or potential sources of errors can you think of?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -93,7 +89,7 @@ When we were talking about nondeterministic characteristics of the systems we me
 Does that give you a better idea of what uncertainties are? Can you think of any other sources of uncertainties in this model?
 
 
-© Modelling Commons - 1997 Uri Wilensky; EPCC at The University of Edinburgh
+© Modelling Commons - 1997 Uri Wilensky
 
 ---
 
@@ -116,8 +112,6 @@ To understand the importance of choosing the right input parameters, and see the
 - allow the wolf population to die out
 
 How difficult was it to find the sets of parameters to meet the conditions? Have you noticed anything unexpected?
-
-© EPCC at The University of Edinburgh
 
 ---
 ## Terminology Recap
@@ -154,7 +148,6 @@ A) errors
 B) rounding error
 
 ```
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -180,8 +173,6 @@ Some of the disciplines traditionally associated with computational science incl
 However, more recently, other disciplines, such as medicine (e.g. medical imaging, blood flow simulations, bone structure simulations), biology (e.g. ecosystem and environmental modelling) and economics became part of computational science as well. It is quite common nowadays to come across terms like computational economics or computational biology.
 
 If you want to know what sorts of applications are run on the UK’s national supercomputer ARCHER2, visit the relevant page on the ARCHER2 website. Is there anything that surprises you there?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -230,9 +221,6 @@ The Folding@Home project is actually an example of a distributed computing proje
 
 This means that we can never create a perfect forecast system because we can never observe every detail of the atmosphere’s initial state. Tiny errors in the initial state will be amplified, so there is always a limit to how far ahead we can predict any detail. To test how these small differences in the initial conditions may affect the outcome of the forecast, an ensemble system can be used to produce many forecasts.”
 
-
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_fa194728-44a5-4969-9338-30c7c88ab717.jpg
@@ -270,8 +258,6 @@ The post-processing stage extracts the results of the simulation and puts them i
 For example, in weather forecasting it is common to show the movement of rain or clouds over a map showing geographical coordinates and timestamps. Nowadays, it is common for the simulation outputs to graphically display large amounts of data.
 
 What do you think may be required to perform the pre- and post-processing steps? Do you think they have to be done on the same machine the simulation is run on? Do you think these steps have different hardware or software requirements than the execution step?
-
-© EPCC at The University of Edinburgh
 
 ---
 

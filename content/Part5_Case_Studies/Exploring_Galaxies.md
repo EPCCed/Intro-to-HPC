@@ -113,7 +113,7 @@ Notice that using the dynamic unstructured mesh technique to divide the simulate
 
 Recall what you have learned about the effect of bandwidth and latency on the speed of supercomputers. What do you think that means for the code performance? Why does it become an issue in simulations with more than 10,000 MPI processes? Do you have any ideas how to fix this?
 
-© 2015 The Illustris Collaboration, EPCC at The University of Edinburgh
+© 2015 The Illustris Collaboration
 
 ---
 

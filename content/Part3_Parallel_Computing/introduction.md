@@ -21,6 +21,4 @@ The second activity will teach you about different programming models and how th
 
 Finally, in the last activity we will talk about performance - you will learn how to determine if a parallel program uses computing resources efficiently.
 
-© EPCC at The University of Edinburgh
-
 ---

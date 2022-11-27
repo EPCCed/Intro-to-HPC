@@ -46,8 +46,6 @@ In the shared-variables model, the problem occurs if two or more workers try and
 
 This situation is called a race condition and is a disaster for parallel programming: sometimes you get the right answer, but sometimes the wrong answer. To fix this you need to coordinate the actions of the workers, for example using locking as described above.
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_fefa5108-2096-4de1-a50c-275f73bfe94d.jpg
@@ -65,8 +63,6 @@ Remember that you are not allowed to talk directly to your office mates - all co
 - how do you ensure that you do not have any race conditions?
 
 Can you think of any other aspects that should be taken into account?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -110,8 +106,6 @@ Making sure that the workers cooperate correctly is the main issue - ensuring co
 
 Compare your answers from the last step with this solution. How did you do? Have you learned anything surprising? We are curious to know!
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_b3c04339-9b4e-4471-a57b-295a8ac2c1e5.jpg
@@ -148,8 +142,6 @@ Because there are no shared variables (i.e. no shared whiteboard), you do not us
 
 To communicate a lot of data we can send one big message or lots of small ones, what do you think is more efficient? Why?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_43a975cf-2390-4948-8ac2-9d596a2214b0.jpg
@@ -182,8 +174,6 @@ The difference is whether the sender waits until the receiver is actively taking
 Do you think that solving the traffic model in parallel is simpler using synchronous or asynchronous messages? Which do you think might be faster? Do you think the boundary conditions are important here?
 
 Imagine that you want all workers to know the average speed of the cars at every iteration. How could you achieve this using as few phone calls as possible?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -221,8 +211,6 @@ Try to list the most important points of this parallelisation. Was there anythin
 
 Hopefully, you now have a better understanding of how both programming models work and how they differ from each other. In the next two steps we will talk about the actual implementations of both models.
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_1ea03df9-7321-4b2f-ac7c-8a400de20bc6.jpg
@@ -257,8 +245,6 @@ So, to summarise:
 ```
 
 Can you see any problems with the Message-Passing approach if one of the nodes has a hardware failure and crashes? As supercomputers are getting larger does this become a more or less of an issue?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -295,8 +281,6 @@ To summarise:
 
 When we create threads we rely on the OS to assign them to different CPU-cores. How do think the OS makes that decision? What does it need to take into account, when there may be many more threads than CPU-cores?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_25614aaf-f218-4284-af91-503871ddae9f.jpg
@@ -315,8 +299,6 @@ Things to consider include:
 - how many CPU-cores can you use in each model?
 - what happens if you do it incorrectly - will the program ever complete? will it get the right answer?
 - how does the speed of the two models compare - what are the overheads of each?
-
-© EPCC at The University of Edinburgh
 
 ---
 

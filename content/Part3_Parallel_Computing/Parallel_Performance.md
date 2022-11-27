@@ -49,8 +49,6 @@ We call this a scaling curve - we are trying to understand how well the performa
 
 For some problems a parallel efficiency of 80% will be considered to be very good and for others not so good. Can you think of a reason why that is?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_e5dfe526-b743-4b37-88a2-9dd7a83c16ab.jpg
@@ -88,8 +86,6 @@ Try to answer the following questions:
 - what is the speedup for the second journey for a plane 10 or 100 times faster than Concorde?
 - why do you think it’s different from the first journey’s speedup?
 - what does it tell you about the possibilities of parallel computing?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -132,8 +128,6 @@ Amdahl’s law predicts that, although the speedup always increases with P, it n
 
 If you are interested in more details (and more maths!) then you can visit Wikipedia ([Amdahl’s Law](https://en.wikipedia.org/wiki/Amdahl%27s_law) and [Gustafson’s Law](https://en.wikipedia.org/wiki/Gustafson%27s_law)), but all the equations can sometimes obscure what is really a common-sense result.
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_38bd405f-b483-4faf-8b0d-aa6c6939d3d3.jpg
@@ -159,8 +153,6 @@ Compute the speedup S4 for roads of length 200, 2000 and 20000 cells - what do y
 To what extent do these figures agree or disagree with Amdahl’s law and Gustafson’s Law?
 
 These calculations, require you to make a number of assumptions so when comparing answers with your fellow learners you should not focus on the numerical results so much. Looking at the reasoning behind each of the assumptions and comparing your overall conclusions should be more interesting.
-
-© EPCC at The University of Edinburgh
 
 ---
 ## Terminology Recap

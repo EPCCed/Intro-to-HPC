@@ -20,8 +20,6 @@ In this discussion step we would like you to have a look at [ARCHER2’s case st
 - in your opinion, what is the most surprising or interesting aspect of this case study?
 - are there any similarities between the case study you picked and the three case studies we have discussed in this week? Why do you think that is?
 
-© EPCC at The University of Edinburgh, ARCHER
-
 ---
 
 
@@ -66,8 +64,6 @@ So that’s where HPC is heading in the next 5 years – a strong push towards E
 
 In your opinion, which of the above barriers is the hardest to breach? Why do you think so?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_30edbaf8-a0ca-4666-b10e-a0df9d319bfc.jpg
@@ -89,8 +85,6 @@ A much more interesting potential use of quantum computers is to simulate quantu
 The one type of quantum computer that does exist today is built by D-Wave Systems, and relies on rather different quantum effects (so-called quantum annealing) to solve a certain type of optimisation problem. So far, however, it has been difficult to demonstrate that the D-Wave machine is really reliant on quantum behaviour, and it has not been possible to show any meaningful performance advantage over conventional methods for solving the same problem on classical computers.
 
 For sure, quantum computers are an exciting new field, but they are not going to replace classical supercomputers any time soon, and even if they do, they will probably only be useable for solving a few, very specialised problems.
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -121,8 +115,6 @@ Neural networks have been around for a long time, but recent advances in compute
 ### What about the future?
 
 We are still a long way from creating an artificially intelligent computer. Although supercomputer hardware can always help – we can train a network to recognise a face a thousand times faster – we will need to make tremendous advances in software to approach true AI. Although I’m sure that AI programs will make increasing use of supercomputer hardware in the future, there’s no chance that ARCHER will suddenly become self-aware and refuse to tell us what tomorrow’s weather will be!
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -204,7 +196,5 @@ Things to consider:
 - What applications could they have?
 - Have we reached a point similar to commercial aircraft - it’s too expensive to make them go faster so investment is focused on saving cost, fuel economy, reliability etc.?
 - Will the possibilities opened up by exascale supercomputers be enough to drive new technologies?
-
-© EPCC at the University of Edinburgh
 
 ---

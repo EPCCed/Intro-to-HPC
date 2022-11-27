@@ -28,7 +28,7 @@ To use all of these CPU-cores together means they must be able to talk to each o
 
 Does it surprise you to learn that games console components and other general-purpose hardware are also used in supercomputers?
 
-© SURFsara, EPCC at the University of Edinburgh
+© SURFsara
 
 
 ```{figure} ./images/large_hero_9c54a5dc-d810-4c39-aa57-92c15bb303d2.jpg
@@ -109,9 +109,8 @@ To help you familiarise with the supercomputing terminology we have prepared a w
 
 The word search contains 19 words that have been mentioned in the previous steps. Can you find all of them? Do you know how to explain all of them?
 
-© EPCC at the University of Edinburgh
-
 ---
+
 ```{figure} ./images/large_hero_81d5664c-efa9-46cd-9129-547c2167f93a.jpg
 © iStock.com/ThomasVogel
 ```
@@ -166,8 +165,6 @@ However, you may have heard of ongoing developments that take more unconventiona
 - Quantum Computers are built from hardware that is radically different from the mainstream.
 - Artificial Intelligence tackles problems in a completely different way from the computer software we run in traditional computational science.
 We will touch on these alternative approaches in some of the final week’s articles. In the meantime, feel free to raise any questions you have about how they relate to supercomputing by commenting in any of the discussion steps.
-
-© EPCC at The University of Edinburgh
 
 ---
 

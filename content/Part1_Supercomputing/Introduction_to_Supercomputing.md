@@ -87,7 +87,7 @@ Andy: “You’re missing the point between something that hasn’t been done be
 
 Nowadays you can actually produce a computer model in a supercomputer and spend literally years researching a programme down to an extraordinarily fine level of detail so that when you actually go out to push back the boundary of human endeavour, to achieve something absolutely remarkable that will make everybody look round and go ‘wow, that was impressive!’, you can actually do it in a safe, step-by-step controlled way. You can actually understand the problem in advance and that’s all the difference.”
 
-© SURFsara, EPCC at the University of Edinburgh, BBC
+© SURFsara, BBC
 
 ---
 
@@ -110,29 +110,12 @@ In your mind, you probably already have an image of a supercomputer as a massive
 Wee ARCHIE is a suitcase-sized supercomputer designed and built to explain what a supercomputer is.
 
 
-```{figure} ./images/large_hero_a7d4002a-8164-4a13-8bfc-31f9b8074a31.jpg
+```{figure} ./images/181107_ARCHER_30.jpg
 ```
 
 We will return to Wee ARCHIE next week and use it, and its big brother ARCHER, to explain the hardware details of supercomputers.
 
-Wee ARCHIE is part of the ARCHER public outreach programme and many of the materials are freely available online. There is a special “super squirrel” logo that is used when promoting HPC to schools:
-
-
-```{figure} ./images/large_hero_d293ae1b-6cce-4e10-a3d1-720040e38401.png
-```
-
-```{danger}
-
-update to archer2 specific outreach materials
-
-update wee archie images
-
-```
-
 You can find instructions on how to configure your very own Raspberry Pi cluster [here](https://epcced.github.io/wee_archlet/).
-
-
-© The University of Edinburgh
 
 ---
 

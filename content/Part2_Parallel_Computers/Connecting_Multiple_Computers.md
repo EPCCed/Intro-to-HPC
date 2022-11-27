@@ -39,8 +39,6 @@ Well, unfortunately not. The compromises we have had to make (many separate comp
 
 Why do you think the distributed memory architecture is common in supercomputing but is not used in your laptop?
 
-© EPCC at The University of Edinburgh
-
 --- 
 
 ```{figure} ./images/hero_91d652a7-98f2-49d1-85ee-62d3ff46bac6.jpg
@@ -59,8 +57,6 @@ If we have one worker per office, think about how you could get them all to coop
 - all the workers need to know the final result.
 
 To minimise the communication-related costs, try to make as few phone calls as possible.
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -125,8 +121,6 @@ The ARCHER2 cabinets are kept cool by pumping water through cooling pipes. The w
 ARCHER’s cooling towers © Mike Brown
 ```
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ## Wee ARCHIE case study
@@ -175,11 +169,7 @@ For anyone interested in how Wee ARCHIE has been put together (and possibly want
 ```{figure} ./images/hero_5bca5e55-5548-4a13-8f20-f07f498cec7e.jpg
 ```
 
-
-© EPCC at The University of Edinburgh
-
 ---
-
 
 ```{figure} ./images/hero_eee58e21-6f26-4139-b812-54694c3d254e.jpg
 © iStock.com/filonmar
@@ -202,10 +192,7 @@ Need archer 2 node picture
 
 The details of the network are even more complicated with four separate levels ranging from direct connections between the nodes packaged together on the same blade, up to fibre-optic connections between separate cabinets. If you are interested in the details see the ARCHER2 website.
 
-© EPCC at The University of Edinburgh
-
 ---
-
 
 ## ARCHER2: building a real supercomputer
 

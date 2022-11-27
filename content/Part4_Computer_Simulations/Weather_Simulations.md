@@ -63,8 +63,6 @@ Typically, to lessen the uncertainty in weather predictions, ensemble forecastin
 
 Does this explain why the public weather forecasts should be taken with a pinch of salt? Does weather forecasting work as you expected? Do you find anything surprising?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_143bd3a7-550d-4a0a-9eba-e180753e3fb8.jpg
@@ -90,8 +88,6 @@ Besides the initial condition derived from the observational data, there are als
 Among the processes that are to complex to be directly included in weather models is cloud microphysics - processes that lead to the formation, growth and precipitation of atmospheric clouds. Due to the complexity and difference in scale it’s too computationally expensive to directly include these processes in weather models. Nevertheless, capturing and describing their effect on the weather patterns is important. This is done through the parametrisation derived from observational data and our understanding of these processes.
 
 Do you think we will ever reach a point in the history of weather simulation when the steps of data assimilation and parametrisation will become unnecessary? Why do you think so?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -124,7 +120,7 @@ Global communication across a large number of CPU-cores can have a significant i
 
 Do you think running a weather simulation on 20 million CPU-cores is possible? Why? Are there any conditions that weather models would have to meet to make it possible?
 
-© EPCC at The University of Edinburgh, the ECMWF
+© The ECMWF
 
 ---
 
@@ -157,8 +153,6 @@ More recently, emphasis is put on the use of interactive displays, especially on
 If you are interested in new cutting edge visualisation techniques developed for weather and environmental science, we invite you to watch the introduction to the [Informatics Lab](https://www.youtube.com/watch?v=s6ito6QxbH4) run by the Met Office (UK’s official weather service provider). On the [Lab’s website](http://www.informaticslab.co.uk/) you will also find different demos that you can play with. Especially interesting is [Fly Through Model Fields](https://archived.informaticslab.co.uk/projects/three-d-vis.html) project.
 
 Can you imagine any of the Informatics Lab projects being used in real life situations? Would they be useful? Why do you think so?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -197,8 +191,6 @@ C) parameterisation
 
 ```
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_851adb44-88af-4ed3-98a9-523c192be510.jpg
@@ -227,7 +219,7 @@ Using the graph and what you have learnt so far, try to answer the following que
 
 If you would like to learn more about the upgraded model visit the dedicated [ECMWF’s media centre page](http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution).
 
-© EPCC at The University of Edinburgh, the ECMWF
+© The ECMWF
 
 ---
 
@@ -262,7 +254,5 @@ After the storm, ECMWF run a number of experiments to determine the role of sate
 You may think that with the technological advances the number of satellites is steadily increasing so there is no danger of not being able to provide enough data to the weather models. However, in fact, a number of the satellites are ageing and funding their replacement is not always easy. It seems that governments are not very keen on spending money on new satellites. This could definitely prove to be a problem and cause degradation in our ability to predict the weather but also impact our understanding of Earth’s climate and life support systems.
 
 In your opinion, what is the most limiting factor in our current ability to forecast the weather?
-
-© EPCC at The University of Edinburgh
 
 ---

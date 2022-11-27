@@ -78,12 +78,15 @@ We will continue to build and maintain collaborations and strong relationships w
 Promoting teaching excellence
 We endeavour to maintain our position as a major provider of HPC training in Europe.
 
-
 ---
 
-## About EuroCC
+## About EuroCC and CASTIEL
 
-The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to...
+The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to coordiate European efforts to enable HPC usage in both the 
+
+"Within the EuroCC project under the European Union’s Horizon 2020 (H2020), participating countries are tasked with establishing a single National Competence Centre (NCC) in the area of high-performance computing (HPC) in their respective countries. These NCCs will coordinate activities in all HPC-related fields at the national level and serve as a contact point for customers from industry, science, (future) HPC experts, and the general public alike. The EuroCC project is funded 50 percent through H2020 (EuroHPC Joint Undertaking [JU]) and 50 percent through national funding programs within the partner countries." - EuroCC Website
+
+"The Coordination and Support Action (CSA) CASTIEL leads to cross-European networking activities between National Competence Centres (NCCs) in HPC-related topics addressed through the EuroCC project. CASTIEL emphasises training, industrial interaction and cooperation, business development, raising awareness of HPC-related technologies and expertise. As a hub for information exchange and training, CASTIEL promotes networking among NCCs and strengthens idea exchange by developing best practices. The identification of synergies, challenges, and possible solutions is implemented through the close cooperation of the NCCs at a European level." - Castiel Website
 
 ```{danger}
 need to add some words about the EuroCC project
@@ -102,9 +105,5 @@ This material has been developed by James Richings, Stephen Farr, Manos Farsarak
 This was developed from original material developed with included contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
 
 This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
-
----
-
-© EPCC at The University of Edinburgh
 
 ---

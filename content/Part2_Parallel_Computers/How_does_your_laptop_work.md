@@ -29,8 +29,6 @@ We now have two complementary ways of building a parallel computer: we can build
 
 What do you think the main differences between these two approaches are? Can you think of any advantages and/or disadvantages for both of them?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_55c8a23e-686f-42a9-b7e9-de0a12208486.jpg
@@ -64,8 +62,6 @@ Despite its limitations, shared memory architectures are universal in modern pro
 
 Think of owning one quad-core laptop compared to two dual-core laptops - which is more useful to you and why?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_658e81ad-80f0-4383-8c94-f469ace0b757.jpg
@@ -85,8 +81,6 @@ If we’re a bit less ambitious and think about several hundred people rather th
 - would you expect to get exactly the same answer as before?
 
 We’ll revisit this problem in much more detail later but you know enough already to start thinking about the fundamental issues.
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -122,8 +116,6 @@ A shared-memory computer looks like a more powerful single-core computer: it ope
 So, for home use, the Operating System does everything for us, running many separate programs at the same time. On the other hand, in supercomputing we want to run a single program but make it go faster - the OS can’t really help us here and we’ll see that we have to work a bit harder.
 
 In your opinion what are the downsides of this more advanced ‘single-core computer’ approach?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -206,8 +198,6 @@ David: I re-ran the same studies covered in the video but with almost all other 
 | small	| 4	| 11.1 |
 | small	| 8 |	22.2 |
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_e4699d69-bd25-4d86-b020-f3ad31557589.jpg
@@ -241,8 +231,6 @@ Keeping the data consistent and up-to-date on all the CPU-cores is called cache 
 Keeping all the caches coherent when we write data is the major challenge.
 
 What do you think is the current state-of-the-art? How many CPU-cores do high-end processors have?
-
-© EPCC at The University of Edinburgh
 
 --- 
 
@@ -291,8 +279,6 @@ As for Step 2.6, I also re-ran the same calculations with the graphical monitor 
 |large |	1	| 10.7 |
 |large |	4 |	28.5 |
 |large |	8 |	57.0 |
-
-© EPCC at The University of Edinburgh
 
 ---
 

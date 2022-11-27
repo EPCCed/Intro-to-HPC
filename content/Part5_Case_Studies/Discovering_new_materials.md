@@ -114,6 +114,6 @@ The term load imbalance refers to a situation where the computational work is no
 - What do you think is better? Using as many threads as there are cores but incurring higher parallel overheads? Or leaving some of the cores idle? Why?
 - Can you think of any way to to address this issue?
 
-© CINECA, EPCC at The University of Edinburgh
+© CINECA
 
 ---

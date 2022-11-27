@@ -29,8 +29,6 @@ But wait, ARCHER looks very different from your laptop! In this video David deco
 ```{figure} ./images/hero_4a65543e-9635-4624-9811-5da1a0ab431e.png
 ```
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ## How similar is your laptop to a node of a supercomputer?
@@ -79,9 +77,6 @@ HECToR's compute blades HECToR’s compute blades
 
 ```
 
-© EPCC at The University of Edinburgh
-
-
 ```{danger}
 
 
@@ -112,8 +107,6 @@ Shared-memory systems are difficult to build but easy to use, and are ideal for 
 Distributed-memory systems are easier to build but harder to use, comprising many shared-memory computers each with their own operating system and their own separate memory. However, this is the only feasible architecture for constructing a modern supercomputer.
 
 These are the two architectures used today. Do you think there is any alternative? Will we keep using them for evermore?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -195,8 +188,6 @@ We will see next week that if we are careful about how we split our calculation 
 
 Large internet companies like Amazon and Google also use distributed memory architectures for their computational needs. They also offer access to their machines via something known as cloud computing. Do you think Amazon and Google services have the same requirements as we do in supercomputing? What limits the performance of their computers? Are they interested in Pflops?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_6fb1c08f-bebd-4726-888c-340c7bc78a7a.jpg
@@ -224,8 +215,6 @@ Using GPUs for applications other than graphics is called General Purpose or GPG
 Programming a GPGPU isn’t quite as straightforward as a CPU, and not all applications are suitable for its specialised architecture, but one of the main areas of research in supercomputing at the moment is making GPGPUs easier to program for supercomputing applications.
 
 Earlier we asked you to look at Piz Daint, which is accelerated compared to ARCHER2 by the addition of Nvidia’s GPGPUs. Use the sublist generator on the top500 page to check how many top500 systems use Nvidia accelerators. Do you see what you expected to see?
-
-© EPCC at The University of Edinburgh
 
 ---
 ## terminology Recap
@@ -295,7 +284,5 @@ Your design must handle jobs, and the completion of these provides money which c
 Follow the link to the [game](http://supercomputing.epcc.ed.ac.uk/outreach/archer_challenge/) and start playing. We recommend doing a quick walk through first - click the ? icon on the landing page. You can summon the help menu at any point in the game by clicking on the Info icon, located in the upper right corner of the screen.
 
 We hope you will enjoy your experiences as a supercomputing facility manager, good luck!
-
-© EPCC at the University of Edinburgh
 
 ---

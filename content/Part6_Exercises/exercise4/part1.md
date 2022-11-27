@@ -1,4 +1,4 @@
-## Traffic model simulation: setup and execution
+## Traffic model simulation: Serial Execution
 
 As just discussed the aim of this simulation is to understand how traffic density has an effect on average traffic speed.
 
@@ -84,6 +84,43 @@ cc -g -O3 -o traffic traffic.o trafficlib.o uni.o -lm
 
 This should produce an executable file called ``traffic``.  
 
-### Running on the {{ machine_name }} compute nodes
+### Running the serial code
 
+We can run the serial program directly on the login nodes
+
+>```
+>    ./traffic 0.52
+>```
+
+The argument is setting the target traffic density of cars for the modle.
+
+Output:
+```
+Length of road is 32000000
+Number of iterations is 100
+Target density of cars is 0.520000
+Initialising road ...
+...done
+Actual density of cars is 0.519982
+
+At iteration 10 average velocity is 0.789461
+At iteration 20 average velocity is 0.837157
+At iteration 30 average velocity is 0.858209
+At iteration 40 average velocity is 0.870573
+At iteration 50 average velocity is 0.878940
+At iteration 60 average velocity is 0.885087
+At iteration 70 average velocity is 0.889761
+At iteration 80 average velocity is 0.893441
+At iteration 90 average velocity is 0.896447
+At iteration 100 average velocity is 0.898955
+
+Finished
+
+Time taken was  11.418155 seconds
+Update rate was 280.255431 MCOPs
+```
+
+The result we are interested in this the final avarge verlocity that is around 90%. 
+
+Runs this example with multiple different values of the Target density and see how your results compare to the plot relating traffic density to average verlocity from the section on the traffic model.
 

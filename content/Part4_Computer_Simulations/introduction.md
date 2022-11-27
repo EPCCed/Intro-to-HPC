@@ -18,6 +18,4 @@ In this short video David gives an introduction to part 4.
 
 In the previous sections we talked about the hardware of supercomputers and how to program them, in this part we will focus on computer simulations. We will use weather simulations to illustrate the key concepts.
 
-© EPCC at The University of Edinburgh
-
 ---

@@ -25,8 +25,6 @@ Once you have reached step 3, there are many existing software packages and tool
 
 Parallel computing has been around for several decades so there is a wealth of experience to draw upon, and the best parallelisation strategies have been identified for a wide range of standard problems. Despite this, it is not currently possible to completely automate these first two steps for anything but the simplest problems – perhaps a disappointing state of affairs given the fact that almost every phone, tablet or laptop is now a parallel computer, but good news if you are employed as a parallel programmer!
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_8a44d8b2-6e6a-4de1-9127-ce39d7400ad4.jpg
@@ -56,8 +54,6 @@ Perhaps the simplest quantity to measure is the average speed of the cars after 
 
 Why do you think this problem is a good analogy for other, more complex simulations? If the traffic flow problem was to be parallelised, how do you think it could be decomposed into parallel tasks?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ## How the traffic model works
@@ -83,8 +79,6 @@ We will be using the chessboard to illustrate a few examples of the traffic cond
 
 Do you think this simplified model is actually useful? Why?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ## Example 1: Traffic lights
@@ -105,8 +99,6 @@ Do you think this simplified model is actually useful? Why?
 In this first example David uses the traffic model on a chessboard to simulate a situation created by traffic lights.
 
 In your opinion, is our toy model capable of capturing the effect of traffic lights? Can you outline the most essential assumptions?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -131,8 +123,6 @@ In this second example, we use the chessboard to look at the traffic congestion.
 Do you understand why only one car can move at each iteration?
 
 This is actually quite important not only in our toy traffic model but also in any kind of computer simulations. The process of transferring continuous functions, equations and models into small distinct bits to be executed in a sequence of steps is called discretisation. This process is one of the initial steps in creating computer simulations. We will talk more about this in Week 4.
-
-© EPCC at The University of Edinburgh
 
 ---
 ## Example 3: Rubbernecking
@@ -172,8 +162,6 @@ In this video David talks about another example of traffic conditions - rubberne
 We use term the rubbernecking to refer to the activity of motorists slowing down in order to see something on the other side of a road or highway, which creates backwards waves in traffic.
 
 Having watched the video, is it clear to you what boundary conditions are? Do you understand why they are needed?
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -231,8 +219,6 @@ We’ve made a lot of simplifications to simulate traffic using this Rule 184 ce
 
 Do you think it is possible to perform realistic traffic simulations using a more complicated cellular automaton, or would you recommend a completely different approach. Why?
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ```{figure} ./images/hero_ecabfcea-5342-48c4-a183-3d8fa6493443.jpg
@@ -258,8 +244,6 @@ To illustrate what we mean by a model in this context, let’s take another exam
 Although both models achieve the same aim of transporting you between the two cities, they do so in fundamentally different ways with their own pros and cons. At this level, we are not concerned about the details of how each model is implemented: whether you drive an electric or petrol car, or travel by bus or by train, the fundamental distinction between the private and public models remains the same despite differing in the details.
 
 In terms of the two programming models, we are not concerned about the details of how the computer is built, whether it has a fast communications network or a slow one, whether each processor has a few cores or dozens of them. All we care about is whether or not different CPU cores are all directly attached to the same memory: are the workers sharing the same office or in different offices?
-
-© EPCC at The University of Edinburgh
 
 ---
 

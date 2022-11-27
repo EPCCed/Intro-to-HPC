@@ -42,13 +42,8 @@ In the last few years the process of doubling transistors in integrated circuits
 
 So what happens if the CPU-cores are not getting any faster? How are we going to build faster supercomputers to cope with the increasing size and complexity of our computer simulations? The current trend in the supercomputing world is that supercomputers are getting bigger not faster. Since the speed of a single CPU-core cannot be increased any more, having more and more cores working together is the only way to meet our computational requirements.
 
-```{figure} ./images/large_hero_7dbadb03-cbbb-464b-a622-519a208f6693.png
-Moore's Law plot ©By Wgsimon - Own work, CC BY-SA 3.0, (image)
-```
-
-```{danger}
-
-updated moores law plot
+```{figure} ./images/Transistor-Count-over-time.png
+Max Roser, Hannah Ritchie [OurWorldinData](https://ourworldindata.org/uploads/2020/11/Transistor-Count-over-time.png) ([CC-BY](https://creativecommons.org/licenses/by/4.0/deed.en))
 ```
 
 Your next mobile phone will probably have more CPU-cores than your current one. Do you think this is more useful than a faster CPU? Can you see any problems in making use of all these CPU-cores?
@@ -84,7 +79,6 @@ In this video David describes how to tackle the calculation in serial on his lap
 
 We will use this example in other steps on this course to better illustrate some of the key concepts, so make sure you understand how it works.
 
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -126,9 +120,6 @@ Every two years the number of CPU-cores in a processor now doubles.
 
 In this video David uses the income calculation example to illustrate what is the impact of the first point in practice. We will return to the second point next week.
 
-
-© EPCC at The University of Edinburgh
-
 ---
 
 
@@ -153,14 +144,11 @@ Have a look at the most recent list and briefly comment on the following questio
 - What fraction of peak performance is typically achieved for the LINPACK benchmark?
 - Play with the statistics tool on top500.org and think about the trends in current HPC systems. For example, how many supercomputers in the Top500 are classed as being for use by industry?
 
-© SURFsara, EPCC at the University of Edinburgh
+© SURFsara
 
 ---
 
 ## Terminology recap
-
-
-(image) under the heat sink of the cpu...
 
 ```{questions} Question 1
 Historically, a ____ contained a single "brain" but nowadays it contains multiple ____.
@@ -213,3 +201,5 @@ The process of evaluating the performance of a supercomputer by running a standa
 2) LINPACK
 
 ```
+
+---
