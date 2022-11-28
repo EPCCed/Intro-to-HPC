@@ -42,7 +42,7 @@ alt: speedup graph
 Speedup results for ARCHER2
 ```
 
-## Things to thing about ...
+## Things to think about ...
 
 Before we move on a couple of things to consider:
 

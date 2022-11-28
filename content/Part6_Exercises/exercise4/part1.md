@@ -5,8 +5,7 @@ As just discussed the aim of this simulation is to understand how traffic densit
 
 ### Downloading the source code
 
-In this exercise we will be using the traffic simulaion program. The source code is available in a Github repository.
-
+In this exercise we will be using the traffic simulaion program. The source code is available in the same Github repository as the other examples.
 
 To download the code you will need to clone the repository. To do this execute the following command
 
@@ -92,7 +91,7 @@ We can run the serial program directly on the login nodes
 >    ./traffic 0.52
 >```
 
-The argument is setting the target traffic density of cars for the modle.
+The argument is setting the target traffic density of cars for the model.
 
 Output:
 ```
@@ -120,7 +119,7 @@ Time taken was  11.418155 seconds
 Update rate was 280.255431 MCOPs
 ```
 
-The result we are interested in this the final avarge verlocity that is around 90%. 
+The result we are interested in this the final avarge verlocity that is reported at iteration 100. 
 
-Runs this example with multiple different values of the Target density and see how your results compare to the plot relating traffic density to average verlocity from the section on the traffic model.
+Run this example with multiple different values of the Target density and see how your results compare to the plot relating traffic density to average verlocity from the section on the traffic model.
 
