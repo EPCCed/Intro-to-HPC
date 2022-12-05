@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Introduction to HPC"
+project = "Introduction to HPC (Beta)"
 copyright = "2022, EPCC at the University of Edinburgh"
 author = "James Richings EPCC"
 github_user = "JPRichings"
