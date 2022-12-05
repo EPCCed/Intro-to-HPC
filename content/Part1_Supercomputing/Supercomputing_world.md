@@ -197,5 +197,3 @@ The process of evaluating the performance of a supercomputer by running a standa
 2) LINPACK
 
 ```
-
----

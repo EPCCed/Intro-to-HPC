@@ -115,5 +115,3 @@ The term load imbalance refers to a situation where the computational work is no
 - Can you think of any way to to address this issue?
 
 © CINECA
-
----

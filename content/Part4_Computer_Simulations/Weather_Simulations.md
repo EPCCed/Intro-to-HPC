@@ -252,5 +252,3 @@ After the storm, ECMWF run a number of experiments to determine the role of sate
 You may think that with the technological advances the number of satellites is steadily increasing so there is no danger of not being able to provide enough data to the weather models. However, in fact, a number of the satellites are ageing and funding their replacement is not always easy. It seems that governments are not very keen on spending money on new satellites. This could definitely prove to be a problem and cause degradation in our ability to predict the weather but also impact our understanding of Earth’s climate and life support systems.
 
 In your opinion, what is the most limiting factor in our current ability to forecast the weather?
-
----

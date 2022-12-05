@@ -211,7 +211,7 @@ Think of the analogy with many workers sharing an office. The obvious solution t
 
 This works very well for a single worker: you can work entirely from your personal notebook for long periods, and then transfer any updated results to the whiteboard before moving on to the next piece of work.
 
-#### Writing data
+### Writing data
 It also works very well for multiple workers if they only ever read data. Unfortunately, real programs also write data, i.e. workers will want to modify the data on the whiteboard. If two people are working on the same data at the same time, we have a problem: if one worker changes some numbers in their notebook then the other worker needs to know about it. The compromise solution is to let everyone know whenever you modify any results in your notebook. Whenever you alter a number, you have to shout out:
 
 "I’ve just changed the entry for the 231st salary - if you have a copy of it then you’ll need to get the new value from me!"
@@ -328,5 +328,3 @@ The situation when multiple CPU-cores try to use the same resources, e.g. memory
 1) resource contention
 
 ```
-
----

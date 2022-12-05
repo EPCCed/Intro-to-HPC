@@ -237,5 +237,4 @@ Although both models achieve the same aim of transporting you between the two ci
 
 In terms of the two programming models, we are not concerned about the details of how the computer is built, whether it has a fast communications network or a slow one, whether each processor has a few cores or dozens of them. All we care about is whether or not different CPU cores are all directly attached to the same memory: are the workers sharing the same office or in different offices?
 
----
 

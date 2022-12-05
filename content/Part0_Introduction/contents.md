@@ -105,5 +105,3 @@ This material has been developed by James Richings, Stephen Farr, Manos Farsarak
 This was developed from original material developed with included contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
 
 This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
-
----

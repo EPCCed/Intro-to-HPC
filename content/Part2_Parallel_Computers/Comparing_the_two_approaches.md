@@ -285,4 +285,3 @@ Follow the link to the [game](http://supercomputing.epcc.ed.ac.uk/outreach/arche
 
 We hope you will enjoy your experiences as a supercomputing facility manager, good luck!
 
----

@@ -16,8 +16,6 @@ In this short video David gives an introduction to the final part of the course.
 
 Having already covered the building blocks of hardware, software and computer simulation techniques, we now look at how supercomputers are used to solve very large scale real-world problems. We also consider what the likely areas of development will be in the coming years.
 
-© EPCC at The University of Edinburgh
-
 ---
 
 ## Grand Challenges!
@@ -27,8 +25,6 @@ In the late 1980’s, the term “Grand Challenge” was coined by the US govern
 Rather than adopting an “if you build it, they will come” approach, the idea was to set concrete goals for solving a number of important scientific problems that required more computing power than was currently available. A large number of problems were identified – we have already touched on a couple of them such as challenges in transportation, or the prediction of the weather and climate – and the list changes over time. However, the term remains in common use: a Grand Challenge generally means a problem in computational science that it is at the very limit of current supercomputer technology.
 
 What do you think are the most important Grand Challenges facing us today - you may find this [Wikipedia article](https://en.wikipedia.org/wiki/Grand_Challenges) useful.
-
-© EPCC at The University of Edinburgh
 
 ---
 
@@ -43,9 +39,4 @@ It’s much easier to pose a problem than to solve it!
 One of the most famous grand challenges was issued by John F Kennedy in May 1961 – “We choose to go to the moon” he famously said – but this was not achieved until July 1969, and not without some cost. Overall, the Apollo programme has been estimated to have cost 200 billion (200 000 000 000) euros in today’s money.
 
 What do you think the major issues are in solving Grand Challenges in computational science – tackling problems at the very limit of what is possible? Are the main hurdles to do with hardware, software, lack of understanding of the problem itself, lack of money, …. ?
-
-© EPCC at The University of Edinburgh
-
----
-
 

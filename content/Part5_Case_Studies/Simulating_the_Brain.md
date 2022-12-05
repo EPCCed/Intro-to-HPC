@@ -118,5 +118,3 @@ Taking into account recent developments in the supercomputing world, what is you
 
 
 © EPFL/BlueBrainProject
-
----

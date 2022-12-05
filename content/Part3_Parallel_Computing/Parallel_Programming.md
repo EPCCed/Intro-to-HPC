@@ -418,5 +418,3 @@ D) a parallel programming model
 C) - the traffic model is a good example of a simple cellular automaton
 
 ```
-
----

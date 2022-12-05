@@ -148,7 +148,7 @@ The term ____ ____ refers to a situation where the computational work is not dis
 
 ```
 
-```{soultion}
+```{solution}
 
 Load imbalance
 
@@ -197,4 +197,4 @@ Things to consider:
 - Have we reached a point similar to commercial aircraft - it’s too expensive to make them go faster so investment is focused on saving cost, fuel economy, reliability etc.?
 - Will the possibilities opened up by exascale supercomputers be enough to drive new technologies?
 
----
+
