@@ -6,7 +6,7 @@
 
 ## Parallel Computing
 
-We have seen over the first two weeks that almost all modern computers are parallel computers, consisting of many individual CPU-cores that can be connected together in two different ways: in either a shared-memory or a distributed-memory fashion. A supercomputer will contain tens of thousands of CPU-cores, all operating simultaneously.
+We have seen over the first two parts of the course that almost all modern computers are parallel computers, consisting of many individual CPU-cores that can be connected together in two different ways: in either a shared-memory or a distributed-memory fashion. A supercomputer will contain tens of thousands of CPU-cores, all operating simultaneously.
 
 A single CPU-core acts as a serial computer, running a single computer program at any one time. The Oxford English Dictionary defines serial computing as ‘the performance of operations … in a set order one at a time’. To take advantage of a parallel computer, we need to perform many operations at the same time so that we can make use of many CPU-cores. Parallel computing is defined as ‘Involving the concurrent or simultaneous performance of certain operations’.
 
@@ -196,7 +196,7 @@ For the one-dimensional case like the Traffic Model, it turns out that there are
 
 - each cell depends on the values of three cells (itself and its two immediate neighbours);
 - this means there are 8 rules (i.e. 111, 110, 101, 100, 011, 010, 001 and 000), each with two possible outcomes (occupied = 1, unoccupied = 0). First number corresponds to the preceding, second to the current and third the next cell, giving the following outcomes for the new state of the central cells: 1, 0, 1, 1, 1, 0, 0 and 0, respectively.
-- that makes a total of 256 = 28 possible models (to include every possible combination of 2 outcomes for 8 rules - 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 28).
+- that makes a total of 256 = 28 possible models (to include every possible combination of 2 outcomes for 8 rules - 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 128).
 
 Most of these models will be very boring, but with our particular choice of rules the model can be seen as a simulation of traffic moving from left to right. The traffic model is sometimes called “Rule 184” - there is a (surprisingly detailed) discussion of it on [Wikipedia](https://en.wikipedia.org/wiki/Rule_184).
 
