@@ -10,43 +10,42 @@ We have seen that parallel supercomputers have enormous potential computing powe
 
 When considering how to parallelise even the simplest calculations (such as the traffic model) using the message-passing model, we have seen that this introduces overheads: making a phone call to someone in a another office takes time, and this is time when you are not doing any useful calculations.
 
-We therefore need some way of measuring how well our parallel computation is performing: is it making the best use of all the CPU-cores? The input to all these metrics is the time taken for the program to run on P CPU-cores which we will call TP .
+We therefore need some way of measuring how well our parallel computation is performing: is it making the best use of all the CPU-cores? The input to all these metrics is the time taken for the program to run on $P$ CPU-cores which we will call $T_P$ .
 
-The standard measure of parallel performance is called the parallel speedup. We measure the time taken to do the calculation on a single CPU-core, and the time taken on P CPU-cores, and compute the parallel speedup S:
+The standard measure of parallel performance is called the parallel speedup. We measure the time taken to do the calculation on a single CPU-core, and the time taken on $P$ CPU-cores, and compute the parallel speedup $S_P$:
 
-```
-S_p = T_1 / T_P
-```
+$$
+S_p = \frac{T_1}{T_P}
+$$
 
 For example, if the program took 200 seconds on 1 CPU-core (i.e. running in serial) and 25 seconds on 10 CPU-cores then the parallel speed-up is
 
-```
-S_{10} = T_1 / T_{10} = 100 / 25 = 8
-```
+$$
+S_{10} = \frac{T_1}{T_{10}} = \frac{100}{25} = 8
+$$
  
-Ideally we would like our parallel program to run 10 times faster on 10 CPU-cores, but this is not normally possible due to the inevitable overheads. In general, SP will be less than P.
+Ideally we would like our parallel program to run 10 times faster on 10 CPU-cores, but this is not normally possible due to the inevitable overheads. In general, $S_P$ will be less than $P$.
 
 Another way of quantifying this is to compute the parallel efficiency:   
 
-```
-E_P = S_P/P 
-```
+$$
+E_P = \frac{S_P}{P} 
+$$
 
 This gives us an idea of how efficiently we are using the CPU-cores. For the example given above, the parallel efficiency is
 
-```
-E_{10} = S_{10} / 10 = 8 / 10 = 0.80 = 80 % 
-```
+$$
+E_{10} = \frac{S_{10}}{10} = \frac{8}{10} = 0.80 = 80 \% 
+$$
 
-Ideally we would like our parallel program to be 100% efficient, but in general EP will be less than 1.0 (i.e. less than 100%).
+Ideally we would like our parallel program to be 100% efficient, but in general $E_P$ will be less than 1.0 (i.e. less than 100%).
 
 When considering the way a parallel program behaves, the standard approach is to measure the performance for increasing values of P and to plot a graph of either parallel speedup or parallel efficiency against the number of CPU-cores.
-
-We call this a scaling curve - we are trying to understand how well the performance scales with increasing numbers of CPU-cores. We talk about whether or not a program scales well or scales poorly (or has good or bad scalability).
 
 ```{figure} ./images/hero_afc04aae-ee23-4f71-8df0-80c3bf10d38e.png
 ```
 
+We call this a scaling curve - we are trying to understand how well the performance scales with increasing numbers of CPU-cores. We talk about whether or not a program scales well or scales poorly (or has good or bad scalability).
 For some problems a parallel efficiency of 80% will be considered to be very good and for others not so good. Can you think of a reason why that is?
 
 ---
@@ -114,15 +113,15 @@ Scaling plot for New York and Sydney Journeys (image)
 
 Amdahl’s law can be expressed in equations as:
 
-```
-S_P = P / (\alpha P + (1-\alpha))
-```
+$$
+S_P = \frac{P}{(\alpha P + (1-\alpha))}
+$$
 
 where alpha is the fraction of the calculation that is entirely serial. For example, for the New York journey then
 
-```
- \alpha = 4 hours / 12 hours = 0.33 
-```
+$$
+ \alpha = \frac{4\, \rm hours}{12\, \rm hours} = 0.33 
+$$
 
 Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/\alpha. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
 
