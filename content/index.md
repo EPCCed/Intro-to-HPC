@@ -10,7 +10,6 @@ Part1_Supercomputing/contents
 Part2_Parallel_Computers/contents
 Part3_Parallel_Computing/contents
 Part4_Computer_Simulations/contents
-Part5_Case_Studies/contents
 Part6_Exercises/contents
 ```
 
