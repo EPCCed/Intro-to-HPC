@@ -93,9 +93,15 @@ need to add some words about the EuroCC project
 This course has been adapted with EuroCC funding to update the original course developed under Prace and improve course flexibility to allow it to be tailored to multiple NCC's needs while keeping the core theme of the course.
 
 ---
+
 ```{figure} ./../Part1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
 cite!
 ```
+```{danger}
+
+need reference for this image
+```
+
 ## Acknowledgements
 
 This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty and Weronika Filinger at the EPCC under funding from EuroCC.
