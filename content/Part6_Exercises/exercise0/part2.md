@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 }
 
 ```
-this is very simple code but it will report where it is running from.
+this is very simple code but it will say hello to you and report where it is running from.
 
 To run this example use the following batch script for {{ machine_name }}:
 
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
 
 ```
 
-In order to run this on a hpc node we can use the following script,
+In order to run this on a {{ machine_name }} node we can use the following script,
 
 
 ```
@@ -137,20 +137,17 @@ srun --hint=nomultithread --distribution=block:block ./hello-THRD
 ```
 
 
-Here we continue to run on a single process, threads take advantage of the shared memory aspect of a HPC system and cannot communicated between destinct nodes but can work as a team on a single node to improve performance. 
+Here we continue to run on a single process, each process can have a number of threads. The number of threads used is usually set to the number of CPU's on a given node or a fraction of that. Threaded codes can take advantage of the shared memory aspect of a HPC systems to pass data between each other but cannot communicated between distinct nodes. 
 
-If you run this with multiple processes then it will still work but without MPI communucation these processes will be entirly independent and can not communicate information.
+If you run this with multiple processes then it will still work but without MPI communucation these processes will be entirly independent and will not communicate information.
 
 ---
 
 ## MPI
 
-MPI is a message passing interface, this allow for messages to be sent by multiple instances on the program running on different nodes each being controlled by a seperate instance of the operating system.
+MPI is a message passing interface, this allow for messages to be sent by multiple instances of the program running on different nodes to each other. Each instance of the program is controlled by a seperate instance of the operating system.
 
-In an MPI program when start the program we tell it how mant copies of the code is running and 
-
-
-This MPI example each process says hello in the programs and states which node it is running on and which .
+This MPI example each process says hello in the programs and states which node it is running on and which process of the group it is.
 
 ```
 
@@ -158,14 +155,14 @@ some code (this code need tidying)
 
 ```
 
-- script example 1
+We can run this executable using this batch script:
 
 ```
 
 #!/bin/bash
 
 #SBATCH --job-name=sharpen
-#SBATCH --nodes=1
+#SBATCH --nodes=4
 #SBATCH --tasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:01:00
@@ -185,19 +182,25 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun --hint=nomultithread --distribution=block:block ./hello-MPI
 
 ```
-
-
 In the above script we assume one process per node this means we see one process per node responding to our welcome.
 
+Example output:
 
-- script example 2
+```
+Hello world, my name is your-name, I am sending this message from process 0 of 4 total processes executing, which is running on node nid001059.
+Hello, your-name@nid001059 I am process 1 of 4 total processes executing and I am running on node nid001060.
+Hello, your-name@nid001059 I am process 2 of 4 total processes executing and I am running on node nid001069.
+Hello, your-name@nid001059 I am process 3 of 4 total processes executing and I am running on node nid001098.
+```
+
+We can however have multiple processes per node,
 
 ```
 
 #!/bin/bash
 
 #SBATCH --job-name=sharpen
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --tasks-per-node=4
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:01:00
@@ -218,31 +221,161 @@ srun --hint=nomultithread --distribution=block:block ./hello-MPI
 
 ```
 
+In this updated script we have increased the number of processes per node. This means we see multiple processes respond per node.
 
-In this updated script we have increased the number of processes per node. this means we see multiple processes respond per node.
-
-
-- expected result
+```
+Hello world, my name is yourname, I am sending this message from process 0 of 8 total processes executing, which is running on node nid001452.
+Hello, your-name@nid001452 I am process 1 of 8 total processes executing and I am running on node nid001452.
+Hello, your-name@nid001452 I am process 2 of 8 total processes executing and I am running on node nid001452.
+Hello, your-name@nid001452 I am process 3 of 8 total processes executing and I am running on node nid001452.
+Hello, your-name@nid001452 I am process 4 of 8 total processes executing and I am running on node nid001453.
+Hello, your-name@nid001452 I am process 5 of 8 total processes executing and I am running on node nid001453.
+Hello, your-name@nid001452 I am process 6 of 8 total processes executing and I am running on node nid001453.
+Hello, your-name@nid001452 I am process 7 of 8 total processes executing and I am running on node nid001453.
+```
 
 ## Hybrid
 
-This hybid code has each thread in each process say hello.
+This hybid code has all the process respond to an initial message from process 0. As this is a hybrid code each of the threads in each process respond with a message.  
 
-- code 
+```
+#include <stdio.h>
+#include <mpi.h>
+#include <omp.h>
+#include <iostream>
+#include <string.h>
 
-- script example
+int main(int argc, char *argv[])
+{
+    // Check input argument
+
+    if(argc != 2)
+    {
+        printf("Required one argumnet `name`.\n");
+        return 1;
+    }
+
+    // Receive arguments
+
+    char* iname = (char *)malloc(strlen(argv[1])+1);
+    char* iname2 = (char *)malloc(strlen(argv[1])+1);
+
+    strcpy(iname,argv[1]);
+    strcpy(iname2, iname);
+
+    // MPI Setup
+
+    int rank, size, len;
+    char name[MPI_MAX_PROCESSOR_NAME];
+
+    MPI_Init(&argc, &argv);
+
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    MPI_Get_processor_name(name, &len);
+
+    // Create message to broadcast to all processes.
+
+    strcat(iname, "@");
+    strcat(iname,name);
+
+    int inameSize = strlen(iname);
+
+    // Create buffer for message
+
+    char* buff = (char *)malloc(inameSize);
 
 
-In this exampe script focus on the multiple threads per process.
+    // Sending process fills the buffer
+      if (rank == 0)
+    {
+      strcpy(buff, iname);
+    }
 
+    // Send the message
 
-- expected result
+    MPI_Bcast(buff, inameSize, MPI_CHAR, 0, MPI_COMM_WORLD);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    if (rank == 0)
+    {
+      printf("Hello world, my name is %s, I am sending this message from process %d of %d total processes executing, which is running on node %s. \n", iname2, rank, size, name);
+    }
+
+    if (rank != 0)
+    {
+      #pragma omp parallel
+      {
+        printf("Hello, %s I am thread %d of %d threads in process %d of %d total processes executing and I am running on node %s.\n", buff, omp_get_thread_num(), omp_get_num_threads(), rank, size, name);
+      }
+    }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MPI_Finalize();
+
+    return 0;
+  }
+```
+
+The bash script to run this for { machinename } 
+
+```
+#!/bin/bash
+
+# Slurm job options (name, compute nodes, job time)
+#SBATCH --job-name=Hybrid
+#SBATCH --time=00:20:00
+#SBATCH --nodes=4
+#SBATCH --tasks-per-node=2
+#SBATCH --cpus-per-task=8
+
+# Replace [budget code] below with your budget code (e.g. t01)
+#SBATCH --account=[budget code]
+#SBATCH --qos=standard
+#SBATCH --partition=standard
+
+export EXE=../hello
+
+export OMP_NUM_THREADS=2
+NODES=$SLURM_JOB_NUM_NODES
+CORES=$((NODES*128))
+THREADS=$OMP_NUM_THREADS
+
+export OMP_PLACES=cores
+
+srun --hint=nomultithread --distribution=block:block $EXE "your-name" > Test-${NODES}nodes-${CORES}cores-${THREADS}threads-run${i}.${SLURM_JOBID}.out
+```
+
+In this example has the 0th process sends the a message your-name@nodeId to all the other processes and the print a message in a responce.  
+
+```
+Hello world, my name is your-name, I am sending this message from process 0 of 8 total processes executing, which is running on node nid001780.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 1 of 8 total processes executing and I am running on node nid001780.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 2 of 8 total processes executing and I am running on node nid001782.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 3 of 8 total processes executing and I am running on node nid001782.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 4 of 8 total processes executing and I am running on node nid001783.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 5 of 8 total processes executing and I am running on node nid001783.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 6 of 8 total processes executing and I am running on node nid001785.
+Hello, your-name@nid001780 I am thread 0 of 2 threads in process 7 of 8 total processes executing and I am running on node nid001785.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 1 of 8 total processes executing and I am running on node nid001780.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 2 of 8 total processes executing and I am running on node nid001782.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 3 of 8 total processes executing and I am running on node nid001782.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 4 of 8 total processes executing and I am running on node nid001783.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 5 of 8 total processes executing and I am running on node nid001783.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 6 of 8 total processes executing and I am running on node nid001785.
+Hello, your-name@nid001780 I am thread 1 of 2 threads in process 7 of 8 total processes executing and I am running on node nid001785.
+```
+
+This uses a simpel broadcast for this example but it illitrates that a message has been passed to all the other nodes and each thread is able to access the transmitted information and write a custom resonce.
 
 ## Conclusion
 
-The point of this exercise is to show that there are different ways to orginise a calculation and the location of operation changes depending on how we spread out the calcualtion over the nodes.
+The point of this exercise was to show that there are different ways to parrallelise a program and use the hardware a high performance computer gives you access to. The examples here just report the location of each process and thread however in a more realistic senario each of these examples are different ways to orginise a calculation. We might choose different ways to spread out our calculation based on the memory requirement, processing power and communication stratagies that are optimal for a given simulation. Choosing the correct stratagy can give perofrmance benefits but potentially at the cost of more complex code.
 
-A few other tests you can try:
+A few other tests you can try to solidify your knowledge:
 
 - Run the serial code with more than one process what do you see?
 - Running the threaded code with more than one process what do you see?

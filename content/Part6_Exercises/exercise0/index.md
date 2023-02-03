@@ -9,7 +9,7 @@ In this practical exercise you will:
 -   Understand the difference between message passing and threading in relation to the hardware
  of a super computer.
 
-The focus of this exercise will be to run a serise of hello world programs that help to illitrate how parallelism works on a supercomputer.
+The focus of this exercise will be to run a serise of hello world programs that help to illustrate how parallelism works on a supercomputer.
 
 
 ```{toctree}
