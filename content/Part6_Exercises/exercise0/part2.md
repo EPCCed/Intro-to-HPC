@@ -19,53 +19,44 @@ For those who are interested the code we are executing is,
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <string.h>
 
 int main(int argc, char* argv[])
 {
 
+    // Check input argument
+
+    if(argc != 2)
+    {
+        printf("Required one argumnet `name`.\n");
+        return 1;
+    }
+
+    // Receive arguments
+
+    char* iname = (char *)malloc(strlen(argv[1])+1);
+
+    strcpy(iname, argv[1]);
+
     char hostname[HOST_NAME_MAX];
-    char username[LOGIN_NAME_MAX];
     gethostname(hostname, HOST_NAME_MAX);
-    getlogin_r(username, LOGIN_NAME_MAX);
 
     printf("Hello World!\n");
-    printf("Hello %s, this is %s.\n", username, hostname);
+    printf("Hello %s, this is %s.\n", iname, hostname);
 
 }
 
 ```
-this is very simple code but it will say hello to you and report where it is running from.
+this is a very simple C++ code but it will say hello to you and report where it is running from.
 
-To run this example use the following batch script for {{ machine_name }}:
+To run this example use the following batch script for {{ machine_name }},
 
-```
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-SER-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
-#!/bin/bash
+This example is small enough that it can be run on the login nodes of {{ machine_name }} by typing `./hello-SER`.
 
-#SBATCH --job-name=sharpen
-#SBATCH --nodes=1
-#SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=1
-#SBATCH --time=00:01:00
+How does this differ from when you run using a batch script?
 
-# Replace [budget code] below with your project code (e.g. t01)
-#SBATCH --account=[budget code]
-#SBATCH --partition=standard
-#SBATCH --qos=standard
-
-# Setup the batch environment
-module load epcc-job-env
-
-# Set the number of threads to the CPUs per task
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-# Launch the parallel job
-srun --hint=nomultithread --distribution=block:block ./hello-SER
-
-```
-
-
-This will just say hello from a single node on {{ machine_name }} and report the node's name.
 
 
 ---
@@ -75,67 +66,50 @@ This will just say hello from a single node on {{ machine_name }} and report the
 This threaded example runs on as many threads on a node as you allow it to.
 
 
-The code is a little more complex than the last example in order to run multiple copies of the responce from each thread.
+The code is a little more complex than the last example in order to run multiple copies of the responce from a numbe of threads on the node we use OpenMP to parallelise the code.
 
 ```
 
 #include <omp.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <string.h>
+
 
 int main(int argc, char* argv[])
 {
 
+  if(argc != 2)
+  {
+      printf("Required one argumnet `name`.\n");
+      return 1;
+  }
+
+  char* iname = (char *)malloc(strlen(argv[1])+1);
+
+  strcpy(iname,argv[1]);
+
   char hostname[HOST_NAME_MAX];
-  char username[LOGIN_NAME_MAX];
   gethostname(hostname, HOST_NAME_MAX);
-  getlogin_r(username, LOGIN_NAME_MAX);
 
   printf("Hello World!\n");
 
   #pragma omp parallel
   {
-    printf("Hello %s, this is node %s responding from thread %d\n", username, hostname,
+    printf("Hello %s, this is node %s responding from thread %d\n", iname, hostname,
            omp_get_thread_num());
   }
 
 }
-
 
 ```
 
 In order to run this on a {{ machine_name }} node we can use the following script,
 
 
-```
-
-#!/bin/bash
-
-#SBATCH --job-name=sharpen
-#SBATCH --nodes=1
-#SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=4
-#SBATCH --time=00:01:00
-
-# Replace [budget code] below with your project code (e.g. t01)
-#SBATCH --account=[budget code]
-#SBATCH --partition=standard
-#SBATCH --qos=standard
-
-# Setup the batch environment
-module load epcc-job-env
-
-# Set the number of threads to the CPUs per task
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-# Launch the parallel job
-srun --hint=nomultithread --distribution=block:block ./hello-THRD
-
-```
-
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-THRD-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
 Here we continue to run on a single process, each process can have a number of threads. The number of threads used is usually set to the number of CPU's on a given node or a fraction of that. Threaded codes can take advantage of the shared memory aspect of a HPC systems to pass data between each other but cannot communicated between distinct nodes. 
 
@@ -151,37 +125,88 @@ This MPI example each process says hello in the programs and states which node i
 
 ```
 
-some code (this code need tidying)
+#include <stdio.h>
+#include <mpi.h>
+#include <iostream>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+    // Check input argument
+
+    if(argc != 2)
+    {
+        printf("Required one argumnet `name`.\n");
+        return 1;
+    }
+
+    // Receive arguments
+
+    char* iname = (char *)malloc(strlen(argv[1])+1);
+    char* iname2 = (char *)malloc(strlen(argv[1])+1);
+
+    strcpy(iname,argv[1]);
+    strcpy(iname2, iname);
+
+    // MPI Setup
+
+    int rank, size, len;
+    char name[MPI_MAX_PROCESSOR_NAME];
+
+    MPI_Init(&argc, &argv);
+
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    MPI_Get_processor_name(name, &len);
+
+    // Create message to broadcast to all processes.
+
+    strcat(iname, "@");
+    strcat(iname,name);
+
+    int inameSize = strlen(iname);
+
+    // Create buffer for message
+
+    char* buff = (char *)malloc(inameSize);
+
+    // Sending process fills the buffer
+
+    if (rank == 0)
+    {
+      strcpy(buff, iname);
+    }
+
+    // Send the message
+    
+    MPI_Bcast(buff, inameSize, MPI_CHAR, 0, MPI_COMM_WORLD);
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    if (rank == 0)
+    {
+      printf("Hello world, my name is %s, I am sending this message from process %d of %d total processes executing, which is running on node %s. \n", iname2, rank, size, name);
+    }
+
+    if (rank != 0)
+    {
+      printf("Hello, %s I am process %d of %d total processes executing and I am running on node %s.\n", buff, rank, size, name);
+    }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    MPI_Finalize();
+
+    return 0;
+  }
 
 ```
 
-We can run this executable using this batch script:
+We can run this executable using this batch script,
 
-```
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-MPI-SlurmA.md\n```'.replace("REPLACE",machine_name) }}
 
-#!/bin/bash
-
-#SBATCH --job-name=sharpen
-#SBATCH --nodes=4
-#SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=1
-#SBATCH --time=00:01:00
-
-# Replace [budget code] below with your project code (e.g. t01)
-#SBATCH --account=[budget code]
-#SBATCH --partition=standard
-#SBATCH --qos=standard
-
-# Setup the batch environment
-module load epcc-job-env
-
-# Set the number of threads to the CPUs per task
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-# Launch the parallel job
-srun --hint=nomultithread --distribution=block:block ./hello-MPI
-
-```
 In the above script we assume one process per node this means we see one process per node responding to our welcome.
 
 Example output:
@@ -195,31 +220,7 @@ Hello, your-name@nid001059 I am process 3 of 4 total processes executing and I a
 
 We can however have multiple processes per node,
 
-```
-
-#!/bin/bash
-
-#SBATCH --job-name=sharpen
-#SBATCH --nodes=2
-#SBATCH --tasks-per-node=4
-#SBATCH --cpus-per-task=1
-#SBATCH --time=00:01:00
-
-# Replace [budget code] below with your project code (e.g. t01)
-#SBATCH --account=[budget code]
-#SBATCH --partition=standard
-#SBATCH --qos=standard
-
-# Setup the batch environment
-module load epcc-job-env
-
-# Set the number of threads to the CPUs per task
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-# Launch the parallel job
-srun --hint=nomultithread --distribution=block:block ./hello-MPI
-
-```
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-MPI-SlurmB.md\n```'.replace("REPLACE",machine_name) }}
 
 In this updated script we have increased the number of processes per node. This means we see multiple processes respond per node.
 
@@ -320,34 +321,10 @@ int main(int argc, char *argv[])
   }
 ```
 
-The bash script to run this for { machinename } 
+The bash script to run this for {{ machine_name }} ,
 
-```
-#!/bin/bash
 
-# Slurm job options (name, compute nodes, job time)
-#SBATCH --job-name=Hybrid
-#SBATCH --time=00:20:00
-#SBATCH --nodes=4
-#SBATCH --tasks-per-node=2
-#SBATCH --cpus-per-task=8
-
-# Replace [budget code] below with your budget code (e.g. t01)
-#SBATCH --account=[budget code]
-#SBATCH --qos=standard
-#SBATCH --partition=standard
-
-export EXE=../hello
-
-export OMP_NUM_THREADS=2
-NODES=$SLURM_JOB_NUM_NODES
-CORES=$((NODES*128))
-THREADS=$OMP_NUM_THREADS
-
-export OMP_PLACES=cores
-
-srun --hint=nomultithread --distribution=block:block $EXE "your-name" > Test-${NODES}nodes-${CORES}cores-${THREADS}threads-run${i}.${SLURM_JOBID}.out
-```
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-HYB-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
 In this example has the 0th process sends the a message your-name@nodeId to all the other processes and the print a message in a responce.  
 
