@@ -1,4 +1,4 @@
-# Supercomputing World
+# Supercomputing World - Maybe add the hello world exercise here?
 
 ```{figure} ./images/large_hero_598109b6-63fa-4f43-b07f-a0f787b26fcf.jpg
 © iStock.com/rzoze19
@@ -26,7 +26,7 @@ It turns out that, as we pack our transistors closer and closer together, every 
 
 "Every two years the CPU clock frequency doubled."
 
-We saw clock speeds steadily increasing, finally breaking the GHz barrier (a billion cycles per second) in the early twenty-first century century. But then this growth stopped, and clock speeds have remained at a few GHz for more than a decade. So did Moore’s law stop?
+We saw clock speeds steadily increasing, finally breaking the GHz barrier (a billion cycles per second) in the early twenty-first century. But then this growth stopped, and clock speeds have remained at a few GHz for more than a decade. So did Moore’s law stop?
 
 The problem is that increasing clock frequency comes at a cost: it takes more power. Above a few GHz, our processors become too power hungry and too hot to use in everyday devices. But Moore’s law continues, so rather than increasing the frequency we put more processors on the same physical chip. We call these CPU-cores, and we now have multicore processors. The below image shows a schematic of a modern processor (Intel’s Core i7) with four CPU-cores (four pinkish rectangles).
 
@@ -34,9 +34,9 @@ The problem is that increasing clock frequency comes at a cost: it takes more po
 ```{figure} ./images/large_hero_cafacb0d-898b-44b4-9290-5c25c211fc03.jpg
 Intel's  Core i7 A modern quad-core CPU - Intel’s Core i7 © Intel
 ```
-So for the past, decade Moore’s law has meant:
+So for the past decade, Moore’s law has meant:
 
-"Every two years the number of CPU-cores in a processor now doubles."
+"Every two years, the number of CPU-cores in a processor now doubles."
 
 In the last few years the process of doubling transistors in integrated circuits is showing signs of slowing down. It’s no longer every two years but perhaps every three years, but the overall trend still continues.
 

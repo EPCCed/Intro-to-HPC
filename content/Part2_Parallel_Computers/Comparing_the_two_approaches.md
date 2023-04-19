@@ -1,4 +1,4 @@
-# Comparing the two appraoches
+# Comparing the two appraoches - Consider the image sharpening exercise for the end of this section?
 
 ## Looking inside your laptop
 

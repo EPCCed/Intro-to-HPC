@@ -49,10 +49,10 @@ We say peak performance because this is the absolute maximum, never-to-be-exceed
 
 Clearly, with many thousands of CPU-cores we’re going to encounter some big numbers so here is a table summarising the standard abbreviations you’ll come across:
 
-|Ops per second  |	Scientific Notation	Metric | Prefix	| Unit |
+|Ops per second  |	Scientific Notation    | Prefix	| Unit |
 |---|---|---|---|
 | 1 000	| 10^3  |	Kilo	| Kflops |
-| 1 000 000 |	10^6|	Mega	Mflops |
+| 1 000 000 |	10^6|	Mega	| Mflops |
 | 1 000 000 000	| 10^9 |	Giga |	Gflops |
 | 1 000 000 000 000 |	10^12 |	Tera |	Tflops |
 | 1 000 000 000 000 000 |	10^15 |	Peta |	Pflops |

@@ -1,4 +1,4 @@
-# Parallel Programming
+# Parallel Programming - Traffic simulation after parallel computing subsection?
 
 ```{figure} ./images/hero_081de380-fc9a-42b0-8312-f414667ccd0d.jpg
 © iStock.com/Photokanok

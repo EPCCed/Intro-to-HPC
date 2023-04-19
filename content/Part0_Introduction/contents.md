@@ -35,7 +35,7 @@ This course has already run in other forms in the past and we are keen the mater
 
 Welcome! Meet the lead educator of the Supercomputing course by PRACE, Dr David Henty who will guide you through the course.
 
-This may be the first self service course you have worked through so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
+This may be the first self-service course you have worked through, so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
 
 The course material is presented as a mixture of videos, articles, exercises and quizzes. Once you have gone through a step and decided that you have familiarised yourself with its content, you can mark it as complete.
 
@@ -86,7 +86,7 @@ The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims t
 "The Coordination and Support Action (CSA) CASTIEL leads to cross-European networking activities between National Competence Centres (NCCs) in HPC-related topics addressed through the EuroCC project. CASTIEL emphasises training, industrial interaction and cooperation, business development, raising awareness of HPC-related technologies and expertise. As a hub for information exchange and training, CASTIEL promotes networking among NCCs and strengthens idea exchange by developing best practices. The identification of synergies, challenges, and possible solutions is implemented through the close cooperation of the NCCs at a European level." - Castiel Website
 
 ```{danger}
-need to add some words about the EuroCC project
+EuroCC is a European initiative that aims to create a network of 33 national HPC competence centres to fill HPC skills gaps and encourage collaboration. National Competence Centres will be established in each participating country to coordinate activities and act as a contact point for customers in various industries and scientific fields. These centres will identify knowledge gaps, map HPC competencies, and coordinate expertise at the national level to provide tailored solutions for research, scientific users, public administration, and different industrial sectors.
 ```
 
 
@@ -95,7 +95,7 @@ This course has been adapted with EuroCC funding to update the original course d
 ---
 
 ```{figure} ./../Part1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
-cite!
+https://www.shutterstock.com/g/lightspring
 ```
 ```{danger}
 

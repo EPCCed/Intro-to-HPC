@@ -1,4 +1,4 @@
-# Weather simulations
+# Weather simulations - Gromacs exercise after this?
 
 ## Predicting Weather and Climate
 

@@ -1,4 +1,4 @@
-# Practical exercise 0: First use of HPC machine, Hello World!
+# Practical exercise 0: First use of HPC machine, Hello World! This might work well after the 'Parallel Computers' section.
 
 In this practical exercise you will:
 
