@@ -75,6 +75,14 @@ We will continue to build and maintain collaborations and strong relationships w
 Promoting teaching excellence
 We endeavour to maintain our position as a major provider of HPC training in Europe.
 
+Some suggestions:
+
+The Edinburgh Parallel Computing Centre (EPCC) has been at the forefront of High Performance Computing (HPC) since 1990. Over the years, we have developed a reputation for leading-edge capability in all aspects of HPC, thanks to our team of more than 110 highly qualified specialists.
+
+For over 30 years, the EPCC has been committed to accelerating the use of novel computing in industry, academia, and commerce with the ultimate goal of becoming the UK's premier supercomputing center. As a result, this has placed us at the heart of the exascale era.
+
+EPCC is dedicated to providing high-quality education and training to the next generation of researchers and practitioners. We believe that education is fundamental in the advancement of HPC, and we have established ourselves as a leading provider of training programs in Europe. 
+
 ---
 
 ## About EuroCC and CASTIEL
