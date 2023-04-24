@@ -39,6 +39,6 @@ The EuroCC project has put in considerable effort to create a database of course
 
 Archer2 offers a number of ways to apply for time to run on the system for both achademic and commercial users.
 
-There anre a number of calls each year ...
+A great starting point to access the resources offered by Archer2 is by taking the Archer2 driving test, which allows users to try a small allocation of resources for free. If you require a larger resource allocation, there are several options to apply for Archer2 time. For more detailed information, please visit the following website: https://www.archer2.ac.uk/support-access/access.html
 
 To apply review which call you think applies to you are email:

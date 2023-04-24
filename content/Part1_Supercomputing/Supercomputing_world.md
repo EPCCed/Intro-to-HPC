@@ -185,15 +185,3 @@ The process of evaluating the performance of a supercomputer by running a standa
 
 ```
 
-```{questions} Question 3
-The process of evaluating the performance of a supercomputer by running a standard program is called ____. The standard calculation used to compile the top500 list is called ____.
-
-```
-
-```{solution}
-
-1) Benchmarking
-
-2) LINPACK
-
-```

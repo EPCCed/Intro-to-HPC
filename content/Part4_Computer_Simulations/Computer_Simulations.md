@@ -195,7 +195,7 @@ The excerpts below are from three different projects involving computer simulati
 
 ```{danger}
 
-website no longer exists
+website: https://foldingathome.org/
 
 ```
 

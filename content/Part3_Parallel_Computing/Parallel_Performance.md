@@ -123,7 +123,7 @@ $$
  \alpha = \frac{4\, \rm hours}{12\, \rm hours} = 0.33 
 $$
 
-Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/\alpha. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
+Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/$\alpha$. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
 
 If you are interested in more details (and more maths!) then you can visit Wikipedia ([Amdahl’s Law](https://en.wikipedia.org/wiki/Amdahl%27s_law) and [Gustafson’s Law](https://en.wikipedia.org/wiki/Gustafson%27s_law)), but all the equations can sometimes obscure what is really a common-sense result.
 

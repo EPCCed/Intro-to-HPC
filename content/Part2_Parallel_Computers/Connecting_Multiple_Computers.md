@@ -79,7 +79,7 @@ The basic processor used in ARCHER2 is the AMD Zen2 (Rome) EPYC 7742 CPU, which 
 
 ### Network 
 
-The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over XXX (the so-called bisection bandwidth). To put this in context, this is almost a XXX times faster than what is possible over a 100 Mb fast broadband connection!
+The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over 19,000 GB/s (the so-called bisection bandwidth). To put this in context, this is almost 200,000 times faster than what is possible over a 100 Mb fast broadband connection!
 
 ```{danger}
 
