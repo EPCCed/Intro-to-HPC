@@ -4,7 +4,9 @@ This course aims to inform users of the principles of how high perofrmance compu
 
 ```{prereq}
 
-   prerequisites
+   - Access to the {{ machine_name }} system
+   - Knowledge of Git
+   - Knowledge of Bash
 
 ```
 

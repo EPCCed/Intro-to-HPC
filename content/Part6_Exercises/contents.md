@@ -11,10 +11,3 @@ exercise2/index
 exercise3/index
 exercise4/index
 ```
-
-
-- Hello World
-- Sharpen
-- Traffic
-- Fracual
-- Gromacs

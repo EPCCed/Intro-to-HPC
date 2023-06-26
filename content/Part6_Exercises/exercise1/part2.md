@@ -10,9 +10,9 @@ In this exercise we will be using a image sharpening program. The source code is
 
 To download the code you will need to clone the repository. To do this execute the following command,
 
->```
->    git clone https://github.com/EPCCed/EPCC-Exercises
->```
+```
+   git clone https://github.com/EPCCed/EPCC-Exercises
+```
 
 Alternatively you might have already cloned the repository as part of another exercise in which case skip this step.
 
@@ -37,7 +37,7 @@ You will now have a folder called ``sharpen``. Change directory into it and list
 
 Output:
 ```
-  C-Common  C-HYB  C-MPI  C-OMP  C-SER  C-SHM  README.md
+    C-Common  C-HYB  C-MPI  C-OMP  C-SER  C-SHM  README.md
 ```
 
 There are several version of the code, a serial version and a number of parallel versions. Initially we will be looking at the serial version located in the ``C-SER`` folder.
@@ -48,10 +48,10 @@ We will compile the serial version of the source code using a Makefile.
 
 Move into the ``C-SER`` directory and list the contents.
 
->```
->    cd C-SER
->    ls
->```
+```
+    cd C-SER
+    ls
+```
 
 Output:
 ```
@@ -60,9 +60,9 @@ Output:
 
 You will see that there are various code files. The Makefile contains the commands to compile them together to produce the executable program. To use the Makefile type ``make`` command.
 
->```bash
->    make
->```
+```
+    make
+```
 
 Output:
 ```
@@ -80,9 +80,9 @@ This should produce an executable file called ``sharpen``.
 
 We can run the serial program directly on the login nodes
 
->```
->    ./sharpen
->```
+```
+    ./sharpen
+```
 
 Output:
 ```

@@ -190,11 +190,16 @@ double salarysum(double salarylist[], int npeople)
 
 David: I re-ran the same studies covered in the video but with almost all other tasks disabled , for example I did not run the graphical performance monitor, which allowed me to have access to all four CPU-cores. Here are the results.
 
+<center>
+
 | dataset	| #copies	| runtime (seconds)|
 | --- | --- | --- |
 | small |	1	| 9.7 |
 | small	| 4	| 11.1 |
 | small	| 8 |	22.2 |
+
+</center>
+
 
 ---
 
@@ -267,6 +272,8 @@ Note that I accidentally mis-spoke in the video and the larger calculation actua
 
 As for Step 2.6, I also re-ran the same calculations with the graphical monitor turned off so I had access to all 4 CPU-cores. Here are the timings for this large dataset where I reproduce the previous small dataset results for comparison.
 
+<center>
+
 |dataset | #copies | runtime (seconds)|
 | --- | --- | --- |
 |small |	1	| 9.7 |
@@ -275,6 +282,8 @@ As for Step 2.6, I also re-ran the same calculations with the graphical monitor 
 |large |	1	| 10.7 |
 |large |	4 |	28.5 |
 |large |	8 |	57.0 |
+
+</center>
 
 ---
 

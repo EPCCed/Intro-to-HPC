@@ -22,12 +22,17 @@ The most important points are:
 
 The office analogy is very useful here: a distributed-memory parallel computer is like workers all in separate offices, each with their own personal whiteboard, who can only communicate by phoning each other.
 
-| Advantages |	Disadvantages|
-| --- | --- | 
-| the number of whiteboards (i.e. the total memory) grows as we add more offices |	if we have large amounts of data, we have to decide how to split it up across all the different offices |
-| there is no overcrowding so every worker has easy access to a whiteboard |	we need to have lots of separate copies of the operating system |
-| we can, in principle, add as many workers as we want provided the telephone network can cope. | it is more difficult to communicate with each other as you cannot see each others whiteboards so you have to make a phone call |
+| Advantages |
+| --- |
+| The number of whiteboards (i.e. the total memory) grows as we add more offices. |	
+| There is no overcrowding so every worker has easy access to a whiteboard. |	
+| We can, in principle, add as many workers as we want provided the telephone network can cope. |
 
+| Disadvantages |
+| --- | 
+| If we have large amounts of data, we have to decide how to split it up across all the different offices. |
+| We need to have lots of separate copies of the operating system. |
+| It is more difficult to communicate with each other as you cannot see each others whiteboards so you have to make a phone call. |
 
 The second disadvantage can be a pain when we do software updates - we have to upgrade thousands of copies of the OS! However, it doesn’t have any direct cost implications as almost all supercomputers use some version of the Linux OS which is free.
 
@@ -79,13 +84,7 @@ The basic processor used in ARCHER2 is the AMD Zen2 (Rome) EPYC 7742 CPU, which 
 
 ### Network 
 
-The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. The entire network can support aggregate data transfer rates of over XXX (the so-called bisection bandwidth). To put this in context, this is almost a XXX times faster than what is possible over a 100 Mb fast broadband connection!
-
-```{danger}
-
-this subsection needs finalising
-
-```
+The complte ARCHER2 system contains 5,860 nodes, i.e. ARCHER2 is effectively 6,000 seperate computers each running their own copy of Linux. They are connected by the HPE Slingshot interconnect, which has a complicated hierarchical structure specifically designed for supercomputing applications. Each node has two 100 Gb/s network connections, this means each node has a network bandwidth is 2048 times faster than what is possible over a 100 Mb fast broadband connection!
 
 ### System performance
 ARCHER2 has a total of 750,080 CPU-cores: 5,860 nodes wch with 128 CPU-cores. With a Clock frequency of 2.25 Ghz, the CPU-cores can operate at 2.25 billion instructions per second. However, on a modern processor, a single instruction can perform more than one floating-point operation.

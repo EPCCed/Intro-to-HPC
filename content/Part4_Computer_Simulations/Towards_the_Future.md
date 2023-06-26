@@ -114,7 +114,7 @@ Neural networks have been around for a long time, but recent advances in compute
 
 ### What about the future?
 
-We are still a long way from creating an artificially intelligent computer. Although supercomputer hardware can always help – we can train a network to recognise a face a thousand times faster – we will need to make tremendous advances in software to approach true AI. Although I’m sure that AI programs will make increasing use of supercomputer hardware in the future, there’s no chance that ARCHER will suddenly become self-aware and refuse to tell us what tomorrow’s weather will be!
+We are still a long way from creating an artificially intelligent computer. Although supercomputer hardware can always help – we can train a network to recognise a face a thousand times faster – we will need to make tremendous advances in software to approach true AI. Although I’m sure that AI programs will make increasing use of supercomputer hardware in the future, there’s no chance that {{ machine_name }} will suddenly become self-aware and refuse to tell us what tomorrow’s weather will be!
 
 ---
 
@@ -195,6 +195,6 @@ Things to consider:
 - Do you think there is consumer demand for ever faster computers?
 - What applications could they have?
 - Have we reached a point similar to commercial aircraft - it’s too expensive to make them go faster so investment is focused on saving cost, fuel economy, reliability etc.?
-- Will the possibilities opened up by exascale supercomputers be enough to drive new technologies?
+- Will the possibilities opened up by exascale supercomputers drive new technologies?
 
 

@@ -223,11 +223,14 @@ It turns out that, despite its simplicity, the traffic model is representative o
 
 There are two fundamentally different approaches to parallelising a calculation which correspond to the two parallel architectures. We call these approaches programming models.
 
+<center>
+
 | Parallel Architecture	| Programming Model |
 | --- | --- |
 | Shared Memory | Shared Variables |
 | Distributed Memory | Message Passing |
 
+</center>
 
 What we mean by a programming model is that we take a high-level view of the way we are going to use the parallel computer, only concerned with the fundamental features of the computer and not bothering about the details (here, the fundamental feature is how the memory is arranged).
 

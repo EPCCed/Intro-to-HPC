@@ -193,13 +193,7 @@ The excerpts below are from three different projects involving computer simulati
 
 ### Protein Folding
 
-```{danger}
-
-website no longer exists
-
-```
-
-(The Folding@Home Project page can be found here):
+(The Folding@Home Project page can be found [here](https://foldingathome.org/dig-deeper/?lng=en-UK)):
 
 “Proteins are necklaces of amino acids — long chain molecules. They come in many different shapes and sizes, and they are the basis of how biology gets things done. As enzymes, they are the driving force behind all of the biochemical reactions which make biology work. As structural elements, they are the main constituent of our bones, muscles, hair, skin and blood vessels. As antibodies, they recognize invading elements and allow the immune system to get rid of the unwanted invaders. They also help move muscles and process the signals from the sensory system. For these reasons, scientists have sequenced the human genome — the blueprint for all of the proteins in biology — but how can we understand what these proteins do and how they work?
 
