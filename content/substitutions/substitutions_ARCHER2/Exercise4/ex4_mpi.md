@@ -1,7 +1,7 @@
 
 #### archer2.slurm:
 
-To run the simulation using the compule nodes you need to a job script,
+To run the simulation using the compute nodes you need to a job script,
 
 ``` slurm
 #!/bin/bash
@@ -59,7 +59,7 @@ squeue -u $USER
 Note that for this example it runs very quickly so you may not see it in the queue before it finishes running.
 
 #### Finding the output
-The Slurm system places the output from your job in a file called ``slurm-<jobID>.out``. You can view it using the ``cat`` command
+Slurm places the output from your job in a file called ``slurm-<jobID>.out``. You can view it using the ``cat`` command
 
 ```
 cat slurm-1793266.out

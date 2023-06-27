@@ -1,9 +1,9 @@
 ## Traffic model simulation: Threaded computation
 
-Having run this example in serial we can now explore running the simulation in parallel in order to test how to speed up getting the average verlocity of cars changes with traffic density.
+Having run this example in serial we can now explore running the simulation in parallel in order to test how to speed up getting the average velocity of cars changes with traffic density.
 ### The source code
 
-In this exercise we will be using the traffic simulaion program. The source code is available in  Git repository EPCC-Exercises we have already downloaded.
+In this exercise we will be using the traffic simulation program. The source code is available in  Git repository EPCC-Exercises we have already downloaded.
 
 We will now be looking at the multi threaded version located in the ``C-OMP`` folder. The uses openmp to parallelise the execution of the model.
 
@@ -27,7 +27,7 @@ You will see that there are various code files. The Makefile contains the comman
 
 ```{note}
 
-We don't need to set a new environment file as the 'EPCC-Exercises/Env/env-{ machine_name }.sh' we sourced earlier also set the correct environmnet parmeters to correctly build the parallel examples of the code on { machine_name }. 
+We don't need to set a new environment file as the 'EPCC-Exercises/Env/env-{ machine_name }.sh' we sourced earlier also set the correct environment parameters to correctly build the parallel examples of the code on { machine_name }. 
 
 ```
 
@@ -94,7 +94,7 @@ Update rate was 1307.794488 MCOPs
 
 ### Running: Batch system
 
-Now we have tested the simulation on the login node we now neeed to set this up to run on the compute nodes.
+Now we have tested the simulation on the login node we now need to set this up to run on the compute nodes.
 
 ```{note}
 In general jobs should not be run on the login nodes. It is however reasonable to run small and short duration tests to validate your software before submitting to the compute noe queues.

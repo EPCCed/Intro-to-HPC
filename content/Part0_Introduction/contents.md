@@ -1,6 +1,6 @@
 # Introduction to High Performance Computing
 
-This course aims to inform users of the principles of how high perofrmance computer (HPC) systems operate and how to efficently utilise the computing power they can offer. The will start with a disucssion of HPC systems hardware and the common strucutures of HPC codes…
+This course aims to inform users of the principles of how high performance computer (HPC) systems operate and how to efficiently utilise the computing power they can offer. The will start with a discussion of HPC systems hardware and the common structures of HPC codes…
 
 ```{prereq}
 
@@ -14,7 +14,7 @@ This course aims to inform users of the principles of how high perofrmance compu
 
 ## Arrangements for this self-service course
 
-This course has already run in other forms in the past and we are keen the material mantains avalible to the community in future. This course as hosted on github will run in an unfacilitated form meaning the course will not have substantial involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
+This course has already run in other forms in the past and we are keen the material remains available to the community so this new formate has been created with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
 
 ---
 
@@ -81,7 +81,7 @@ We endeavour to maintain our position as a major provider of HPC training in Eur
 
 ## About EuroCC and CASTIEL
 
-The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to coordiate European efforts to enable HPC usage in both the 
+The [EuroCC](https://www.eurocc-access.eu/about-us/the-projects/) project aims to coordinate European efforts to enable HPC usage in both the 
 
 "Within the EuroCC project under the European Union’s Horizon 2020 (H2020), participating countries are tasked with establishing a single National Competence Centre (NCC) in the area of high-performance computing (HPC) in their respective countries. These NCCs will coordinate activities in all HPC-related fields at the national level and serve as a contact point for customers from industry, science, (future) HPC experts, and the general public alike. The EuroCC project is funded 50 percent through H2020 (EuroHPC Joint Undertaking [JU]) and 50 percent through national funding programs within the partner countries." - EuroCC Website
 

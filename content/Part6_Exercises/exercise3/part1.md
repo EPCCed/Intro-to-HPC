@@ -58,7 +58,7 @@ Performance results for the benchmark system on ARCHER2. The performance is meas
 
 ## Comparing results with Amdahl's law
 
-Amdahl's law characterizes the speedup of a parallel program. It states that the speedup for $N$ processors $S(N)$ is dependent on the serial $s$ and parallel $p$ portions of the code.
+Amdahl's law characterizes the speed-up of a parallel program. It states that the speed-up for $N$ processors $S(N)$ is dependent on the serial $s$ and parallel $p$ portions of the code.
 
 $$
 S(N) = \frac{T(1)}{T(N)} = \frac{1}{s+\frac{p}{N}}

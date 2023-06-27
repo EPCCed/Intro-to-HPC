@@ -4,10 +4,10 @@ The exercise allows us to run examples of the simulation we have just discussed 
 
 The key elements are:
 
-- Theory and implimentation.
+- Theory to implementation of the problem.
 - Download and compile the example.
-- Run the simulation 
-- Analyse the results from the runs and see if our expectations are met?
+- Run the simulation.
+- Analyse the results from the runs and see if ou can reproduce the expected plot?
 
 
 ```{toctree}

@@ -1,7 +1,7 @@
 # Part 2: Compiling and running Hello world!
 
 
-This example is meant to get you used to the command line envrionment of a high performance computer and submitting jobs to the batch system, while learning about the hardware of a HPC system.
+This example is meant to get you used to the command line environment of a high performance computer and submitting jobs to the batch system, while learning about the hardware of a HPC system.
 
 In the following we are going to look at variety of hello world programs and look at the two most common types of parallelism in the HPC world. 
 
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 
     if(argc != 2)
     {
-        printf("Required one argumnet `name`.\n");
+        printf("Required one argument `name`.\n");
         return 1;
     }
 
@@ -66,7 +66,7 @@ How does this differ from when you run using a batch script?
 This threaded example runs on as many threads on a node as you allow it to.
 
 
-The code is a little more complex than the last example in order to run multiple copies of the responce from a numbe of threads on the node we use OpenMP to parallelise the code.
+The code is a little more complex than the last example in order to run multiple copies of the response from a number of threads on the node we use OpenMP to parallelise the code.
 
 ```
 
@@ -113,13 +113,13 @@ In order to run this on a {{ machine_name }} node we can use the following scrip
 
 Here we continue to run on a single process, each process can have a number of threads. The number of threads used is usually set to the number of CPU's on a given node or a fraction of that. Threaded codes can take advantage of the shared memory aspect of a HPC systems to pass data between each other but cannot communicated between distinct nodes. 
 
-If you run this with multiple processes then it will still work but without MPI communucation these processes will be entirly independent and will not communicate information.
+If you run this with multiple processes then it will still work but without MPI communication these processes will be entirely independent and will not communicate information.
 
 ---
 
 ## MPI
 
-MPI is a message passing interface, this allow for messages to be sent by multiple instances of the program running on different nodes to each other. Each instance of the program is controlled by a seperate instance of the operating system.
+MPI is a message passing interface, this allow for messages to be sent by multiple instances of the program running on different nodes to each other. Each instance of the program is controlled by a separate instance of the operating system.
 
 This MPI example each process says hello in the programs and states which node it is running on and which process of the group it is.
 
@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
 
     if(argc != 2)
     {
-        printf("Required one argumnet `name`.\n");
+        printf("Required one argument `name`.\n");
         return 1;
     }
 
@@ -237,7 +237,7 @@ Hello, your-name@nid001452 I am process 7 of 8 total processes executing and I a
 
 ## Hybrid
 
-This hybid code has all the process respond to an initial message from process 0. As this is a hybrid code each of the threads in each process respond with a message.  
+This hybrid code has all the process respond to an initial message from process 0. As this is a hybrid code each of the threads in each process respond with a message.  
 
 ```
 #include <stdio.h>
@@ -252,7 +252,7 @@ int main(int argc, char *argv[])
 
     if(argc != 2)
     {
-        printf("Required one argumnet `name`.\n");
+        printf("Required one argument `name`.\n");
         return 1;
     }
 
@@ -326,7 +326,7 @@ The bash script to run this for {{ machine_name }} ,
 
 {{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-HYB-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
-In this example has the 0th process sends the a message your-name@nodeId to all the other processes and the print a message in a responce.  
+In this example has the 0th process sends the a message your-name@nodeId to all the other processes and the print a message in a response.  
 
 ```
 Hello world, my name is your-name, I am sending this message from process 0 of 8 total processes executing, which is running on node nid001780.
@@ -346,11 +346,11 @@ Hello, your-name@nid001780 I am thread 1 of 2 threads in process 6 of 8 total pr
 Hello, your-name@nid001780 I am thread 1 of 2 threads in process 7 of 8 total processes executing and I am running on node nid001785.
 ```
 
-This uses a simpel broadcast for this example but it illitrates that a message has been passed to all the other nodes and each thread is able to access the transmitted information and write a custom resonce.
+This uses a simple broadcast for this example but it illustrates that a message has been passed to all the other nodes and each thread is able to access the transmitted information and write a custom response.
 
 ## Conclusion
 
-The point of this exercise was to show that there are different ways to parrallelise a program and use the hardware a high performance computer gives you access to. The examples here just report the location of each process and thread however in a more realistic senario each of these examples are different ways to orginise a calculation. We might choose different ways to spread out our calculation based on the memory requirement, processing power and communication stratagies that are optimal for a given simulation. Choosing the correct stratagy can give perofrmance benefits but potentially at the cost of more complex code.
+The point of this exercise was to show that there are different ways to parallelise a program and use the hardware a high performance computer gives you access to. The examples here just report the location of each process and thread however in a more realistic scenario each of these examples are different ways to organise a calculation. We might choose different ways to spread out our calculation based on the memory requirement, processing power and communication strategies that are optimal for a given simulation. Choosing the correct strategy can give performance benefits but potentially at the cost of more complex code.
 
 A few other tests you can try to solidify your knowledge:
 

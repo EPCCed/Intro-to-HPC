@@ -3,7 +3,7 @@
 In this practical exercise you will:
 
 -  Compile and run MPI code.
--  Investigate parallel taskfarms and worksharing.
+-  Investigate parallel task farms and work sharing.
 
 The case study code for this exercise is a program which calculates the Mandelbrot and Julia sets. The source code can be found on this [Github repository](https://github.com/EPCCed/EPCC-Exercises).
 

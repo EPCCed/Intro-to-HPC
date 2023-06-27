@@ -5,7 +5,7 @@ As just discussed the aim of this simulation is to understand how traffic densit
 
 ### Downloading the source code
 
-In this exercise we will be using the traffic simulaion program. The source code is available in the same Github repository as the other examples.
+In this exercise we will be using the traffic simulation program. The source code is available in the same Github repository as the other examples.
 
 To download the code you will need to clone the repository. To do this execute the following command
 
@@ -41,7 +41,7 @@ There are several version of the code, a serial version and a number of parallel
 
 ### Setting the Environment
 
-Before compiling the source code for the example make sure that the relivant environment scripts has been sourced to set the correct environment parameters for compiling on this machine.
+Before compiling the source code for the example make sure that the relevant environment scripts has been sourced to set the correct environment parameters for compiling on this machine.
 
 For example of Machine {{ machine_name }},
 
@@ -119,7 +119,7 @@ Time taken was  11.418155 seconds
 Update rate was 280.255431 MCOPs
 ```
 
-The result we are interested in this the final avarge verlocity that is reported at iteration 100. 
+The result we are interested in this the final average velocity that is reported at iteration 100. 
 
-Run this example with multiple different values of the Target density and see how your results compare to the plot relating traffic density to average verlocity from the section on the traffic model.
+Run this example with multiple different values of the Target density and see how your results compare to the plot relating traffic density to average velocity from the section on the traffic model.
 
