@@ -1,9 +1,15 @@
 # Introduction to High Performance Computing
 
-This course aims to inform users of the principles of how high performance computer (HPC) systems operate and how to efficiently utilise the computing power they can offer. The will start with a discussion of HPC systems hardware and the common structures of HPC codes…
+This course aims to introduce the principles of high performance computing (HPC) systems to participants. How HPC systems operate and how to utilise the computing power they can offer to model complex systems, like the weather. 
+
+This will start with a discussion of supercomputers (HPC systems) there purpose, hardware and the trends in computing. We will then cover material on the fundamentals of modern computers and how we can perform computations in parallel. This will lead into a discussion of how to supercomputers derive there performance and distributed memory architecture is used in HPC systems.
+
+We will then run through a concrete simulation example, discussing the details of the problem and how it can be modelled on a computer. We will then detail how parallel programming can be applied to problems to speed up a calculation before discussing performance in parallel programs. Finally we will discuss how simulations are developed and used to make predictions and some real world examples.
+
 
 ```{prereq}
 
+To take part in the exercises you will need:
    - Access to the {{ machine_name }} system
    - Knowledge of Git
    - Knowledge of Bash
@@ -14,7 +20,7 @@ This course aims to inform users of the principles of how high performance compu
 
 ## Arrangements for this self-service course
 
-This course has already run in other forms in the past and we are keen the material remains available to the community so this new formate has been created with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
+This course has already run in other forms in the past and we are keen the material remains available to the community, therefore the course has been presented in this new format with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [github repository](https://github.com) which the course is hosted from if there are comments on the material. 
 
 ---
 
@@ -34,14 +40,9 @@ This course has already run in other forms in the past and we are keen the mater
 2:07 - We also don’t assume any existing knowledge of computing maths or science. We just assume you’re generally interested in computing and how computers can be used to solve real-world problems. The course also aims to give you an insight into how your domestic devices, such as netbooks, laptops, and games machines, actually work. A modern mobile phone would have beaten the fastest supercomputer in the world less than 25 years ago. So where does all this power come from? What drives this seemingly relentless growth in computer technology? And what does the future hold?
 ```
 
-
-Welcome! Meet the lead educator of the Supercomputing course by PRACE, Dr David Henty who will guide you through the course.
-
 This may be the first self service course you have worked through so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
 
-The course material is presented as a mixture of videos, articles, exercises and quizzes. Once you have gone through a step and decided that you have familiarised yourself with its content, you can mark it as complete.
-
-The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of you local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge. And more importantly, it’s fun! So if you have an opinion share it!
+The course material is presented as a mixture of videos, articles, exercises and quizzes. The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of your local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge.
 
 ---
 

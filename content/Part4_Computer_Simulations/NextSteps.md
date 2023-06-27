@@ -12,7 +12,7 @@ These examples cover how ARCHER2 is used to predict:
 - Predicting airborne pathogen spread
 - Forecasting the dispersion of volcanic ash and gas
 - Predicting aircraft jet noise
-- Improving cloud modeling for better weather and climate
+- Improving cloud modelling for better weather and climate
 
 
 ## Webinars 
@@ -28,20 +28,20 @@ Addtionally if you have some interesting work using the system we are always ope
 
 ## Additional Training
 
-While this course has focused on an introduction to the high performance computing there are a number of additional courses avalible to improve skills and increase your experiance with high performance computing.
+While this course has focused on an introduction to the high performance computing there are a number of additional courses available to improve skills and increase your experience with high performance computing.
 
 From the EPCC there are:
 
 - Course overviews [here](https://www.archer2.ac.uk/training/courses/)
 - Course pathways [here](https://www.archer2.ac.uk/training/courses/course-paths)
 
-A number of these course are avalible to work through at your lesuire via the online [training repository](https://www.archer2.ac.uk/training/materials/) and the video's of these training sessions are also posted to the ARCHER2 [youtube](https://www.youtube.com/@archer2hpc596/videos) channel.
+A number of these course are available to work through at your leisure via the online [training repository](https://www.archer2.ac.uk/training/materials/) and the video's of these training sessions are also posted to the ARCHER2 [you tube](https://www.youtube.com/@archer2hpc596/videos) channel.
 
 The EuroCC project has put in considerable effort to create a database of courses from across Europe that can be found [here](https://www.eurocc-access.eu/services/training/). This resource can be particularly beneficial if you are looking for a course on a particular HPC system across Europe or in another language.
 
 ## Machine Access
 
-ARCHER2 offers a number of ways to apply for time to run on the system for both achademic and commercial users.
+ARCHER2 offers a number of ways to apply for time to run on the system for both academic and commercial users.
 
 There are a number of calls each year more information can be found on our website under the topic: [getting access to ARCHER2](https://www.archer2.ac.uk/support-access/access.html).
 

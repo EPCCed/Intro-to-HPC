@@ -34,9 +34,11 @@ In this discussion step we would like you to have a look at [ARCHER2’s case st
 
 So what does the future of supercomputing look like? Much of the current research and development in HPC is focused on Exascale computing.
 
-For HPC architectures, this can be taken to mean working towards a system with a floating point performance of at least 1 Exaflop/s (i.e. 1018 or a million million million floating point calculations per second). So far this has only been acheived by one system (Frontier)[https://www.top500.org/system/180047/]. Although at some level this is just an arbitrary number, it has become a significant technological (and political) milestone.
+For HPC architectures, this can be taken to mean working towards a system with a floating point performance of at least 1 Exaflop/s (i.e. 1018 or a million million million floating point calculations per second). 
 
-Both China and Japan are known to be working on Exascale systems with and had projected to have systems in palce by 2020. In 2016, the US government announced the Exascale Computing Project, which aims to have its first supercomputer operating at 1 Exaflop/s or more in production by 2021. If past trends in the Top500 list had been followed, then a 1 Exaflop/s system would have been expected in 2018 – the fact that this date will be missed by at least 2 or 3 years is a measure of the technical challenges involved, both in the hardware and software.
+In 2016, the US government announced the Exascale Computing Project, which aims to have its first supercomputer operating at 1 Exaflop/s or more in production by 2021. If past trends in the Top500 list had been followed, then a 1 Exaflop/s system would have been expected in 2018 – the fact that this date will be missed by at least 2 or 3 years is a measure of the technical challenges involved, both in the hardware and software.
+
+As of 2022 exascale has only been achieved by one system (Frontier)[https://www.top500.org/system/180047/] based at Oak Ridge National Laboratory. Although at some level this is just an arbitrary number, it has become a significant technological (and political) milestone.
 
 Some of the main barriers to building a useful and economically viable Exascale machine are:
 

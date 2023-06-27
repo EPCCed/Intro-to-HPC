@@ -1,4 +1,4 @@
-# Introduction to supercomputing
+# Introduction to Supercomputing
 
 ```{figure} ./images/large_hero_5149d40f-0a9b-42af-a930-413d00bc1c6c.jpg
 © iStock.com/shironosov
