@@ -57,7 +57,7 @@ For more examples of how supercomputers are used in science you will need to wai
 
 ```{figure} ./images/large_hero_e0df48e4-9b4d-422c-a18f-d7898b9578d8.jpg
 
-Computer simulation covering multiple physical phenomena and machine learning predict how dinosaurs moved. The laws of physics apply for extinct animals exactly as they do for living ones.
+Computer simulation covering multiple physical phenomena and machine learning algorithms can predict how dinosaurs might have moved. The laws of physics apply for extinct animals exactly as they do for living ones.
 
 © 2016 ARCHER image competition
 ```
@@ -146,7 +146,7 @@ The process of running a virtual experiment is called?
 ```
 
 ```{solution}
-A computer simulation
+Computer simulation
 ```
 
 ```{questions} Question 4
@@ -154,15 +154,14 @@ The term number-crunching refers to large-scale ____ ____.
 ```
 
 ```{solution}
-numerical simulations
+Numerical simulations
 ```
 
 ```{questions} Question 5
 The typical power consumption of a supercomputer is in the order of several
-____, where ____ is 1 000 000.
+____.
 ```
 
 ```{solution}
-1) megawatts
-2) mega
+1) Megawatts
 ```

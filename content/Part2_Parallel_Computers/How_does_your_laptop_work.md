@@ -34,7 +34,7 @@ What do you think the main differences between these two approaches are? Can you
 ```{figure} ./images/hero_55c8a23e-686f-42a9-b7e9-de0a12208486.jpg
 © iStock.com/oonal
 ```
-## Share Memory Architecture
+## Shared Memory Architecture
 
 The fundamental feature of a shared-memory computer is that all the CPU-cores are connected to the same piece of memory.
 

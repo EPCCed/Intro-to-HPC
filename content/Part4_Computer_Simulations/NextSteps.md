@@ -3,7 +3,7 @@
 You have now covered the material in the course where should you go from here?
 ## Case studies
 
-ARCHER2 has a number of cases studies https://www.archer2.ac.uk/research/case-studies/
+ARCHER2 has a number of cases studies [here](https://www.archer2.ac.uk/research/case-studies/).
 
 These examples cover how ARCHER2 is used to predict:
 
