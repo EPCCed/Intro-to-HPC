@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 }
 
 ```
-this is a very simple C++ code but it will say hello to you and report where it is running from.
+this is a very simple C code but it will say hello to you and report where it is running from.
 
 To run this example use the following batch script for {{ machine_name }},
 

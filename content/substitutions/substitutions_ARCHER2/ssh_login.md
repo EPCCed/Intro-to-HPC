@@ -4,7 +4,7 @@
 
 1. [Login to SAFE](https://safe.epcc.ed.ac.uk)
 2. Go to the Menu "Login accounts" and select "Request login account"
-3. Choose the `TODO` project “Choose Project for Machine Account” box and click "Next"
+3. Choose your project id from “Choose Project for Machine Account” box and click "Next"
 4. On the next page, the ARCHER2 system should be selected. Click "Next"
 5. Enter the username you would prefer to use on ARCHER2. Every username must be unique, so if your chosen name is taken, you will need to choose another
 
