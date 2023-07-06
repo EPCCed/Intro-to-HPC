@@ -1,6 +1,6 @@
 # Introduction to High Performance Computing
 
-This course aims to introduce the principles of high performance computing (HPC) systems to participants. How HPC systems operate and we can utilise the computing power they can offer to model complex systems. 
+This course aims to introduce the principles of high performance computing (HPC) systems, how they operate and how we can utilise the computing power they can offer to model complex systems. 
 
 This will start with a discussion of supercomputers (HPC systems) there purpose, hardware and trends in computing. We will then cover material on the fundamentals of modern computers and how we can perform computations in parallel. This will lead into a discussion of how to supercomputers derive there performance and distributed memory architecture is used in HPC systems.
 

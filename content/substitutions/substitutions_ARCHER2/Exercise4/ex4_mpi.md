@@ -21,6 +21,7 @@ To run the simulation using the compute nodes you need to a job script,
 module load epcc-job-env
 
 # Set the number of threads to the CPUs per task
+export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
 # Launch the parallel job

@@ -5,8 +5,7 @@ This example is meant to get you used to the command line environment of a high 
 
 In the following we are going to look at variety of hello world programs and look at the two most common types of parallelism in the HPC world. 
 
-One that takes advantage of shared memory and distributed memory parts of a HPC system.
-
+One that takes advantage of shared memory and one that uses distributed memory in a HPC system. We will then look at how they can be combined but first we start with a simple serial code.
 
 ## Serial
 
@@ -32,31 +31,47 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    // Receive arguments
+    // Receive argument
 
-    char* iname = (char *)malloc(strlen(argv[1])+1);
+    char* iname = (char *)malloc(strlen(argv[1]));
 
     strcpy(iname, argv[1]);
+
+    // Get the name of the node we are running on
 
     char hostname[HOST_NAME_MAX];
     gethostname(hostname, HOST_NAME_MAX);
 
+    // Hello World message
+
     printf("Hello World!\n");
+
+    // Message from the node to the user
+
     printf("Hello %s, this is %s.\n", iname, hostname);
 
 }
 
 ```
-this is a very simple C code but it will say hello to you and report where it is running from.
+This is a simple C code but it will say hello to you and report which node it is running from.
 
-To run this example use the following batch script for {{ machine_name }},
+To try this example yourself you will first need to compile the example code.
+
+If the file that contains the above code is called `helloWorldSerial.c` then to compile on {{ machine_name }} use command,
+
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-SER-Compile.md\n```'.replace("REPLACE",machine_name) }}
+
+To run this example using the compute nodes via the job queue, use the following bash script written for {{ machine_name }},
 
 {{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-SER-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
-This example is small enough that it can be run on the login nodes of {{ machine_name }} by typing `./hello-SER`.
+This example is small enough that it can be run on the login nodes of {{ machine_name }} by running,
 
-How does this differ from when you run using a batch script?
+ ```
+ ./hello-SER
+ ```
 
+ How does this differ from when you run using the batch script?
 
 
 ---
@@ -81,20 +96,30 @@ The code is a little more complex than the last example in order to run multiple
 int main(int argc, char* argv[])
 {
 
+  // Check input argument
+
   if(argc != 2)
   {
       printf("Required one argumnet `name`.\n");
       return 1;
   }
 
-  char* iname = (char *)malloc(strlen(argv[1])+1);
+  // Receive argument
+
+  char* iname = (char *)malloc(strlen(argv[1]));
 
   strcpy(iname,argv[1]);
+
+  // Get the name of the node we are running on
 
   char hostname[HOST_NAME_MAX];
   gethostname(hostname, HOST_NAME_MAX);
 
+  // Hello World message
+
   printf("Hello World!\n");
+
+  // Message from each thread on the node to the user
 
   #pragma omp parallel
   {
@@ -106,14 +131,19 @@ int main(int argc, char* argv[])
 
 ```
 
-In order to run this on a {{ machine_name }} node we can use the following script,
+To try this example yourself you will first need to compile the example code.
 
+If the file that contains the above code is called `helloWorldThreaded.c` then to compile on {{ machine_name }} use command,
+
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-THRD-Compile.md\n```'.replace("REPLACE",machine_name) }}
+
+In order to run this on a {{ machine_name }} node we can use the following script,
 
 {{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-THRD-Slurm.md\n```'.replace("REPLACE",machine_name) }}
 
-Here we continue to run on a single process, each process can have a number of threads. The number of threads used is usually set to the number of CPU's on a given node or a fraction of that. Threaded codes can take advantage of the shared memory aspect of a HPC systems to pass data between each other but cannot communicated between distinct nodes. 
+As in the serial case we have run a single process but now the process runs a number of threads. Threaded codes can take advantage of the shared memory aspect of a HPC systems to pass data between each thread but cannot communicated between distinct nodes. 
 
-If you run this with multiple processes then it will still work but without MPI communication these processes will be entirely independent and will not communicate information.
+If you run this code on multiple processes then it will still work but without MPI communication these processes will be entirely independent and are not able to communicate information.
 
 ---
 
@@ -121,7 +151,7 @@ If you run this with multiple processes then it will still work but without MPI 
 
 MPI is a message passing interface, this allow for messages to be sent by multiple instances of the program running on different nodes to each other. Each instance of the program is controlled by a separate instance of the operating system.
 
-This MPI example each process says hello in the programs and states which node it is running on and which process of the group it is.
+This MPI example each process says hello in the programs and states which node it is running on and which process in the group it is.
 
 ```
 
@@ -145,7 +175,7 @@ int main(int argc, char *argv[])
     char* iname = (char *)malloc(strlen(argv[1])+1);
     char* iname2 = (char *)malloc(strlen(argv[1])+1);
 
-    strcpy(iname,argv[1]);
+    strcpy(iname, argv[1]);
     strcpy(iname2, iname);
 
     // MPI Setup
@@ -160,10 +190,10 @@ int main(int argc, char *argv[])
 
     MPI_Get_processor_name(name, &len);
 
-    // Create message to broadcast to all processes.
+    // Create message from rank 0 to broadcast to all processes.
 
     strcat(iname, "@");
-    strcat(iname,name);
+    strcat(iname, name);
 
     int inameSize = strlen(iname);
 
@@ -184,10 +214,16 @@ int main(int argc, char *argv[])
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    // Send different messages from different ranks
+
+    // Send hello from rank 0
+
     if (rank == 0)
     {
       printf("Hello world, my name is %s, I am sending this message from process %d of %d total processes executing, which is running on node %s. \n", iname2, rank, size, name);
     }
+
+    // Send responce from the other ranks
 
     if (rank != 0)
     {
@@ -203,7 +239,13 @@ int main(int argc, char *argv[])
 
 ```
 
-We can run this executable using this batch script,
+To try this example yourself you will first need to compile the example code.
+
+If the file that contains the above code is called `helloWorldMPI.c` then to compile on {{ machine_name }} use command,
+
+{{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-MPI-Compile.md\n```'.replace("REPLACE",machine_name) }}
+
+We can run this executable using this bash script,
 
 {{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-MPI-SlurmA.md\n```'.replace("REPLACE",machine_name) }}
 
@@ -218,7 +260,7 @@ Hello, your-name@nid001059 I am process 2 of 4 total processes executing and I a
 Hello, your-name@nid001059 I am process 3 of 4 total processes executing and I am running on node nid001098.
 ```
 
-We can however have multiple processes per node,
+We can however have multiple processes per node, if we update our bash script to,
 
 {{  '```{include} ../../substitutions/substitutions_REPLACE/Exercise0/Hello-MPI-SlurmB.md\n```'.replace("REPLACE",machine_name) }}
 

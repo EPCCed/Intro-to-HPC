@@ -14,14 +14,20 @@
 #SBATCH --qos=standard
 
 # Set the number of threads to the CPUs per task
+export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
 NODES=$SLURM_JOB_NUM_NODES
 CORES=$((NODES*128))
 THREADS=$OMP_NUM_THREADS
 
 export OMP_PLACES=cores
 
+echo "job start"
+
 # Launch the parallel job
-srun --hint=nomultithread --distribution=block:block ./hello-MPI your-name > MPI-${NODES}nodes-${CORES}cores-${THREADS}threads.${SLURM_JOBID}.out
+srun --hint=nomultithread --distribution=block:block ./hello-MPI YOUR-NAME-HERE > MPI-${NODES}nodes-${CORES}cores-${THREADS}threads.${SLURM_JOBID}.out
+
+echo "job complete"
 
 ```
