@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = "Introduction to HPC (Beta)"
-copyright = "2022, EPCC at the University of Edinburgh"
+copyright = "2023, EPCC at the University of Edinburgh"
 author = "James Richings EPCC"
 github_user = "JPRichings"
-github_repo_name = ""  # auto-detected from dirname if blank
-github_version = "main"
+github_repo_name = "https://github.com/EPCCed/Intro-to-HPC/"  # auto-detected from dirname if blank
+github_version = "master"
 conf_py_path = "/content/"  # with leading and trailing slash
 
 # -- General configuration ---------------------------------------------------
