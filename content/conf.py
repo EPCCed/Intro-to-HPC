@@ -20,8 +20,8 @@
 project = "Introduction to HPC (Beta)"
 copyright = "2023, EPCC at the University of Edinburgh"
 author = "James Richings EPCC"
-github_user = "JPRichings"
-github_repo_name = "https://github.com/EPCCed/Intro-to-HPC/"  # auto-detected from dirname if blank
+github_user = "EPCCed"
+github_repo_name = "Intro-to-HPC"  # auto-detected from dirname if blank
 github_version = "master"
 conf_py_path = "/content/"  # with leading and trailing slash
 
