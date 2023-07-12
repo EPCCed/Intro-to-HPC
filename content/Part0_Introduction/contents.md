@@ -1,10 +1,10 @@
 # Introduction to High Performance Computing
 
-This course aims to introduce the principles of high performance computing (HPC) systems, how they operate and how we can utilise the computing power they can offer to model complex systems. 
+This course aims to introduce the principles of high performance computing (HPC) systems, how they operate, and how we can utilise the computing power they can offer to model complex systems. 
 
-This will start with a discussion of supercomputers (HPC systems) there purpose, hardware and trends in computing. We will then cover material on the fundamentals of modern computers and how we can perform computations in parallel. This will lead into a discussion of how to supercomputers derive there performance and distributed memory architecture is used in HPC systems.
+This will start with a discussion of supercomputers (HPC systems), their purpose, hardware, and trends in computing. We will then cover material on the fundamentals of modern computers and how we can perform computations in parallel. This will lead into a discussion of how supercomputers derive their performance, and how distributed memory architecture is used in HPC systems.
 
-We will then run through a concrete simulation example, discussing the details of the problem and how it can be modelled on a computer. We will then detail how parallel programming can be applied to problems to speed up a calculation before discussing performance in parallel programs. Finally we will discuss how simulations are developed and used to make predictions and some real world examples.
+We will run through a concrete simulation example, discussing the details of the problem and how it can be modelled on a computer. We will then detail how parallel programming can be applied to problems to speed up a calculation, before discussing performance in parallel programs. Finally we will discuss how simulations are developed and used to make predictions, and some real world examples.
 
 
 ```{prereq}
@@ -20,7 +20,7 @@ To take part in the exercises you will need:
 
 ## Arrangements for this self-service course
 
-This course has already run in other forms in the past and we are keen the material remains available to the community, therefore the course has been presented in this new format with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored and please therefore raise issues on the [git repository](https://github.com/EPCCed/Intro-to-HPC-self-service/issues) which the course is hosted from if there are comments on the material. 
+This course has already run in other forms in the past and we are keen the material remains available to the community, therefore the course has been presented in this new format with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored, so please therefore raise issues on the [git repository](https://github.com/EPCCed/Intro-to-HPC-self-service/issues) which the course is hosted from, if there are comments on the material. 
 
 ---
 
@@ -83,11 +83,11 @@ We endeavour to maintain our position as a major provider of HPC training.
 ```{figure} ./../Part1_Supercomputing/images/large_hero_a8f32791-5354-4a66-aeb0-79352dedae18.jpg
 ```
 
-This course has been adapted with EuroCC funding to update the original course developed under PRACE and improve course flexibility to allow it to be tailored to multiple machines needs while keeping the core theme of the course.
+This course has been adapted with EuroCC funding to update the original course developed under PRACE and improve course flexibility to allow it to be tailored to multiple machines' needs while keeping the core theme of the course.
 
 ## Acknowledgements
 
-This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty and Weronika Filinger at the EPCC under funding from EuroCC.
-This was developed from original material developed with included contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
+This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty and Weronika Filinger at EPCC under funding from EuroCC.
+This was developed from original material developed, with additional contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
 
 This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
