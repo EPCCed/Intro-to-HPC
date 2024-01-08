@@ -22,6 +22,19 @@ To take part in the exercises you will need:
 
 This course has already run in other forms in the past and we are keen the material remains available to the community, therefore the course has been presented in this new format with support from the EuroCC project. This course is hosted on github  and will run in an unfacilitated form meaning the course will not have involvement, input and direction from the Educators. However it will be monitored, so please therefore raise issues on the [git repository](https://github.com/EPCCed/Intro-to-HPC-self-service/issues) which the course is hosted from, if there are comments on the material. 
 
+
+
+## Questionnaires
+
+Before you begin this self-service course, we would be most grateful if you could complete this [short pre-course questionnaire](https://forms.office.com/r/gjT6ME4cmr).
+
+Once you have completed the course, please complete the [post-course questionnaire](https://forms.office.com/r/aUth2aKHvD).
+
+## Feedback
+
+When you have finished the course, please fill in the [Feedback Form](https://www.archer2.ac.uk/training/feedback/?course=240000-intro-hpc-self-service). This is designed to be anonymous, although you can leave your contact details if you wish. We use the same form for all training courses, so some questions (e.g. regarding the venue) may not be relevant.
+
+
 ---
 
 ## Welcome
