@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 3: Parallel execution on compute nodes &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Practical exercise 2: Parallel worksharing, Fractal code" href="../../exercise2/" />
+    <link rel="prev" title="Part 2: Download,Compile, Run" href="../part2/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Introduction &amp; Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Logging in via SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/">Part 2: Download,Compile, Run</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 3: Parallel execution on compute nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compile-the-parallel-version-of-the-code">Compile the parallel version of the code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-on-the-archer2-compute-nodes">Running on the ARCHER2 compute nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#investigating-the-parallel-speedup">Investigating the parallel speedup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#things-to-think-about">Things to think about …</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+      <li class="breadcrumb-item active">Part 3: Parallel execution on compute nodes</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise1/part3.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-3-parallel-execution-on-compute-nodes">
+<h1>Part 3: Parallel execution on compute nodes<a class="headerlink" href="#part-3-parallel-execution-on-compute-nodes" title="Permalink to this headline"></a></h1>
+<p>This page covers running parallel code on compute nodes using the job submission system.</p>
+<section id="compile-the-parallel-version-of-the-code">
+<h2>Compile the parallel version of the code<a class="headerlink" href="#compile-the-parallel-version-of-the-code" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">cd</span> <span class="n">C</span><span class="o">-</span><span class="n">OMP</span>
+    <span class="n">make</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">sharpen</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">dosharpen</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="nb">filter</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">cio</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">utilities</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">cc</span> <span class="o">-</span><span class="n">fopenmp</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">o</span> <span class="n">sharpen</span> <span class="n">sharpen</span><span class="o">.</span><span class="n">o</span> <span class="n">dosharpen</span><span class="o">.</span><span class="n">o</span> <span class="nb">filter</span><span class="o">.</span><span class="n">o</span> <span class="n">cio</span><span class="o">.</span><span class="n">o</span> <span class="n">utilities</span><span class="o">.</span><span class="n">o</span> <span class="o">-</span><span class="n">lm</span>
+</pre></div>
+</div>
+<p>To run this code in parallel it should be submitted to the compute nodes using Slurm workload manager.</p>
+</section>
+<section id="running-on-the-archer2-compute-nodes">
+<h2>Running on the ARCHER2 compute nodes<a class="headerlink" href="#running-on-the-archer2-compute-nodes" title="Permalink to this headline"></a></h2>
+<p>The use of compute nodes on ARCHER2 is mediated by the Slurm job submission system. Slurm is a scheduler which is used to ensure that all users get access to their fair share of resources, to make sure that the machine is as efficiently used as possible and to allow user to run jobs without having to be physically logged in.</p>
+<p>Whilst it is possible to run interactive jobs (jobs where you log directly into the compute nodes and run your executable there), and they are useful for debugging and development, they are not ideal for running long and/or large numbers of production jobs as you need to be physically interacting with the system to use them.</p>
+<p>The solution to this, and the method that users generally use to run jobs on systems like ARCHER2, is to run in batch mode. In this case you put the commands you wish to run in a file (called a job script) and the system executes the commands in sequence for you with no need for you to be interacting.</p>
+<section id="using-slurm-job-scripts">
+<h3>Using Slurm job scripts<a class="headerlink" href="#using-slurm-job-scripts" title="Permalink to this headline"></a></h3>
+<p>You will notice in the C-OMP folder there is a Slurm script <code class="docutils literal notranslate"><span class="pre">archer2.slurm</span></code>. If you open it using a text editor (<code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code>, or <code class="docutils literal notranslate"><span class="pre">emacs</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="n">archer2</span><span class="o">.</span><span class="n">slurm</span>
+</pre></div>
+</div>
+<section id="archer2-slurm">
+<h4>archer2.slurm:<a class="headerlink" href="#archer2-slurm" title="Permalink to this headline"></a></h4>
+<div class="highlight-slurm notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="kp">#SBATCH --job-name=sharpen</span>
+<span class="kp">#SBATCH --nodes=1</span>
+<span class="kp">#SBATCH --tasks-per-node=1</span>
+<span class="kp">#SBATCH --cpus-per-task=4</span>
+<span class="kp">#SBATCH --time=00:01:00</span>
+
+<span class="c1"># Replace [budget code] below with your project code (e.g. t01)</span>
+<span class="kp">#SBATCH --account=[budget code]</span>
+<span class="kp">#SBATCH --partition=standard</span>
+<span class="kp">#SBATCH --qos=standard</span>
+
+<span class="c1"># Setup the batch environment</span>
+module load epcc-job-env
+
+<span class="c1"># Set the number of threads to the CPUs per task</span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+<span class="c1"># Launch the parallel job</span>
+<span class="nb">srun</span> --hint<span class="o">=</span>nomultithread --distribution<span class="o">=</span>block:block ./sharpen
+</pre></div>
+</div>
+<p>This is an OpenMP program so we control the number of parallel threads used with the <code class="docutils literal notranslate"><span class="pre">--cpus-per-task</span></code> variable.</p>
+<p>To submit the job to run on the compute nodes we use the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">archer2</span><span class="o">.</span><span class="n">slurm</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Submitted</span> <span class="n">batch</span> <span class="n">job</span> <span class="mi">1793266</span>
+</pre></div>
+</div>
+<p>Where the number is the unique job ID.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On ARCHER2 you must submit jobs from the ``/work`` filesystem.
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="monitoring-the-batch-job">
+<h3>Monitoring the batch job<a class="headerlink" href="#monitoring-the-batch-job" title="Permalink to this headline"></a></h3>
+<p>The slurm command <code class="docutils literal notranslate"><span class="pre">squeue</span></code> can be used to show the status of the jobs. Without any options or arguments it lists all jobs known by the scheduler.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span>
+</pre></div>
+</div>
+<p>To show just your jobs add  the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">$USER</span></code> option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
+<p>Note that for this example it runs very quickly so you may not see it in the queue before it finishes running.</p>
+</section>
+<section id="finding-the-output">
+<h3>Finding the output<a class="headerlink" href="#finding-the-output" title="Permalink to this headline"></a></h3>
+<p>The Slurm system places the output from your job in a file called <code class="docutils literal notranslate"><span class="pre">slurm-&lt;jobID&gt;.out</span></code>. You can view it using the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">slurm</span><span class="o">-</span><span class="mf">1793266.</span><span class="n">out</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span> <span class="n">sharpening</span> <span class="n">code</span> <span class="n">running</span> <span class="n">on</span> <span class="mi">4</span> <span class="n">thread</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">file</span> <span class="ow">is</span><span class="p">:</span> <span class="n">fuzzy</span><span class="o">.</span><span class="n">pgm</span>
+<span class="n">Image</span> <span class="n">size</span> <span class="ow">is</span> <span class="mi">564</span> <span class="n">x</span> <span class="mi">770</span>
+
+<span class="n">Using</span> <span class="n">a</span> <span class="nb">filter</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">17</span> <span class="n">x</span> <span class="mi">17</span>
+
+<span class="n">Reading</span> <span class="n">image</span> <span class="n">file</span><span class="p">:</span> <span class="n">fuzzy</span><span class="o">.</span><span class="n">pgm</span>
+<span class="o">...</span> <span class="n">done</span>
+
+<span class="n">Starting</span> <span class="n">calculation</span> <span class="o">...</span>
+<span class="n">Thread</span> <span class="mi">0</span> <span class="n">on</span> <span class="n">core</span> <span class="mi">0</span>
+<span class="n">Thread</span> <span class="mi">1</span> <span class="n">on</span> <span class="n">core</span> <span class="mi">1</span>
+<span class="n">Thread</span> <span class="mi">2</span> <span class="n">on</span> <span class="n">core</span> <span class="mi">2</span>
+<span class="n">Thread</span> <span class="mi">3</span> <span class="n">on</span> <span class="n">core</span> <span class="mi">3</span>
+<span class="o">...</span> <span class="n">finished</span>
+
+<span class="n">Writing</span> <span class="n">output</span> <span class="n">file</span><span class="p">:</span> <span class="n">sharpened</span><span class="o">.</span><span class="n">pgm</span>
+
+<span class="o">...</span> <span class="n">done</span>
+
+<span class="n">Calculation</span> <span class="n">time</span> <span class="n">was</span> <span class="mf">0.970780</span> <span class="n">seconds</span>
+<span class="n">Overall</span> <span class="n">run</span> <span class="n">time</span> <span class="n">was</span> <span class="mf">1.124198</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p>To control the number of threads you can edit the <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--cpus-per-task=4</span></code> variable to a different number and resubmit the job.</p>
+<p>Because this is an OpenMP program it will not scale beyond one node which is 128 cores on ARCHER2.</p>
+</section>
+</section>
+<section id="investigating-the-parallel-speedup">
+<h2>Investigating the parallel speedup<a class="headerlink" href="#investigating-the-parallel-speedup" title="Permalink to this headline"></a></h2>
+<p>You will notice that two timings are reported: the calculation time, and the overall runtime. The first excludes the file input/output operations.</p>
+<p>The speedup is calculated by diving the the time taken to run on one core by the time taken to run using N cores. For this program you can calculate the speedup for both the calculation time and the overall runtime</p>
+<p>Example speedup results for ARCHER2 are shown below.</p>
+<figure class="align-default" id="id1">
+<img alt="speedup graph" class="with-border" src="../../../_images/sharpen_speedup.svg" /><figcaption>
+<p><span class="caption-text">Speedup results for ARCHER2</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="things-to-think-about">
+<h2>Things to think about …<a class="headerlink" href="#things-to-think-about" title="Permalink to this headline"></a></h2>
+<p>Before we move on a couple of things to consider:</p>
+<ul class="simple">
+<li><p>Can you explain why the x axis on the plot of parallel speedup only extend to 128 cores on Archer2?</p></li>
+<li><p>Using the code provided for the threaded version of sharpen are you able to reproduce the plot given for Archer2 on your own system? How do the results compare?</p></li>
+<li><p>There are other version of the sharpen example that employ different methods to parallelise the calculation. One uses message passing and the other is a hybrid that combines message passing and shared memory parallism.  additionally try to recreate the plot on speedup for using these codes. How does the data compare?</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part2/" class="btn btn-neutral float-left" title="Part 2: Download,Compile, Run" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../exercise2/" class="btn btn-neutral float-right" title="Practical exercise 2: Parallel worksharing, Fractal code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

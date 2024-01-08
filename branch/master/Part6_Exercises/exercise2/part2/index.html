@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 2: Investigation &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Pratical exercise 3: Investigating parallel performance, GROMACS" href="../../exercise3/" />
+    <link rel="prev" title="Part 1: Compilation, running" href="../part1/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 2: Parallel worksharing, Fractal code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Fractal calculation program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Compilation, running</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 2: Investigation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run-tests">Run tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+      <li class="breadcrumb-item active">Part 2: Investigation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise2/part2.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-2-investigation">
+<h1>Part 2: Investigation<a class="headerlink" href="#part-2-investigation" title="Permalink to this headline"></a></h1>
+<section id="run-tests">
+<h2>Run tests<a class="headerlink" href="#run-tests" title="Permalink to this headline"></a></h2>
+<p>To explore the effect of the load balancing run the code with different number of workers and tasks and try to answer the following questions:</p>
+<ul class="simple">
+<li><p>From the default run with 16 workers and 16 tasks, what is your predicted best runtime based on the load imbalance factor?</p></li>
+<li><p>Look at the output for 16 tasks – can you understand how the load was distributed across workers by looking at the colours of the bands and the structure of the Mandelbrot set?</p></li>
+<li><p>Increase the number of tasks by decreasing the task size; does the runtime approach what you predicted? Look at the colour bands: how does the task distribution change? Are the results qualitatively different if you use more workers?</p></li>
+<li><p>For 16 workers, run the program with ever smaller task sizes (i.e. more tasks) and plot a graph of runtime against number of tasks. You should ensure you measure all the way up to the maximum number of tasks, i.e. a task size of a single pixel.</p></li>
+<li><p>Can you explain the form of the graph? Does the minimum runtime approach what you predicted from the load imbalance factor?</p></li>
+<li><p>You can experiment with varying the parameters, e.g. plotting the same graph with more workers or using the Julia set rather than the Mandelbrot set.</p></li>
+</ul>
+<p>The number of workers is controlled by the <code class="docutils literal notranslate"><span class="pre">–n</span></code> argument to <code class="docutils literal notranslate"><span class="pre">srun</span></code> and is one fewer than P (the total number of processes) as we always require one dedicated process to be the controller.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part1/" class="btn btn-neutral float-left" title="Part 1: Compilation, running" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../exercise3/" class="btn btn-neutral float-right" title="Pratical exercise 3: Investigating parallel performance, GROMACS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

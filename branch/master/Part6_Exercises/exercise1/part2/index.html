@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 2: Download,Compile, Run &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 3: Parallel execution on compute nodes" href="../part3/" />
+    <link rel="prev" title="Part 1: Logging in via SSH" href="../part1/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Introduction &amp; Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Logging in via SSH</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 2: Download,Compile, Run</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-the-source-code">Downloading the source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-the-source-code">Compiling the source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-serial-program">Running the serial program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-the-images">Viewing the images</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part3/">Part 3: Parallel execution on compute nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+      <li class="breadcrumb-item active">Part 2: Download,Compile, Run</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise1/part2.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-2-download-compile-run">
+<h1>Part 2: Download,Compile, Run<a class="headerlink" href="#part-2-download-compile-run" title="Permalink to this headline"></a></h1>
+<p>This page covers how to download, compile, and run code.</p>
+<section id="downloading-the-source-code">
+<h2>Downloading the source code<a class="headerlink" href="#downloading-the-source-code" title="Permalink to this headline"></a></h2>
+<p>In this exercise we will be using a image sharpening program. The source code is available in a Github repository.</p>
+<p>To download the code you will need to clone the repository. To do this execute the following command,</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">EPCCed</span><span class="o">/</span><span class="n">EPCC</span><span class="o">-</span><span class="n">Exercises</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Alternatively you might have already cloned the repository as part of another exercise in which case skip this step.</p>
+<p>If you clone the repository the output will look similar to this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Cloning</span> <span class="n">into</span> <span class="s1">&#39;EPCC-Exercises&#39;</span><span class="o">...</span>
+    <span class="n">remote</span><span class="p">:</span> <span class="n">Enumerating</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+    <span class="n">remote</span><span class="p">:</span> <span class="n">Counting</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">21</span><span class="o">/</span><span class="mi">21</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+    <span class="n">remote</span><span class="p">:</span> <span class="n">Compressing</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">15</span><span class="o">/</span><span class="mi">15</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+    <span class="n">remote</span><span class="p">:</span> <span class="n">Total</span> <span class="mi">21</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">7</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">16</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">5</span><span class="p">),</span> <span class="n">pack</span><span class="o">-</span><span class="n">reused</span> <span class="mi">0</span>
+    <span class="n">Receiving</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">21</span><span class="o">/</span><span class="mi">21</span><span class="p">),</span> <span class="mf">314.18</span> <span class="n">KiB</span> <span class="o">|</span> <span class="mf">2.51</span> <span class="n">MiB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+    <span class="n">Resolving</span> <span class="n">deltas</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">7</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+
+</pre></div>
+</div>
+<p>You will now have a folder called <code class="docutils literal notranslate"><span class="pre">sharpen</span></code>. Change directory into it and list the contents</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">cd</span> <span class="n">EPCC</span><span class="o">-</span><span class="n">Exercises</span><span class="o">/</span><span class="n">Sharpen</span><span class="o">/</span><span class="n">C</span>
+    <span class="n">ls</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">C</span><span class="o">-</span><span class="n">Common</span>  <span class="n">C</span><span class="o">-</span><span class="n">HYB</span>  <span class="n">C</span><span class="o">-</span><span class="n">MPI</span>  <span class="n">C</span><span class="o">-</span><span class="n">OMP</span>  <span class="n">C</span><span class="o">-</span><span class="n">SER</span>  <span class="n">C</span><span class="o">-</span><span class="n">SHM</span>  <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<p>There are several version of the code, a serial version and a number of parallel versions. Initially we will be looking at the serial version located in the <code class="docutils literal notranslate"><span class="pre">C-SER</span></code> folder.</p>
+</section>
+<section id="compiling-the-source-code">
+<h2>Compiling the source code<a class="headerlink" href="#compiling-the-source-code" title="Permalink to this headline"></a></h2>
+<p>We will compile the serial version of the source code using a Makefile.</p>
+<p>Move into the <code class="docutils literal notranslate"><span class="pre">C-SER</span></code> directory and list the contents.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">cd</span> <span class="n">C</span><span class="o">-</span><span class="n">SER</span>
+   <span class="n">ls</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Makefile</span>  <span class="n">cio</span><span class="o">.</span><span class="n">c</span>  <span class="n">dosharpen</span><span class="o">.</span><span class="n">c</span>  <span class="nb">filter</span><span class="o">.</span><span class="n">c</span>  <span class="n">fuzzy</span><span class="o">.</span><span class="n">pgm</span>  <span class="n">sharpen</span><span class="o">.</span><span class="n">c</span>  <span class="n">sharpen</span><span class="o">.</span><span class="n">h</span>  <span class="n">utilities</span><span class="o">.</span><span class="n">c</span>  <span class="n">utilities</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>You will see that there are various code files. The Makefile contains the commands to compile them together to produce the executable program. To use the Makefile type <code class="docutils literal notranslate"><span class="pre">make</span></code> command.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   make
+</pre></div>
+</div>
+</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">sharpen</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">dosharpen</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="nb">filter</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">cio</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">c</span> <span class="n">utilities</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">o</span> <span class="n">sharpen</span> <span class="n">sharpen</span><span class="o">.</span><span class="n">o</span> <span class="n">dosharpen</span><span class="o">.</span><span class="n">o</span> <span class="nb">filter</span><span class="o">.</span><span class="n">o</span> <span class="n">cio</span><span class="o">.</span><span class="n">o</span> <span class="n">utilities</span><span class="o">.</span><span class="n">o</span> <span class="o">-</span><span class="n">lm</span>
+</pre></div>
+</div>
+<p>This should produce an executable file called <code class="docutils literal notranslate"><span class="pre">sharpen</span></code>.</p>
+</section>
+<section id="running-the-serial-program">
+<h2>Running the serial program<a class="headerlink" href="#running-the-serial-program" title="Permalink to this headline"></a></h2>
+<p>We can run the serial program directly on the login nodes</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="o">./</span><span class="n">sharpen</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Image</span> <span class="n">sharpening</span> <span class="n">code</span> <span class="n">running</span> <span class="ow">in</span> <span class="n">serial</span>
+
+    <span class="n">Input</span> <span class="n">file</span> <span class="ow">is</span><span class="p">:</span> <span class="n">fuzzy</span><span class="o">.</span><span class="n">pgm</span>
+    <span class="n">Image</span> <span class="n">size</span> <span class="ow">is</span> <span class="mi">564</span> <span class="n">x</span> <span class="mi">770</span>
+
+    <span class="n">Using</span> <span class="n">a</span> <span class="nb">filter</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">17</span> <span class="n">x</span> <span class="mi">17</span>
+
+    <span class="n">Reading</span> <span class="n">image</span> <span class="n">file</span><span class="p">:</span> <span class="n">fuzzy</span><span class="o">.</span><span class="n">pgm</span>
+    <span class="o">...</span> <span class="n">done</span>
+
+    <span class="n">Starting</span> <span class="n">calculation</span> <span class="o">...</span>
+    <span class="n">Program</span> <span class="n">on</span> <span class="n">core</span> <span class="mi">0</span><span class="o">-</span><span class="mi">255</span>
+    <span class="o">...</span> <span class="n">finished</span>
+
+    <span class="n">Writing</span> <span class="n">output</span> <span class="n">file</span><span class="p">:</span> <span class="n">sharpened</span><span class="o">.</span><span class="n">pgm</span>
+
+    <span class="o">...</span> <span class="n">done</span>
+
+    <span class="n">Calculation</span> <span class="n">time</span> <span class="n">was</span> <span class="mf">3.697039</span> <span class="n">seconds</span>
+    <span class="n">Overall</span> <span class="n">run</span> <span class="n">time</span> <span class="n">was</span> <span class="mf">3.923524</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+</section>
+<section id="viewing-the-images">
+<h2>Viewing the images<a class="headerlink" href="#viewing-the-images" title="Permalink to this headline"></a></h2>
+<p>To view the images on the remote machine you will need to make sure you an X window client installed on your local machine and you have logged into the remote machine with X forwarding enabled.</p>
+<p>To view images on ARCHER2 you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    module load imagemagick
+    display file.pgm
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Here we have introduced the ``module`` command, this is a way of controlling the software environment typically used on HPC machines. A module is a self-contained description of a software package -- it contains the settings required to run a software package and, usually, encodes required dependencies on other software packages.
+</pre></div>
+</div>
+</div>
+<p>Alternatively you can download the files to your local machine via SSH (<code class="docutils literal notranslate"><span class="pre">scp</span></code>, <code class="docutils literal notranslate"><span class="pre">rysnc</span></code>, or <code class="docutils literal notranslate"><span class="pre">stfp</span></code>) and open them with an image viewing program e.g. preview on MacOS.</p>
+<p>The images should look like this:</p>
+<figure class="align-default" id="id1">
+<img alt="Fuzzy and sharpened image" class="with-border" src="../../../_images/both_images.png" />
+<figcaption>
+<p><span class="caption-text">Fuzzy and sharpened image.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the next step we will run the parallel version of the code on the compute nodes using a batch submission system.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part1/" class="btn btn-neutral float-left" title="Part 1: Logging in via SSH" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part3/" class="btn btn-neutral float-right" title="Part 3: Parallel execution on compute nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

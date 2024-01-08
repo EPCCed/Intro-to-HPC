@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 1: Strong Scaling &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 2: Weak Scaling" href="../part2/" />
+    <link rel="prev" title="Molecular Simulation" href="../theory/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Pratical exercise 3: Investigating parallel performance, GROMACS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Molecular Simulation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 1: Strong Scaling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-benchmark-system">The benchmark system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-benchmark">Running the benchmark</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#things-to-investigate">Things to investigate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comparing-results-with-amdahl-s-law">Comparing results with Amdahl’s law</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/">Part 2: Weak Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part3/">Part 3: Hybrid MPI and OpenMP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+      <li class="breadcrumb-item active">Part 1: Strong Scaling</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise3/part1.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-1-strong-scaling">
+<h1>Part 1: Strong Scaling<a class="headerlink" href="#part-1-strong-scaling" title="Permalink to this headline"></a></h1>
+<p>In this section you will run a benchmark simulation and investigate the strong scaling parallel performance.</p>
+<section id="the-benchmark-system">
+<h2>The benchmark system<a class="headerlink" href="#the-benchmark-system" title="Permalink to this headline"></a></h2>
+<p>The system we will used from the HECBIOSIM benchmark suite:
+<a class="reference external" href="https://www.hecbiosim.ac.uk/access-hpc/benchmarks">https://www.hecbiosim.ac.uk/access-hpc/benchmarks</a></p>
+<p>We will focus on the 465K atom system:</p>
+<ul class="simple">
+<li><p>hEGFR Dimer of 1IVO and 1NQL.</p></li>
+<li><p>Total number of atoms = 465,399.</p></li>
+<li><p>Protein atoms = 21,749  Lipid atoms = 134,268  Water atoms = 309,087  Ions = 295.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<img alt="../../../_images/465K-H1-H1.png" class="with-border" src="../../../_images/465K-H1-H1.png" />
+<figcaption>
+<p><span class="caption-text">465K atom system from HECBIOSIM benchmark suite. The orange molecule is the protein. The purple and gray molecules are the lipid-membrane. The box is filled with water but this is not shown for clarity.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The input file can be obtained from <a class="reference external" href="https://www.hecbiosim.ac.uk/access-hpc/benchmarks">https://www.hecbiosim.ac.uk/access-hpc/benchmarks</a>, or from our git repo: #TODO</p>
+</section>
+<section id="running-the-benchmark">
+<h2>Running the benchmark<a class="headerlink" href="#running-the-benchmark" title="Permalink to this headline"></a></h2>
+<p>An example script to run the benchmark on ARCHER2 is shown below.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">archer2.slurm</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=gmx_bench</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --tasks-per-node=128</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+
+<span class="c1"># Replace [budget code] below with your project code (e.g. t01)</span>
+<span class="c1">#SBATCH --account=z19</span>
+<span class="c1">#SBATCH --partition=standard</span>
+<span class="c1">#SBATCH --qos=standard</span>
+
+<span class="c1"># Setup the environment</span>
+module load gromacs
+
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span> 
+srun --distribution<span class="o">=</span>block:block --hint<span class="o">=</span>nomultithread gmx_mpi mdrun -s bench_465kHBS.tpr -v
+</pre></div>
+</div>
+</div>
+<p>The bottom of the <code class="docutils literal notranslate"><span class="pre">md.log</span></code> file will contain the performance timings, e.g:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>               Core t <span class="o">(</span>s<span class="o">)</span>   Wall t <span class="o">(</span>s<span class="o">)</span>        <span class="o">(</span>%<span class="o">)</span>
+       Time:    <span class="m">12283</span>.520       <span class="m">95</span>.966    <span class="m">12799</span>.9
+                 <span class="o">(</span>ns/day<span class="o">)</span>    <span class="o">(</span>hour/ns<span class="o">)</span>
+Performance:       <span class="m">18</span>.008        <span class="m">1</span>.333
+</pre></div>
+</div>
+<p>The most useful numbers to us are the wall-time <code class="docutils literal notranslate"><span class="pre">95.966s</span></code> , and the performance: <code class="docutils literal notranslate"><span class="pre">18.008</span> <span class="pre">ns/day</span></code> which tells us how much simulation time (in nano-seconds) can be simulated for 1 day of wall-clock time.</p>
+</section>
+<section id="things-to-investigate">
+<h2>Things to investigate<a class="headerlink" href="#things-to-investigate" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>You should vary the number of nodes/CPUs and plot the performance. This investigates the strong scaling of the program.</p></li>
+<li><p>What node count would you use for a long production simulation?</p></li>
+<li><p>Previous benchmarks for this system can be found here:
+<a class="reference external" href="https://www.hecbiosim.ac.uk/access-hpc/our-benchmark-results/archer2-benchmarks">https://www.hecbiosim.ac.uk/access-hpc/our-benchmark-results/archer2-benchmarks</a></p></li>
+</ul>
+<p>We have plotted our results for version 2021.3 of gromacs on ARCHER2 here:</p>
+<figure class="align-default" id="id3">
+<img alt="../../../_images/gmx_strong_scaling.svg" class="with-border" src="../../../_images/gmx_strong_scaling.svg" /><figcaption>
+<p><span class="caption-text">Performance results for the benchmark system on ARCHER2. The performance is measured in nanoseconds per day.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="comparing-results-with-amdahl-s-law">
+<h2>Comparing results with Amdahl’s law<a class="headerlink" href="#comparing-results-with-amdahl-s-law" title="Permalink to this headline"></a></h2>
+<p>Amdahl’s law characterizes the speedup of a parallel program. It states that the speedup for <span class="math notranslate nohighlight">\(N\)</span> processors <span class="math notranslate nohighlight">\(S(N)\)</span> is dependent on the serial <span class="math notranslate nohighlight">\(s\)</span> and parallel <span class="math notranslate nohighlight">\(p\)</span> portions of the code.</p>
+<div class="math notranslate nohighlight">
+\[
+S(N) = \frac{T(1)}{T(N)} = \frac{1}{s+\frac{p}{N}}
+\]</div>
+<p>We have plotted Amdahl’s law for <span class="math notranslate nohighlight">\(p=\)</span> 99%, 99.9%, and 99.95% to compare against the measured results.</p>
+<figure class="align-default" id="id4">
+<img alt="../../../_images/gmx_amdahl.svg" class="with-border" src="../../../_images/gmx_amdahl.svg" /><figcaption>
+<p><span class="caption-text">Performance results for the benchmark system on ARCHER2. The performance is measured in nanoseconds per day.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can see that these results are similar to the p=99.9% curve. Suggesting that 99.9% of the code is parallel. However, it in reality it is not this simple. Amdahl’s law assumes perfect load balance, this is not usually the case. The <code class="docutils literal notranslate"><span class="pre">md.log</span></code> file reports the load balance for this benchmark. E.g. for our run using 4 nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dynamic</span> <span class="n">load</span> <span class="n">balancing</span> <span class="n">report</span><span class="p">:</span>
+ <span class="n">DLB</span> <span class="n">was</span> <span class="n">permanently</span> <span class="n">on</span> <span class="n">during</span> <span class="n">the</span> <span class="n">run</span> <span class="n">per</span> <span class="n">user</span> <span class="n">request</span><span class="o">.</span>
+ <span class="n">Average</span> <span class="n">load</span> <span class="n">imbalance</span><span class="p">:</span> <span class="mf">16.0</span><span class="o">%.</span>
+ <span class="n">The</span> <span class="n">balanceable</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">MD</span> <span class="n">step</span> <span class="ow">is</span> <span class="mi">78</span><span class="o">%</span><span class="p">,</span> <span class="n">load</span> <span class="n">imbalance</span> <span class="ow">is</span> <span class="n">computed</span> <span class="kn">from</span> <span class="nn">this.</span>
+ <span class="n">Part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">total</span> <span class="n">run</span> <span class="n">time</span> <span class="n">spent</span> <span class="n">waiting</span> <span class="n">due</span> <span class="n">to</span> <span class="n">load</span> <span class="n">imbalance</span><span class="p">:</span> <span class="mf">12.5</span><span class="o">%.</span>
+ <span class="n">Steps</span> <span class="n">where</span> <span class="n">the</span> <span class="n">load</span> <span class="n">balancing</span> <span class="n">was</span> <span class="n">limited</span> <span class="n">by</span> <span class="o">-</span><span class="n">rdd</span><span class="p">,</span> <span class="o">-</span><span class="n">rcon</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="o">-</span><span class="n">dds</span><span class="p">:</span> <span class="n">X</span> <span class="mi">0</span> <span class="o">%</span> <span class="n">Y</span> <span class="mi">0</span> <span class="o">%</span> <span class="n">Z</span> <span class="mi">0</span> <span class="o">%</span>
+ <span class="n">Average</span> <span class="n">PME</span> <span class="n">mesh</span><span class="o">/</span><span class="n">force</span> <span class="n">load</span><span class="p">:</span> <span class="mf">0.723</span>
+ <span class="n">Part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">total</span> <span class="n">run</span> <span class="n">time</span> <span class="n">spent</span> <span class="n">waiting</span> <span class="n">due</span> <span class="n">to</span> <span class="n">PP</span><span class="o">/</span><span class="n">PME</span> <span class="n">imbalance</span><span class="p">:</span> <span class="mf">6.2</span> <span class="o">%</span>
+
+<span class="n">NOTE</span><span class="p">:</span> <span class="mf">12.5</span> <span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">available</span> <span class="n">CPU</span> <span class="n">time</span> <span class="n">was</span> <span class="n">lost</span> <span class="n">due</span> <span class="n">to</span> <span class="n">load</span> <span class="n">imbalance</span>
+      <span class="ow">in</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">decomposition</span><span class="o">.</span>
+      <span class="n">You</span> <span class="n">can</span> <span class="n">consider</span> <span class="n">manually</span> <span class="n">changing</span> <span class="n">the</span> <span class="n">decomposition</span> <span class="p">(</span><span class="n">option</span> <span class="o">-</span><span class="n">dd</span><span class="p">);</span>
+      <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">by</span> <span class="n">using</span> <span class="n">fewer</span> <span class="n">domains</span> <span class="n">along</span> <span class="n">the</span> <span class="n">box</span> <span class="n">dimension</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">there</span> <span class="ow">is</span>
+      <span class="n">considerable</span> <span class="n">inhomogeneity</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">simulated</span> <span class="n">system</span><span class="o">.</span>
+<span class="n">NOTE</span><span class="p">:</span> <span class="mf">6.2</span> <span class="o">%</span> <span class="n">performance</span> <span class="n">was</span> <span class="n">lost</span> <span class="n">because</span> <span class="n">the</span> <span class="n">PME</span> <span class="n">ranks</span>
+      <span class="n">had</span> <span class="n">less</span> <span class="n">work</span> <span class="n">to</span> <span class="n">do</span> <span class="n">than</span> <span class="n">the</span> <span class="n">PP</span> <span class="n">ranks</span><span class="o">.</span>
+      <span class="n">You</span> <span class="n">might</span> <span class="n">want</span> <span class="n">to</span> <span class="n">decrease</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">PME</span> <span class="n">ranks</span>
+      <span class="ow">or</span> <span class="n">decrease</span> <span class="n">the</span> <span class="n">cut</span><span class="o">-</span><span class="n">off</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">grid</span> <span class="n">spacing</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>We can see that significant load imbalance is reported.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../theory/" class="btn btn-neutral float-left" title="Molecular Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part2/" class="btn btn-neutral float-right" title="Part 2: Weak Scaling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

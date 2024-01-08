@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &amp; Theory &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 1: Logging in via SSH" href="../part1/" />
+    <link rel="prev" title="Practical exercise 1: First use of HPC machine, Image sharpening code" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction &amp; Theory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#edge-detection">Edge detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Logging in via SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/">Part 2: Download,Compile, Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part3/">Part 3: Parallel execution on compute nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+      <li class="breadcrumb-item active">Introduction &amp; Theory</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise1/theory.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-theory">
+<h1>Introduction &amp; Theory<a class="headerlink" href="#introduction-theory" title="Permalink to this headline"></a></h1>
+<p>Images can be fuzzy from random noise and blurrings.</p>
+<p>A image can be sharpened by:</p>
+<ol class="arabic simple">
+<li><p>detecting the edges</p></li>
+<li><p>combining the edges with the original image</p></li>
+</ol>
+<p>These steps are shown in the figure below.</p>
+<figure class="align-default" id="id1">
+<img alt="Diagram of image sharpening steps" class="with-border" src="../../../_images/sharpening_diagram.png" />
+<figcaption>
+<p><span class="caption-text">Image sharpening steps.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<section id="edge-detection">
+<h2>Edge detection<a class="headerlink" href="#edge-detection" title="Permalink to this headline"></a></h2>
+<p>Edges can be detected using a Laplacian filter. The Laplacian <span class="math notranslate nohighlight">\(L(x,y)\)</span> is the second spatial derivative of the image intensity <span class="math notranslate nohighlight">\(I(x,y)\)</span>, this means it highlights regions of rapid intensity change, i.e the edges.</p>
+<div class="math notranslate nohighlight">
+\[
+L(x,y) = \frac{\partial^2 I }{\partial x^2} +  \frac{\partial^2 I }{\partial y^2}
+\]</div>
+<p>In practice this detects noise in the image as edges, therefore a smoothing filter is applied first which takes the form of a Guassian. The Guassian filter <span class="math notranslate nohighlight">\(G(x,y)\)</span> approximates each pixel as a weighted average of its neighbors.</p>
+<div class="math notranslate nohighlight">
+\[
+G(x,y) = \frac{1}{2 \pi \sigma^2} e^{- (x^2+y^2)/(2 \sigma^2)}   
+\]</div>
+<p>The two operations can be combined to give the Laplacian of Gaussian filter <span class="math notranslate nohighlight">\(LoG(x,y)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+LoG(x,y) = -\frac{1}{\pi \sigma^4} \left( 1 -  \frac{x^2+y^2}{2 \sigma^2}\right)  e^{- (x^2+y^2)/(2 \sigma^2)}
+\]</div>
+<p>These two fuctions <span class="math notranslate nohighlight">\(G(x,y)\)</span> and <span class="math notranslate nohighlight">\(LoG(x,y)\)</span> are graphed below.</p>
+<figure class="align-default" id="id2">
+<img alt="Gaussian and LoG" class="with-border" src="../../../_images/Laplacian_of_Gaussian.png" />
+<figcaption>
+<p><span class="caption-text">Gaussian and Laplacian of Gaussian filters.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<hr class="docutils" />
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline"></a></h2>
+<p>To apply the LoG filter to an image the LoG filter must be turned into a discrete mask, that is a matrix of size 2d+1 x 2d+1 where d is an integer. We use d=8, therefore the LoG filter is a 17x17 square, it looks like this:</p>
+<figure class="align-default" id="id3">
+<img alt="LoG filter" class="with-border" src="../../../_images/mask.png" />
+<figcaption>
+<p><span class="caption-text">LoG filter as a discrete mask.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To perform the convolution of this filter with original image the following operation is performed on each pixel</p>
+<div class="math notranslate nohighlight">
+\[
+\text{edges}(i,j) = \sum_{k=-d}^d \sum_{l=-d}^d  \text{image}(i + k, j + l) \times \text{filter}(k,l)
+\]</div>
+<p>The sharpened image is then created by adding the edges to the original image, with a scaling factor (See the source code for the full details).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="Practical exercise 1: First use of HPC machine, Image sharpening code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part1/" class="btn btn-neutral float-right" title="Part 1: Logging in via SSH" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

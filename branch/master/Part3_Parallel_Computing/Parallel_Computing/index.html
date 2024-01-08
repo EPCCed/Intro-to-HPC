@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Computing &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Parallel Programming" href="../Parallel_Programming/" />
+    <link rel="prev" title="Welcome to Part 3" href="../introduction/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Parallel Computing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction/">Welcome to Part 3</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parallel Computing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Parallel Computing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traffic-simulation">Traffic Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-traffic-model">The traffic model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-the-traffic-model-works">How the traffic model works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-traffic-lights">Example 1: Traffic lights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-traffic-congestion">Example 2: Traffic congestion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3-rubbernecking">Example 3: Rubbernecking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traffic-model-predictions-implementation-and-cellular-automata">Traffic model: predictions, implementation and cellular automata</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cellular-automata">Cellular Automata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#can-we-do-better">Can we do better?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-model">Programming Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Parallel_Programming/">Parallel Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Parallel_Performance/">Parallel Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Parallel Computing</a></li>
+      <li class="breadcrumb-item active">Parallel Computing</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part3_Parallel_Computing/Parallel_Computing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="parallel-computing">
+<h1>Parallel Computing<a class="headerlink" href="#parallel-computing" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id2">
+<img alt="../../_images/hero_fa048ae4-e859-4146-8ad3-5ee30b6c8ad7.jpg" src="../../_images/hero_fa048ae4-e859-4146-8ad3-5ee30b6c8ad7.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/Devrimb</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id1">
+<h2>Parallel Computing<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>We have seen over the first two weeks that almost all modern computers
+are parallel computers, consisting of many individual CPU-cores that
+can be connected together in two different ways: in either a
+shared-memory or a distributed-memory fashion. A supercomputer will
+contain tens of thousands of CPU-cores, all operating simultaneously.</p>
+<p>A single CPU-core acts as a serial computer, running a single computer program at any one time. The Oxford English Dictionary defines serial computing as ‘the performance of operations … in a set order one at a time’. To take advantage of a parallel computer, we need to perform many operations at the same time so that we can make use of many CPU-cores. Parallel computing is defined as ‘Involving the concurrent or simultaneous performance of certain operations’.</p>
+<p>It is quite clear that a supercomputer has the potential for doing calculations very quickly. However, it may not immediately be obvious how to take advantage of this potential power for any particular problem. This week, we look at ways to solve problems that enable us to take advantage of parallel computers. That requires a problem, calculation or serial computer program to be parallelised.</p>
+<p>The process of parallelising a calculation has a number of important steps:</p>
+<ul class="simple">
+<li><p>splitting the calculation into a number of smaller tasks that can be done independently (and therefore performed simultaneously by different CPU-cores), which is also called decomposing the calculation;</p></li>
+<li><p>identifying when and where tasks need to be coordinated (meaning that the CPU-cores must talk to each other);</p></li>
+<li><p>implementing these two operations using standard approaches;</p></li>
+<li><p>executing the parallel program on a parallel computer.</p></li>
+</ul>
+<p>The first two steps typically depend on the problem you are trying to solve, and you do not have to consider the architecture of the particular parallel computer you are eventually going to run on. However, we will see that the last two steps are quite different depending on whether you are targetting a shared or distributed-memory computer. In these cases we use different programming models called the shared-variables model or the message-passing model; these two models are executed in very different ways.</p>
+<p>Once you have reached step 3, there are many existing software packages and tools to help you automate the process. However, it may be surprising to you that the first two steps are still done by hand, requiring someone to sit down and think things through using pencil-and-paper, maybe trying a number of ideas to see which works best.</p>
+<p>Parallel computing has been around for several decades so there is a wealth of experience to draw upon, and the best parallelisation strategies have been identified for a wide range of standard problems. Despite this, it is not currently possible to completely automate these first two steps for anything but the simplest problems – perhaps a disappointing state of affairs given the fact that almost every phone, tablet or laptop is now a parallel computer, but good news if you are employed as a parallel programmer!</p>
+<hr class="docutils" />
+<figure class="align-default" id="id3">
+<img alt="../../_images/hero_8a44d8b2-6e6a-4de1-9127-ce39d7400ad4.jpg" src="../../_images/hero_8a44d8b2-6e6a-4de1-9127-ce39d7400ad4.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/Alija</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="traffic-simulation">
+<h2>Traffic Simulation<a class="headerlink" href="#traffic-simulation" title="Permalink to this headline"></a></h2>
+<p>Now we are going to consider how to parallelise a more interesting example than just adding up a list of numbers. First, we will describe how the example works and get familiar with it.</p>
+<p>We are going to look at a very simple way of trying to simulate the way that traffic flows. This better illustrates how parallel computing is used in practice compared to the previous salaries example:</p>
+<ul class="simple">
+<li><p>We process the same data over and over again rather than just reading it once;</p></li>
+<li><p>The way the model works (where the behaviour of each car depends on the road conditions immediately in front and behind) is a surprisingly good analogy for much more complicated computations such as weather modelling which we will encounter later on.</p></li>
+</ul>
+<section id="the-traffic-model">
+<h3>The traffic model<a class="headerlink" href="#the-traffic-model" title="Permalink to this headline"></a></h3>
+<p>In this example we only talk about a straight, one-way road without any intersections. We think of the road as being divided into a number of sections or cells, each of which either contains a car (is occupied) or is empty (unoccupied). The way a car behaves is very simple: if the cell in front is occupied then it cannot move and remains where it is; if the cell in front is unoccupied then it moves forward. A complete sweep of the road, where we consider every car once, is called an iteration; each iteration, a car can only move once. Having updated the entire road, we proceed to the next iteration and check again which cars can move and which cars stand still.</p>
+<p>If you want, you can think of each cell representing about 5 metres of road and each iteration representing around half a second of elapsed time.</p>
+<p>Despite being such a simple simulation, it represents some of the basic features of real traffic flow quite well. We will talk you through some examples in the next few videos.</p>
+<p>The simplest way to characterise different simulations is the density of cars, that is the number of cars divided by the number of cells. If all cells are occupied then the density is 1.0 (i.e. 100%), and if half of them are occupied then the density is 0.5 (50%).</p>
+<p>Perhaps the simplest quantity to measure is the average speed of the cars after each iteration. If we call the top speed of a car 1.0 (i.e. it moves one cell in an iteration) then the average speed of the cars at each iteration is the number of cars that move divided by the total number of cars. For example, if we have 10 cars and all of them move then the average speed is 1.0. If only four of them move then the average speed is 0.4. If none of them move (total gridlock) then the average speed is zero.</p>
+<p>Why do you think this problem is a good analogy for other, more complex simulations? If the traffic flow problem was to be parallelised, how do you think it could be decomposed into parallel tasks?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-the-traffic-model-works">
+<h2>How the traffic model works<a class="headerlink" href="#how-the-traffic-model-works" title="Permalink to this headline"></a></h2>
+<iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_bw098xol&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8e9q3inw" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Traffic_Model_works_hd"></iframe>
+<div class="admonition-transcipt solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Transcipt</p>
+<p>0:11 - So now we’re going to spend some time looking at the traffic model. Here I’m illustrating it being run as pawns on a chessboard. And the way it works is that the squares on the chessboard represent the road and the pawns represent the cars. And obviously, a car here, this piece of road is occupied. There’s a pawn there. This piece of road is not occupied. And just to remind you, the way the model works. The rules are very simple. At each iteration a car moves forward if it can, if there’s a gap in front. It doesn’t move forward if there is a car in front of it. Now the right way to run this simulation is to look</p>
+<p>0:42 - at the cars and say: that one can move, that one can’t, and that one can and then to move them. That’s slightly awkward. It turns out that we actually get the right answer if we update them in order from left to right as you look at it. So let’s just go ahead and run the model. So first of all, we have these three cars. This car can move. This car can’t move. And this car can move. So that iteration, two cars moved. There were three cars. So we’re interested in the average speed. The average speed is 2/3 or 0.67. Here I’m saying the maximum speed of the car is one.</p>
+<p>1:14 - If you thought of the maximum speed of the car as being 60 miles an hour, you could say the average speed here is 40. But for simplicity, I’m just calling the maximum speed one. On the next iteration, again this car can’t move, this one can and this one can. So again the average speed of the cars there was 2/3 or 0.67. But you’ll see that actually now the cars arranged themselves with gaps in between them. So from now on, we’re in free flowing traffic. So from now on every iteration, all the cars move. And the average speed is one. And this would just carry on happily, all the cars moving. And we have completely free flowing traffic.</p>
+<p>1:50 - Now it turns out that in any situation where we have fewer than 50% or fewer cars then they will eventually arrange themselves into this is car gap, car gap arrangement and move off with average speed of one. However, what’s interesting is actually what happens when there are more than 50% density of cars and we get congestion.</p>
+</div>
+<p>In this short video David uses a chessboard to explain how the traffic model works.</p>
+<p>We will be using the chessboard to illustrate a few examples of the traffic conditions in the next steps.</p>
+<p>Do you think this simplified model is actually useful? Why?</p>
+</section>
+<hr class="docutils" />
+<section id="example-1-traffic-lights">
+<h2>Example 1: Traffic lights<a class="headerlink" href="#example-1-traffic-lights" title="Permalink to this headline"></a></h2>
+ <iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_hurz7ea5&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_pbpr0tln" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Traffic_lights_hd"></iframe>
+<div class="admonition-transcript solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Transcript</p>
+<p>0:12 - An interesting situation to look at is when we have traffic stopped at a set of traffic lights. So here I have this piece here representing some traffic lights and here I have four cars queued up at the traffic lights. Let’s imagine what happens when the traffic lights go green. So what would be really nice, would make driving much easier, and make congestion a lot less, is if all the cars moved off at once. So the traffic lights go green and all the cars move off in a single block like that. But we know that’s not what happens. We know you have to wait a long time when traffic lights change. So let’s see how this works in this model.</p>
+<p>0:45 - So we’ve got the cars lined up here. The traffic lights go green. On the first iteration, only one car can move. Then on the next iteration, two cars can move. But this car and this car are still static. The third iteration, three cars can move. And only on the fourth iteration, after four time steps, is this car able to move and they all move off freely.</p>
+<p>1:10 - And after that, we have free-flowing traffic. These cars will carry on moving at speed one and move away freely. So even with this very simple model, this very simple cellular automaton model of how traffic flows, we see that in a situation of cars lined up at traffic lights, it predicts the correct behaviour. The cars don’t move off in a block, they move off and end up spread apart. And they move off one by one. Meaning the cars further back in the line have to wait a certain amount of time to get through and perhaps even miss the traffic lights if they go red again.</p>
+</div>
+<p>In this first example David uses the traffic model on a chessboard to simulate a situation created by traffic lights.</p>
+<p>In your opinion, is our toy model capable of capturing the effect of traffic lights? Can you outline the most essential assumptions?</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-traffic-congestion">
+<h2>Example 2: Traffic congestion<a class="headerlink" href="#example-2-traffic-congestion" title="Permalink to this headline"></a></h2>
+<iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_8tn3hmn6&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_t5dr00g1" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Traffic_congestion_hd"></iframe>
+<div class="admonition-transcript solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Transcript</p>
+<p>0:11 - So one of the interesting things about the simulation is to look at congestion when traffic jams arise. So if that we start with a situation where the road is completely full, we have cars everywhere, obviously none of the cars can move. It means complete gridlock. What we’re going to do is consider a situation where there is a small amount of space, so there’s a gap there. So what happens? Well each iteration, you’ll see that only one car can move. The first iteration, this car can move. The second iteration, this car can move. The third iteration, this car can move. And so on. And obviously there, the average speed is very low.</p>
+<p>0:43 - Only one car is moving per iteration out of all these cars, so the average speed is not very high. But another way to look at this is quite interesting. If you watch this, you’ll see that what’s actually happening is one car is moving to the right every iteration. You could also think of it as the gap moving to the left. So you could think of this situation as the gap moving to the left with speed one. That’s to be contrasted with a single car on its own on an otherwise empty road where the car moves to the right with speed one. Every iteration the car moves one space to the right.</p>
+<p>1:18 - And that’s just quite interesting observation, but it might help you, in fact, to try to think about how the model works.</p>
+</div>
+<p>In this second example, we use the chessboard to look at the traffic congestion.</p>
+<p>Do you understand why only one car can move at each iteration?</p>
+<p>This is actually quite important not only in our toy traffic model but also in any kind of computer simulations. The process of transferring continuous functions, equations and models into small distinct bits to be executed in a sequence of steps is called discretisation. This process is one of the initial steps in creating computer simulations. We will talk more about this in Week 4.</p>
+</section>
+<hr class="docutils" />
+<section id="example-3-rubbernecking">
+<h2>Example 3: Rubbernecking<a class="headerlink" href="#example-3-rubbernecking" title="Permalink to this headline"></a></h2>
+<iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_8a540tg5&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_uwprlc3q" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Traffic_Rubbernecking_hd"></iframe>
+<div class="admonition-transcript solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Transcript</p>
+<p>0:11 - So I’m sure you’ll have been in the situation where you’re driving along the motorway, and suddenly you have to brake because the car in front has slowed down. But there’s no apparent reason for it. And then maybe a minute or so later you see there’s been an accident or an incident by the side of the road. And people are slowing down to see what’s been going on. Well, surprisingly this very, very simple simulation predicts that kind of behaviour. So I’m going to have a larger road here. So here, I’ve put two chess boards together so I can now have a larger road. And we’ve set up with free-flowing traffic. So at the moment, everything’s fine.</p>
+<p>0:41 - Everyone is moving forward at speed one.</p>
+<p>0:47 - Now we’re going to imagine that perhaps someone coming from a side street has a slight accident. And there’s a small incident here, and this car is broken down. And having seen it, this car decides to slow down just to see what’s going on. So on the next iteration this car isn’t going to move. That’s the only difference. Everyone moves except for this car. Now you might have wondered beforehand what happens at the edges of the road? These are the boundary conditions, what happens off the edges of your simulation are called boundaries. And the boundary conditions say what happens there. So what we’re going to imagine here is that this is embedded in a run of free flowing traffic.</p>
+<p>1:25 - So cars on the right here just move off into free space. But on the left here, the gaps are replaced with cars coming in. So there is another car coming in here. So now we just carry on running the model.</p>
+<p>1:42 - And again.</p>
+<p>1:47 - And again, we add another car here. This would keep going.</p>
+<p>1:56 - You’ll see that although the original incident was here, the cars are starting to brake further down the line. It becomes more obvious when you run it once more.</p>
+<p>2:08 - But on this iteration, you can see that it’s this car here way down line that can’t move.</p>
+<p>2:16 - Despite the fact that the accident is far upstream. So what we see is the braking behaviour where a car has to slow down because the car in front has slowed down moves backwards to the left in a wave well away from where the original incident happened. Now to come back to boundary conditions, what we’re going to look at in the future is we’re going to look at a situation where we’re not imagining a straight road, we’re actually imagining a roundabout where the road is closed in on itself. And the way to do that is to make sure that when cars move off one side of the road, they reappear on the other.</p>
+<p>2:46 - What we’ve done is we’ve taken the roundabout, we’ve kind of unwrapped it into a straight line, so we have to make sure that it’s joined in to a roundabout, cars that leave here come back here. So if we are doing a roundabout we’d make sure that if I ever a car moved off the end here, it would reappear back here on the side.</p>
+<p>3:05 - Cars disappearing off the end here, appear back here on the edge. And we’ll come back to that. That would be the situation, that would be the boundary conditions we’ll want to use to simulate in the parallel simulation.</p>
+</div>
+<p>In this video David talks about another example of traffic conditions - rubbernecking.</p>
+<p>We use term the rubbernecking to refer to the activity of motorists slowing down in order to see something on the other side of a road or highway, which creates backwards waves in traffic.</p>
+<p>Having watched the video, is it clear to you what boundary conditions are? Do you understand why they are needed?</p>
+<hr class="docutils" />
+<figure class="align-default" id="id4">
+<img alt="../../_images/hero_3483c99f-c72a-4a62-9204-43b384823869.jpg" src="../../_images/hero_3483c99f-c72a-4a62-9204-43b384823869.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/nadla</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="traffic-model-predictions-implementation-and-cellular-automata">
+<h2>Traffic model: predictions, implementation and cellular automata<a class="headerlink" href="#traffic-model-predictions-implementation-and-cellular-automata" title="Permalink to this headline"></a></h2>
+<p>Using the measurements mentioned in the previous steps, we can see that the simulation predicts the onset of congestion (traffic jams) whenever the density of cars exceeds 50%.</p>
+<p>If we run many simulations many times at different densities using a very long road then we get the following graph:</p>
+<figure class="align-default">
+<img alt="../../_images/hero_a14e4034-f6a0-44d2-b238-330b8c9aaed5.png" src="../../_images/hero_a14e4034-f6a0-44d2-b238-330b8c9aaed5.png" />
+</figure>
+<p>Note that we only take measurements of the average speed after we have run for many iterations to let it settle down to a steady state.</p>
+<p>This is quite easy to understand in general terms. When the car density is less than 50%, the cars will eventually arrange themselves so that there is a gap between every car and they can all move once each iteration. This is not possible when more than half the cells are occupied: some of the cars cannot move and the average speed drops below 1.0. At 100% density, where every cell is occupied, none of the cars can move and the speed is 0.</p>
+<p>What perhaps isn’t obvious (at least it wasn’t obvious to me) is how rapidly congestion happens in the model - an effect well known to every driver, where only a few extra cars can turn a previously clear road into a traffic jam. This is an example of emergent behaviour where repeated application of very simple rules can lead to surprisingly complex behaviour when applied to a large enough system (the complexity increases with size).</p>
+<section id="boundary-conditions">
+<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline"></a></h3>
+<p>You might be concerned about what happens at the extreme ends of the road. If I have a road containing 100 cells, what happens if the car in cell 100 wants to move forward? Which cell is to the right of cell 100? Which cell is to the left of cell 1? In computer simulations, these are called the boundary conditions: we have to decide what to do at the boundaries (i.e. the extreme ends) of the simulation.</p>
+<p>For simplicity, we will choose to simulate traffic driving on a very large roundabout rather than a straight piece of road. If you imagine wrapping the road into a circle, this means that when a car moves away from cell 100 it reappears back on cell 1. So, the cell forward from cell 100 is cell 1; the cell backward from cell 1 is cell 100. These are called periodic boundary conditions.</p>
+<p>For the traffic model, it has the nice side-effect that the total number of cars stays the same on every iteration as there is no way for cars to enter or leave the roundabout. This is a nice way of checking our simulation: if the number of cars changes from iteration to iteration then we must have made a mistake!</p>
+<figure class="align-default" id="id5">
+<img alt="../../_images/hero_12cfa155-28db-413b-98be-b998a5a7dedd.jpg" src="../../_images/hero_12cfa155-28db-413b-98be-b998a5a7dedd.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/rasslava</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cellular-automata">
+<h3>Cellular Automata<a class="headerlink" href="#cellular-automata" title="Permalink to this headline"></a></h3>
+<p>A simulation such as this, where we have a number of cells and update them depending on the values of their neighbours, is generally called a Cellular Automaton. One of the most famous cellular automata is the Game of Life which models the growth and death of biological cells. The Game of Life takes place on a two-dimensional grid rather than a line which makes it a bit too complicated for our purposes, but the principles are very similar.</p>
+<p>For the one-dimensional case like the Traffic Model, it turns out that there are 256 different possible models:</p>
+<ul class="simple">
+<li><p>each cell depends on the values of three cells (itself and its two immediate neighbours);</p></li>
+<li><p>this means there are 8 rules (i.e. 111, 110, 101, 100, 011, 010, 001 and 000), each with two possible outcomes (occupied = 1, unoccupied = 0). First number corresponds to the preceding, second to the current and third the next cell, giving the following outcomes for the new state of the central cells: 1, 0, 1, 1, 1, 0, 0 and 0, respectively.</p></li>
+<li><p>that makes a total of 256 = 28 possible models (to include every possible combination of 2 outcomes for 8 rules - 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 128).</p></li>
+</ul>
+<p>Most of these models will be very boring, but with our particular choice of rules the model can be seen as a simulation of traffic moving from left to right. The traffic model is sometimes called “Rule 184” - there is a (surprisingly detailed) discussion of it on <a class="reference external" href="https://en.wikipedia.org/wiki/Rule_184">Wikipedia</a>.</p>
+<p>We have chosen a 1D model for simplicity. What do you think you would need to consider to simulate a 2D model? How much more work would it be?</p>
+<figure class="align-default" id="id6">
+<img alt="../../_images/hero_08d49c9d-8ea8-46a6-acf2-da994d28512a.jpg" src="../../_images/hero_08d49c9d-8ea8-46a6-acf2-da994d28512a.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/Palto</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="can-we-do-better">
+<h3>Can we do better?<a class="headerlink" href="#can-we-do-better" title="Permalink to this headline"></a></h3>
+<p>We’ve made a lot of simplifications to simulate traffic using this Rule 184 cellular automaton. Can you list what they are? What important aspects of real traffic flow are we missing?</p>
+<p>Do you think it is possible to perform realistic traffic simulations using a more complicated cellular automaton, or would you recommend a completely different approach. Why?</p>
+<hr class="docutils" />
+<figure class="align-default" id="id7">
+<img alt="../../_images/hero_ecabfcea-5342-48c4-a183-3d8fa6493443.jpg" src="../../_images/hero_ecabfcea-5342-48c4-a183-3d8fa6493443.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/Vladimir_Timofeev</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="programming-model">
+<h2>Programming Model<a class="headerlink" href="#programming-model" title="Permalink to this headline"></a></h2>
+<p>It turns out that, despite its simplicity, the traffic model is representative of a surprisingly wide range of real calculations that are carried out on parallel supercomputers. We will use it to illustrate some key ideas throughout the rest of this week.</p>
+<p>There are two fundamentally different approaches to parallelising a calculation which correspond to the two parallel architectures. We call these approaches programming models.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parallel Architecture</p></th>
+<th class="head"><p>Programming Model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shared Memory</p></td>
+<td><p>Shared Variables</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distributed Memory</p></td>
+<td><p>Message Passing</p></td>
+</tr>
+</tbody>
+</table>
+<p>What we mean by a programming model is that we take a high-level view of the way we are going to use the parallel computer, only concerned with the fundamental features of the computer and not bothering about the details (here, the fundamental feature is how the memory is arranged).</p>
+<p>To illustrate what we mean by a model in this context, let’s take another example from traffic. Imagine that you want to travel between two cities. In the private transport model you have your own vehicle and are responsible for planning the route, driving safely and ensuring the vehicle has enough fuel; you can choose who you share the journey with. In the public transport model, you pay someone else (e.g. a bus company) to supply the vehicle and a trained driver, and the vehicle follows a fixed route to a given timetable; you will share the vehicle with fellow travellers.</p>
+<p>Although both models achieve the same aim of transporting you between the two cities, they do so in fundamentally different ways with their own pros and cons. At this level, we are not concerned about the details of how each model is implemented: whether you drive an electric or petrol car, or travel by bus or by train, the fundamental distinction between the private and public models remains the same despite differing in the details.</p>
+<p>In terms of the two programming models, we are not concerned about the details of how the computer is built, whether it has a fast communications network or a slow one, whether each processor has a few cores or dozens of them. All we care about is whether or not different CPU cores are all directly attached to the same memory: are the workers sharing the same office or in different offices?</p>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../introduction/" class="btn btn-neutral float-left" title="Welcome to Part 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Parallel_Programming/" class="btn btn-neutral float-right" title="Parallel Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

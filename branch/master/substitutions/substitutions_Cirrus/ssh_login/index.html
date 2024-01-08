@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connecting to Cirrus &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Connecting to Cirrus</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/substitutions/substitutions_Cirrus/ssh_login.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="connecting-to-cirrus">
+<h1>Connecting to Cirrus<a class="headerlink" href="#connecting-to-cirrus" title="Permalink to this headline"></a></h1>
+<section id="sign-up-for-an-account-on-cirrus-through-safe">
+<h2>Sign up for an account on Cirrus through SAFE<a class="headerlink" href="#sign-up-for-an-account-on-cirrus-through-safe" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://safe.epcc.ed.ac.uk">Login to SAFE</a></p></li>
+<li><p>Go to the Menu “Login accounts” and select “Request login account”</p></li>
+<li><p>Choose the <code class="docutils literal notranslate"><span class="pre">TODO</span></code> project “Choose Project for Machine Account” box and click “Next”</p></li>
+<li><p>On the next page, the Cirrus system should be selected. Click “Next”</p></li>
+<li><p>Enter the username you would prefer to use on Cirrus. Every username must be unique, so if your chosen name is taken, you will need to choose another</p></li>
+</ol>
+<p>Now you have to wait for the course organiser to accept your request to register. When this has happened, your account will be created on Cirrus.
+Once this has been done, you should be sent an email. <em>If you have not received an email but believe that your account should have been activated, check your account status in SAFE which will also show when the account has been activated.</em> You can then pick up your one shot initial password for Cirrus from your SAFE account.</p>
+</section>
+<section id="generate-an-ssh-key-pair-and-upload-it-to-safe">
+<h2>Generate an SSH key pair and upload it to SAFE<a class="headerlink" href="#generate-an-ssh-key-pair-and-upload-it-to-safe" title="Permalink to this headline"></a></h2>
+<p>In addition to your password, you will need an SSH key pair to access Cirrus. There is useful guidance on how
+to generate SSH key pairs in <a class="reference external" href="https://cirrus.readthedocs.io/en/master/user-guide/connecting.html">the Cirrus documentation</a>.</p>
+<p>Once you have generated your key pair, you need to add the public part to your Cirrus account in SAFE:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://safe.epcc.ed.ac.uk">Login to SAFE</a></p></li>
+<li><p>Go to the Menu “Login accounts” and select the Cirrus account you want to add the SSH key to</p></li>
+<li><p>On the subsequent Login account details page click the “Add Credential” button</p></li>
+<li><p>Select “SSH public key” as the Credential Type and click “Next”</p></li>
+<li><p>Either copy and paste the public part of your SSH key into the “SSH Public key” box or use the button to select the public key file on your computer.</p></li>
+<li><p>Click “Add” to associate the public SSH key part with your account</p></li>
+</ol>
+<p>The public SSH key part will now be added to your login account on the Cirrus system.</p>
+</section>
+<section id="log-into-cirrus">
+<h2>Log into Cirrus<a class="headerlink" href="#log-into-cirrus" title="Permalink to this headline"></a></h2>
+<p>You should now be able to log into Cirrus by following the <a class="reference external" href="https://cirrus.readthedocs.io/en/master/user-guide/connecting.html">login instructions in the Cirrus documentation</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

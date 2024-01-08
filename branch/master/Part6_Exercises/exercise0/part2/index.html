@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 2: Compiling and running Hello world! &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Practical exercise 1: First use of HPC machine, Image sharpening code" href="../../exercise1/" />
+    <link rel="prev" title="Part 1: Logging in via SSH" href="../part1/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 0: First use of HPC machine, Hello World!</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Logging in via SSH</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 2: Compiling and running Hello world!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serial">Serial</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threading">Threading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpi">MPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hybrid">Hybrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+      <li class="breadcrumb-item active">Part 2: Compiling and running Hello world!</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise0/part2.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-2-compiling-and-running-hello-world">
+<h1>Part 2: Compiling and running Hello world!<a class="headerlink" href="#part-2-compiling-and-running-hello-world" title="Permalink to this headline"></a></h1>
+<p>This example is meant to get you used to the command line envrionment of a high performance computer and submitting jobs to the batch system, while learning about the hardware of a HPC system.</p>
+<p>In the following we are going to look at variety of hello world programs and look at the two most common types of parallelism in the HPC world.</p>
+<p>One that takes advantage of shared memory and distributed memory parts of a HPC system.</p>
+<section id="serial">
+<h2>Serial<a class="headerlink" href="#serial" title="Permalink to this headline"></a></h2>
+<p>The serial example runs a job on a node with a single process. This is the same as if you ran on your local machine.</p>
+<p>For those who are interested the code we are executing is,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;limits.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+    <span class="n">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">HOST_NAME_MAX</span><span class="p">];</span>
+    <span class="n">char</span> <span class="n">username</span><span class="p">[</span><span class="n">LOGIN_NAME_MAX</span><span class="p">];</span>
+    <span class="n">gethostname</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">HOST_NAME_MAX</span><span class="p">);</span>
+    <span class="n">getlogin_r</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">LOGIN_NAME_MAX</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">%s</span><span class="s2">, this is </span><span class="si">%s</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">hostname</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>this is very simple code but it will report where it is running from.</p>
+<p>To run this example use the following batch script for ARCHER2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#!/bin/bash
+
+#SBATCH --job-name=sharpen
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:01:00
+
+# Replace [budget code] below with your project code (e.g. t01)
+#SBATCH --account=[budget code]
+#SBATCH --partition=standard
+#SBATCH --qos=standard
+
+# Setup the batch environment
+module load epcc-job-env
+
+# Set the number of threads to the CPUs per task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the parallel job
+srun --hint=nomultithread --distribution=block:block ./hello-SER
+
+</pre></div>
+</div>
+<p>This will just say hello from a single node on ARCHER2 and report the node’s name.</p>
+</section>
+<hr class="docutils" />
+<section id="threading">
+<h2>Threading<a class="headerlink" href="#threading" title="Permalink to this headline"></a></h2>
+<p>This threaded example runs on as many threads on a node as you allow it to.</p>
+<p>The code is a little more complex than the last example in order to run multiple copies of the responce from each thread.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1">#include &lt;omp.h&gt;</span>
+
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;limits.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+  <span class="n">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">HOST_NAME_MAX</span><span class="p">];</span>
+  <span class="n">char</span> <span class="n">username</span><span class="p">[</span><span class="n">LOGIN_NAME_MAX</span><span class="p">];</span>
+  <span class="n">gethostname</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">HOST_NAME_MAX</span><span class="p">);</span>
+  <span class="n">getlogin_r</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">LOGIN_NAME_MAX</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+  <span class="c1">#pragma omp parallel</span>
+  <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">%s</span><span class="s2">, this is node </span><span class="si">%s</span><span class="s2"> responding from thread </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span>
+           <span class="n">omp_get_thread_num</span><span class="p">());</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+
+
+</pre></div>
+</div>
+<p>In order to run this on a hpc node we can use the following script,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#!/bin/bash
+
+#SBATCH --job-name=sharpen
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --time=00:01:00
+
+# Replace [budget code] below with your project code (e.g. t01)
+#SBATCH --account=[budget code]
+#SBATCH --partition=standard
+#SBATCH --qos=standard
+
+# Setup the batch environment
+module load epcc-job-env
+
+# Set the number of threads to the CPUs per task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the parallel job
+srun --hint=nomultithread --distribution=block:block ./hello-THRD
+
+</pre></div>
+</div>
+<p>Here we continue to run on a single process, threads take advantage of the shared memory aspect of a HPC system and cannot communicated between destinct nodes but can work as a team on a single node to improve performance.</p>
+<p>If you run this with multiple processes then it will still work but without MPI communucation these processes will be entirly independent and can not communicate information.</p>
+</section>
+<hr class="docutils" />
+<section id="mpi">
+<h2>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline"></a></h2>
+<p>MPI is a message passing interface, this allow for messages to be sent by multiple instances on the program running on different nodes each being controlled by a seperate instance of the operating system.</p>
+<p>In an MPI program when start the program we tell it how mant copies of the code is running and</p>
+<p>This MPI example each process says hello in the programs and states which node it is running on and which .</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">some</span> <span class="n">code</span> <span class="p">(</span><span class="n">this</span> <span class="n">code</span> <span class="n">need</span> <span class="n">tidying</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>script example 1</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#!/bin/bash
+
+#SBATCH --job-name=sharpen
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:01:00
+
+# Replace [budget code] below with your project code (e.g. t01)
+#SBATCH --account=[budget code]
+#SBATCH --partition=standard
+#SBATCH --qos=standard
+
+# Setup the batch environment
+module load epcc-job-env
+
+# Set the number of threads to the CPUs per task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the parallel job
+srun --hint=nomultithread --distribution=block:block ./hello-MPI
+
+</pre></div>
+</div>
+<p>In the above script we assume one process per node this means we see one process per node responding to our welcome.</p>
+<ul class="simple">
+<li><p>script example 2</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+#!/bin/bash
+
+#SBATCH --job-name=sharpen
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=4
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:01:00
+
+# Replace [budget code] below with your project code (e.g. t01)
+#SBATCH --account=[budget code]
+#SBATCH --partition=standard
+#SBATCH --qos=standard
+
+# Setup the batch environment
+module load epcc-job-env
+
+# Set the number of threads to the CPUs per task
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# Launch the parallel job
+srun --hint=nomultithread --distribution=block:block ./hello-MPI
+
+</pre></div>
+</div>
+<p>In this updated script we have increased the number of processes per node. this means we see multiple processes respond per node.</p>
+<ul class="simple">
+<li><p>expected result</p></li>
+</ul>
+</section>
+<section id="hybrid">
+<h2>Hybrid<a class="headerlink" href="#hybrid" title="Permalink to this headline"></a></h2>
+<p>This hybid code has each thread in each process say hello.</p>
+<ul class="simple">
+<li><p>code</p></li>
+<li><p>script example</p></li>
+</ul>
+<p>In this exampe script focus on the multiple threads per process.</p>
+<ul class="simple">
+<li><p>expected result</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline"></a></h2>
+<p>The point of this exercise is to show that there are different ways to orginise a calculation and the location of operation changes depending on how we spread out the calcualtion over the nodes.</p>
+<p>A few other tests you can try:</p>
+<ul class="simple">
+<li><p>Run the serial code with more than one process what do you see?</p></li>
+<li><p>Running the threaded code with more than one process what do you see?</p></li>
+<li><p>running the MPI code on a single node with multiple processes what you you see?</p></li>
+</ul>
+<p>Remember that message passing codes cost an overhead to send messages and threaded codes cant scale beyond the size of a single node.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part1/" class="btn btn-neutral float-left" title="Part 1: Logging in via SSH" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../exercise1/" class="btn btn-neutral float-right" title="Practical exercise 1: First use of HPC machine, Image sharpening code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
