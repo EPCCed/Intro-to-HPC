@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discovering new materials &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Towards the future" href="../Towards_the_Future/" />
+    <link rel="prev" title="Exploring Galaxies" href="../Exploring_Galaxies/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Case Studies</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Problems/">Problems, problems, problems…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Simulating_the_Brain/">Simulating the Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Exploring_Galaxies/">Exploring Galaxies</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Discovering new materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#materials-science">Materials Science</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-use-supercomputers-in-materials-science">Why use supercomputers in materials science?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#video">Video</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-new-materials">Understanding new materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#benefits-of-hybrid-programming-discussion">Benefits of Hybrid Programming (Discussion)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Towards_the_Future/">Towards the future</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Case Studies</a></li>
+      <li class="breadcrumb-item active">Discovering new materials</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part5_Case_Studies/Discovering_new_materials.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="discovering-new-materials">
+<h1>Discovering new materials<a class="headerlink" href="#discovering-new-materials" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id1">
+<img alt="../../_images/hero_00a565ef-c294-4b52-902c-f904048bb8ad.jpg" src="../../_images/hero_00a565ef-c294-4b52-902c-f904048bb8ad.jpg" />
+<figcaption>
+<p><span class="caption-text">Photo-excitation dynamics in organic solar cells.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© 2016 ARCHER image competition</p>
+</div>
+</figcaption>
+</figure>
+<section id="materials-science">
+<h2>Materials Science<a class="headerlink" href="#materials-science" title="Permalink to this headline"></a></h2>
+<p>We live in an age of engineered materials. New batteries, fuel and solar cells, computer chips, and fiber-optic glass are just a few examples of materials that changed our every-day lives. Yet designing new materials has never been easy and usually involved a lot of guesswork and accidental discoveries. Using the power of supercomputers to solve the equations of quantum mechanics allows new technologies to be developed more efficiently.</p>
+<p>From the socio-economic perspective, the most important aspect of new materials is their usability. The usability of a material, and hence its engineering application, is determined by its properties, which in turn depend on its internal structure. In other words, the underlying aim of materials science is to understand the relation between the structure of materials and their properties. To fully understand this, it is necessary to understand how different atoms, ions and molecules are arranged and bonded to each other, and this requires the use of quantum mechanics.</p>
+<p>Quantum mechanics is the theory on which the behavior of atoms and molecules is based. Material physics has to use quantum theory in systems that contain a huge number of atoms and/or molecules. This makes it extremely difficult to derive the properties of matter. Despite the adoption of approximations and theoretical methods, studying the electronic structure of materials is impossible without the help of computer simulations.</p>
+<p>Researchers use specialised software such as Quantum ESPRESSO in conducting quantum materials research. <a class="reference external" href="http://www.quantum-espresso.org/">Quantum ESPRESSO</a> is an integrated suite of computer codes for electronic-structure calculations and materials modelling. Its intensive use of dense mathematical routines makes it an ideal candidate for many-core architectures, such as the Intel Xeon Phi processor.</p>
+<p>Together with the theoretical approach and the experimental studies, why do you think computational studies are a key to studying fundamental properties of the physics and chemistry of materials?</p>
+<p>© CINECA</p>
+</section>
+<hr class="docutils" />
+<section id="why-use-supercomputers-in-materials-science">
+<h2>Why use supercomputers in materials science?<a class="headerlink" href="#why-use-supercomputers-in-materials-science" title="Permalink to this headline"></a></h2>
+<section id="video">
+<h3>Video<a class="headerlink" href="#video" title="Permalink to this headline"></a></h3>
+<p>Discovering_new_materials_hd</p>
+<div class="admonition-transcript solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Transcript</p>
+<p>0:11 - My name is Arrigo Calzolari. I am a researcher at the Instituto of Nanoscienze of the National Research Council of Italy. And I just talk about why simulations with supercomputers are so important in our research activity. When you talk about simulation of materials, actually, you are dealing with a very broad area of interest. You are dealing with different kind of system, different kind of chemical composition, different kind of morphologies, from bulk to surfaces or interfaces, but also nano structures, so different kind of dimensionalities and different kind of properties that you are potentially interested in, so electronic properties, optical ones, mechanical properties, and so on and so forth.</p>
+<p>1:14 - So when we are talking about simulation of material, we have to keep in mind that what we would like to study is the complexity of material system. And in particular, we would like to understand both their intrinsic properties but also the interaction with this material with the rest of the world. That means that so we would like to see investigate how they’ll react when they are subjected to external interaction, for example with light, or with a mechanical stress, and so on and so forth. The complexity of the real world and the complexity of the system that now experimentally are accessible force us to use even more complex system.</p>
+<p>2:14 - And thus, also the simulation that we need to investigate these materials are even more complex. And this is why the use of supercomputers are so important, because typically, so the realistic system require the use of simulation techniques that are very sophisticated. That means that we need very huge resources to describe big system, but also can be necessary to use complicated algorithm to describe complicated properties, for instance, I don’t know, so the transport properties in solids or the optical properties in other structures. So simulation can help, because simulation can give us– so, first of all, they allow us to control the system, to have a perfect control on the geometry, for instance, or the chemical composition of a material.</p>
+<p>3:29 - But also, it allows us to search for new material that is, for instance, what happens in high throughput research for material genomics. So the use of simulation and the use, in particular, of supercomputers to perform advanced simulation is a necessary tool to have a deep insight on matter and interaction with matter, and alike, just an example, just to elucidate what we can learn. So, of course, if the system is simple and you are interested in very generic properties, all these complicated machineries typically are not used.</p>
+<p>4:26 - But if you want to understand, for instance, what is the relationship between a material and interfaces and what is the behaviour of a material with the rest of the environment, in this case, it’s absolutely necessary to understand what happens, for instance, at the external layer, what is the effect of the formation of the breaking of chemical bonds, for instance, at the interfaces. In all these cases, it’s really necessary to understand what happened, specifically and locally, in this kind of situation.</p>
+</div>
+<p>In this video, Dr. Arrigo Calzolari talks about the role of supercomputers in discovering new materials.</p>
+<p>Having watched the video, what do you think are the main reasons for using supercomputers to study the properties of new materials?</p>
+<p>© CINECA</p>
+<hr class="docutils" />
+<figure class="align-default" id="id2">
+<img alt="../../_images/hero_2b49ff3b-bdca-487e-9723-dcd51bc649b3.jpg" src="../../_images/hero_2b49ff3b-bdca-487e-9723-dcd51bc649b3.jpg" />
+<figcaption>
+<p><span class="caption-text">A flexible display based on Organic Field-Effect Transistor</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© RDECOM (http://www.flickr.com/photos/rdecom/4146880795/)</p>
+</div>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="understanding-new-materials">
+<h2>Understanding new materials<a class="headerlink" href="#understanding-new-materials" title="Permalink to this headline"></a></h2>
+<p>One example of how Quantum ESPRESSO is used to study a real device of promising scientific and technological interest is the electrical conductivity of a PDI-FCN2 molecule. The object of the study is a two-terminal device based on a PDI-FCN2, a molecule derived from perylene. This system is important for the study of the electron transport in single-molecule devices and the further development of a new generation of organic field-effect transistor (OFET).</p>
+<p>This study was conducted by CINECA, the Italian Supercomputing Center, in collaboration with the University of Bologna and the National Research Council of Italy - Institute for Nanoscience (CNR-NANO).</p>
+<p>Carlo Cavazzoni (senior technologist at CINECA) explains the importance of the research:</p>
+<p>“Based on the results obtained from this study, we will gain a deep understanding in the intimate conduction mechanisms of this type of organic device, going a step forward in the direction of utilizing the new OFET technologies that will soon replace traditional silicon devices. Quantum ESPRESSO and new supercomputing facilities will make it possible to study and better understand the physics of the devices that, in the future, will be the building blocks for new photovoltaics cells, next-generation displays and molecular computers.”</p>
+<p>The simulated system is composed of two gold electrodes, each of them made from 162 gold atoms. Between the electrodes, there is a PDI-FCN2 molecule. The system is made of 390 atoms and 3852 electrons. The metallic nature of the electrodes requires the simulated space to be represented by many points to describe the electronic structure accurately (more precisely, it requires a fine sampling of the <a class="reference external" href="https://en.wikipedia.org/wiki/Brillouin_zone">Brillouin Zone</a>). This further increases the computational effort required to simulate this system.</p>
+<figure class="align-default">
+<img alt="../../_images/hero_85c10ac4-765c-418c-b940-d3bbc138948e.png" src="../../_images/hero_85c10ac4-765c-418c-b940-d3bbc138948e.png" />
+</figure>
+<p>The use of Quantum ESPRESSO with the supercomputers at CINECA permitted researchers to calculate the electrical transport properties of the PDI-FCN2 molecule, opening the way to new bio-transistors. In order to compute these properties, up to some tens of thousands of cores on the <a class="reference external" href="http://www.hpc.cineca.it/hardware/fermi">FERMI supercomputing cluster</a> were used.</p>
+<p>Quantum ESPRESSO implements the distributed memory model with several levels of parallelisation, in which both calculations and data structures are distributed across CPU-cores. CPU-cores are organized in a hierarchy of groups, corresponding to the structure levels of the studied material. CPU-cores belonging to different communication levels have different communication patterns - lower level groups are more tightly coupled and require more communication. This essentially means that near neighbours talk more to each other than CPU-cores that are further away from each other.</p>
+<p>An important aspect we have not discussed is how the MPI processes are assigned to physical CPU-cores. MPI processes can always communicate with each other regardless of their physical location, but clearly the time taken will vary. Given the above communications patterns, how would you assign the MPI processes to CPU-cores? You should consider a standard supercomputer i.e. a network of shared-memory nodes - Wee ARCHIE is a good example.</p>
+<p>© CINECA</p>
+<hr class="docutils" />
+<figure class="align-default" id="id3">
+<img alt="../../_images/hero_c952b5d9-2328-4b4a-b1b0-9733c5f96b15.jpg" src="../../_images/hero_c952b5d9-2328-4b4a-b1b0-9733c5f96b15.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/nikolay100</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="benefits-of-hybrid-programming-discussion">
+<h2>Benefits of Hybrid Programming (Discussion)<a class="headerlink" href="#benefits-of-hybrid-programming-discussion" title="Permalink to this headline"></a></h2>
+<p>A significant part of this course is about shared and distributed memory models and architectures, and yet both projects we have talked so far may give you an impression that shared memory models are not being used.</p>
+<p>That is not completely true. As you have learned the major drawback of shared memory approach is its scale - it’s simply not feasible to run code using more threads than there are cores available. However, it is possible to combine both approaches - using a shared memory model within the nodes and distributed memory model to communicate between the nodes.</p>
+<p>Quantum ESPRESSO uses a mixed MPI-OpenMP implementation. The idea is to have one (or more) MPI process(es) per multicore node, with OpenMP parallelisation inside the same node.</p>
+<figure class="align-default">
+<img alt="../../_images/hero_5ecd9fac-24c3-435a-ad62-0081447ec565.png" src="../../_images/hero_5ecd9fac-24c3-435a-ad62-0081447ec565.png" />
+</figure>
+<p>Hybrid programming diagram (image)</p>
+<p>Carlo Cavazzoni explains the benefits of this approach:</p>
+<p>“The availability of a large number of cores per node has made it possible to tune the different layers of parallelization. A good tiling of the different data structures permits us to efficiently use the memory and computing power of each node, reducing the amount of communication and, thus, enhancing the performance. However, there is still room for improvement, in particular for the efficiency of the OpenMP multithreading that is currently limited to 4-8 threads. This is because workloads that are too small can induce load imbalance and leave CPU-cores idle.”</p>
+<p>The term load imbalance refers to a situation where the computational work is not distributed equally among the CPU-cores. This causes different CPU-cores to finish their pieces of work at different times, after which they need to wait for other CPU-cores to finish their work.</p>
+<ul class="simple">
+<li><p>What do you think of this approach?</p></li>
+<li><p>Do you understand why having too many too small workloads is detrimental to the performance?</p></li>
+<li><p>What do you think is better? Using as many threads as there are cores but incurring higher parallel overheads? Or leaving some of the cores idle? Why?</p></li>
+<li><p>Can you think of any way to to address this issue?</p></li>
+</ul>
+<p>© CINECA</p>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Exploring_Galaxies/" class="btn btn-neutral float-left" title="Exploring Galaxies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Towards_the_Future/" class="btn btn-neutral float-right" title="Towards the future" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

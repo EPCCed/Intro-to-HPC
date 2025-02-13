@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to supercomputing &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Understanding Supercomputing" href="../Understanding_Supercomputing/" />
+    <link rel="prev" title="Welcome to Part 1" href="../Introduction/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Supercomputing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Introduction/">Welcome to Part 1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to supercomputing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supercomputers-what-are-they">Supercomputers - what are they?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number-crunching">Number crunching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallelism-the-key-to-performance">Parallelism: the key to performance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#supercomputers-why-do-we-need-them">Supercomputers - why do we need them?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supercomputers-how-are-they-used">Supercomputers - how are they used?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#computer-simulation">Computer simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computational-science">Computational Science</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#breaking-the-world-land-speed-record">Breaking the world land speed record</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#introducing-wee-archie">Introducing Wee Archie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terminology-recap">Terminology Recap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Understanding_Supercomputing/">Understanding Supercomputing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Supercomputing_world/">Supercomputing World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Supercomputing</a></li>
+      <li class="breadcrumb-item active">Introduction to supercomputing</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part1_Supercomputing/Introduction_to_Supercomputing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-supercomputing">
+<h1>Introduction to supercomputing<a class="headerlink" href="#introduction-to-supercomputing" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id1">
+<img alt="../../_images/large_hero_5149d40f-0a9b-42af-a930-413d00bc1c6c.jpg" src="../../_images/large_hero_5149d40f-0a9b-42af-a930-413d00bc1c6c.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/shironosov</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="supercomputers-what-are-they">
+<h2>Supercomputers - what are they?<a class="headerlink" href="#supercomputers-what-are-they" title="Permalink to this headline"></a></h2>
+<p>A supercomputer is a computer with very high-level computational capacities compared to a general-purpose computer such as a personal desktop or laptop.</p>
+<p>Clearly this is a moving target - today’s laptop would have been a supercomputer only a couple of decades ago - but no matter how fast today’s general-purpose computers are, there will always be a need for much more powerful machines.</p>
+<p>Supercomputers were first introduced in the 1960s by Seymour Roger Cray at Control Data Corporation (CDC), and have been used intensively in science and engineering ever since. To keep track of the state-of-the-art, the supercomputing community looks to the Top500 list, which ranks the fastest 500 supercomputers in the world every six months. We will look at this list in more detail in the next activity.</p>
+<section id="number-crunching">
+<h3>Number crunching<a class="headerlink" href="#number-crunching" title="Permalink to this headline"></a></h3>
+<p>So why do we need supercomputers? Who uses them and what are they used for? We will see that their main application is in large-scale numerical computations, also called number-crunching. Of course, for simple calculations such as:</p>
+<p>123 + 765 = 888</p>
+<p>or</p>
+<p>1542.38 x 2643.56 = 4077374.07</p>
+<p>You don’t need a supercomputer. In fact you don’t even need a personal computer, as pencil-and-paper or a simple calculator can do the job. If you want to calculate something more complex, such as the total of the salaries of every employee in a big company, you probably just need a general-purpose computer.</p>
+<p>The types of large-scale computations that are done by supercomputers, such as weather-forecasting or simulating new materials at the atomic scale, are fundamentally based on simple numerical calculations that could each be done on a calculator. However, the sheer size of these computations and the levels of accuracy required means that almost unimaginably large numbers of individual calculations are needed to do the job. To produce an accurate weather forecast, the total number of calculations required is measured in the quintillions, where a quintillion is one with 18 zeroes after it: 1 000 000 000 000 000 000 !</p>
+<p>So what if a computation takes several days or weeks to finish, and you want to run the same calculations many times with different input parameters. Do you want to wait while you can’t do anything else because the computation uses up all the resources of your computer? Are you prepared to wait for years before being able to collect all the results? Probably not, especially if the result you’re after is tomorrow’s weather. This is where supercomputers come into their own, finishing a job within a few hours or days when it would take many years on a general-purpose computer, or tackling problems that are just too large or complex for an everyday machine to store in its memory.</p>
+</section>
+<section id="parallelism-the-key-to-performance">
+<h3>Parallelism: the key to performance<a class="headerlink" href="#parallelism-the-key-to-performance" title="Permalink to this headline"></a></h3>
+<p>Supercomputers achieve this using parallel computing. Performing computations in parallel means carrying out many calculations simultaneously. It is like having thousands of general-purpose computers all working for you on the same problem at the same time. This is in fact an excellent analogy for how modern supercomputers work - you will learn more about the details of how it is done later in the course.</p>
+<p>Also keep in mind that although supercomputers provide enormous computational capacities, they are also very expensive to develop, purchase and operate. For example, the typical power consumption of a supercomputer is in the order of several megawatts (Mega = 1 000 000), where a megawatt (MW) is enough to power a small town of around 1000 people. That is why it’s important to use them as efficiently as possible.</p>
+<p>Can you think of other examples of parallelism in everyday life, where many hands make light work?</p>
+<p>© SURFsara</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="supercomputers-why-do-we-need-them">
+<h2>Supercomputers - why do we need them?<a class="headerlink" href="#supercomputers-why-do-we-need-them" title="Permalink to this headline"></a></h2>
+<iframe width="700" height="400" src="https://www.youtube.com/embed/NEgbVNIo560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>This UKRI video gives you an overview of why high performance computing is important aspect of modern scientific research.</p>
+<p>In the video Prof. Mark Parsons uses the term of High Performance Computing (HPC). When reading about supercomputing, you will encounter this term quite often. HPC is a general term that includes all the activities and components associated with supercomputers, including aspects such as software and data storage as well as the bare supercomputer hardware.</p>
+<p>Are there any applications of supercomputers you know of, that made you interested in this course?</p>
+<p>For more examples of how supercomputers are used in science you will need to wait until we reach sections 4 and 5.</p>
+<hr class="docutils" />
+<figure class="align-default" id="id2">
+<img alt="../../_images/large_hero_e0df48e4-9b4d-422c-a18f-d7898b9578d8.jpg" src="../../_images/large_hero_e0df48e4-9b4d-422c-a18f-d7898b9578d8.jpg" />
+<figcaption>
+<p><span class="caption-text">Computer simulation covering multiple physical phenomena and machine learning predict how dinosaurs moved. The laws of physics apply for extinct animals exactly as they do for living ones.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© 2016 ARCHER image competition</p>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="supercomputers-how-are-they-used">
+<h2>Supercomputers - how are they used?<a class="headerlink" href="#supercomputers-how-are-they-used" title="Permalink to this headline"></a></h2>
+<p>To do science in the real world we have to build complicated instruments for each experiment: vast telescopes for astronomers to look deep into space, powerful particle accelerators so physicists can smash atoms together at almost the speed of light, or enormous wind tunnels where engineers can study how an aeroplane wing will operate in flight.</p>
+<section id="computer-simulation">
+<h3>Computer simulation<a class="headerlink" href="#computer-simulation" title="Permalink to this headline"></a></h3>
+<p>However, some problems are actually too large, too distant or too dangerous to study directly: we cannot experiment on the earth’s weather to study climate change, we cannot travel thousands of light years into space to watch two galaxies collide, and we cannot dive into the centre of the sun to measure the nuclear reactions that generate its enormous heat. However, one supercomputer can run different computer programs that reproduce all of these experiments inside its own memory.</p>
+<p>This gives the modern scientist a powerful new tool to study the real world in a virtual environment. The process of running a virtual experiment is called computer simulation, and we will spend much of week 4 looking at this process in more detail. Compared to disciplines such as chemistry, biology and physics it is a relatively new area of research which has been around for a matter of decades rather than centuries. This new area, which many view as a third pillar of science which extends the two traditional approaches of theory and experiment, is called computational science and its practitioners are computational scientists.</p>
+</section>
+<section id="computational-science">
+<h3>Computational Science<a class="headerlink" href="#computational-science" title="Permalink to this headline"></a></h3>
+<p>It’s important to be clear about the difference between computational science and computer science. Computer science is the scientific study of computers: it is through the work of computer scientists that we have the hardware and software required to build and operate today’s supercomputers. In computational science, however, we use these supercomputers to run computer simulations and make predictions about the real world. To make things even more confusing, if a computer scientist talks about a computer simulation then they would probably mean simulating a computer, i.e. running a simulation of a computer (not of the real world), which is something you might do to check that your design for a new microprocessor works correctly before going into production.</p>
+<p>It is important to understand that large-scale computer simulation has applications in industry, applied engineering and commerce as well as academia. Modern cars and aeroplanes are designed and tested almost entirely by computer before they are ever constructed. A new car must pass crash safety tests before going to market: destructive testing of a new car is an expensive process in itself, but not nearly as expensive as having to redesign it should it fail the test. Computer simulation enables us to design new products that are much more likely to work correctly the very first time they are built.</p>
+</section>
+<section id="breaking-the-world-land-speed-record">
+<h3>Breaking the world land speed record<a class="headerlink" href="#breaking-the-world-land-speed-record" title="Permalink to this headline"></a></h3>
+<p>This point was very well described by Andy Green, the driver of the Bloodhound SSC supersonic car which is aiming to break the world land speed record. In an interview on BBC’s 5 live Drive, broadcast on 4th January 2017, Adrian Goldberg asked Andy about the risks involved compared to the records set by the famous British driver Malcolm Campbell over 80 years ago:</p>
+<p>Adrian: “But if you’re travelling at supersonic speeds and you’re breaking records, so by definition doing something that hasn’t been done before, there must be a risk?</p>
+<p>Andy: “You’re missing the point between something that hasn’t been done before and something that is not fully understood. Back in the 1930’s, if you were doing something that hadn’t been done before, there was no other way of doing it apart from to go out and find out, to see what happens.</p>
+<p>Nowadays you can actually produce a computer model in a supercomputer and spend literally years researching a programme down to an extraordinarily fine level of detail so that when you actually go out to push back the boundary of human endeavour, to achieve something absolutely remarkable that will make everybody look round and go ‘wow, that was impressive!’, you can actually do it in a safe, step-by-step controlled way. You can actually understand the problem in advance and that’s all the difference.”</p>
+<p>© SURFsara, BBC</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="introducing-wee-archie">
+<h2>Introducing Wee Archie<a class="headerlink" href="#introducing-wee-archie" title="Permalink to this headline"></a></h2>
+<iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_vrq8zch9&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_jh4xeojf" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Introducing_Wee_Archie_hd"></iframe>
+<div class="admonition-transcript solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Transcript</p>
+<p>0:31 - So ARCHER is the UK National Supercomputing Service that we house here in Edinburgh as part of the University. And it’s funded by the UK Research Councils. And it can do many, many calculations per second. Actually, if you took all the people on the planet, then it would be the equivalent of all these people doing many, many, many calculations per second.</p>
+<p>1:17 - It’s absolutely crucially important for simulation, things like simulation of weather, simulation of the cosmology, things like cancer analysis, cancer research, all sorts of different applications that maybe you wouldn’t have foreseen.</p>
+<p>1:47 - There’s a real keen push to encourage the next generation of scientists to get into science, and to get into computing in general.</p>
+</div>
+<p>In your mind, you probably already have an image of a supercomputer as a massive black box. Well, they usually are just that - dull looking cabinets connected by a multitude of cables. To make things more interesting, we introduce Wee ARCHIE!</p>
+<p>Wee ARCHIE is a suitcase-sized supercomputer designed and built to explain what a supercomputer is.</p>
+<figure class="align-default">
+<img alt="../../_images/181107_ARCHER_30.jpg" src="../../_images/181107_ARCHER_30.jpg" />
+</figure>
+<p>We will return to Wee ARCHIE next week and use it, and its big brother ARCHER, to explain the hardware details of supercomputers.</p>
+<p>You can find instructions on how to configure your very own Raspberry Pi cluster <a class="reference external" href="https://epcced.github.io/wee_archlet/">here</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="terminology-recap">
+<h2>Terminology Recap<a class="headerlink" href="#terminology-recap" title="Permalink to this headline"></a></h2>
+<div class="admonition-question-1 questions admonition" id="questions-0">
+<p class="admonition-title">Question 1</p>
+<p>Performing computations in _____
+means carrying out many calculations simultaneously.</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>Parallel</p>
+</div>
+<div class="admonition-question-2 questions admonition" id="questions-1">
+<p class="admonition-title">Question 2</p>
+<p>The term HPC stands for ?</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>High Performance Computing</p>
+</div>
+<div class="admonition-question-3 questions admonition" id="questions-2">
+<p class="admonition-title">Question 3</p>
+<p>The process of running a virtual experiment is called?</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution</p>
+<p>A computer simulation</p>
+</div>
+<div class="admonition-question-4 questions admonition" id="questions-3">
+<p class="admonition-title">Question 4</p>
+<p>The term number-crunching refers to large-scale ____ ____.</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-4">
+<p class="admonition-title">Solution</p>
+<p>numerical simulations</p>
+</div>
+<div class="admonition-question-5 questions admonition" id="questions-4">
+<p class="admonition-title">Question 5</p>
+<p>The typical power consumption of a supercomputer is in the order of several
+____, where ____ is 1 000 000.</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-5">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p>megawatts</p></li>
+<li><p>mega</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Introduction/" class="btn btn-neutral float-left" title="Welcome to Part 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Understanding_Supercomputing/" class="btn btn-neutral float-right" title="Understanding Supercomputing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

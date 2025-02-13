@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic model simulation: Threaded computation &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Traffic model simulation: Message passing computation" href="../part3/" />
+    <link rel="prev" title="Traffic model simulation: Serial Execution" href="../part1/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 4: Traffic simulation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Traffic model simulation: Serial Execution</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Traffic model simulation: Threaded computation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-source-code">The source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-the-source-code">Compiling the source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-threaded-code">Running: Threaded code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-batch-system">Running: Batch system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part3/">Traffic model simulation: Message passing computation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 4: Traffic simulation</a></li>
+      <li class="breadcrumb-item active">Traffic model simulation: Threaded computation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise4/part2.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traffic-model-simulation-threaded-computation">
+<h1>Traffic model simulation: Threaded computation<a class="headerlink" href="#traffic-model-simulation-threaded-computation" title="Permalink to this headline"></a></h1>
+<p>Having run this example in serial we can now explore running the simulation in parallel in order to test how to speed up getting the average verlocity of cars changes with traffic density.</p>
+<section id="the-source-code">
+<h2>The source code<a class="headerlink" href="#the-source-code" title="Permalink to this headline"></a></h2>
+<p>In this exercise we will be using the traffic simulaion program. The source code is available in  Git repository EPCC-Exercises we have already downloaded.</p>
+<p>We will now be looking at the multi threaded version located in the <code class="docutils literal notranslate"><span class="pre">C-OMP</span></code> folder. The uses openmp to parallelise the execution of the model.</p>
+</section>
+<section id="compiling-the-source-code">
+<h2>Compiling the source code<a class="headerlink" href="#compiling-the-source-code" title="Permalink to this headline"></a></h2>
+<p>We will compile the openmp version of the source code using a Makefile.</p>
+<p>Move into the <code class="docutils literal notranslate"><span class="pre">C-OMP</span></code> directory and list the contents.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">cd</span> <span class="n">C</span><span class="o">-</span><span class="n">OMP</span>
+   <span class="n">ls</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">traffic</span><span class="o">.</span><span class="n">c</span>  <span class="n">traffic</span><span class="o">.</span><span class="n">h</span>  <span class="n">trafficlib</span><span class="o">.</span><span class="n">c</span>  <span class="n">uni</span><span class="o">.</span><span class="n">c</span>  <span class="n">uni</span><span class="o">.</span><span class="n">h</span>  <span class="n">Makefile</span>
+</pre></div>
+</div>
+<p>You will see that there are various code files. The Makefile contains the commands to compile them together to produce the executable program. To use the Makefile type <code class="docutils literal notranslate"><span class="pre">make</span></code> command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We don’t need to set a new environment file as the ‘EPCC-Exercises/Env/env-{ machine_name }.sh’ we sourced earlier also set the correct environmnet parmeters to correctly build the parallel examples of the code on { machine_name }.</p>
+</div>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   make
+</pre></div>
+</div>
+</div></blockquote>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">c</span> <span class="n">traffic</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">c</span> <span class="n">trafficlib</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">c</span> <span class="n">uni</span><span class="o">.</span><span class="n">c</span>
+<span class="n">cc</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">o</span> <span class="n">traffic</span> <span class="n">traffic</span><span class="o">.</span><span class="n">o</span> <span class="n">trafficlib</span><span class="o">.</span><span class="n">o</span> <span class="n">uni</span><span class="o">.</span><span class="n">o</span> <span class="o">-</span><span class="n">lm</span>
+</pre></div>
+</div>
+<p>This should produce an executable file called <code class="docutils literal notranslate"><span class="pre">traffic</span></code>.</p>
+</section>
+<section id="running-threaded-code">
+<h2>Running: Threaded code<a class="headerlink" href="#running-threaded-code" title="Permalink to this headline"></a></h2>
+<p>We can run the threaded program directly on the login nodes,</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="o">./</span><span class="n">traffic</span> <span class="mf">0.52</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Again the argument is setting the target traffic density of cars for the model.</p>
+<p>By default the number of threads used is 256. This can be changed by setting,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">8</span>
+</pre></div>
+</div>
+<p>for example this sets the number of threads to 8.</p>
+<p>Running this quickly on the login node leads to</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Length</span> <span class="n">of</span> <span class="n">road</span> <span class="ow">is</span> <span class="mi">32000000</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="ow">is</span> <span class="mi">100</span>
+<span class="n">Target</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.520000</span>
+<span class="n">Running</span> <span class="n">on</span> <span class="mi">8</span> <span class="n">thread</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Initialising</span> <span class="n">road</span> <span class="o">...</span>
+<span class="o">...</span><span class="n">done</span>
+<span class="n">Actual</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.519982</span>
+
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">10</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.789461</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">20</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.837157</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">30</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.858209</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">40</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.870573</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">50</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.878940</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">60</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.885087</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">70</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.889761</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">80</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.893441</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">90</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.896447</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">100</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.898955</span>
+
+<span class="n">Finished</span>
+
+<span class="n">Time</span> <span class="n">taken</span> <span class="n">was</span>  <span class="mf">2.446868</span> <span class="n">seconds</span>
+<span class="n">Update</span> <span class="n">rate</span> <span class="n">was</span> <span class="mf">1307.794488</span> <span class="n">MCOPs</span>
+</pre></div>
+</div>
+</section>
+<section id="running-batch-system">
+<h2>Running: Batch system<a class="headerlink" href="#running-batch-system" title="Permalink to this headline"></a></h2>
+<p>Now we have tested the simulation on the login node we now neeed to set this up to run on the compute nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general jobs should not be run on the login nodes. It is however reasonable to run small and short duration tests to validate your software before submitting to the compute noe queues.</p>
+</div>
+<p>Example substitution:</p>
+<section id="archer2-slurm">
+<h3>archer2.slurm:<a class="headerlink" href="#archer2-slurm" title="Permalink to this headline"></a></h3>
+<p>To run the simulation using the compule nodes you need to a job script,</p>
+<div class="highlight-slurm notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="kp">#SBATCH --job-name=sharpen</span>
+<span class="kp">#SBATCH --nodes=1</span>
+<span class="kp">#SBATCH --tasks-per-node=1</span>
+<span class="kp">#SBATCH --cpus-per-task=4</span>
+<span class="kp">#SBATCH --time=00:01:00</span>
+
+<span class="c1"># Replace [budget code] below with your project code (e.g. t01)</span>
+<span class="kp">#SBATCH --account=[budget code]</span>
+<span class="kp">#SBATCH --partition=standard</span>
+<span class="kp">#SBATCH --qos=standard</span>
+
+<span class="c1"># Setup the batch environment</span>
+module load epcc-job-env
+
+<span class="c1"># Set the number of threads to the CPUs per task</span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+<span class="c1"># Launch the parallel job</span>
+<span class="nb">srun</span> --hint<span class="o">=</span>nomultithread --distribution<span class="o">=</span>block:block ./traffic <span class="m">0</span>.52
+</pre></div>
+</div>
+<p>This is an OpenMP program so we control the number of parallel threads used with the <code class="docutils literal notranslate"><span class="pre">--cpus-per-task</span></code> variable.</p>
+<p>To submit the job to run on the compute nodes we use the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">archer2</span><span class="o">.</span><span class="n">slurm</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Submitted</span> <span class="n">batch</span> <span class="n">job</span> <span class="mi">1793266</span>
+</pre></div>
+</div>
+<p>Where the number is the unique job ID.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On ARCHER2 you must submit jobs from the ``/work`` filesystem.
+</pre></div>
+</div>
+</div>
+</section>
+<section id="monitoring-the-batch-job">
+<h3>Monitoring the batch job<a class="headerlink" href="#monitoring-the-batch-job" title="Permalink to this headline"></a></h3>
+<p>The slurm command <code class="docutils literal notranslate"><span class="pre">squeue</span></code> can be used to show the status of the jobs. Without any options or arguments it lists all jobs known by the scheduler.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span>
+</pre></div>
+</div>
+<p>To show just your jobs add  the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">$USER</span></code> option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
+<p>Note that for this example it runs very quickly so you may not see it in the queue before it finishes running.</p>
+</section>
+<section id="finding-the-output">
+<h3>Finding the output<a class="headerlink" href="#finding-the-output" title="Permalink to this headline"></a></h3>
+<p>The Slurm system places the output from your job in a file called <code class="docutils literal notranslate"><span class="pre">slurm-&lt;jobID&gt;.out</span></code>. You can view it using the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">slurm</span><span class="o">-</span><span class="mf">1793266.</span><span class="n">out</span>
+
+<span class="n">Length</span> <span class="n">of</span> <span class="n">road</span> <span class="ow">is</span> <span class="mi">32000000</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="ow">is</span> <span class="mi">100</span>
+<span class="n">Target</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.520000</span>
+<span class="n">Running</span> <span class="n">on</span> <span class="mi">4</span> <span class="n">thread</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Initialising</span> <span class="n">road</span> <span class="o">...</span>
+<span class="o">...</span><span class="n">done</span>
+<span class="n">Actual</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.519982</span>
+
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">10</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.789461</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">20</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.837157</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">30</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.858209</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">40</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.870573</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">50</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.878940</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">60</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.885087</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">70</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.889761</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">80</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.893441</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">90</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.896447</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">100</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.898955</span>
+
+<span class="n">Finished</span>
+
+<span class="n">Time</span> <span class="n">taken</span> <span class="n">was</span>  <span class="mf">2.779974</span> <span class="n">seconds</span>
+<span class="n">Update</span> <span class="n">rate</span> <span class="n">was</span> <span class="mf">1151.089820</span> <span class="n">MCOPs</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline"></a></h2>
+<p>Executing this for different values of the traffic density can now be acheived much more quickly as each simulation is fast than the serial case and we can submit jobs to multiple nodes simultaneously allowing us to run in parallel reducing our time to science.</p>
+<p>Compare the time taken to perform calculations with the same traffic densities using the serial code and compare the time to solution. Plotting this data can be used to calculate the speed up of the threaded code over the serial version.</p>
+<p>The simulation bares out a plot of what we expected that as te traffic density increases the speed of the traffic drops.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part1/" class="btn btn-neutral float-left" title="Traffic model simulation: Serial Execution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part3/" class="btn btn-neutral float-right" title="Traffic model simulation: Message passing computation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

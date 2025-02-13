@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulating the Brain &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Exploring Galaxies" href="../Exploring_Galaxies/" />
+    <link rel="prev" title="Problems, problems, problems…" href="../Problems/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Case Studies</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Problems/">Problems, problems, problems…</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulating the Brain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-blue-brain-project">The Blue Brain Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reconstruction-and-simulation-of-neocortical-microcircuitry">Reconstruction and Simulation of Neocortical Microcircuitry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neuron-simulation-environment">NEURON simulation environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributing-the-computation">Distributing the Computation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-model-execution">Parallel Model Execution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scaling">Scaling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Exploring_Galaxies/">Exploring Galaxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Discovering_new_materials/">Discovering new materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Towards_the_Future/">Towards the future</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Case Studies</a></li>
+      <li class="breadcrumb-item active">Simulating the Brain</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part5_Case_Studies/Simulating_the_Brain.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-the-brain">
+<h1>Simulating the Brain<a class="headerlink" href="#simulating-the-brain" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id1">
+<img alt="../../_images/hero_eb918db9-1d0c-4bd6-addc-14a7aaede9e5.png" src="../../_images/hero_eb918db9-1d0c-4bd6-addc-14a7aaede9e5.png" />
+<figcaption>
+<p><span class="caption-text">Simulation of electrical activity in a “virtual brain slice” formed from seven unitary digital reconstructions of neocortical microcircuits.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© EPFL/BlueBrainProject</p>
+</div>
+</figcaption>
+</figure>
+<section id="the-blue-brain-project">
+<h2>The Blue Brain Project<a class="headerlink" href="#the-blue-brain-project" title="Permalink to this headline"></a></h2>
+<p>The <a class="reference external" href="http://bluebrain.epfl.ch/page-52063.html">Blue Brain Project</a> (BBP) aims to build comprehensive digital reconstructions (computer models) of the brain, which include the brain’s different levels of organization and their interactions, and which are compatible with the available experimental data. The supercomputer-based reconstructions and simulations built by the project offer a radically new approach for understanding the multilevel structure and function of the brain.</p>
+<p>With its 100 billion neurons (brain cells) and its 100 trillion synapses (biological pathways through which signals can be exchanged), the human brain is a complex multi-level system. The connections among the neurons form a hierarchy of circuits, from local microcircuitry up to the level of the whole brain. Meanwhile, at a lower level, every neuron and every synapse is a complex molecular machine in its own right. It is the interactions between these levels, which give rise to human behaviour, human emotion and human cognition.</p>
+<p>The BBP’s reconstruction strategy identifies interdependencies in the experimental data and uses them to constrain the reconstruction process. Multiple, intersecting constraints allow the project to build the most faithful reconstructions possible from the sparse available experimental data – avoiding the need to measure everything.</p>
+<p>In fact, the BBP’s latest reconstruction of the cortical microcircuit connectivity is based on experimental data representing less than 1% of the synaptic connections in the circuit. Lab experiments providing new data and constraints make it possible to test and progressively improve the digital reconstruction. Data and neuron models used in the current reconstructions are already available at the project’s <a class="reference external" href="https://bbp.epfl.ch/nmc-portal">NeuroMicrocuitry Web Portal</a> and will soon be accessible through the <a class="reference external" href="https://www.humanbrainproject.eu/en/brain-simulation/brain-simulation-platform/">Human Brain Project’s Brain Simulation Platform</a>.</p>
+<p>Simulations give insight into experiments that would be difficult or impossible in biological tissue or in living animals – for instance, experiments requiring simultaneous measurements from large numbers of neurons. Such experiments provide a new tool for researchers seeking to understand the causal relationships between events at different levels of brain organisation.</p>
+<p>The supercomputer-based simulations turn understanding the brain into a tractable problem, providing a new tool to study the complex interactions within different levels of brain organization and to investigate the cross-level links leading from genes to cognition.</p>
+<p>In your opinion, what are the implications of being able to study certain aspects of the brain without the need to measure everything?</p>
+<p>© EPFL/BlueBrainProject</p>
+<hr class="docutils" />
+<figure class="align-default" id="id2">
+<img alt="../../_images/hero_5cab4b79-a4ad-4a36-9052-d530f82ba4ee.jpg" src="../../_images/hero_5cab4b79-a4ad-4a36-9052-d530f82ba4ee.jpg" />
+<figcaption>
+<p><span class="caption-text">An image of a layer 2/3 large basket cell in a digital reconstruction of neocortical microcircuitry.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© EPFL/BlueBrainProject</p>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="reconstruction-and-simulation-of-neocortical-microcircuitry">
+<h2>Reconstruction and Simulation of Neocortical Microcircuitry<a class="headerlink" href="#reconstruction-and-simulation-of-neocortical-microcircuitry" title="Permalink to this headline"></a></h2>
+<p>One of the BBP’s achievements was the digital reconstruction and simulation of the neocortical microcircuitry of a juvenile rat. The reconstruction uses cellular and synaptic organizing principles to algorithmically reconstruct detailed anatomy and physiology from sparse experimental data.</p>
+<p>The neocortex, being responsible for higher order brain functions such as sensory perception, spatial reasoning, cognition and language, is the most developed part of the brain in its organisation and number of layers.</p>
+<p>The simulated neocortical volume contains ∼31,000 neurons and 55 layer-specific morphological and 207 morpho-electrical neuron subtypes. When digitally reconstructed, neurons are positioned in the volume and synapse formation is restricted to biological bouton (a part of a synapse) densities and numbers of synapses per connection. Their overlapping arbors form ~8 million connections with ~37 million synapses.</p>
+<p>The phrase without the need to measure everything used in the previous step, in this case, refers to the fact that the number of synapses and connections, and the connectivity between neurons, is not based on a particular set of experimental data. The whole network is reconstructed based on probabilities of the connections occurring.</p>
+<p>If you are interested in knowing why this approach works, watch Prof. Henry Markram explain <a class="reference external" href="https://www.youtube.com/watch?v=ySgmZOTkQA8&amp;t=190s">how neurons connect to each other</a>.</p>
+<p>To learn more about the study, see the <a class="reference external" href="https://www.youtube.com/watch?v=IL08fnRCb0k&amp;list=PLHyCyen_OSEPIptWN2VWlruGMi9nk2-3i">Reconstruction and Simulation of Neocortical Microcircuitry video</a>.</p>
+<p>If you would like to see more visualisations from the project, see the <a class="reference external" href="https://www.youtube.com/watch?v=0TMeRdDEuIg">Blue Brain Project Movie</a>.</p>
+<p>Now you should have a rough idea what these simulations are all about. Can you imagine how they are parallelised? Why do you think so?</p>
+<p>© EPFL/BlueBrainProject</p>
+<hr class="docutils" />
+<figure class="align-default" id="id3">
+<img alt="../../_images/hero_65a95499-77da-4b7f-a6e3-6efc591e01e1.png" src="../../_images/hero_65a95499-77da-4b7f-a6e3-6efc591e01e1.png" />
+<figcaption>
+<p><span class="caption-text">In silico retrograde staining. The presynaptic neurons of a layer 2/3 nest basket cell (in red) were stained (in blue) in a digital reconstruction of neocortical microcircuitry. Only immediate neighbouring presynaptic neurons are shown.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>© EPFL/BlueBrainProject</p>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="neuron-simulation-environment">
+<h2>NEURON simulation environment<a class="headerlink" href="#neuron-simulation-environment" title="Permalink to this headline"></a></h2>
+<p>The Blue Brain workflow creates enormous demands for computational power. In Blue Brain cellular level models, the representation of the detailed electrophysiology and communication of a single neuron can require as many as 20,000 differential equations. Even modern multi-core workstations have difficulties in solving this number of equations in biological real time. In other words, the only way to ensure reasonable turn-around times for simulating networks of neurons is the use of High Performance Computing (HPC).</p>
+<p>The primary software used by the BBP for neural simulations is a package called <a class="reference external" href="https://www.neuron.yale.edu/neuron/">NEURON</a>. It’s a powerful tool used for constructing, managing, and exercising biologically realistic neuronal models. NEURON was extended from a single CPU to multiple CPUs to support complex computational model simulation. It can run parallel simulations on small clusters with 10–50 processors, up to large scale supercomputers with thousands of processors.</p>
+<section id="distributing-the-computation">
+<h3>Distributing the Computation<a class="headerlink" href="#distributing-the-computation" title="Permalink to this headline"></a></h3>
+<p>Neurons communicate through <a class="reference external" href="https://en.wikipedia.org/wiki/Action_potential">action potentials</a>, also called nerve impulses or spikes. Usually, each neuron sends to thousands of other neurons and receives from thousands of neurons. Can you imagine the complexity of the network they create? To simulate this network in a distributed memory environment, it has to be divided into smaller pieces.</p>
+<p>In other words, we want each CPU-core to execute exactly the same program but on a different subset of neurons. The problem is that source cells (neurons sending the impulses) and their targets (neurons receiving them) usually are not on the same CPU-cores.</p>
+<p>The solution adopted is to assign a global identifier to all cells regardless of which CPU-core’s memory they reside in, and allow all CPU-cores to keep track of all spikes. Because the simulation takes a synapse-centric view of the network (it’s more about a message and its path rather than its sender or receiver), these identifiers, with appropriate weights and delays, are used to propagate the nerve impulses between the brain cells.</p>
+</section>
+<section id="parallel-model-execution">
+<h3>Parallel Model Execution<a class="headerlink" href="#parallel-model-execution" title="Permalink to this headline"></a></h3>
+<p>There is no master process (the boss telling other processes what to do and when) so every process integrates the equations for its subnet over an interval equal to the minimum time needed for cells to be stimulated.</p>
+<p>Then the processes use MPI communication to exchange data with each other so that the spike times are broadcast to all processes in one global communication step. At the end of the step, every process has access to all the spike times computed by every other process. This requires both sender and receiver to participate in the communication process explicitly and requires extra synchronisation among processes.</p>
+</section>
+<section id="scaling">
+<h3>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline"></a></h3>
+<p>The problem with this approach is that increasing the number of processes also increases the communication overheads. The interprocessor spike exchange consumes a large fraction of the overall simulation time.</p>
+<p>Can you explain why this behaviour is observed? What do you think this means for the performance of the simulation? Do you have any ideas how to improve this situation?</p>
+<p>© EPFL/BlueBrainProject</p>
+<hr class="docutils" />
+<figure class="align-default" id="id4">
+<img alt="../../_images/hero_e93d190f-b32b-4add-8558-c72bff25d0f7.jpg" src="../../_images/hero_e93d190f-b32b-4add-8558-c72bff25d0f7.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/natasaadzic</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline"></a></h2>
+<p>The Blue Brain project’s simulation of the neocortical column incorporates detailed representations of at least 30,000 neurons – in most cases several times this number, in order to provide valid boundary conditions. A simulation of a whole brain rat model at the same level of detail would represent up to 200 million neurons and would require approximately 10,000 times more memory. Simulating the human brain would require yet another 1,000-fold increase in memory and computational power.</p>
+<p>Can you imagine a supercomputer capable of running simulations of this scale? How soon do you think it could happen?</p>
+<p>In 2013 the Blue Brain project published the following roadmap:</p>
+<figure class="align-default">
+<img alt="../../_images/hero_be811f55-d07e-4d0d-83e1-82c15399853c.jpg" src="../../_images/hero_be811f55-d07e-4d0d-83e1-82c15399853c.jpg" />
+</figure>
+<p>What do you think about this Roadmap? Remember that the project’s main publication (mentioned in one of the videos) titled the Reconstruction and Simulation of Neocortical Microcircuitry was published in October 2015.</p>
+<p>Taking into account recent developments in the supercomputing world, what is your prediction for the future of the Blue Brain Project?</p>
+<p>© EPFL/BlueBrainProject</p>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Problems/" class="btn btn-neutral float-left" title="Problems, problems, problems…" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Exploring_Galaxies/" class="btn btn-neutral float-right" title="Exploring Galaxies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

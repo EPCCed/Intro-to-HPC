@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Supercomputing &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Supercomputing World" href="../Supercomputing_world/" />
+    <link rel="prev" title="Introduction to supercomputing" href="../Introduction_to_Supercomputing/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Supercomputing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Introduction/">Welcome to Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Introduction_to_Supercomputing/">Introduction to supercomputing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Understanding Supercomputing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-supercomputing-processors">Understanding Supercomputing - Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-supercomputing-performance">Understanding Supercomputing - Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-supercomputing-benchmarking">Understanding Supercomputing - Benchmarking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supercomputing-word-search">Supercomputing Word Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hpc-system-design">HPC System Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interactive-nodes">Interactive Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batch-system">Batch System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compute-nodes">Compute nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage">Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-supercomputing-is-not">What Supercomputing is not …</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supercomputing-terminology">Supercomputing Terminology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Supercomputing_world/">Supercomputing World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Supercomputing</a></li>
+      <li class="breadcrumb-item active">Understanding Supercomputing</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part1_Supercomputing/Understanding_Supercomputing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-supercomputing">
+<h1>Understanding Supercomputing<a class="headerlink" href="#understanding-supercomputing" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id1">
+<img alt="../../_images/large_hero_fa026d7f-4b55-44e4-a94f-051574e1bd87.jpg" src="../../_images/large_hero_fa026d7f-4b55-44e4-a94f-051574e1bd87.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/adventtr</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="understanding-supercomputing-processors">
+<h2>Understanding Supercomputing - Processors<a class="headerlink" href="#understanding-supercomputing-processors" title="Permalink to this headline"></a></h2>
+<p>So what are supercomputers made of? Are the building components really so different from personal computers? And what determines how fast a supercomputer is?</p>
+<p>In this step, we start to outline the answers to these questions. We will go into a lot more detail next week, but for now we will cover enough of the basics for you to be able to understand the characteristics of the supercomputers in the <a class="reference external" href="https://www.top500.org/lists/top500/2022/06/">Top500</a> list (the linked list is from June 2022).</p>
+<p>It may surprise you to learn that supercomputers are built using the same basic elements that you normally find in your desktop, such as processors, memory and disk. The difference is largely a matter of scale. The reason is quite simple: the cost of developing new hardware is measured in billions of euros, and the market for consumer products is vastly larger than that for supercomputing, so the most advanced technology you can find is actually what you find in general-purpose computers.</p>
+<p>When we talk about a processor, we mean the central processing unit (CPU) in a computer which can also be considered as the computer’s brain. The CPU carries out the instructions of a computer program. The terms CPU and processor are generally used interchangeably. The slightly confusing thing is that a modern CPU actually contains several independent brains; it is actually a collection of several separate processing units, so we really need another term to avoid confusion. We will call each independent processing unit a CPU-core - some people just use the term core.</p>
+<p>A modern domestic device (e.g. a laptop, mobile phone or iPad) will usually have a few CPU-cores (perhaps two or four), while a supercomputer has tens or hundreds of thousands of CPU-cores. As mentioned before, a supercomputer gets its power from all these CPU-cores working together at the same time - working in parallel. Conversely, the mode of operation you are familiar with from everyday computing, in which a single CPU-core is doing a single computation, is called serial computing.</p>
+<p>Interestingly, the same approach is used for computer graphics - the graphics processor (or GPU) in a home games console will have hundreds of cores. Special-purpose processors like GPUs are now being used to increase the power of supercomputers - in this context they are called accelerators. We will talk more about GPUs in Week 2.</p>
+<figure class="align-default" id="id2">
+<img alt="../../_images/large_hero_8408f33c-87f5-4061-aec7-42ef976e83fd.webp" src="../../_images/large_hero_8408f33c-87f5-4061-aec7-42ef976e83fd.webp" />
+<figcaption>
+<p><span class="caption-text">A typical CPU has a small number of powerful, general-purpose cores; a GPU has many more specialised cores. © NVIDIA</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To use all of these CPU-cores together means they must be able to talk to each other. In a supercomputer, connecting very large numbers of CPU-cores together requires a communications network, which is called the interconnect in the jargon of the field. A large parallel supercomputer may also be called a Massively Parallel Processor or MPP.</p>
+<p>Does it surprise you to learn that games console components and other general-purpose hardware are also used in supercomputers?</p>
+<p>© SURFsara</p>
+<figure class="align-default" id="id3">
+<img alt="../../_images/large_hero_9c54a5dc-d810-4c39-aa57-92c15bb303d2.jpg" src="../../_images/large_hero_9c54a5dc-d810-4c39-aa57-92c15bb303d2.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/firina</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="understanding-supercomputing-performance">
+<h2>Understanding Supercomputing - Performance<a class="headerlink" href="#understanding-supercomputing-performance" title="Permalink to this headline"></a></h2>
+<p>The Top500 list ranks supercomputers by their floating-point performance - let’s take a look at what that means.</p>
+<p>In supercomputing, we are normally interested in numerical computations: what is the answer to 0.234 + 3.456, or 1.4567 x 2.6734? Computers store numbers like these in floating-point format, so they are called floating-point numbers. A single instruction like addition or multiplication is called an operation, so we measure the speed of supercomputers in terms of floating-point operations per second or Flop/s, which is sometimes written and said more simply as Flops.</p>
+<p>So how many Flops can a modern CPU-core perform? Let’s take a high-end processor like the AMD EPYC Zen2 (Rome) 7F32 CPU (which happens to be the processor used in the Snellius system at SURFsara). The way a processor is normally marketed is to quote its clock frequency, which here is 3.7 GHz. This is the rate at which each CPU-core operates. Clock speed is expressed in cycles per second (Hertz), and the prefix Giga means a billion (a thousand million), so this CPU-core is working at the almost mind-blowing rate of 3.7 billion cycles per second. Under favourable circumstances, an AMD EPYC CPU-core can perform 16 floating-point operations per cycle, which means each CPU-core can perform 16 x 3.7 billion = 59.2 billion floating-point operations per second.</p>
+<p>So, the peak performance of one of our CPU-cores is 59.2 GFlops.</p>
+<p>We say peak performance because this is the absolute maximum, never-to-be-exceeded figure which it is very hard to achieve in practice. However, it’s a very useful figure to know for reference.</p>
+<p>Clearly, with many thousands of CPU-cores we’re going to encounter some big numbers so here is a table summarising the standard abbreviations you’ll come across:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ops per second</p></th>
+<th class="head"><p>Scientific Notation	Metric</p></th>
+<th class="head"><p>Prefix</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 000</p></td>
+<td><p>10^3</p></td>
+<td><p>Kilo</p></td>
+<td><p>Kflops</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 000 000</p></td>
+<td><p>10^6</p></td>
+<td><p>Mega	Mflops</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>1 000 000 000</p></td>
+<td><p>10^9</p></td>
+<td><p>Giga</p></td>
+<td><p>Gflops</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 000 000 000 000</p></td>
+<td><p>10^12</p></td>
+<td><p>Tera</p></td>
+<td><p>Tflops</p></td>
+</tr>
+<tr class="row-even"><td><p>1 000 000 000 000 000</p></td>
+<td><p>10^15</p></td>
+<td><p>Peta</p></td>
+<td><p>Pflops</p></td>
+</tr>
+<tr class="row-odd"><td><p>1 000 000 000 000 000 000</p></td>
+<td><p>10^18</p></td>
+<td><p>Exa</p></td>
+<td><p>Eflops</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A quick word of warning here: when talking about performance measures such as Gflops, we are talking about powers of ten. For other aspects such as memory, it is more natural to work in powers of 2 - computers are binary machines after all.</p>
+</div>
+<p>It is something of a coincidence that 2^10 = 1024 is very close to 10^3 = 1000, so we are often sloppy in the terminology. However, we should really be clear if a kiloByte (Kbyte) is 1000 Bytes or 1024 Bytes. By KByte, people usually mean 1024 Bytes but, strictly speaking, a Kbyte is actually 1000 Bytes. The technically correct terminology for 1024 Bytes is KibiByte written as KiByte.</p>
+<p>This might seem like an academic point since, for a KByte, the difference is only about 2%. However, the difference between a PByte and a PiByte is more than 12%. If your supercomputer salesman quotes you a price for a PetaByte of disk, make sure you know exactly how much storage you’re getting!</p>
+<p>© SURFsara</p>
+<figure class="align-default" id="id4">
+<img alt="../../_images/large_hero_b1c107b7-2f0d-4e8c-bdd8-10ac0bf6d4dd.jpg" src="../../_images/large_hero_b1c107b7-2f0d-4e8c-bdd8-10ac0bf6d4dd.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/bowie15</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="understanding-supercomputing-benchmarking">
+<h2>Understanding Supercomputing - Benchmarking<a class="headerlink" href="#understanding-supercomputing-benchmarking" title="Permalink to this headline"></a></h2>
+<p>If we are going to compare performance we need some standard measure. When buying a car, we don’t just take the manufacturer’s word for how good the car is - we take it for a test drive car and see how well it performs in practice. For cars we might be interested in top speed or fuel economy, and it turns out that we are interested in the equivalent quantities for supercomputers: maximum floating-point performance and power consumption.</p>
+<p>To measure supercomputer performance the test drive is how fast it can run a standard program, and this process is called benchmarking.</p>
+<p>In the supercomputer world, two terminologies are often used to measure the performance of a system, Rpeak and Rmax. Rpeak is the theoretical peak performance, which is just the peak performance of a CPU-core multiplied by the number of CPU-cores. Rmax is the maximum performance achieved while running the LINPACK benchmark.</p>
+<p>LINPACK involves running a standard mathematical computation called an LU factorisation on a very large square matrix of size Nmax by Nmax. The matrix is just a table of floating-point numbers, and the rules of the benchmark allow you to choose how big Nmax is.</p>
+<p>As of June 2018, the world’s fastest supercomputer (the Summit system at the Oak Ridge National Laboratory in the USA) used Nmax of over 16 million - imagine working with a spreadsheet with over 16 million rows and 16 millions columns!</p>
+<p>Supercomputers are not only expensive to purchase, but they are also expensive to run because the power consumption can be huge. A typical supercomputer consumes multiple megawatts, and this power is turned into heat which we have to get rid of.</p>
+<p>For example, the fourth on the top500 list, Tianhe-2 system has a peak power consumption of 18.5 megawatts and, including external cooling, the system drew an aggregate of 24 megawatts when running the LINPACK benchmark. If a kilowatt of power costs 10 cents per hour, Tianhe-2’s peak power consumption will be 2400 euros per hour, which is in excess of 21 million euros per year.</p>
+<p>Rpeak and Rmax are what Top500 uses to rank supercomputers. Also quoted is the electrical power consumption, which leads to the creation of another list - the <a class="reference external" href="https://www.top500.org/lists/green500/2022/06/">Green 500</a> (June 2022)- which ranks supercomputers on their fuel economy in terms of Flops perWatt. Despite its massive power bill, Frontier is quite power-efficient. The top ranked system (Frontier) holds 2nd position on the Green 500.</p>
+<p>Take a look at the <a class="reference external" href="https://www.top500.org/lists/top500/2022/06/">Top500</a> list  - does the fact the top supercomputer for performance is also the to for power efficeny surprise you? What could be the reason for this?</p>
+<p>© SURFsara</p>
+<hr class="docutils" />
+<figure class="align-default" id="id5">
+<img alt="../../_images/large_hero_9150f201-3215-41f7-8ae2-d88821e7525a.jpg" src="../../_images/large_hero_9150f201-3215-41f7-8ae2-d88821e7525a.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/RichVintage</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="supercomputing-word-search">
+<h2>Supercomputing Word Search<a class="headerlink" href="#supercomputing-word-search" title="Permalink to this headline"></a></h2>
+<p>To help you familiarise with the supercomputing terminology we have prepared a word search for you to print out!</p>
+<figure class="align-default">
+<img alt="../../_images/large_hero_9748869f-e962-4c23-a6b6-8216e757920c.png" src="../../_images/large_hero_9748869f-e962-4c23-a6b6-8216e757920c.png" />
+</figure>
+<p>The word search contains 19 words that have been mentioned in the previous steps. Can you find all of them? Do you know how to explain all of them?</p>
+<hr class="docutils" />
+<figure class="align-default" id="id6">
+<img alt="../../_images/large_hero_81d5664c-efa9-46cd-9129-547c2167f93a.jpg" src="../../_images/large_hero_81d5664c-efa9-46cd-9129-547c2167f93a.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/ThomasVogel</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hpc-system-design">
+<h2>HPC System Design<a class="headerlink" href="#hpc-system-design" title="Permalink to this headline"></a></h2>
+<p>Now you understand the basic hardware of supercomputers, you might be wondering what a complete system looks like. Let’s have a look at the high-level architecture of supercomputer, mainly pointing out how it differs from a desktop machine.</p>
+<p>The figure below shows the building blocks of a complete supercomputer system and how they are connected together. Most systems in the world will look like this at an abstract level, so understanding this simple figure will give you a good model for how all supercomputers are put together.</p>
+<figure class="align-default">
+<img alt="../../_images/large_hero_a3db6ae7-8a0e-4fe4-b2da-302380de963a.png" src="../../_images/large_hero_a3db6ae7-8a0e-4fe4-b2da-302380de963a.png" />
+</figure>
+<p>Let’s go through the figure step by step.</p>
+<section id="interactive-nodes">
+<h3>Interactive Nodes<a class="headerlink" href="#interactive-nodes" title="Permalink to this headline"></a></h3>
+<p>As a user of a supercomputer, you will get some login credentials, for example a username and password. Using these you can access one of the interactive nodes (sometimes called login nodes). You don’t have to travel to the supercomputer centre where these interactive nodes are located - you just connect from your desktop machine over the internet.</p>
+<p>Since a supercomputer system typically has many hundreds of users, there are normally several interactive nodes which share the workloads, i.e. to make sure that all the users are not trying to access one single machine at the same time. This is where you do all your everyday tasks such as developing computer programs or visualising results.</p>
+</section>
+<section id="batch-system">
+<h3>Batch System<a class="headerlink" href="#batch-system" title="Permalink to this headline"></a></h3>
+<p>Once logged into an interactive node, you can now run large computations on the supercomputer. It is very important to understand that you do not directly access the CPU-cores that do the hard work. Supercomputers operate in batch mode - you submit a job (including everything needed to run your simulation) to a queue and it is run some time in the future. This is done to ensure that the whole system is utilised as fully as possible.</p>
+<p>The user creates a small file, referred to as a job script, which specifies all the parameters of the computation such as which program is to be run, the number of CPU-cores required, the expected duration of the job etc. This is then submitted to the batch system. Resources will be allocated when available and a user will be guaranteed exclusive access to all the CPU-cores they are assigned. This prevents other processes from interfering with a job and allows it to achieve the best performance.</p>
+<p>It is the job of the batch scheduler to look at all the jobs in the queue and decide which jobs to run based on, for example, their expected execution time and how many CPU-cores they require. At any one time, a single supercomputer could be running several parallel jobs with hundreds waiting in the queue. Each job will be allocated a separate portion of the whole supercomputer. A good batch system will keep the supercomputer full with jobs all the time, but not leave individual jobs in the queue for too long.</p>
+</section>
+<section id="compute-nodes">
+<h3>Compute nodes<a class="headerlink" href="#compute-nodes" title="Permalink to this headline"></a></h3>
+<p>The compute nodes are at the core of the system and the part that we’ve concentrated on for most of this week. They contain the resources to execute user jobs - the thousands of CPU-cores operating in parallel that give a supercomputer its power. They are connected by fast interconnect, so that the communication time between CPU-cores impacts program run times as little as possible.</p>
+</section>
+<section id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Permalink to this headline"></a></h3>
+<p>Although the compute nodes may have disks attached to them, they are only used for temporary storage while a job is running. There will be some large external storage, comprising thousands of disks, to store the input and output files for each computation. This is connected to the compute nodes using fast interconnect so that computations which have large amounts of data as input or output don’t spend too much time accessing their files. The main storage area will also be accessible from the interactive nodes, e.g. so you can visualise your results.</p>
+<p>© SURFsara</p>
+<hr class="docutils" />
+<figure class="align-default" id="id7">
+<img alt="../../_images/large_hero_0f828adf-3adc-4c16-b8b3-77614555e059.jpg" src="../../_images/large_hero_0f828adf-3adc-4c16-b8b3-77614555e059.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/marekuliasz</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="what-supercomputing-is-not">
+<h2>What Supercomputing is not …<a class="headerlink" href="#what-supercomputing-is-not" title="Permalink to this headline"></a></h2>
+<p>One of the main aims of this course is to de-mystify the whole area of supercomputing.</p>
+<p>Although supercomputers have computational power far outstripping your desktop PC, they are built from the same basic hardware. Although we use special software techniques to enable the many CPU-cores in a supercomputer to work together in parallel, each individual processor is basically operating in exactly the same way as the processor in your laptop.</p>
+<p>However, you may have heard of ongoing developments that take more unconventional approaches:</p>
+<ul class="simple">
+<li><p>Quantum Computers are built from hardware that is radically different from the mainstream.</p></li>
+<li><p>Artificial Intelligence tackles problems in a completely different way from the computer software we run in traditional computational science.
+We will touch on these alternative approaches in some of the final week’s articles. In the meantime, feel free to raise any questions you have about how they relate to supercomputing by commenting in any of the discussion steps.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="supercomputing-terminology">
+<h2>Supercomputing Terminology<a class="headerlink" href="#supercomputing-terminology" title="Permalink to this headline"></a></h2>
+<div class="admonition-question-1 questions admonition" id="questions-0">
+<p class="admonition-title">Question 1</p>
+<p>If someone quotes the performance of a computer in terms of “Flops”, what do they mean?</p>
+<p>A) the total number of floating-point operations needed for a computation</p>
+<p>B) the number of float-point operations performed per second</p>
+<p>C) the clock frequency of the CPU-cores</p>
+<p>D) the total memory</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>B) - it’s our basic measure of supercomputer speed.</p>
+</div>
+<div class="admonition-question-2 questions admonition" id="questions-1">
+<p class="admonition-title">Question 2</p>
+<p>What is a benchmark in computing?</p>
+<p>A) a hardware component of a computer system</p>
+<p>B) a computer program that produces scientific results</p>
+<p>C) a computer program specifically designed to assess performance</p>
+<p>D) the peak performance of a computer</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>C) - it’s the equivalent of a standard consumer test for a product, like “how many litres per second can my electric shower deliver water at 40 degrees centigrade?”</p>
+</div>
+<div class="admonition-question-3 questions admonition" id="questions-2">
+<p class="admonition-title">Question 3</p>
+<p>Which one below represents the right order of number of Flops (from small to large)?</p>
+<p>A) Kflops Gflops Mflops Tflops Eflops Pflops</p>
+<p>B) Mflops Gflops Kflops Pflops Tflops</p>
+<p>C) Kflops Mflops Gflops Tflops Pflops Eflops</p>
+<p>D) Gflops Kflops Tflops Mflops Pflops Eflops</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>C) - computers started in the Kiloflops range and we are now approaching Exaflops.</p>
+</div>
+<div class="admonition-question-4 questions admonition" id="questions-3">
+<p class="admonition-title">Question 4</p>
+<p>What does clock speed typically refer to?</p>
+<p>A) the speed at which a CPU-core executes instructions</p>
+<p>B) memory access speed</p>
+<p>C) the I/O speed of hard disks</p>
+<p>D) the performance achieved using the LINPACK benchmark</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution</p>
+<p>A) - it’s basically the heartbeat of the processor.</p>
+</div>
+<div class="admonition-question-5 questions admonition" id="questions-4">
+<p class="admonition-title">Question 5</p>
+<p>What processor technologies are used to build supercomputers (compared to, for example, a desktop PC)?</p>
+<p>A) a special CPU operating at a superfast clock speed</p>
+<p>B) a large number of special CPUs operating at very fast speeds</p>
+<p>C) a large number of standard CPUs with specially boosted clock speeds</p>
+<p>D) a very large number of standard CPUs at standard clock speeds</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-4">
+<p class="admonition-title">Solution</p>
+<p>D) - we take standard desktop technology but use vast numbers of CPUs to increase the computational power.</p>
+</div>
+<div class="admonition-question-6 questions admonition" id="questions-5">
+<p class="admonition-title">Question 6</p>
+<p>A parallel computer has more than one CPU-core. Which of the following are examples of parallel computers?</p>
+<p>A) a modern laptop</p>
+<p>B) a modern mobile phone</p>
+<p>C) a supercomputer</p>
+<p>D) a home games console</p>
+<p>E) all of the above</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-5">
+<p class="admonition-title">Solution</p>
+<p>E) - That’s right - parallelism is ubiquitous across almost all modern computer devices and is not restricted to just a few high-end supercomputers.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Introduction_to_Supercomputing/" class="btn btn-neutral float-left" title="Introduction to supercomputing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Supercomputing_world/" class="btn btn-neutral float-right" title="Supercomputing World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

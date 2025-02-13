@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 2: Weak Scaling &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 3: Hybrid MPI and OpenMP" href="../part3/" />
+    <link rel="prev" title="Part 1: Strong Scaling" href="../part1/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise2/">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Pratical exercise 3: Investigating parallel performance, GROMACS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Molecular Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Strong Scaling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 2: Weak Scaling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-benchmark-system">The benchmark system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-benchmark">Running the benchmark</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#things-to-investigate">Things to investigate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part3/">Part 3: Hybrid MPI and OpenMP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+      <li class="breadcrumb-item active">Part 2: Weak Scaling</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise3/part2.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-2-weak-scaling">
+<h1>Part 2: Weak Scaling<a class="headerlink" href="#part-2-weak-scaling" title="Permalink to this headline"></a></h1>
+<p>In this section you will use a different benchmark system and investigate the weak scaling parallel performance.</p>
+<section id="the-benchmark-system">
+<h2>The benchmark system<a class="headerlink" href="#the-benchmark-system" title="Permalink to this headline"></a></h2>
+<p>The benchmark system we will use to investigate the weak scaling is a box of water. This is a simple system than can be created for different system sizes.</p>
+<p>The initial box size is 3nm x 3nm x 3nm and contains 884 water molecules. We have provided input files for this system <code class="docutils literal notranslate"><span class="pre">water_x1.tpr</span></code> and multiple larger systems with 2, 4, 8, … up to 8096 times the volume (<code class="docutils literal notranslate"><span class="pre">water_x2.tpr</span></code>, <code class="docutils literal notranslate"><span class="pre">water_x4.tpr</span></code>, <code class="docutils literal notranslate"><span class="pre">water_x8.tpr</span></code>, … , <code class="docutils literal notranslate"><span class="pre">water_8096.tpr</span></code>).</p>
+<figure class="align-default" id="id1">
+<img alt="../../../_images/gmx_water.png" class="with-border" src="../../../_images/gmx_water.png" />
+<figcaption>
+<p><span class="caption-text">Water boxes. The x1 box contains 884 water molecules, the x16 box contains ~14000.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The water model used is TIP3P, this has three sites per molecule, corresponding to the two hydrogen and one oxygen molecule in H20. There are many other water models that can be used depending on the type of simulation, for our purposes of benchmarking TIP3P is sufficient. For more information see:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">https://en.wikipedia.org/wiki/Water_model</a></p>
+</section>
+<section id="running-the-benchmark">
+<h2>Running the benchmark<a class="headerlink" href="#running-the-benchmark" title="Permalink to this headline"></a></h2>
+<p>The benchmarks are designed such that <code class="docutils literal notranslate"><span class="pre">water_x1.tpr</span></code> is a suitable size for running on 1 core. (GROMACS works best with ~1000 atoms per CPU)</p>
+<p>An example script to run the benchmark on ARCHER2 is shown below.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">archer2.slurm</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#SBATCH --job-name=gmx_bench</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --tasks-per-node=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+
+<span class="c1"># Replace [budget code] below with your project code (e.g. t01)</span>
+<span class="c1">#SBATCH --account=z19</span>
+<span class="c1">#SBATCH --partition=standard</span>
+<span class="c1">#SBATCH --qos=standard</span>
+
+<span class="c1"># Setup the environment</span>
+module load gromacs
+
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span> 
+srun --distribution<span class="o">=</span>block:block --hint<span class="o">=</span>nomultithread gmx_mpi mdrun -s water_x1.tpr -v
+</pre></div>
+</div>
+</div>
+<p>Make sure that <code class="docutils literal notranslate"><span class="pre">nodes</span></code> x <code class="docutils literal notranslate"><span class="pre">tasks-per-node</span></code> =  the system size.
+i.e for <code class="docutils literal notranslate"><span class="pre">water_x256.tpr</span></code> use <code class="docutils literal notranslate"><span class="pre">--nodes=2</span></code> and <code class="docutils literal notranslate"><span class="pre">--tasks-per-node=128</span></code></p>
+<p>Once again the important number is the ns/day figure.</p>
+</section>
+<section id="things-to-investigate">
+<h2>Things to investigate<a class="headerlink" href="#things-to-investigate" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>You should run the benchmarks systems where the number of cores used scales with the system size. I.e run <code class="docutils literal notranslate"><span class="pre">water_x1.tpr</span></code> with 1 core, <code class="docutils literal notranslate"><span class="pre">water_x2.tpr</span></code> with 2 cores, <code class="docutils literal notranslate"><span class="pre">water_128.tpr</span></code> with 128 cores etc. This investigates the weak scaling</p></li>
+<li><p>Calculate the weak efficiency. This is given by:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+E(N) = \frac{\text{Performance}(N \text{ cores}, \text{ System size } N)}{\text{Performance}(1 \text{ core}, \text{ system size 1})}
+\]</div>
+<ul class="simple">
+<li><p>Plot the results and look at the difference between the intra-node and inter-node scaling.</p></li>
+</ul>
+<p>We have plotted our results for version 2021.3 of GROMACS on ARCHER2 below:</p>
+<figure class="align-default" id="id3">
+<img alt="../../../_images/gmx_weak_scaling.svg" class="with-border" src="../../../_images/gmx_weak_scaling.svg" /><figcaption>
+<p><span class="caption-text">Weak scaling efficiency results for the benchmark system on ARCHER2.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../part1/" class="btn btn-neutral float-left" title="Part 1: Strong Scaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part3/" class="btn btn-neutral float-right" title="Part 3: Hybrid MPI and OpenMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

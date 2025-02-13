@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Performance &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Computer Simulations" href="../../Part4_Computer_Simulations/contents/" />
+    <link rel="prev" title="Parallel Programming" href="../Parallel_Programming/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../contents/">Parallel Computing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction/">Welcome to Part 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Parallel_Computing/">Parallel Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Parallel_Programming/">Parallel Programming</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parallel Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Parallel Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scaling-and-parallel-overheads">Scaling and Parallel Overheads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parallel-performance-laws">Parallel Performance Laws</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scaling-behaviour-of-the-traffic-simulation">Scaling Behaviour of the Traffic Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terminology-recap">Terminology Recap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../contents/">Parallel Computing</a></li>
+      <li class="breadcrumb-item active">Parallel Performance</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part3_Parallel_Computing/Parallel_Performance.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="parallel-performance">
+<h1>Parallel Performance<a class="headerlink" href="#parallel-performance" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="id2">
+<img alt="../../_images/hero_7da8a105-3777-4870-bf25-e7dc7f358303.jpg" src="../../_images/hero_7da8a105-3777-4870-bf25-e7dc7f358303.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/npstockphoto</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id1">
+<h2>Parallel Performance<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>We have seen that parallel supercomputers have enormous potential computing power - the largest machine in the Top500 list has peak performances in excess of 1000 Petaflops. This is achieved by having hundreds of thousands of CPU-cores and GPGPU’s in the same distributed-memory computer, connected with a fast network.</p>
+<p>When considering how to parallelise even the simplest calculations (such as the traffic model) using the message-passing model, we have seen that this introduces overheads: making a phone call to someone in a another office takes time, and this is time when you are not doing any useful calculations.</p>
+<p>We therefore need some way of measuring how well our parallel computation is performing: is it making the best use of all the CPU-cores? The input to all these metrics is the time taken for the program to run on P CPU-cores which we will call TP .</p>
+<p>The standard measure of parallel performance is called the parallel speedup. We measure the time taken to do the calculation on a single CPU-core, and the time taken on P CPU-cores, and compute the parallel speedup S:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S_p</span> <span class="o">=</span> <span class="n">T_1</span> <span class="o">/</span> <span class="n">T_P</span>
+</pre></div>
+</div>
+<p>For example, if the program took 200 seconds on 1 CPU-core (i.e. running in serial) and 25 seconds on 10 CPU-cores then the parallel speed-up is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S_</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span> <span class="o">=</span> <span class="n">T_1</span> <span class="o">/</span> <span class="n">T_</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="mi">25</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<p>Ideally we would like our parallel program to run 10 times faster on 10 CPU-cores, but this is not normally possible due to the inevitable overheads. In general, SP will be less than P.</p>
+<p>Another way of quantifying this is to compute the parallel efficiency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E_P</span> <span class="o">=</span> <span class="n">S_P</span><span class="o">/</span><span class="n">P</span> 
+</pre></div>
+</div>
+<p>This gives us an idea of how efficiently we are using the CPU-cores. For the example given above, the parallel efficiency is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E_</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span> <span class="o">=</span> <span class="n">S_</span><span class="p">{</span><span class="mi">10</span><span class="p">}</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">=</span> <span class="mf">0.80</span> <span class="o">=</span> <span class="mi">80</span> <span class="o">%</span> 
+</pre></div>
+</div>
+<p>Ideally we would like our parallel program to be 100% efficient, but in general EP will be less than 1.0 (i.e. less than 100%).</p>
+<p>When considering the way a parallel program behaves, the standard approach is to measure the performance for increasing values of P and to plot a graph of either parallel speedup or parallel efficiency against the number of CPU-cores.</p>
+<p>We call this a scaling curve - we are trying to understand how well the performance scales with increasing numbers of CPU-cores. We talk about whether or not a program scales well or scales poorly (or has good or bad scalability).</p>
+<figure class="align-default">
+<img alt="../../_images/hero_afc04aae-ee23-4f71-8df0-80c3bf10d38e.png" src="../../_images/hero_afc04aae-ee23-4f71-8df0-80c3bf10d38e.png" />
+</figure>
+<p>For some problems a parallel efficiency of 80% will be considered to be very good and for others not so good. Can you think of a reason why that is?</p>
+<hr class="docutils" />
+<figure class="align-default" id="id3">
+<img alt="../../_images/hero_e5dfe526-b743-4b37-88a2-9dd7a83c16ab.jpg" src="../../_images/hero_e5dfe526-b743-4b37-88a2-9dd7a83c16ab.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/Pepperz</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="scaling-and-parallel-overheads">
+<h2>Scaling and Parallel Overheads<a class="headerlink" href="#scaling-and-parallel-overheads" title="Permalink to this headline"></a></h2>
+<p>It is always useful to have some simple examples to help us understand why a parallel program scales the way it does. If we double the number of CPU-cores, does the performance double? If not, why not?</p>
+<p>Consider the following example of flying from a hotel in central London to a holiday destination. In this example:</p>
+<ul class="simple">
+<li><p>the top speed of the aeroplane represents the computing power available: doubling the speed of the plane is equivalent to doubling the number of CPU-cores in our parallel computer;</p></li>
+<li><p>the distance we travel is equivalent to the size of the problem we are tackling; travelling twice as far is equivalent to doubling the number of cells in our traffic model.</p></li>
+</ul>
+<p>We will consider two journeys: from Central London to the Empire State Building in New York (5,600 km), and Central London to Sydney Opera House (16,800 km: 3 times as far).</p>
+<p>We will consider two possible aeroplanes: a Jumbo Jet (top speed 700 kph) and Concorde (2100 kph: 3 times as fast).</p>
+<p>The important observation is that the total journey time is the flight time plus the additional overheads of travelling between the city centre and the airport, waiting at check-in, clearing security or passport control, collecting your luggage etc. For simplicity, let’s assume that travel to the airport takes an hour by bus each way, and that you spend an hour in the airport at each end.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plane</p></th>
+<th class="head"><p>Destination</p></th>
+<th class="head"><p>Flight Time</p></th>
+<th class="head"><p>Over-head</p></th>
+<th class="head"><p>Total Journey</p></th>
+<th class="head"><p>Speed-up S3</p></th>
+<th class="head"><p>Efficiency E3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jumbo Jet</p></td>
+<td><p>New York</p></td>
+<td><p>8:00</p></td>
+<td><p>4:00</p></td>
+<td><p>12:00</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Concorde</p></td>
+<td><p>New York</p></td>
+<td><p>2:40</p></td>
+<td><p>4:00</p></td>
+<td><p>6:40</p></td>
+<td><p>1.8</p></td>
+<td><p>60%</p></td>
+</tr>
+<tr class="row-even"><td><p>Jumbo Jet</p></td>
+<td><p>Sydney</p></td>
+<td><p>24:00</p></td>
+<td><p>4:00</p></td>
+<td><p>28:00</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Concorde</p></td>
+<td><p>Sydney</p></td>
+<td><p>8:00</p></td>
+<td><p>4:00</p></td>
+<td><p>12:00</p></td>
+<td><p>2.3</p></td>
+<td><p>78%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Try to answer the following questions:</p>
+<ul class="simple">
+<li><p>does the journey overhead depend on the distance flown?</p></li>
+<li><p>what is the speedup for the first journey for a plane 10 or 100 times faster than Concorde?</p></li>
+<li><p>what does it tell you about the limits of parallel computing?</p></li>
+<li><p>what is the speedup for the second journey for a plane 10 or 100 times faster than Concorde?</p></li>
+<li><p>why do you think it’s different from the first journey’s speedup?</p></li>
+<li><p>what does it tell you about the possibilities of parallel computing?</p></li>
+</ul>
+<hr class="docutils" />
+<figure class="align-default" id="id4">
+<img alt="../../_images/hero_b4c77d32-4595-475c-9f1f-a7d0fc1e708c.jpg" src="../../_images/hero_b4c77d32-4595-475c-9f1f-a7d0fc1e708c.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/the-lightwriter</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parallel-performance-laws">
+<h2>Parallel Performance Laws<a class="headerlink" href="#parallel-performance-laws" title="Permalink to this headline"></a></h2>
+<p>The two most common ways to understand parallel scaling are called Amdahl’s Law and Gustafson’s Law. However, like many laws they boil down to simple common sense and are easily understandable using everyday examples.</p>
+<p>Let’s have another look at the example from the previous step.</p>
+<p>The key point here is that the overhead does not depend on the distance flown by the aircraft. In all cases you spend two hours travelling to and from the airports, and two hours waiting around in the airports: a total of four hours.</p>
+<p>The journey to New York illustrates Amdahl’s Law - the speedup is less than 3.0 because of the overheads. In a parallel program, these overheads can be characterised as serial parts of the calculation, i.e. parts of the calculation that do not go any faster when you use more CPU-cores. Typical examples can include reading and writing data from and to disk (which is often done via single CPU-core), or the time spent in communications.</p>
+<p>In fact, Gene Amdahl used this simple example to argue, way back in 1967, that parallel computing was not very useful in practice - no matter how fast your parallel computer is, you cannot eliminate the serial overheads. Even if we had a starship travelling at almost the speed of light, the journey time to New York would never be less than 4 hours so the speedup would never exceed 3.0. The fact that we can only make the calculation three times faster even if we use thousands of CPU-cores is a little dispiriting…</p>
+<p>However, the journey to Sydney illustrates Gustafson’s Law - things get better if you tackle larger problems because the serial overheads stay the same but the parallel part gets larger. For the large problem, our maximum speedup would be 7.0.</p>
+<figure class="align-default">
+<img alt="../../_images/hero_38f91e44-13fa-4d56-bd8f-1ff3b86002ff.png" src="../../_images/hero_38f91e44-13fa-4d56-bd8f-1ff3b86002ff.png" />
+</figure>
+<p>Scaling plot for New York and Sydney Journeys (image)</p>
+<p>Amdahl’s law can be expressed in equations as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S_P</span> <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="p">(</span>\<span class="n">alpha</span> <span class="n">P</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span>\<span class="n">alpha</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where alpha is the fraction of the calculation that is entirely serial. For example, for the New York journey then</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> \<span class="n">alpha</span> <span class="o">=</span> <span class="mi">4</span> <span class="n">hours</span> <span class="o">/</span> <span class="mi">12</span> <span class="n">hours</span> <span class="o">=</span> <span class="mf">0.33</span> 
+</pre></div>
+</div>
+<p>Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/\alpha. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.</p>
+<p>If you are interested in more details (and more maths!) then you can visit Wikipedia (<a class="reference external" href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl’s Law</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Gustafson%27s_law">Gustafson’s Law</a>), but all the equations can sometimes obscure what is really a common-sense result.</p>
+<hr class="docutils" />
+<figure class="align-default" id="id5">
+<img alt="../../_images/hero_38bd405f-b483-4faf-8b0d-aa6c6939d3d3.jpg" src="../../_images/hero_38bd405f-b483-4faf-8b0d-aa6c6939d3d3.jpg" />
+<figcaption>
+<p><span class="caption-text">© iStock.com/wakila</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="scaling-behaviour-of-the-traffic-simulation">
+<h2>Scaling Behaviour of the Traffic Simulation<a class="headerlink" href="#scaling-behaviour-of-the-traffic-simulation" title="Permalink to this headline"></a></h2>
+<p>Let’s consider the traffic model parallelised using message-passing – you and three colleagues are working together on the traffic model in different offices. You each have your own chess set with pawns representing the cars, but you need to phone each other if you want to exchange information.</p>
+<p>For the sake of argument, let’s also assume that you can update your chess board at the rate of two cells per second, i.e. if you had 8 cells then each timestep would take you 4 seconds.</p>
+<p>For a road of 20 cells, work out how long it takes to do a single iteration in serial (one person) and in parallel (all four people). You will need to count how many phone calls you need to make, and make a guess as to how long each phone call will take.</p>
+<p>For simplicity, we will not bother to compute the average speed of the cars and you can ignore any startup costs associated with telling everyone the initial distribution of cars.</p>
+<p>What is the speedup using four people, S4, for this calculation?</p>
+<p>Is parallel computing worthwhile here?</p>
+<p>Compute the speedup S4 for roads of length 200, 2000 and 20000 cells - what do you observe? You could also compute S2 and S3 to see how each problem size scales with increasing P.</p>
+<p>To what extent do these figures agree or disagree with Amdahl’s law and Gustafson’s Law?</p>
+<p>These calculations, require you to make a number of assumptions so when comparing answers with your fellow learners you should not focus on the numerical results so much. Looking at the reasoning behind each of the assumptions and comparing your overall conclusions should be more interesting.</p>
+</section>
+<hr class="docutils" />
+<section id="terminology-recap">
+<h2>Terminology Recap<a class="headerlink" href="#terminology-recap" title="Permalink to this headline"></a></h2>
+<div class="admonition-question-1 questions admonition" id="questions-0">
+<p class="admonition-title">Question 1</p>
+<p>The standard measure of parallel performance is called the parallel ____ .
+For P CPU-cores it is calculated as the time taken to run a program on ____
+CPU-core divided by the time taken to run it on ____ CPU-cores.</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>A) speed up</p>
+<p>B) one</p>
+<p>C) P</p>
+</div>
+<div class="admonition-question-2 questions admonition" id="questions-1">
+<p class="admonition-title">Question 2</p>
+<p>In parallel computing, the parallel ____ is used to measure how efficiently the CPU-cores are utilised. Although, we would like this to be as high as possible, it is typically less than ____.</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>A) efficency</p>
+<p>B) 1.0</p>
+</div>
+<div class="admonition-question-3 questions admonition" id="questions-2">
+<p class="admonition-title">Question 3</p>
+<p>The plot showing the performance of a parallel program with increasing number of CPU-cores is referred to as a ____ ____ . The fact that parallel programs do not scale perfectly (i.e. the speedup is not equal to the number of CPU-cores) is explained by an equation called ____ ____ .</p>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>A) scaling curve</p>
+<p>B) Amdahl’s Law</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Parallel_Programming/" class="btn btn-neutral float-left" title="Parallel Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../Part4_Computer_Simulations/contents/" class="btn btn-neutral float-right" title="Computer Simulations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

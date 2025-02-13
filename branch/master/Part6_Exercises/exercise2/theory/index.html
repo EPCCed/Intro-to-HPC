@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractal calculation program &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 1: Compilation, running" href="../part1/" />
+    <link rel="prev" title="Practical exercise 2: Parallel worksharing, Fractal code" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 2: Parallel worksharing, Fractal code</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fractal calculation program</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mandelbrot-set">Mandelbrot Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parallel-programming-concepts">Parallel Programming Concepts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-farm">Task farm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-balancing">Load Balancing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/">Part 1: Compilation, running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/">Part 2: Investigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+      <li class="breadcrumb-item active">Fractal calculation program</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise2/theory.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="fractal-calculation-program">
+<h1>Fractal calculation program<a class="headerlink" href="#fractal-calculation-program" title="Permalink to this headline"></a></h1>
+<section id="mandelbrot-set">
+<h2>Mandelbrot Set<a class="headerlink" href="#mandelbrot-set" title="Permalink to this headline"></a></h2>
+<p>The Mandelbrot set is a famous example of a fractal in mathematics. It is a set of complex numbers <span class="math notranslate nohighlight">\(c\)</span> for which the function</p>
+<p><span class="math notranslate nohighlight">\(f_c(z) = z^2 + c\)</span></p>
+<p>does not diverge to infinity when iterated from <span class="math notranslate nohighlight">\(z=0\)</span>, i.e the values of <span class="math notranslate nohighlight">\(c\)</span> for which the sequence</p>
+<p><span class="math notranslate nohighlight">\([ c,\ c^2+c,\ (c^2+c)^2+c,\ ((c^2+c)^2+c)^2+c,\ ...]\)</span></p>
+<p>remains bounded.</p>
+<p>The complex numbers can be thought of as 2d coordinates, that is a complex number <span class="math notranslate nohighlight">\(z\)</span> with real part <span class="math notranslate nohighlight">\(a\)</span> and imaginary part <span class="math notranslate nohighlight">\(b\)</span> (<span class="math notranslate nohighlight">\(z = a + ib\)</span>) can be written as <span class="math notranslate nohighlight">\((a, b)\)</span>. The coordinates can be plotted as an image, where the color corresponds to the number of iterations required before the escape condition is reached. The escape condition is when we have confirmed that the sequence is not bounded, this is when the magnitude of <span class="math notranslate nohighlight">\(z\)</span>, the current value in the iteration, is greater than 2.</p>
+<p>The pseudo code for this is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="n">coordinate</span> 
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">iteration</span> <span class="o">&lt;</span> <span class="n">max_iterations</span> <span class="ow">and</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="p">)</span>
+        <span class="n">x_next</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x0</span>
+        <span class="n">y_next</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">y0</span>
+
+        <span class="n">iteration</span> <span class="o">=</span> <span class="n">iteration</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x_next</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y_next</span>
+
+    <span class="k">return</span> <span class="n">color_map</span><span class="p">(</span><span class="n">iteration</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Note that for points within the Mandelbrot set
+the condition will never be met, hence the need to set the upper bound <code class="docutils literal notranslate"><span class="pre">max_iterations</span></code>.</p>
+<p>The Julia set is another example of a complex number set.</p>
+<p>From the parallel programming point of view the useful feature of the Mandelbrot and Julia sets is that the calculation for each point is independent i.e. whether one point lies within the set or not is not affected by other points.</p>
+</section>
+<section id="parallel-programming-concepts">
+<h2>Parallel Programming Concepts<a class="headerlink" href="#parallel-programming-concepts" title="Permalink to this headline"></a></h2>
+</section>
+<section id="task-farm">
+<h2>Task farm<a class="headerlink" href="#task-farm" title="Permalink to this headline"></a></h2>
+<p>Task farming is one of the common approaches used to parallelise applications. Its main idea is to automatically create pools of calculations (called tasks), dispatch them to the processes and the to collect the results.</p>
+<p>The process responsible for creating this pool of jobs is known as a <strong>source</strong>, sometimes it is also called a <em>master</em> or <em>controller process</em>.</p>
+<p>The process collecting the results is called a <strong>sink</strong>. Quite often one process plays both roles – it creates, distributes tasks and collects results. It is also possible to have a team of source and sink process. A ‘farm’ of one or more workers claims jobs from the source, executes them and returns results to the sink. The workers continually claim jobs (usually complete one task then ask for another) until the pool is exhausted.</p>
+<p>Figure 1 shows the basic concept of how a task farm is structured.</p>
+<figure class="align-default" id="id1">
+<img alt="task-farm" class="with-border" src="../../../_images/task_farm.png" />
+<figcaption>
+<p><span class="caption-text">Schematic representation of a simple task farm.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In summary processes can assume the following roles:</p>
+<ul class="simple">
+<li><p><strong>Source</strong> - creates and distributes tasks</p></li>
+<li><p><strong>Worker processes</strong> - complete tasks received from the source process
+and then send results to the sink process</p></li>
+<li><p><strong>Sink</strong> - gathers results from worker processes.</p></li>
+</ul>
+<p>Having learned what a task farm is, consider the following questions:</p>
+<ul class="simple">
+<li><p>What types of problems could be parallelised using the task farm approach? What types of problems would not benefit from it? Why?</p></li>
+<li><p>What kind of computer architecture could fully utilise the task farm benefits?</p></li>
+</ul>
+<section id="using-a-task-farm">
+<h3>Using a task farm<a class="headerlink" href="#using-a-task-farm" title="Permalink to this headline"></a></h3>
+<p>As you may have guessed a task farm is commonly used in large
+computations composed of many independent calculations. Only when
+calculations are independent is it possible to assign tasks in the most effective
+way, and thus speed up the overall calculation with the most efficiency. After
+all, if the tasks are independent from each other, the processors can request
+them as they become available, i.e. usually after they complete their current
+task, without worrying about the order in which tasks are completed.</p>
+<p>This dynamic allocation of tasks is an effective method for getting more use
+out of the compute resources. It is inevitable that some calculations will take
+longer to complete than others, so using methods such as a lock-step
+calculation (waiting on the whole set of processors to finish a current job) or
+pre-distributing all tasks at the beginning would lead to wasted compute
+cycles.
+Of course, not all problems can be parallelised using a task farm approach.</p>
+</section>
+<section id="not-always-a-task-farm">
+<h3>Not always a task farm<a class="headerlink" href="#not-always-a-task-farm" title="Permalink to this headline"></a></h3>
+<p>While many problems can be broken down into individual parts, there are a
+sizeable number of problems where this approach will not work. Problems
+which involve lots of inter-process communication are often not suitable for
+task farms as they require the master to track which worker has which
+element, and to tell workers which other workers have which elements to
+allow them to communicate. Additionally, the sink progress may need to
+track this as well in cases of output order dependency.
+It is possible to use task farms to parallelise problems that require a lot of
+communications, however, in such cases drawbacks and overheads
+impacting the performance would be incurred.
+As mentioned before, to determine the points lying within the Mandelbrot set
+there is no need for the communications between the worker tasks, which
+makes it an embarrassingly parallel problem that is suitable for task-farming.
+Although the calculation can employ the task farm approach, we still need to
+consider how to use it in the most optimal way.</p>
+<p>Consider the following scenarios:</p>
+<ul class="simple">
+<li><p>How do you think the performance would be affected if you were to use
+more, equal and fewer tasks than workers?</p></li>
+<li><p>In your opinion what would be the optimal combination of the number
+of workers and task? What would it depend on the most? Task size?
+Problem size? Computer architecture?</p></li>
+</ul>
+</section>
+</section>
+<section id="load-balancing">
+<h2>Load Balancing<a class="headerlink" href="#load-balancing" title="Permalink to this headline"></a></h2>
+<p>The factor deciding the effectiveness of a task farm is a task distribution. A
+way in which a master process determines how the tasks are distributed
+across the workers it called a load balancing.</p>
+<p>A successful load balancing will avoid overloading a single worker,
+maximising the throughput of the system and making best use of resources
+available. Poor load balancing will cause some workers of the system to be
+idle and consequently other elements to be ‘overworked’, leading to increased
+computation time and significantly reduced performance.</p>
+<section id="poor-load-balancing">
+<h3>Poor load balancing<a class="headerlink" href="#poor-load-balancing" title="Permalink to this headline"></a></h3>
+<p>Figure 2 shows how careless task distribution can affect the completion time.
+Clearly, CPU2 needs more time to complete its tasks, particularly compared
+to CPU3. The total runtime is equivalent to the longest runtime on any of the
+CPUs so the calculation time will be longer than it would be if the resource
+were used optimally. This can occur when load balancing is not considered,
+random scheduling is used (although this is not always bad) or poor decisions
+are made about the job sizes.</p>
+<figure class="align-default" id="id2">
+<img alt="load imbalance" class="with-border" src="../../../_images/load_imbalance.png" />
+<figcaption>
+<p><span class="caption-text">Poor load balance</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="good-load-balancing">
+<h3>Good Load Balancing<a class="headerlink" href="#good-load-balancing" title="Permalink to this headline"></a></h3>
+<p>Figure 3 shows how by scheduling jobs carefully, the best use of the
+resources can be made. By choosing a distribution strategy to optimise the
+use of resources, the CPUs in the diagram all complete their tasks at roughly
+the same time. This means that no one task has been overloaded with work
+and dominated the running time of the overall calculation. This can be
+achieved by many different means.</p>
+<p>For example, if the task sizes and running times are known in advance, the
+jobs can be scheduled to allow best resource usage. The most common
+distribution is to distribute large jobs first and then distribute progressively
+smaller jobs to equal out the workload.</p>
+<p>If the job sizes can change or the running times are unknown, then an
+adaptive system could be used which tries to infer future task lengths based
+upon observed runtimes.</p>
+<figure class="align-default" id="id3">
+<img alt="good load balance" class="with-border" src="../../../_images/load_balance.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3. Good load balance.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The fractal program you will be using employs a queue strategy – tasks are queued waiting for workers, which completed their previous task, to claim them from the top of the queue. This ensures that workers that happen to get shorter tasks will complete more tasks, so that they finish roughly at the same time as workers with longer tasks.</p>
+</section>
+<section id="quantifying-the-load-imbalance">
+<h3>Quantifying the load imbalance<a class="headerlink" href="#quantifying-the-load-imbalance" title="Permalink to this headline"></a></h3>
+<p>We can try to quantify how well balanced a task farm is by computing the load imbalance factor, which we define as:</p>
+<p><span class="math notranslate nohighlight">\(\text{load imbalance factor} = \frac{\text{Workload of most loaded worker}}{\text{average workload of workers}}\)</span></p>
+<p>For a perfect load-balanced calculation this will be equal to 1.0, which is equivalent to all workers having exactly the same amount of work. In general, it will be greater than 1.0.
+It is a useful measure because it allows you to predict what the runtime would be for a perfectly balanced load on the same number of workers, assuming that no additional overheads are introduced due to load balancing. For example, if the load imbalance factor is 2.0 then this implies that, in principle, we could halve the runtime (reduce it by a factor of 2) if the load were perfectly balanced.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="Practical exercise 2: Parallel worksharing, Fractal code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part1/" class="btn btn-neutral float-right" title="Part 1: Compilation, running" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

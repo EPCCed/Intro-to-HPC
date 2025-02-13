@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>archer2.slurm: &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script src="../../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Part6_Exercises/contents/">Exercises</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">archer2.slurm:</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/substitutions/substitutions_ARCHER2/Exercise4/ex4_omp.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archer2-slurm">
+<h1>archer2.slurm:<a class="headerlink" href="#archer2-slurm" title="Permalink to this headline"></a></h1>
+<p>To run the simulation using the compule nodes you need to a job script,</p>
+<div class="highlight-slurm notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="kp">#SBATCH --job-name=sharpen</span>
+<span class="kp">#SBATCH --nodes=1</span>
+<span class="kp">#SBATCH --tasks-per-node=1</span>
+<span class="kp">#SBATCH --cpus-per-task=4</span>
+<span class="kp">#SBATCH --time=00:01:00</span>
+
+<span class="c1"># Replace [budget code] below with your project code (e.g. t01)</span>
+<span class="kp">#SBATCH --account=[budget code]</span>
+<span class="kp">#SBATCH --partition=standard</span>
+<span class="kp">#SBATCH --qos=standard</span>
+
+<span class="c1"># Setup the batch environment</span>
+module load epcc-job-env
+
+<span class="c1"># Set the number of threads to the CPUs per task</span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="nv">$SLURM_CPUS_PER_TASK</span>
+
+<span class="c1"># Launch the parallel job</span>
+<span class="nb">srun</span> --hint<span class="o">=</span>nomultithread --distribution<span class="o">=</span>block:block ./traffic <span class="m">0</span>.52
+</pre></div>
+</div>
+<p>This is an OpenMP program so we control the number of parallel threads used with the <code class="docutils literal notranslate"><span class="pre">--cpus-per-task</span></code> variable.</p>
+<p>To submit the job to run on the compute nodes we use the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">archer2</span><span class="o">.</span><span class="n">slurm</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Submitted</span> <span class="n">batch</span> <span class="n">job</span> <span class="mi">1793266</span>
+</pre></div>
+</div>
+<p>Where the number is the unique job ID.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On ARCHER2 you must submit jobs from the ``/work`` filesystem.
+</pre></div>
+</div>
+</div>
+</section>
+<section id="monitoring-the-batch-job">
+<h1>Monitoring the batch job<a class="headerlink" href="#monitoring-the-batch-job" title="Permalink to this headline"></a></h1>
+<p>The slurm command <code class="docutils literal notranslate"><span class="pre">squeue</span></code> can be used to show the status of the jobs. Without any options or arguments it lists all jobs known by the scheduler.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span>
+</pre></div>
+</div>
+<p>To show just your jobs add  the <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">$USER</span></code> option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
+<p>Note that for this example it runs very quickly so you may not see it in the queue before it finishes running.</p>
+</section>
+<section id="finding-the-output">
+<h1>Finding the output<a class="headerlink" href="#finding-the-output" title="Permalink to this headline"></a></h1>
+<p>The Slurm system places the output from your job in a file called <code class="docutils literal notranslate"><span class="pre">slurm-&lt;jobID&gt;.out</span></code>. You can view it using the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">slurm</span><span class="o">-</span><span class="mf">1793266.</span><span class="n">out</span>
+
+<span class="n">Length</span> <span class="n">of</span> <span class="n">road</span> <span class="ow">is</span> <span class="mi">32000000</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="ow">is</span> <span class="mi">100</span>
+<span class="n">Target</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.520000</span>
+<span class="n">Running</span> <span class="n">on</span> <span class="mi">4</span> <span class="n">thread</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Initialising</span> <span class="n">road</span> <span class="o">...</span>
+<span class="o">...</span><span class="n">done</span>
+<span class="n">Actual</span> <span class="n">density</span> <span class="n">of</span> <span class="n">cars</span> <span class="ow">is</span> <span class="mf">0.519982</span>
+
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">10</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.789461</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">20</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.837157</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">30</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.858209</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">40</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.870573</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">50</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.878940</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">60</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.885087</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">70</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.889761</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">80</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.893441</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">90</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.896447</span>
+<span class="n">At</span> <span class="n">iteration</span> <span class="mi">100</span> <span class="n">average</span> <span class="n">velocity</span> <span class="ow">is</span> <span class="mf">0.898955</span>
+
+<span class="n">Finished</span>
+
+<span class="n">Time</span> <span class="n">taken</span> <span class="n">was</span>  <span class="mf">2.779974</span> <span class="n">seconds</span>
+<span class="n">Update</span> <span class="n">rate</span> <span class="n">was</span> <span class="mf">1151.089820</span> <span class="n">MCOPs</span>
+
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

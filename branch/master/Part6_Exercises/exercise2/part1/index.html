@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 1: Compilation, running &mdash; Introduction to HPC  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/epcc_logo.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Part 2: Investigation" href="../part2/" />
+    <link rel="prev" title="Fractal calculation program" href="../theory/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> Introduction to HPC
+            <img src="../../../_static/epcc_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Part0_Introduction/contents/">Introduction to High Performance Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part1_Supercomputing/contents/">Supercomputing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part2_Parallel_Computers/contents/">Parallel Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part3_Parallel_Computing/contents/">Parallel Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part4_Computer_Simulations/contents/">Computer Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Part5_Case_Studies/contents/">Case Studies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../contents/">Exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exercise0/">Practical exercise 0: First use of HPC machine, Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise1/">Practical exercise 1: First use of HPC machine, Image sharpening code</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Practical exercise 2: Parallel worksharing, Fractal code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../theory/">Fractal calculation program</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part 1: Compilation, running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#downloading-the-code">Downloading the code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compiling-the-code">Compiling the code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initial-run">Initial run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fractal-program-parameters">Fractal program Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/">Part 2: Investigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise3/">Pratical exercise 3: Investigating parallel performance, GROMACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercise4/">Practical exercise 4: Traffic simulation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Introduction to HPC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../contents/">Exercises</a></li>
+          <li class="breadcrumb-item"><a href="../">Practical exercise 2: Parallel worksharing, Fractal code</a></li>
+      <li class="breadcrumb-item active">Part 1: Compilation, running</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/JPRichings/content/blob/main/content/Part6_Exercises/exercise2/part1.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="part-1-compilation-running">
+<h1>Part 1: Compilation, running<a class="headerlink" href="#part-1-compilation-running" title="Permalink to this headline"></a></h1>
+<p>This page covers how to download, compile, and run the example code.</p>
+<section id="downloading-the-code">
+<h2>Downloading the code<a class="headerlink" href="#downloading-the-code" title="Permalink to this headline"></a></h2>
+<p>To download the code you will need to clone the repository. To do this execute the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">EPCCed</span><span class="o">/</span><span class="n">EPCC</span><span class="o">-</span><span class="n">Exercises</span>
+</pre></div>
+</div>
+</section>
+<section id="compiling-the-code">
+<h2>Compiling the code<a class="headerlink" href="#compiling-the-code" title="Permalink to this headline"></a></h2>
+<p>Enter the directory and compile the code using the Makefile.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fractal
+make
+</pre></div>
+</div>
+<p>The compiled program will be called <code class="docutils literal notranslate"><span class="pre">fractal</span></code>.</p>
+</section>
+<section id="initial-run">
+<h2>Initial run<a class="headerlink" href="#initial-run" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">fractal</span></code> program is designed to be run in parallel using MPI. If you try and run it in serial it will print an error message:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./fractal</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ERROR: need at least two processes for the task farm!
+</pre></div>
+</div>
+<p>To run using MPI you will need to submit a job to the compute nodes.</p>
+<p>The output will look similar to the output below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------</span> <span class="n">CONFIGURATION</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">TASKFARM</span> <span class="n">RUN</span> <span class="o">---------</span>
+
+<span class="n">Number</span> <span class="n">of</span> <span class="n">processes</span><span class="p">:</span>			 <span class="mi">17</span>
+<span class="n">Image</span> <span class="n">size</span><span class="p">:</span>			 <span class="mi">768</span> <span class="n">x</span> <span class="mi">768</span> 
+<span class="n">Task</span> <span class="n">size</span><span class="p">:</span>			 <span class="mi">192</span> <span class="n">x</span> <span class="mi">192</span> <span class="p">(</span><span class="n">pixels</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">iterations</span><span class="p">:</span>		 <span class="mi">5000</span>
+<span class="n">Coordinates</span> <span class="ow">in</span> <span class="n">X</span> <span class="n">dimension</span><span class="p">:</span>	 <span class="o">-</span><span class="mf">2.000000</span> <span class="n">to</span> <span class="mf">1.000000</span>
+<span class="n">Coordinates</span> <span class="ow">in</span> <span class="n">Y</span> <span class="n">dimension</span><span class="p">:</span>	 <span class="o">-</span><span class="mf">1.500000</span> <span class="n">to</span> <span class="mf">1.500000</span>
+<span class="n">Fractal</span> <span class="n">function</span> <span class="ow">is</span><span class="p">:</span>		 <span class="n">Mandelbrot</span> <span class="nb">set</span>
+
+<span class="o">-----</span><span class="n">Workload</span> <span class="n">Summary</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">iterations</span><span class="p">)</span><span class="o">---------</span>
+
+<span class="n">Total</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">Workers</span><span class="p">:</span> <span class="mi">16</span>
+<span class="n">Total</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">Tasks</span><span class="p">:</span>   <span class="mi">16</span>
+
+<span class="n">Total</span>   <span class="n">Worker</span> <span class="n">Load</span><span class="p">:</span> <span class="mi">498023053</span>
+<span class="n">Average</span> <span class="n">Worker</span> <span class="n">Load</span><span class="p">:</span> <span class="mi">31126440</span>
+<span class="n">Maximum</span> <span class="n">Worker</span> <span class="n">Load</span><span class="p">:</span> <span class="mi">156694685</span>
+<span class="n">Minimum</span> <span class="n">Worker</span> <span class="n">Load</span><span class="p">:</span> <span class="mi">62822</span>
+
+<span class="n">Time</span> <span class="n">taken</span> <span class="n">by</span> <span class="mi">16</span> <span class="n">workers</span> <span class="n">was</span> <span class="mf">1.212222</span> <span class="p">(</span><span class="n">secs</span><span class="p">)</span>
+<span class="n">Load</span> <span class="n">Imbalance</span> <span class="n">Factor</span><span class="p">:</span> <span class="mf">5.034134</span>
+
+
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fractal</span></code> executable will take a number of parameters and produce a fractal image in a file called <code class="docutils literal notranslate"><span class="pre">output.ppm</span></code>. By default the image will be
+overlaid with blocks in different shades, which correspond to the work done by different processors. This way we can see how the tasks were allocated. An example of this is presented in figure 1 – the image is divided into 16 tasks (squares) and different shade corresponds to each of 16 workers.</p>
+<p><img alt="Fractal output.ppm" src="../../../_images/fractal_output.png" />{: style=”width:500px;height:auto”}</p>
+<p><em>Example output image created using 16 workers and 16 tasks.</em></p>
+<p>The default run scripts do the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">-</span><span class="n">n</span> <span class="mi">17</span> <span class="o">./</span><span class="n">fractal</span> <span class="o">-</span><span class="n">t</span> <span class="mi">192</span>
+</pre></div>
+</div>
+<p>This creates a task farm with one master process and 16 workers. The master divides the image up into tasks, where each task is a square of the size of 192 by 192 pixels. The default image size is 768 x 768 pixels, which means there is exactly one task per worker, i.e. we are not yet doing anything to balance the load. Note that we control the number of tasks through the task size. (<code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--tasks-per-node=&lt;N&gt;</span></code>, or <code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">-n</span> <span class="pre">&lt;N&gt;</span></code>, or <code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">&lt;N&gt;</span></code>).</p>
+<p>The load of a worker is estimated as the total number of iterations of the Mandelbrot calculation summed over all the pixels considered by that worker. The assumption is that the time taken is proportional to this. The only time that is actually measured is the total time taken to complete the calculation.</p>
+<p>You can view the output file using <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">output.ppm</span></code>, an example of which is found in figure 1. If you want to see how the image looks without the shading use the <code class="docutils literal notranslate"><span class="pre">–n</span></code> option to the fractal program - see the following parameter section for more details.</p>
+</section>
+<section id="fractal-program-parameters">
+<h2>Fractal program Parameters<a class="headerlink" href="#fractal-program-parameters" title="Permalink to this headline"></a></h2>
+<p>The following options are recognised by the fractal program:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code>  number of pixels in the x-axis of image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-I</span></code>  maximum number of iterations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span></code> the x-minimum coordinate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-y</span></code> the y-minimum coordinate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">&lt;fractal</span> <span class="pre">function&gt;</span></code> set to J for Julia set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code> the real part of the parameter c+iC for the Julia set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span></code> the imaginary part of the parameter c+iC for the julia set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> task size (pixels x pixels)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> do not shade output image based on task allocation to workers</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../theory/" class="btn btn-neutral float-left" title="Fractal calculation program" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../part2/" class="btn btn-neutral float-right" title="Part 2: Investigation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, EPCC at the University of Edinburgh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
