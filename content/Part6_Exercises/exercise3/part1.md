@@ -5,23 +5,24 @@ In this section you will run a benchmark simulation and investigate the strong s
 
 ## The benchmark system
 
-The system we will used from the HECBIOSIM benchmark suite:
-[https://www.hecbiosim.ac.uk/access-hpc/benchmarks](https://www.hecbiosim.ac.uk/access-hpc/benchmarks)
+The system we will use is from the [HECBioSim HPC Benchmarking Suite](https://www.hecbiosim.org/access-hpc/hpc-benchmarking-suite).
 
 We will focus on the 465K atom system:
-  - hEGFR Dimer of 1IVO and 1NQL. 
-  - Total number of atoms = 465,399. 
-  - Protein atoms = 21,749  Lipid atoms = 134,268  Water atoms = 309,087  Ions = 295. 
+
+- hEGFR Dimer of 1IVO and 1NQL
+- Total number of atoms = 465,399
+- Protein atoms = 21,749
+- Lipid atoms = 134,268
+- Water atoms = 309,087
+- Ions = 295
 
 
 ```{figure} ./images/465K-H1-H1.png
 ---
 class: with-border
 ---
-465K atom system from HECBIOSIM benchmark suite. The orange molecule is the protein. The purple and gray molecules are the lipid-membrane. The box is filled with water but this is not shown for clarity.
+465K atom system from HECBioSim benchmark suite. The orange molecule is the protein. The purple and gray molecules are the lipid-membrane. The box is filled with water but this is not shown for clarity.
 ```
-The input file can be obtained from [https://www.hecbiosim.ac.uk/access-hpc/benchmarks](https://www.hecbiosim.ac.uk/access-hpc/benchmarks), or from our git repo: #TODO
-
 
 ## Running the benchmark
 
@@ -43,10 +44,9 @@ The most useful numbers to us are the wall-time ``95.966s`` , and the performanc
 ## Things to investigate
 - You should vary the number of nodes/CPUs and plot the performance. This investigates the strong scaling of the program.
 - What node count would you use for a long production simulation?
-- Previous benchmarks for this system can be found here:
-[https://www.hecbiosim.ac.uk/access-hpc/our-benchmark-results/archer2-benchmarks](https://www.hecbiosim.ac.uk/access-hpc/our-benchmark-results/archer2-benchmarks)
+- Previous benchmarks for this system can be found on the [HECBioSim HPC Benchmarking Results page](https://www.hecbiosim.org/access-hpc/hpc-benchmarking).
 
-We have plotted our results for version 2021.3 of gromacs on ARCHER2 here:
+We have plotted our results for version 2021.3 of GROMACS on ARCHER2 here:
 
 
 ```{figure} ./images/gmx_strong_scaling.svg
