@@ -16,25 +16,25 @@
 # We use the "standard" QoS as our runtime is less than 4 days
 #SBATCH --qos=standard
 
-# Load the default HPE MPI environment
-module load mpt
-module load intel-20.4/compilers
+# PrgEnv-cray loaded by default (cray-mpich + CCE + cray-libsci)
+# No module commands needed in scripts
 
 # Change to the submission directory
 cd $SLURM_SUBMIT_DIR
 
-# Set the number of threads to 1
+# Set the number of threads to the CPUs per task
 #   This prevents any threaded system libraries from automatically
 #   using threading.
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export SRUN_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK
 NODES=$SLURM_JOB_NUM_NODES
-CORES=$((NODES*128))
+CORES=$((NODES*288))
 THREADS=$OMP_NUM_THREADS
 
 export OMP_PLACES=cores
 
 # Launch the parallel job
-#   Using 144 MPI processes and 36 MPI processes per node
+#   1 MPI process per node
 #   srun picks up the distribution from the sbatch options
-srun ./hello-MPI your-name > MPI-${NODES}nodes-${CORES}cores-${THREADS}threads.${SLURM_JOBID}.out
+srun --hint=nomultithread --distribution=block:block ./hello-MPI your-name > MPI-${NODES}nodes-${CORES}cores-${THREADS}threads.${SLURM_JOBID}.out
 ```

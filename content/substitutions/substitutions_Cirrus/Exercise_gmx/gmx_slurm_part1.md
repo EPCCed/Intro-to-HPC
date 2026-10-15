@@ -7,7 +7,7 @@ caption: cirrus.slurm
 
 #SBATCH --job-name=gmx_bench
 #SBATCH --nodes=1
-#SBATCH --tasks-per-node=36
+#SBATCH --tasks-per-node=288
 #SBATCH --cpus-per-task=1
 #SBATCH --time=00:10:00
 
@@ -15,10 +15,12 @@ caption: cirrus.slurm
 #SBATCH --account=[budget code]
 #SBATCH --partition=standard
 #SBATCH --qos=standard
+# Change to the submission directory
+cd $SLURM_SUBMIT_DIR
 
 # Setup the environment
 module load gromacs
 
 export OMP_NUM_THREADS=1 
-srun gmx_mpi mdrun -s bench_465kHBS.tpr -v
+srun --hint=nomultithread --distribution=block:block gmx_mpi mdrun -s bench_465kHBS.tpr -v
 ```

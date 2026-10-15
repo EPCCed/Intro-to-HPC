@@ -15,13 +15,15 @@ caption: cirrus.slurm
 #SBATCH --account=[budget code]
 #SBATCH --partition=standard
 #SBATCH --qos=standard
+# Change to the submission directory
+cd $SLURM_SUBMIT_DIR
 
 # Setup the environment
 module load gromacs
 
 export OMP_NUM_THREADS=1 
-srun gmx_mpi mdrun -s water_x1.tpr  -v
+srun --hint=nomultithread --distribution=block:block gmx_mpi mdrun -s water_x1.tpr -v
 ```
 
 Make sure that ``nodes`` x ``tasks-per-node`` is close to the system size.
-i.e for ``water_x64.tpr`` use ``--nodes=2`` and ``--tasks-per-node=36`` 
+i.e for ``water_x256.tpr`` use ``--nodes=1`` and ``--tasks-per-node=256`` 

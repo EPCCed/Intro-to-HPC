@@ -1,5 +1,9 @@
 ## Connecting to Cirrus
 
+### Login address
+
+The current login address for Cirrus is `login.cirrus.ac.uk`.
+
 ### Sign up for an account on Cirrus through SAFE
 
 1. [Login to SAFE](https://safe.epcc.ed.ac.uk)
@@ -15,7 +19,7 @@ Once this has been done, you should be sent an email. _If you have not received 
 ### Generate an SSH key pair and upload it to SAFE
 
 In addition to your password, you will need an SSH key pair to access Cirrus. There is useful guidance on how
-to generate SSH key pairs in [the Cirrus documentation](https://cirrus.readthedocs.io/en/master/user-guide/connecting.html).
+to generate SSH key pairs in [the Cirrus documentation](https://docs.cirrus.ac.uk/user-guide/connecting/).
 
 Once you have generated your key pair, you need to add the public part to your Cirrus account in SAFE:
 
@@ -31,4 +35,8 @@ The public SSH key part will now be added to your login account on the Cirrus sy
 
 ### Log into Cirrus
 
-You should now be able to log into Cirrus by following the [login instructions in the Cirrus documentation](https://cirrus.readthedocs.io/en/master/user-guide/connecting.html).
+> **Multi-factor authentication (MFA)**
+>
+> Cirrus now requires two credentials: your SSH key pair **and** a time-based one-time passcode (TOTP). Set up your TOTP code in [SAFE](https://epcced.github.io/safe-docs/safe-for-users/) before logging in.
+
+You should now be able to log into Cirrus by following the [login instructions in the Cirrus documentation](https://docs.cirrus.ac.uk/user-guide/connecting/).

@@ -183,9 +183,6 @@ NUMA architecture
 
 Although every CPU-core can access all the memory regardless of which processor it is located on, this can involve going through an additional memory bus so reading data from another CPU’s memory is slower than reading from your own memory. This hardware arrangement is really a detail that isn’t usually very important - the most important feature is that the 128 CPU-cores form a single shared-memory computer, all under the control of a single operating system.
 
-```{danger}
-Need archer 2 node picture
-```
 
 The details of the network are even more complicated with four separate levels ranging from direct connections between the nodes packaged together on the same blade, up to fibre-optic connections between separate cabinets. If you are interested in the details see the ARCHER2 website.
 
@@ -230,7 +227,7 @@ D) it is basically the same processor you would find in a high-end PC or compute
 
 ```{solution}
 
-A) and C)
+B) and D)
 
 That’s right - today almost all processors have multiple CPU-cores.
 
