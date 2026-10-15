@@ -6,17 +6,17 @@
 
 ## Computer simulations
 
-How many people haven’t heard about computer simulations? Few, if any. After all, the term has become a part of popular culture. Some people are even suggesting that we are living in a Matrix-style computer simulation. But how many people actually understand what a computer simulation is? Do you?
+How many people haven't heard about computer simulations? Few, if any. After all, the term has become a part of popular culture. Some people are even suggesting that we are living in a Matrix-style computer simulation. But how many people actually understand what a computer simulation is? Do you?
 
-In the English language, the word simulate originally meant to imitate the appearance or character of and was derived from the Latin simulat, which meant copied or represented. A modern dictionary also states that the word simulation may refer to the representation of the behaviour or characteristics of one system through the use of another system. This is precisely what computer simulations are meant to do.
+In the English language, the word simulate originally meant to imitate the appearance or character of and was derived from the Latin _simulat_, which meant copied or represented. A modern dictionary also states that the word simulation may refer to the representation of the behaviour or characteristics of one system through the use of another system. This is precisely what computer simulations are meant to do.
 
 In a strict sense, a computer simulation is a program run on a computer, which step by step explores the behaviour of a real-world system, which is represented as a mathematical model. In other words, a simulation is an act of running a model representing the system of interest. More broadly speaking, computer simulations are an entire, comprehensive process for studying systems. This process includes choosing a model, implementing it, calculating the output and processing the resultant data, for example by visualising them.
 
 By definition a mathematical model is a simplification of reality. Typically, it is impossible to perfectly capture all the components of a system and their interaction. In fact, more often than not, it would not be a useful thing to do. Think about it - if you could simulate something well enough in about 5 minutes, would you want to spend 5 days to do it perfectly?
 
-For simulations like weather forecasting, or wildfire modelling, the time-to-solution should to be as short as possible. In other cases, you may not care about how long it takes to reach the solution, but what about the required computing power and associated costs? Computer simulations are very much about tradeoffs: time-to-solution, performance and computational cost vs. scientific usefulness.
+For simulations like weather forecasting, or wildfire modelling, the time-to-solution should to be as short as possible. In other cases, you may not care about how long it takes to reach the solution, but what about the required computing power and associated costs? Computer simulations are very much about trade-offs: time-to-solution, performance and computational cost vs. scientific usefulness.
 
-Moreover, regardless of how complex a model is, the actual physical system will always contain phenomena that are not represented in the model. This is not a problem, as long as the model still provides insight into the behaviour of the system. That’s why a truly useful model should be able to determine all relevant behaviour and properties of the studied system using a relatively small number of variables and relations between them. The predictive power of a model does not directly depend on its completeness or complexity but on its ability to correctly identify the dominant controlling factors and hence, the necessary approximations.
+Moreover, regardless of how complex a model is, the actual physical system will always contain phenomena that are not represented in the model. This is not a problem, as long as the model still provides insight into the behaviour of the system. That's why a truly useful model should be able to determine all relevant behaviour and properties of the studied system using a relatively small number of variables and relations between them. The predictive power of a model does not directly depend on its completeness or complexity but on its ability to correctly identify the dominant controlling factors and hence, the necessary approximations.
 
 Now, how one goes about creating a model and a simulation? Any ideas?
 
@@ -40,7 +40,7 @@ A special treatment is given to the elements of a system that need to be treated
 
 The transition between the conceptual and mathematical model involves capturing the interactions of the relevant components in a set of equations, and determining the boundary and initial conditions. The next step ensures that discrete mathematics is used - i.e. continuous equations are approximated by small and distinct steps so that computers can deal with them one by one.
 
-Once an appropriate algorithm (a set of rules and methods used to solve the problem) has been decided on, the model is implemented and errors start creeping in. By errors we mean inaccuracies that are not caused by the lack of knowledge. Some of them may be due to a programmer’s mistakes and others are related to the numeric precision.
+Once an appropriate algorithm (a set of rules and methods used to solve the problem) has been decided on, the model is implemented and errors start creeping in. By errors we mean inaccuracies that are not caused by the lack of knowledge. Some of them may be due to a programmer's mistakes and others are related to the numeric precision.
 
 ### Rounding Error
 
@@ -67,11 +67,11 @@ There are two main variations to this model.
 
 In the first variation, wolves and sheep wander randomly around the landscape, while the wolves look for sheep to prey on. Each step costs the wolves energy, and they must eat sheep in order to replenish their energy - when they run out of energy they die. To allow the population to continue, each wolf or sheep has a fixed probability of reproducing at each time step. This variation produces interesting population dynamics, but is ultimately unstable, i.e. one or other population tends to die out.
 
-The second variation includes grass (green) in addition to wolves and sheep. The behavior of the wolves is identical to the first variation, however this time the sheep must eat grass in order to maintain their energy - when they run out of energy they die. Once grass is eaten it will only regrow after a fixed amount of time. This variation is more complex than the first, but it is generally stable.
+The second variation includes grass (green) in addition to wolves and sheep. The behaviour of the wolves is identical to the first variation, however this time the sheep must eat grass in order to maintain their energy - when they run out of energy they die. Once grass is eaten it will only regrow after a fixed amount of time. This variation is more complex than the first, but it is generally stable.
 
 To play with the model, or to have a look at the code, go to the Modelling Commons page dedicated to the [wolf-sheep model](http://modelingcommons.org/browse/one_model/1390#model_tabs_browse_nlw) and first click on the SETUP button and then on the GO button. For more information on the model see the INFO tab.
 
-We know that the web version of the model works on Chrome and Safari browsers. If you cannot get it to work on your browser you can try downloading the netlogo software from [here](https://ccl.northwestern.edu/netlogo/s). It comes with a library full of interesting models and the wolf-sheep model can be found under the biology section.
+We know that the web version of the model works on Chrome and Safari browsers. If you cannot get it to work in your browser, you can try downloading the [NetLogo software](https://www.netlogo.org/) instead. It comes with a library full of interesting models and the wolf-sheep model can be found under the biology section.
 
 ```{figure} ./images/hero_b12d1403-058b-4971-9417-f188a1440b3a.png
 ```
@@ -168,11 +168,11 @@ You should not confuse computational science, which uses computational methods t
 
 Clearly, computational science is an intersection between mathematics, applied disciplines and computer science.
 
-Some of the disciplines traditionally associated with computational science include: atmospheric sciences (e.g. weather forecasting, climate and ocean modelling, seismology etc.), astrophysics, nuclear engineering, chemistry, fluid dynamics, structural analysis and material research. It’s easy to see why these disciplines were quick to take up computational science.
+Some of the disciplines traditionally associated with computational science include: atmospheric sciences (e.g. weather forecasting, climate and ocean modelling, seismology etc.), astrophysics, nuclear engineering, chemistry, fluid dynamics, structural analysis and material research. It's easy to see why these disciplines were quick to take up computational science.
 
 However, more recently, other disciplines, such as medicine (e.g. medical imaging, blood flow simulations, bone structure simulations), biology (e.g. ecosystem and environmental modelling) and economics became part of computational science as well. It is quite common nowadays to come across terms like computational economics or computational biology.
 
-If you want to know what sorts of applications are run on the UK’s national supercomputer ARCHER2, visit the relevant page on the ARCHER2 website. Is there anything that surprises you there?
+If you want to know what sorts of applications are run on the UK's national supercomputer ARCHER2, visit the relevant page on the ARCHER2 website. Is there anything that surprises you there?
 
 ---
 
@@ -193,27 +193,27 @@ The excerpts below are from three different projects involving computer simulati
 
 ### Protein Folding
 
-(The Folding@Home Project page can be found [here](https://foldingathome.org/dig-deeper/?lng=en-UK)):
+(For more information, see the [Folding@Home project page](https://foldingathome.org/).)
 
-“Proteins are necklaces of amino acids — long chain molecules. They come in many different shapes and sizes, and they are the basis of how biology gets things done. As enzymes, they are the driving force behind all of the biochemical reactions which make biology work. As structural elements, they are the main constituent of our bones, muscles, hair, skin and blood vessels. As antibodies, they recognize invading elements and allow the immune system to get rid of the unwanted invaders. They also help move muscles and process the signals from the sensory system. For these reasons, scientists have sequenced the human genome — the blueprint for all of the proteins in biology — but how can we understand what these proteins do and how they work?
+"Proteins are necklaces of amino acids — long chain molecules. They come in many different shapes and sizes, and they are the basis of how biology gets things done. As enzymes, they are the driving force behind all of the biochemical reactions which make biology work. As structural elements, they are the main constituent of our bones, muscles, hair, skin and blood vessels. As antibodies, they recognize invading elements and allow the immune system to get rid of the unwanted invaders. They also help move muscles and process the signals from the sensory system. For these reasons, scientists have sequenced the human genome — the blueprint for all of the proteins in biology — but how can we understand what these proteins do and how they work?
 
-However, only knowing this amino acid sequence tells us little about what the protein does and how it does it. In order to carry out their function (e.g. as enzymes or antibodies), they must take on a particular shape, also known as a fold. Thus, proteins are truly amazing machines: before they do their work, they assemble themselves! This self-assembly is called folding. Out of an astronomical number of possible ways to fold, a protein can pick one in microseconds to milliseconds (i.e. in a millionth to a thousandth of a second). How a protein does this is an intriguing mystery.”
+However, only knowing this amino acid sequence tells us little about what the protein does and how it does it. In order to carry out their function (e.g. as enzymes or antibodies), they must take on a particular shape, also known as a fold. Thus, proteins are truly amazing machines: before they do their work, they assemble themselves! This self-assembly is called folding. Out of an astronomical number of possible ways to fold, a protein can pick one in microseconds to milliseconds (i.e. in a millionth to a thousandth of a second). How a protein does this is an intriguing mystery."
 
 The Folding@Home project is actually an example of a distributed computing project. The project makes use of idle processing resources of personal computers owned by people who voluntarily installed the project software on their systems. Nevertheless, supercomputers are used as well to simulate protein folding. If you are interested, you can read about the ANTON supercomputer and what it does in a Nature article.
 
 ### Recreating the Big Bang
 
-(The Illustris project page can be found [here](http://www.illustris-project.org/)):
+(See the [Illustris project website](http://www.illustris-project.org/) for more information.)
 
-“The Illustris project is a set of large-scale cosmological simulations, including the most ambitious simulation of galaxy formation yet performed. The calculation tracks the expansion of the universe, the gravitational pull of matter onto itself, the motion or “hydrodynamics” of cosmic gas, as well as the formation of stars and black holes. These physical components and processes are all modeled starting from initial conditions resembling the very young universe 300,000 years after the Big Bang until the present day, spanning over 13.8 billion years of cosmic evolution. The simulated volume contains tens of thousands of galaxies captured in high-detail, covering a wide range of masses, rates of star formation, shapes, sizes, and with properties that agree well with the galaxy population observed in the real universe.”
+"The Illustris project is a set of large-scale cosmological simulations, including the most ambitious simulation of galaxy formation yet performed. The calculation tracks the expansion of the universe, the gravitational pull of matter onto itself, the motion or “hydrodynamics” of cosmic gas, as well as the formation of stars and black holes. These physical components and processes are all modelled starting from initial conditions resembling the very young universe 300,000 years after the Big Bang until the present day, spanning over 13.8 billion years of cosmic evolution. The simulated volume contains tens of thousands of galaxies captured in high-detail, covering a wide range of masses, rates of star formation, shapes, sizes, and with properties that agree well with the galaxy population observed in the real universe."
 
 ### Weather modelling
 
-(More information about ensemble forecasting done by the UK Met Office can be found [here](https://www.metoffice.gov.uk/research/weather/ensemble-forecasting/what-is-an-ensemble-forecast)):
+(See the [UK Met Office ensemble forecasting page](https://www.metoffice.gov.uk/research/weather/ensemble-forecasting/what-is-an-ensemble-forecast) for more information.)
 
 “A forecast is an estimate of the future state of the atmosphere. It is created by estimating the current state of the atmosphere using observations, and then calculating how this state will evolve in time using a numerical weather prediction computer model. As the atmosphere is a chaotic system, very small errors in its initial state can lead to large errors in the forecast.
 
-This means that we can never create a perfect forecast system because we can never observe every detail of the atmosphere’s initial state. Tiny errors in the initial state will be amplified, so there is always a limit to how far ahead we can predict any detail. To test how these small differences in the initial conditions may affect the outcome of the forecast, an ensemble system can be used to produce many forecasts.”
+This means that we can never create a perfect forecast system because we can never observe every detail of the atmosphere's initial state. Tiny errors in the initial state will be amplified, so there is always a limit to how far ahead we can predict any detail. To test how these small differences in the initial conditions may affect the outcome of the forecast, an ensemble system can be used to produce many forecasts.”
 
 ---
 
@@ -229,9 +229,9 @@ In the previous steps we discussed briefly what simulations are and how they are
 
 The pre-processing stage takes care of the model settings and input data. Different simulations require different inputs - simple models do not require much input (e.g. our traffic and wolf-sheep predator models), but most of the useful simulations deal with a large amount of data. Usually, the input data comes from real-world observations, measurements and experiments. Let us take weather modelling as an example. How do you think numerical weather prediction works?
 
-To make a forecast it is necessary to have a clear picture of the current state of the atmosphere and the Earth’s surface. Moreover, the quality of the forecast strongly depends on how well the numerical model can deal with all this information. Now, where do all these data points come from? They are gathered by various weather stations, satellite instruments, ships, buoys… and so on.
+To make a forecast it is necessary to have a clear picture of the current state of the atmosphere and the Earth's surface. Moreover, the quality of the forecast strongly depends on how well the numerical model can deal with all this information. Now, where do all these data points come from? They are gathered by various weather stations, satellite instruments, ships, buoys… and so on.
 
-It’s not hard to imagine that all of these may record and store their measurements differently. That is why the pre-processing step is necessary - it prepares the data for further procedures, so that they can be easily and effectively used. This may mean simply making sure all the data is in the same format, and there are no invalid data entries, or performing more complicated operations such as removing noise from data, or normalising the data sets. The pre-processing stage ends when a simulation is ready to be launched.
+It's not hard to imagine that all of these may record and store their measurements differently. That is why the pre-processing step is necessary&mdash;it prepares the data for further procedures, so that they can be easily and effectively used. This may mean simply making sure all the data is in the same format, and there are no invalid data entries, or performing more complicated operations such as removing noise from data, or normalising the data sets. The pre-processing stage ends when a simulation is ready to be launched.
 
 ### Execution
 
@@ -271,7 +271,7 @@ A) to solve larger or more complex problems
 B) to solve problems faster
 
 
-C) it’s often cheaper than carrying out experiments
+C) it's often cheaper than carrying out experiments
 
 
 D) computer simulations may be the only way of studying some problems
@@ -288,7 +288,7 @@ Correct! - Having more computational power means you can tackle larger or more c
 
 Correct! - in most simulations directly linked to our everyday lives (e.g. weather forecasting, medical modelling) the time-to-solution is very important. Being able to solve problems faster is important.
 
-Correct! - if you need to test hundreds of different problem settings it’s often cheaper to run hundreds of simulations than carry out hundreds of experiments.
+Correct! - if you need to test hundreds of different problem settings it's often cheaper to run hundreds of simulations than carry out hundreds of experiments.
 
 Correct! - problems dealing with extremely small or large time and space-scales are often difficult, if not impossible to study otherwise.
 
@@ -327,7 +327,7 @@ Correct! - the execution of mathematical model on a computer is called simulatio
 Which of the following aspects of a computer simulation are never approximated?
 
 
-A) interactions between the system’s components
+A) interactions between the system's components
 
 
 B) initial and boundary conditions
@@ -406,6 +406,6 @@ C)
 
 Think about what computer simulations are meant to do and how they do it.
 
-Correct! - pre-processing is necessary to ensure that simulation is run with correct settings; post-processing makes sure that the simulation’s output is readable or ready for further processing.
+Correct! - pre-processing is necessary to ensure that simulation is run with correct settings; post-processing makes sure that the simulation's output is readable or ready for further processing.
 
 ```

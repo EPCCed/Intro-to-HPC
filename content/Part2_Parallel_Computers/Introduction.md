@@ -4,7 +4,7 @@
 
 ```{solution} Transcript
 
-0:11 - This week, we’ll start looking in more detail at how the many CPU-cores that make up a parallel supercomputer are put together. We’ll see that the way that the CPU-cores are connected to the memory is actually the key issue. And this leads to two distinct types of parallel computer. One approach leads to relatively small scale, everyday, parallel systems, such as your laptop, mobile phone, or the graphics card in a games console. The other approach is more unique to supercomputing, allowing us to scale up to the hundreds of thousands of cores we need to tackle the world’s largest computer simulations.
+0:11 - This week, we'll start looking in more detail at how the many CPU-cores that make up a parallel supercomputer are put together. We'll see that the way that the CPU-cores are connected to the memory is actually the key issue. And this leads to two distinct types of parallel computer. One approach leads to relatively small scale, everyday, parallel systems, such as your laptop, mobile phone, or the graphics card in a games console. The other approach is more unique to supercomputing, allowing us to scale up to the hundreds of thousands of cores we need to tackle the world's largest computer simulations.
 ```
 
 In Part 2 we look at supercomputing hardware and architectures.

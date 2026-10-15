@@ -8,7 +8,7 @@
 
 We have seen over the first two parts of the course that almost all modern computers are parallel computers, consisting of many individual CPU-cores that can be connected together in two different ways: in either a shared-memory or a distributed-memory fashion. A supercomputer will contain tens of thousands of CPU-cores, all operating simultaneously.
 
-A single CPU-core acts as a serial computer, running a single computer program at any one time. The Oxford English Dictionary defines serial computing as ‘the performance of operations … in a set order one at a time’. To take advantage of a parallel computer, we need to perform many operations at the same time so that we can make use of many CPU-cores. Parallel computing is defined as ‘Involving the concurrent or simultaneous performance of certain operations’.
+A single CPU-core acts as a serial computer, running a single computer program at any one time. The Oxford English Dictionary defines serial computing as 'the performance of operations … in a set order one at a time'. To take advantage of a parallel computer, we need to perform many operations at the same time so that we can make use of many CPU-cores. Parallel computing is defined as 'Involving the concurrent or simultaneous performance of certain operations'.
 
 It is quite clear that a supercomputer has the potential for doing calculations very quickly. However, it may not immediately be obvious how to take advantage of this potential power for any particular problem. This week, we look at ways to solve problems that enable us to take advantage of parallel computers. That requires a problem, calculation or serial computer program to be parallelised.
 
@@ -60,15 +60,15 @@ Why do you think this problem is a good analogy for other, more complex simulati
 
 <iframe id="kaltura_player" width="700" height="400" src="https://cdnapisec.kaltura.com/p/2010292/sp/201029200/embedIframeJs/uiconf_id/32599141/partner_id/2010292?iframeembed=true&playerId=kaltura_player&entry_id=1_bw098xol&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8e9q3inw" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Traffic_Model_works_hd"></iframe>
 
-```{solution} Transcipt
+```{solution} Transcript
 
-0:11 - So now we’re going to spend some time looking at the traffic model. Here I’m illustrating it being run as pawns on a chessboard. And the way it works is that the squares on the chessboard represent the road and the pawns represent the cars. And obviously, a car here, this piece of road is occupied. There’s a pawn there. This piece of road is not occupied. And just to remind you, the way the model works. The rules are very simple. At each iteration a car moves forward if it can, if there’s a gap in front. It doesn’t move forward if there is a car in front of it. Now the right way to run this simulation is to look
+0:11 - So now we're going to spend some time looking at the traffic model. Here I'm illustrating it being run as pawns on a chessboard. And the way it works is that the squares on the chessboard represent the road and the pawns represent the cars. And obviously, a car here, this piece of road is occupied. There's a pawn there. This piece of road is not occupied. And just to remind you, the way the model works. The rules are very simple. At each iteration a car moves forward if it can, if there's a gap in front. It doesn't move forward if there is a car in front of it. Now the right way to run this simulation is to look
 
-0:42 - at the cars and say: that one can move, that one can’t, and that one can and then to move them. That’s slightly awkward. It turns out that we actually get the right answer if we update them in order from left to right as you look at it. So let’s just go ahead and run the model. So first of all, we have these three cars. This car can move. This car can’t move. And this car can move. So that iteration, two cars moved. There were three cars. So we’re interested in the average speed. The average speed is 2/3 or 0.67. Here I’m saying the maximum speed of the car is one.
+0:42 - at the cars and say: that one can move, that one can't, and that one can and then to move them. That's slightly awkward. It turns out that we actually get the right answer if we update them in order from left to right as you look at it. So let's just go ahead and run the model. So first of all, we have these three cars. This car can move. This car can't move. And this car can move. So that iteration, two cars moved. There were three cars. So we're interested in the average speed. The average speed is 2/3 or 0.67. Here I'm saying the maximum speed of the car is one.
 
-1:14 - If you thought of the maximum speed of the car as being 60 miles an hour, you could say the average speed here is 40. But for simplicity, I’m just calling the maximum speed one. On the next iteration, again this car can’t move, this one can and this one can. So again the average speed of the cars there was 2/3 or 0.67. But you’ll see that actually now the cars arranged themselves with gaps in between them. So from now on, we’re in free flowing traffic. So from now on every iteration, all the cars move. And the average speed is one. And this would just carry on happily, all the cars moving. And we have completely free flowing traffic.
+1:14 - If you thought of the maximum speed of the car as being 60 miles an hour, you could say the average speed here is 40. But for simplicity, I'm just calling the maximum speed one. On the next iteration, again this car can't move, this one can and this one can. So again the average speed of the cars there was 2/3 or 0.67. But you'll see that actually now the cars arranged themselves with gaps in between them. So from now on, we're in free flowing traffic. So from now on every iteration, all the cars move. And the average speed is one. And this would just carry on happily, all the cars moving. And we have completely free flowing traffic.
 
-1:50 - Now it turns out that in any situation where we have fewer than 50% or fewer cars then they will eventually arrange themselves into this is car gap, car gap arrangement and move off with average speed of one. However, what’s interesting is actually what happens when there are more than 50% density of cars and we get congestion.
+1:50 - Now it turns out that in any situation where we have fewer than 50% or fewer cars then they will eventually arrange themselves into this is car gap, car gap arrangement and move off with average speed of one. However, what's interesting is actually what happens when there are more than 50% density of cars and we get congestion.
 ```
 
 In this short video David uses a chessboard to explain how the traffic model works.
@@ -85,11 +85,11 @@ Do you think this simplified model is actually useful? Why?
 
 ```{solution} Transcript
 
-0:12 - An interesting situation to look at is when we have traffic stopped at a set of traffic lights. So here I have this piece here representing some traffic lights and here I have four cars queued up at the traffic lights. Let’s imagine what happens when the traffic lights go green. So what would be really nice, would make driving much easier, and make congestion a lot less, is if all the cars moved off at once. So the traffic lights go green and all the cars move off in a single block like that. But we know that’s not what happens. We know you have to wait a long time when traffic lights change. So let’s see how this works in this model.
+0:12 - An interesting situation to look at is when we have traffic stopped at a set of traffic lights. So here I have this piece here representing some traffic lights and here I have four cars queued up at the traffic lights. Let's imagine what happens when the traffic lights go green. So what would be really nice, would make driving much easier, and make congestion a lot less, is if all the cars moved off at once. So the traffic lights go green and all the cars move off in a single block like that. But we know that's not what happens. We know you have to wait a long time when traffic lights change. So let's see how this works in this model.
 
-0:45 - So we’ve got the cars lined up here. The traffic lights go green. On the first iteration, only one car can move. Then on the next iteration, two cars can move. But this car and this car are still static. The third iteration, three cars can move. And only on the fourth iteration, after four time steps, is this car able to move and they all move off freely.
+0:45 - So we've got the cars lined up here. The traffic lights go green. On the first iteration, only one car can move. Then on the next iteration, two cars can move. But this car and this car are still static. The third iteration, three cars can move. And only on the fourth iteration, after four time steps, is this car able to move and they all move off freely.
 
-1:10 - And after that, we have free-flowing traffic. These cars will carry on moving at speed one and move away freely. So even with this very simple model, this very simple cellular automaton model of how traffic flows, we see that in a situation of cars lined up at traffic lights, it predicts the correct behaviour. The cars don’t move off in a block, they move off and end up spread apart. And they move off one by one. Meaning the cars further back in the line have to wait a certain amount of time to get through and perhaps even miss the traffic lights if they go red again.
+1:10 - And after that, we have free-flowing traffic. These cars will carry on moving at speed one and move away freely. So even with this very simple model, this very simple cellular automaton model of how traffic flows, we see that in a situation of cars lined up at traffic lights, it predicts the correct behaviour. The cars don't move off in a block, they move off and end up spread apart. And they move off one by one. Meaning the cars further back in the line have to wait a certain amount of time to get through and perhaps even miss the traffic lights if they go red again.
 ```
 
 In this first example David uses the traffic model on a chessboard to simulate a situation created by traffic lights.
@@ -104,11 +104,11 @@ In your opinion, is our toy model capable of capturing the effect of traffic lig
 
 ```{solution} Transcript
 
-0:11 - So one of the interesting things about the simulation is to look at congestion when traffic jams arise. So if that we start with a situation where the road is completely full, we have cars everywhere, obviously none of the cars can move. It means complete gridlock. What we’re going to do is consider a situation where there is a small amount of space, so there’s a gap there. So what happens? Well each iteration, you’ll see that only one car can move. The first iteration, this car can move. The second iteration, this car can move. The third iteration, this car can move. And so on. And obviously there, the average speed is very low.
+0:11 - So one of the interesting things about the simulation is to look at congestion when traffic jams arise. So if that we start with a situation where the road is completely full, we have cars everywhere, obviously none of the cars can move. It means complete gridlock. What we're going to do is consider a situation where there is a small amount of space, so there's a gap there. So what happens? Well each iteration, you'll see that only one car can move. The first iteration, this car can move. The second iteration, this car can move. The third iteration, this car can move. And so on. And obviously there, the average speed is very low.
 
-0:43 - Only one car is moving per iteration out of all these cars, so the average speed is not very high. But another way to look at this is quite interesting. If you watch this, you’ll see that what’s actually happening is one car is moving to the right every iteration. You could also think of it as the gap moving to the left. So you could think of this situation as the gap moving to the left with speed one. That’s to be contrasted with a single car on its own on an otherwise empty road where the car moves to the right with speed one. Every iteration the car moves one space to the right.
+0:43 - Only one car is moving per iteration out of all these cars, so the average speed is not very high. But another way to look at this is quite interesting. If you watch this, you'll see that what's actually happening is one car is moving to the right every iteration. You could also think of it as the gap moving to the left. So you could think of this situation as the gap moving to the left with speed one. That's to be contrasted with a single car on its own on an otherwise empty road where the car moves to the right with speed one. Every iteration the car moves one space to the right.
 
-1:18 - And that’s just quite interesting observation, but it might help you, in fact, to try to think about how the model works.
+1:18 - And that's just quite interesting observation, but it might help you, in fact, to try to think about how the model works.
 
 ```
 
@@ -125,11 +125,11 @@ This is actually quite important not only in our toy traffic model but also in a
 
 ```{solution} Transcript
 
-0:11 - So I’m sure you’ll have been in the situation where you’re driving along the motorway, and suddenly you have to brake because the car in front has slowed down. But there’s no apparent reason for it. And then maybe a minute or so later you see there’s been an accident or an incident by the side of the road. And people are slowing down to see what’s been going on. Well, surprisingly this very, very simple simulation predicts that kind of behaviour. So I’m going to have a larger road here. So here, I’ve put two chess boards together so I can now have a larger road. And we’ve set up with free-flowing traffic. So at the moment, everything’s fine.
+0:11 - So I'm sure you'll have been in the situation where you're driving along the motorway, and suddenly you have to brake because the car in front has slowed down. But there's no apparent reason for it. And then maybe a minute or so later you see there's been an accident or an incident by the side of the road. And people are slowing down to see what's been going on. Well, surprisingly this very, very simple simulation predicts that kind of behaviour. So I'm going to have a larger road here. So here, I've put two chess boards together so I can now have a larger road. And we've set up with free-flowing traffic. So at the moment, everything's fine.
 
 0:41 - Everyone is moving forward at speed one.
 
-0:47 - Now we’re going to imagine that perhaps someone coming from a side street has a slight accident. And there’s a small incident here, and this car is broken down. And having seen it, this car decides to slow down just to see what’s going on. So on the next iteration this car isn’t going to move. That’s the only difference. Everyone moves except for this car. Now you might have wondered beforehand what happens at the edges of the road? These are the boundary conditions, what happens off the edges of your simulation are called boundaries. And the boundary conditions say what happens there. So what we’re going to imagine here is that this is embedded in a run of free flowing traffic.
+0:47 - Now we're going to imagine that perhaps someone coming from a side street has a slight accident. And there's a small incident here, and this car is broken down. And having seen it, this car decides to slow down just to see what's going on. So on the next iteration this car isn't going to move. That's the only difference. Everyone moves except for this car. Now you might have wondered beforehand what happens at the edges of the road? These are the boundary conditions, what happens off the edges of your simulation are called boundaries. And the boundary conditions say what happens there. So what we're going to imagine here is that this is embedded in a run of free flowing traffic.
 
 1:25 - So cars on the right here just move off into free space. But on the left here, the gaps are replaced with cars coming in. So there is another car coming in here. So now we just carry on running the model.
 
@@ -137,15 +137,15 @@ This is actually quite important not only in our toy traffic model but also in a
 
 1:47 - And again, we add another car here. This would keep going.
 
-1:56 - You’ll see that although the original incident was here, the cars are starting to brake further down the line. It becomes more obvious when you run it once more.
+1:56 - You'll see that although the original incident was here, the cars are starting to brake further down the line. It becomes more obvious when you run it once more.
 
-2:08 - But on this iteration, you can see that it’s this car here way down line that can’t move.
+2:08 - But on this iteration, you can see that it's this car here way down line that can't move.
 
-2:16 - Despite the fact that the accident is far upstream. So what we see is the braking behaviour where a car has to slow down because the car in front has slowed down moves backwards to the left in a wave well away from where the original incident happened. Now to come back to boundary conditions, what we’re going to look at in the future is we’re going to look at a situation where we’re not imagining a straight road, we’re actually imagining a roundabout where the road is closed in on itself. And the way to do that is to make sure that when cars move off one side of the road, they reappear on the other.
+2:16 - Despite the fact that the accident is far upstream. So what we see is the braking behaviour where a car has to slow down because the car in front has slowed down moves backwards to the left in a wave well away from where the original incident happened. Now to come back to boundary conditions, what we're going to look at in the future is we're going to look at a situation where we're not imagining a straight road, we're actually imagining a roundabout where the road is closed in on itself. And the way to do that is to make sure that when cars move off one side of the road, they reappear on the other.
 
-2:46 - What we’ve done is we’ve taken the roundabout, we’ve kind of unwrapped it into a straight line, so we have to make sure that it’s joined in to a roundabout, cars that leave here come back here. So if we are doing a roundabout we’d make sure that if I ever a car moved off the end here, it would reappear back here on the side.
+2:46 - What we've done is we've taken the roundabout, we've kind of unwrapped it into a straight line, so we have to make sure that it's joined in to a roundabout, cars that leave here come back here. So if we are doing a roundabout we'd make sure that if I ever a car moved off the end here, it would reappear back here on the side.
 
-3:05 - Cars disappearing off the end here, appear back here on the edge. And we’ll come back to that. That would be the situation, that would be the boundary conditions we’ll want to use to simulate in the parallel simulation.
+3:05 - Cars disappearing off the end here, appear back here on the edge. And we'll come back to that. That would be the situation, that would be the boundary conditions we'll want to use to simulate in the parallel simulation.
 
 ```
 
@@ -174,7 +174,7 @@ Note that we only take measurements of the average speed after we have run for m
 
 This is quite easy to understand in general terms. When the car density is less than 50%, the cars will eventually arrange themselves so that there is a gap between every car and they can all move once each iteration. This is not possible when more than half the cells are occupied: some of the cars cannot move and the average speed drops below 1.0. At 100% density, where every cell is occupied, none of the cars can move and the speed is 0.
 
-What perhaps isn’t obvious (at least it wasn’t obvious to me) is how rapidly congestion happens in the model - an effect well known to every driver, where only a few extra cars can turn a previously clear road into a traffic jam. This is an example of emergent behaviour where repeated application of very simple rules can lead to surprisingly complex behaviour when applied to a large enough system (the complexity increases with size).
+What perhaps isn't obvious (at least it wasn't obvious to me) is how rapidly congestion happens in the model - an effect well known to every driver, where only a few extra cars can turn a previously clear road into a traffic jam. This is an example of emergent behaviour where repeated application of very simple rules can lead to surprisingly complex behaviour when applied to a large enough system (the complexity increases with size).
 
 ### Boundary Conditions
 
@@ -207,7 +207,7 @@ We have chosen a 1D model for simplicity. What do you think you would need to co
 ```
 ### Can we do better?
 
-We’ve made a lot of simplifications to simulate traffic using this Rule 184 cellular automaton. Can you list what they are? What important aspects of real traffic flow are we missing?
+We've made a lot of simplifications to simulate traffic using this Rule 184 cellular automaton. Can you list what they are? What important aspects of real traffic flow are we missing?
 
 Do you think it is possible to perform realistic traffic simulations using a more complicated cellular automaton, or would you recommend a completely different approach. Why?
 
@@ -223,18 +223,16 @@ It turns out that, despite its simplicity, the traffic model is representative o
 
 There are two fundamentally different approaches to parallelising a calculation which correspond to the two parallel architectures. We call these approaches programming models.
 
-<center>
-
+<div style="text-align: center;">
 | Parallel Architecture	| Programming Model |
 | --- | --- |
 | Shared Memory | Shared Variables |
 | Distributed Memory | Message Passing |
-
-</center>
+</div>
 
 What we mean by a programming model is that we take a high-level view of the way we are going to use the parallel computer, only concerned with the fundamental features of the computer and not bothering about the details (here, the fundamental feature is how the memory is arranged).
 
-To illustrate what we mean by a model in this context, let’s take another example from traffic. Imagine that you want to travel between two cities. In the private transport model you have your own vehicle and are responsible for planning the route, driving safely and ensuring the vehicle has enough fuel; you can choose who you share the journey with. In the public transport model, you pay someone else (e.g. a bus company) to supply the vehicle and a trained driver, and the vehicle follows a fixed route to a given timetable; you will share the vehicle with fellow travellers.
+To illustrate what we mean by a model in this context, let's take another example from traffic. Imagine that you want to travel between two cities. In the private transport model you have your own vehicle and are responsible for planning the route, driving safely and ensuring the vehicle has enough fuel; you can choose who you share the journey with. In the public transport model, you pay someone else (e.g. a bus company) to supply the vehicle and a trained driver, and the vehicle follows a fixed route to a given timetable; you will share the vehicle with fellow travellers.
 
 Although both models achieve the same aim of transporting you between the two cities, they do so in fundamentally different ways with their own pros and cons. At this level, we are not concerned about the details of how each model is implemented: whether you drive an electric or petrol car, or travel by bus or by train, the fundamental distinction between the private and public models remains the same despite differing in the details.
 

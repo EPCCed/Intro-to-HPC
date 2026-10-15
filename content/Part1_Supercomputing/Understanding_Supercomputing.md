@@ -8,7 +8,7 @@
 
 So what are supercomputers made of? Are the building components really so different from personal computers? And what determines how fast a supercomputer is?
 
-In this step, we start to outline the answers to these questions. We will go into a lot more detail next week, but for now we will cover enough of the basics for you to be able to understand the characteristics of the supercomputers in the [Top500](https://www.top500.org/lists/top500/2022/06/) list (the linked list is from June 2022).
+In this step, we start to outline the answers to these questions. We will go into a lot more detail next week, but for now we will cover enough of the basics for you to be able to understand the characteristics of the supercomputers in the [TOP500](https://www.top500.org/lists/top500/2022/06/) list (the linked list is from June 2022).
 
 It may surprise you to learn that supercomputers are built using the same basic elements that you normally find in your desktop, such as processors, memory and disk. The difference is largely a matter of scale. The reason is quite simple: the cost of developing new hardware is measured in billions of euros, and the market for consumer products is vastly larger than that for supercomputing, so the most advanced technology you can find is actually what you find in general-purpose computers.
 
@@ -37,7 +37,7 @@ Does it surprise you to learn that games console components and other general-pu
 ```
 ## Understanding Supercomputing - Performance
 
-The Top500 list ranks supercomputers by their floating-point performance - let’s take a look at what that means.
+The TOP500 list ranks supercomputers by their floating-point performance - let’s take a look at what that means.
 
 In supercomputing, we are normally interested in numerical computations: what is the answer to 0.234 + 3.456, or 1.4567 x 2.6734? Computers store numbers like these in floating-point format, so they are called floating-point numbers. A single instruction like addition or multiplication is called an operation, so we measure the speed of supercomputers in terms of floating-point operations per second or Flop/s, which is sometimes written and said more simply as Flops.
 
@@ -89,9 +89,9 @@ Supercomputers are not only expensive to purchase, but they are also expensive t
 
 For example, the fourth on the top500 list, Tianhe-2 system has a peak power consumption of 18.5 megawatts and, including external cooling, the system drew an aggregate of 24 megawatts when running the LINPACK benchmark. If a kilowatt of power costs 10 cents per hour, Tianhe-2’s peak power consumption will be 2400 euros per hour, which is in excess of 21 million euros per year.
 
-Rpeak and Rmax are what Top500 uses to rank supercomputers. Also quoted is the electrical power consumption, which leads to the creation of another list - the [Green 500](https://www.top500.org/lists/green500/2022/06/) (June 2022)- which ranks supercomputers on their fuel economy in terms of Flops perWatt. Despite its massive power bill, Frontier is quite power-efficient. The top ranked system (Frontier) holds 2nd position on the Green 500.
+Rpeak and Rmax are what TOP500 uses to rank supercomputers. Also quoted is the electrical power consumption, which leads to the creation of another list - the [Green 500](https://www.top500.org/lists/green500/2022/06/) (June 2022)- which ranks supercomputers on their fuel economy in terms of Flops perWatt. Despite its massive power bill, Frontier is quite power-efficient. The top ranked system (Frontier) holds 2nd position on the Green 500.
 
-Take a look at the [Top500](https://www.top500.org/lists/top500/2022/06/) list  - does the fact the top supercomputer for performance is also the to for power efficeny surprise you? What could be the reason for this?
+Take a look at the [TOP500](https://www.top500.org/lists/top500/2022/06/) list. Does it surprise you that the world's fastest supercomputer is also the most power-efficient? What might explain this?
 
 © SURFsara
 

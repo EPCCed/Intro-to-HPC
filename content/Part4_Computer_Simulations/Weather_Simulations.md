@@ -8,9 +8,9 @@
 
 0:12 - Climate science.
 
-0:15 - Have you ever wondered if natural disasters can be anticipated? Predicting how our climate and physical world changes is one of society’s greatest challenges. Professor Pier Luigi Vidale is a scientist addressing this challenge. Weather and climate simulation require very large supercomputers. We want to be able to simulate the weather and climate processes. We want to simulate things like typhoons, hurricanes, wind storms, major rain storms, flooding events. This is like looking at climate with a very high definition camera. We have been able to simulate some historical damage due to very powerful storms, like hurricanes, in ways that have never been observed before. These are types of simulations that were, even a few years ago, impossible.
+0:15 - Have you ever wondered if natural disasters can be anticipated? Predicting how our climate and physical world changes is one of society's greatest challenges. Professor Pier Luigi Vidale is a scientist addressing this challenge. Weather and climate simulation require very large supercomputers. We want to be able to simulate the weather and climate processes. We want to simulate things like typhoons, hurricanes, wind storms, major rain storms, flooding events. This is like looking at climate with a very high definition camera. We have been able to simulate some historical damage due to very powerful storms, like hurricanes, in ways that have never been observed before. These are types of simulations that were, even a few years ago, impossible.
 
-1:06 - And we can do this for actually hundreds to thousands of years of simulation, which is not available in our observations. So in many ways, we are using the computer simulation as a synthesis of observations we’ve never had. It’s also true that natural catastrophes are among the most costly to society. And this is very important for government, but also for industry. And much of my activity deals with your insurance industry and understanding how we can reduce losses to business, to society, and also loss of life. And we do need to understand how these weather and climate phenomena are changing with time. This is crucial to our society
+1:06 - And we can do this for actually hundreds to thousands of years of simulation, which is not available in our observations. So in many ways, we are using the computer simulation as a synthesis of observations we've never had. It's also true that natural catastrophes are among the most costly to society. And this is very important for government, but also for industry. And much of my activity deals with your insurance industry and understanding how we can reduce losses to business, to society, and also loss of life. And we do need to understand how these weather and climate phenomena are changing with time. This is crucial to our society
 
 ```
 
@@ -18,9 +18,9 @@ In this short PRACE video, Prof. Pier Luigi Vidale talks about possibilities and
 
 In the next steps we will use an example of Numerical Weather Modelling to illustrate the key concepts of computer simulations.
 
-Despite many weather forecasts being widely available to the public, not many people understand how they are created and how they should be interpreted. It’s crucial to understand that there is a huge difference between a 3-day and a 14-day forecast. That is because different forecast ranges focus on different aspects of the atmosphere so depending on the forecast range different models are used to predict the weather.
+Despite many weather forecasts being widely available to the public, not many people understand how they are created and how they should be interpreted. It's crucial to understand that there is a huge difference between a 3-day and a 14-day forecast. That is because different forecast ranges focus on different aspects of the atmosphere so depending on the forecast range different models are used to predict the weather.
 
-For example, processes that do not have a clear impact on day-to-day forecasts, such as deep ocean circulation or carbon cycle, are absolutely essential to long range forecasts and climate modelling. That’s why climate projections use coupled ocean-atmosphere models, while short range weather forecasts do not.
+For example, processes that do not have a clear impact on day-to-day forecasts, such as deep ocean circulation or carbon cycle, are absolutely essential to long range forecasts and climate modelling. That's why climate projections use coupled ocean-atmosphere models, while short range weather forecasts do not.
 
 How often do you check weather forecasts? Usually, how much in advance are you checking them? From your own experience, how often are short-term forecasts correct? What about longer-term forecasts? Why makes you think this?
 
@@ -55,7 +55,7 @@ Moreover, the atmosphere is a chaotic system, which means it is very susceptible
 
 You may be familiar both with the term and the associated metaphor (a butterfly flapping its wings influencing a distant hurricane several weeks later). After all, it has been used not only in science but also in popular culture. The term was actually coined by Edward Lorenz, one of the pioneers of chaos theory, who encountered the effect while studying weather modelling. In 1961 he showed that running a weather simulation, stopping it and then restarting it, produced a different weather forecast than a simulation run without stopping!
 
-This behaviour can be explained by the way computers work - stopping of the simulation meant that the values of all variables had to be stored in a machine’s memory. The problem was that the level of precision of those stored numbers was less than the precision the computer used to compute them - the numbers were being rounded. Assuming that such small differences could have no significant effect, Lorenz rounded the numbers accurate to six decimal places (e.g. 6.174122) to three decimal places (e.g. 6.174) before printing. The simulation was restarted with those slightly different numbers and the initially small differences were amplified into different weather forecasts!
+This behaviour can be explained by the way computers work - stopping of the simulation meant that the values of all variables had to be stored in a machine's memory. The problem was that the level of precision of those stored numbers was less than the precision the computer used to compute them - the numbers were being rounded. Assuming that such small differences could have no significant effect, Lorenz rounded the numbers accurate to six decimal places (e.g. 6.174122) to three decimal places (e.g. 6.174) before printing. The simulation was restarted with those slightly different numbers and the initially small differences were amplified into different weather forecasts!
 
 Typically, to lessen the uncertainty in weather predictions, ensemble forecasting is used. In simple terms, a number of simulations are run with slightly different initial conditions and the results are combined into probabilistic forecasts, showing how likely particular weather conditions are. If results of the ensemble runs are similar, then the uncertainty is small, and if they are significantly different then the uncertainty is bigger.
 
@@ -71,7 +71,7 @@ Does this explain why the public weather forecasts should be taken with a pinch 
 
 You have seen how important initial conditions are, this is even more true for modelling chaotic systems such as weather. To produce any useful forecast, it is absolutely essential to start with the right set of parameters. However, do we actually know the current state of the atmosphere? How well do we understand processes governing it?
 
-Well, the short answer is not well enough! We do not possess enough information to be able to tell what is happening at all points on and above our planet’s surface.
+Well, the short answer is not well enough! We do not possess enough information to be able to tell what is happening at all points on and above our planet's surface.
 
 ### Data Assimilation
 The higher levels in the atmosphere, large areas of ocean, and inaccessible regions on land are examples of places on Earth for which we do not posses sufficient observational data. This certainly poses a problem, after all we need to re-create the current weather state as closely as possible. Somehow, we need to fill in these gaps in our knowledge.
@@ -83,7 +83,7 @@ Depending on the forecast range, the rate of data assimilation is different - sh
 ### Parametrisation
 Besides the initial condition derived from the observational data, there are also other parameters that need to be included in weather models. These parameters are introduced to account for the processes that are too small or too complex to be explicitly represented. For example, the descent rate of raindrops, or a cumulus cloud, which is typically smaller than 1km.
 
-Among the processes that are to complex to be directly included in weather models is cloud microphysics - processes that lead to the formation, growth and precipitation of atmospheric clouds. Due to the complexity and difference in scale it’s too computationally expensive to directly include these processes in weather models. Nevertheless, capturing and describing their effect on the weather patterns is important. This is done through the parametrisation derived from observational data and our understanding of these processes.
+Among the processes that are to complex to be directly included in weather models is cloud microphysics - processes that lead to the formation, growth and precipitation of atmospheric clouds. Due to the complexity and difference in scale it's too computationally expensive to directly include these processes in weather models. Nevertheless, capturing and describing their effect on the weather patterns is important. This is done through the parametrisation derived from observational data and our understanding of these processes.
 
 Do you think we will ever reach a point in the history of weather simulation when the steps of data assimilation and parametrisation will become unnecessary? Why do you think so?
 
@@ -148,7 +148,7 @@ One of the earliest visualisations techniques used in weather science were maps.
 
 More recently, emphasis is put on the use of interactive displays, especially on the web, giving users control over the type and form of the displayed information. Animations are also widely used because they are able to effectively condense vast amounts of data into memorable visual sequences.
 
-If you are interested in new cutting edge visualisation techniques developed for weather and environmental science, we invite you to watch the introduction to the [Informatics Lab](https://www.youtube.com/watch?v=s6ito6QxbH4) run by the Met Office (UK’s official weather service provider). On the [Lab’s website](http://www.informaticslab.co.uk/) you will also find different demos that you can play with. Especially interesting is [Fly Through Model Fields](https://archived.informaticslab.co.uk/projects/three-d-vis.html) project.
+If you are interested in new cutting edge visualisation techniques developed for weather and environmental science, we invite you to watch the introduction to the [Informatics Lab](https://www.youtube.com/watch?v=s6ito6QxbH4) run by the Met Office (UK's official weather service provider). On the [Lab's website](http://www.informaticslab.co.uk/) you will also find different demos that you can play with. Especially interesting is [Fly Through Model Fields](https://archived.informaticslab.co.uk/projects/three-d-vis.html) project.
 
 Can you imagine any of the Informatics Lab projects being used in real life situations? Would they be useful? Why do you think so?
 
@@ -185,7 +185,7 @@ A) data
 
 B) assimilation
 
-C) parameterisation
+C) parametrisation
 
 ```
 
@@ -199,9 +199,9 @@ C) parameterisation
 
 ## Scalability of weather simulations
 
-The need for greater computing power in weather forecasting is driven by advances in modelling the Earth’s physical processes, the use of more observational data and finer model grid resolutions. However, is it enough to simply keep increasing the computational power indefinitely?
+The need for greater computing power in weather forecasting is driven by advances in modelling the Earth's physical processes, the use of more observational data and finer model grid resolutions. However, is it enough to simply keep increasing the computational power indefinitely?
 
-In March 2016 ECMWF launched a new model, which reduced the horizontal grid spacing from 16 to 9 km, resulting in 3 times as many prediction points which now total 904 million. It’s estimated that the increased resolution improves the accuracy of forecasts by 2-3% for many parameters. The graph below shows the results of simulations carried out by ECMWF at a range of hypothetical model grid resolutions.
+In March 2016 ECMWF launched a new model, which reduced the horizontal grid spacing from 16 to 9 km, resulting in 3 times as many prediction points which now total 904 million. It's estimated that the increased resolution improves the accuracy of forecasts by 2-3% for many parameters. The graph below shows the results of simulations carried out by ECMWF at a range of hypothetical model grid resolutions.
 
 ```{figure} ./images/hero_ef5206cc-5956-4ce2-a77f-054447fce6a9.png
 ```
@@ -215,7 +215,7 @@ Using the graph and what you have learnt so far, try to answer the following que
 - What do you think the existence of a power limit means?
 - What do you think should be changed to realise the goal of 5km horizontal resolution for ensemble forecasting by 2025?
 
-If you would like to learn more about the upgraded model visit the dedicated [ECMWF’s media centre page](http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution).
+If you would like to learn more about the upgraded model visit the dedicated [ECMWF's media centre page](http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution).
 
 © The ECMWF
 
@@ -229,7 +229,7 @@ If you would like to learn more about the upgraded model visit the dedicated [EC
 
 The limitations of weather simulations can be divided into two categories: theoretical and practical. The theoretical limitation is related to the mathematical description of the model.
 
-Processes governing the atmosphere are very complex and it’s difficult to capture them with equations. Even if it were possible, they would not have proper solutions because solving them without approximations is not possible. Over the years, thanks to the increase in the computational power the effects of these approximations have been increasingly minimised through better parametrisation, increased resolution and more complex models. Nowadays, a seven-day forecast is as accurate as a three-day forecast was in 1975.
+Processes governing the atmosphere are very complex and it's difficult to capture them with equations. Even if it were possible, they would not have proper solutions because solving them without approximations is not possible. Over the years, thanks to the increase in the computational power the effects of these approximations have been increasingly minimised through better parametrisation, increased resolution and more complex models. Nowadays, a seven-day forecast is as accurate as a three-day forecast was in 1975.
 
 ### Increasing Resolution
 
@@ -243,12 +243,12 @@ Numerical stability refers to the behaviour of the equations solved with erroneo
 
 ### Observational Data
 
-Another bottleneck is related to the observational data. The atmosphere is a chaotic system - without substantial amounts of data the chances of creating accurate forecasts decrease significantly, especially for increased forecast range. That is why the weather forecasting relies on the observational data coming from many different sources, both terrestrial and space based. It has to be noted that they describe the atmosphere in a slightly different way and so there is no unique way to represent the data uniformly. However, it’s absolutely crucial to have as many different sources as possible, otherwise the forecasts will only be able to capture large scale patterns.
+Another bottleneck is related to the observational data. The atmosphere is a chaotic system - without substantial amounts of data the chances of creating accurate forecasts decrease significantly, especially for increased forecast range. That is why the weather forecasting relies on the observational data coming from many different sources, both terrestrial and space based. It has to be noted that they describe the atmosphere in a slightly different way and so there is no unique way to represent the data uniformly. However, it's absolutely crucial to have as many different sources as possible, otherwise the forecasts will only be able to capture large scale patterns.
 
 To illustrate the importance of the initial data, consider the following example of Superstorm Sandy, which was one of the costliest hurricanes in US history and deadliest in 2012. The ECMWF successfully approximated its path, predicting its route seven days before it turned left and hit the shores of New Jersey. This almost unprecedented path was attributed to interactions with the large-scale atmospheric flow and highlighted the importance of the data provided by satellite observations.
 
 After the storm, ECMWF run a number of experiments to determine the role of satellite data by running simulations with deliberately withheld satellite data. The results showed that without the data gathered by polar-orbiting satellites the model would fail to predict that Sandy would hit New Jersey!
 
-You may think that with the technological advances the number of satellites is steadily increasing so there is no danger of not being able to provide enough data to the weather models. However, in fact, a number of the satellites are ageing and funding their replacement is not always easy. It seems that governments are not very keen on spending money on new satellites. This could definitely prove to be a problem and cause degradation in our ability to predict the weather but also impact our understanding of Earth’s climate and life support systems.
+You may think that with the technological advances the number of satellites is steadily increasing so there is no danger of not being able to provide enough data to the weather models. However, in fact, a number of the satellites are ageing and funding their replacement is not always easy. It seems that governments are not very keen on spending money on new satellites. This could definitely prove to be a problem and cause degradation in our ability to predict the weather but also impact our understanding of Earth's climate and life support systems.
 
 In your opinion, what is the most limiting factor in our current ability to forecast the weather?

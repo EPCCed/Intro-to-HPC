@@ -67,7 +67,7 @@ We will consider two journeys: from Central London to the Empire State Building 
 
 We will consider two possible aeroplanes: a Jumbo Jet (top speed 700 kph) and Concorde (2100 kph: 3 times as fast).
 
-The important observation is that the total journey time is the flight time plus the additional overheads of travelling between the city centre and the airport, waiting at check-in, clearing security or passport control, collecting your luggage etc. For simplicity, let’s assume that travel to the airport takes an hour by bus each way, and that you spend an hour in the airport at each end.
+The important observation is that the total journey time is the flight time plus the additional overheads of travelling between the city centre and the airport, waiting at check-in, clearing security or passport control, collecting your luggage etc. For simplicity, let's assume that travel to the airport takes an hour by bus each way, and that you spend an hour in the airport at each end.
 
 | Plane	| Destination |	Flight Time | Over-head | Total Journey | Speed-up S3 | Efficiency E3 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Try to answer the following questions:
 - what is the speedup for the first journey for a plane 10 or 100 times faster than Concorde?
 - what does it tell you about the limits of parallel computing?
 - what is the speedup for the second journey for a plane 10 or 100 times faster than Concorde?
-- why do you think it’s different from the first journey’s speedup?
+- why do you think it's different from the first journey's speedup?
 - what does it tell you about the possibilities of parallel computing?
 
 ---
@@ -94,24 +94,24 @@ Try to answer the following questions:
 
 ## Parallel Performance Laws
 
-The two most common ways to understand parallel scaling are called Amdahl’s Law and Gustafson’s Law. However, like many laws they boil down to simple common sense and are easily understandable using everyday examples.
+The two most common ways to understand parallel scaling are called Amdahl's Law and Gustafson's Law. However, like many laws they boil down to simple common sense and are easily understandable using everyday examples.
 
-Let’s have another look at the example from the previous step.
+Let's have another look at the example from the previous step.
 
 The key point here is that the overhead does not depend on the distance flown by the aircraft. In all cases you spend two hours travelling to and from the airports, and two hours waiting around in the airports: a total of four hours.
 
-The journey to New York illustrates Amdahl’s Law - the speedup is less than 3.0 because of the overheads. In a parallel program, these overheads can be characterised as serial parts of the calculation, i.e. parts of the calculation that do not go any faster when you use more CPU-cores. Typical examples can include reading and writing data from and to disk (which is often done via single CPU-core), or the time spent in communications.
+The journey to New York illustrates Amdahl's Law - the speedup is less than 3.0 because of the overheads. In a parallel program, these overheads can be characterised as serial parts of the calculation, i.e. parts of the calculation that do not go any faster when you use more CPU-cores. Typical examples can include reading and writing data from and to disk (which is often done via single CPU-core), or the time spent in communications.
 
 In fact, Gene Amdahl used this simple example to argue, way back in 1967, that parallel computing was not very useful in practice - no matter how fast your parallel computer is, you cannot eliminate the serial overheads. Even if we had a starship travelling at almost the speed of light, the journey time to New York would never be less than 4 hours so the speedup would never exceed 3.0. The fact that we can only make the calculation three times faster even if we use thousands of CPU-cores is a little dispiriting…
 
-However, the journey to Sydney illustrates Gustafson’s Law - things get better if you tackle larger problems because the serial overheads stay the same but the parallel part gets larger. For the large problem, our maximum speedup would be 7.0.
+However, the journey to Sydney illustrates Gustafson's Law - things get better if you tackle larger problems because the serial overheads stay the same but the parallel part gets larger. For the large problem, our maximum speedup would be 7.0.
 
 ```{figure} ./images/hero_38f91e44-13fa-4d56-bd8f-1ff3b86002ff.png
 ```
 
 Scaling plot for New York and Sydney Journeys (image)
 
-Amdahl’s law can be expressed in equations as:
+Amdahl's law can be expressed in equations as:
 
 $$
 S_P = \frac{P}{(\alpha P + (1-\alpha))}
@@ -123,9 +123,9 @@ $$
  \alpha = \frac{4\, \rm hours}{12\, \rm hours} = 0.33 
 $$
 
-Amdahl’s law predicts that, although the speedup always increases with P, it never exceeds 1/$\alpha$. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
+Amdahl's law predicts that, although the speedup always increases with P, it never exceeds 1/$\alpha$. For the New York trip, this means the speedup is limited to 3.0 which is what we already observed.
 
-If you are interested in more details (and more maths!) then you can visit Wikipedia ([Amdahl’s Law](https://en.wikipedia.org/wiki/Amdahl%27s_law) and [Gustafson’s Law](https://en.wikipedia.org/wiki/Gustafson%27s_law)), but all the equations can sometimes obscure what is really a common-sense result.
+If you are interested in more details (and more maths!) then you can visit Wikipedia ([Amdahl's Law](https://en.wikipedia.org/wiki/Amdahl%27s_law) and [Gustafson's Law](https://en.wikipedia.org/wiki/Gustafson%27s_law)), but all the equations can sometimes obscure what is really a common-sense result.
 
 ---
 
@@ -135,9 +135,9 @@ If you are interested in more details (and more maths!) then you can visit Wikip
 
 ## Scaling Behaviour of the Traffic Simulation
 
-Let’s consider the traffic model parallelised using message-passing – you and three colleagues are working together on the traffic model in different offices. You each have your own chess set with pawns representing the cars, but you need to phone each other if you want to exchange information.
+Let's consider the traffic model parallelised using message-passing – you and three colleagues are working together on the traffic model in different offices. You each have your own chess set with pawns representing the cars, but you need to phone each other if you want to exchange information.
 
-For the sake of argument, let’s also assume that you can update your chess board at the rate of two cells per second, i.e. if you had 8 cells then each timestep would take you 4 seconds.
+For the sake of argument, let's also assume that you can update your chess board at the rate of two cells per second, i.e. if you had 8 cells then each timestep would take you 4 seconds.
 
 For a road of 20 cells, work out how long it takes to do a single iteration in serial (one person) and in parallel (all four people). You will need to count how many phone calls you need to make, and make a guess as to how long each phone call will take.
 
@@ -149,7 +149,7 @@ Is parallel computing worthwhile here?
 
 Compute the speedup S4 for roads of length 200, 2000 and 20000 cells - what do you observe? You could also compute S2 and S3 to see how each problem size scales with increasing P.
 
-To what extent do these figures agree or disagree with Amdahl’s law and Gustafson’s Law?
+To what extent do these figures agree or disagree with Amdahl's law and Gustafson's Law?
 
 These calculations, require you to make a number of assumptions so when comparing answers with your fellow learners you should not focus on the numerical results so much. Looking at the reasoning behind each of the assumptions and comparing your overall conclusions should be more interesting.
 
@@ -182,7 +182,7 @@ In parallel computing, the parallel ____ is used to measure how efficiently the 
 
 ```{solution}
 
-A) efficency 
+A) efficiency 
 
 B) 1.0
 

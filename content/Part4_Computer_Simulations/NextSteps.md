@@ -9,7 +9,7 @@ ARCHER2 has a number of published [cases studies](https://www.archer2.ac.uk/rese
 These examples cover how ARCHER2 is used to predict:
 
 - Flow within and around a large wind farm
-- Coral reef connectivity in the sothwestern Indian Ocean
+- Coral reef connectivity in the South-West Indian Ocean
 - Predicting airborne pathogen spread
 - Forecasting the dispersion of volcanic ash and gas
 - Predicting aircraft jet noise
@@ -23,9 +23,9 @@ These are usually on a wednesday afternoon, more information can be found on our
 
 Previous webinar topics have included talks on debuggers, profilers, how to maximise the performance of the system and a variety of talks on the outcomes of eCSE projects that discuss specific science codes and results.
 
-The webinars are published to the ARCHER2 [YouTube](https://www.youtube.com/@archer2hpc596/videos) channel so you can review previous webinars to get a better idea of what work is being done on the system. 
+The webinars are published to the [ARCHER2 YouTube](https://www.youtube.com/@archer2hpc596/videos) channel so you can review previous webinars to get a better idea of what work is being done on the system. 
 
-Addtionally if you have some interesting work using the system we are always open to people looking to give talks on how the ARCHER2 system has benefited their research. If you have a topic you would like to speak on please contact us via email, support@archer2.ac.uk.
+Additionally if you have some interesting work using the system we are always open to people looking to give talks on how the ARCHER2 system has benefited their research. If you have a topic you would like to speak on please contact us via email, support@archer2.ac.uk.
 
 ## Additional Training
 
@@ -36,7 +36,7 @@ From the EPCC there are:
 - [Course overviews](https://www.archer2.ac.uk/training/courses/)
 - [Course pathways](https://www.archer2.ac.uk/training/courses/course-paths)
 
-A number of these course are available to work through at your leisure via the online [training repository](https://www.archer2.ac.uk/training/materials/) and the videos of these training sessions are also posted to the ARCHER2 [YouTube](https://www.youtube.com/@archer2hpc596/videos) channel.
+A number of these course are available to work through at your leisure via the online [training repository](https://www.archer2.ac.uk/training/materials/) and the videos of these training sessions are also posted to the [ARCHER2 YouTube](https://www.youtube.com/@archer2hpc596/videos) channel.
 
 The EuroCC project has put in considerable effort to create a [database of courses](https://www.eurocc-access.eu/services/training/) from across Europe. This resource can be particularly beneficial if you are looking for a course on a particular HPC system across Europe or in another language.
 

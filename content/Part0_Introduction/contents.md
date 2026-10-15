@@ -44,18 +44,18 @@ When you have finished the course, please fill in the [Feedback Form](https://ww
 ```
 
 ```{solution} Transcript
-0:12 - Welcome to the Supercomputing MOOC. My name is David Henty, and I work at EPCC, the Edinburgh Parallel Computing Centre at the University of Edinburgh in Scotland. We run the UK National Supercomputer Service, ARCHER, and it’s used by a wide range of scientists and engineers across the United Kingdom. ARCHER is also part of the European PRACE research infrastructure, which is a pan-Europeon network of supercomputers, and this whole course has been developed as part of PRACE.
+0:12 - Welcome to the Supercomputing MOOC. My name is David Henty, and I work at EPCC, the Edinburgh Parallel Computing Centre at the University of Edinburgh in Scotland. We run the UK National Supercomputer Service, ARCHER, and it's used by a wide range of scientists and engineers across the United Kingdom. ARCHER is also part of the European PRACE research infrastructure, which is a pan-European network of supercomputers, and this whole course has been developed as part of PRACE.
 
-0:43 - Today’s supercomputers are the largest and most powerful calculating machines ever constructed. Costing tens of millions of euros to build and consuming millions of euros of electricity per year. But how are they constructed? Where do they get their enormous computing power from? Are they similar to your home laptop or completely different? How can we use all that computational power to solve real problems? What real-world applications do supercomputers have? Over the next five weeks, we’re going to help you understand what supercomputing is. And although we’ll use some particular supercomputers as specific examples, we’ll try and cover most things at a conceptual level, so you understand the fundamental principles and challenges involved.
+0:43 - Today's supercomputers are the largest and most powerful calculating machines ever constructed. Costing tens of millions of euros to build and consuming millions of euros of electricity per year. But how are they constructed? Where do they get their enormous computing power from? Are they similar to your home laptop or completely different? How can we use all that computational power to solve real problems? What real-world applications do supercomputers have? Over the next five weeks, we're going to help you understand what supercomputing is. And although we'll use some particular supercomputers as specific examples, we'll try and cover most things at a conceptual level, so you understand the fundamental principles and challenges involved.
 
-1:27 - In this course, we have four main aims, to give you some sense of the excitement of working at the leading edge of computing technology, to demystify the technical jargon and explain how supercomputers are built and how they are programmed, to show you how useful they are and the central role they play in modern science and engineering, and to explain how real-world problems such as weather forecasting can be expressed in a way that can then be tackled by a modern supercomputer. Now this isn’t a programming course. Although if you do know about computer programming, you’ll be able to appreciate the similarities and differences between programming your home machine and programming a parallel supercomputer.
+1:27 - In this course, we have four main aims, to give you some sense of the excitement of working at the leading edge of computing technology, to demystify the technical jargon and explain how supercomputers are built and how they are programmed, to show you how useful they are and the central role they play in modern science and engineering, and to explain how real-world problems such as weather forecasting can be expressed in a way that can then be tackled by a modern supercomputer. Now this isn't a programming course. Although if you do know about computer programming, you'll be able to appreciate the similarities and differences between programming your home machine and programming a parallel supercomputer.
 
-2:07 - We also don’t assume any existing knowledge of computing maths or science. We just assume you’re generally interested in computing and how computers can be used to solve real-world problems. The course also aims to give you an insight into how your domestic devices, such as netbooks, laptops, and games machines, actually work. A modern mobile phone would have beaten the fastest supercomputer in the world less than 25 years ago. So where does all this power come from? What drives this seemingly relentless growth in computer technology? And what does the future hold?
+2:07 - We also don't assume any existing knowledge of computing maths or science. We just assume you're generally interested in computing and how computers can be used to solve real-world problems. The course also aims to give you an insight into how your domestic devices, such as netbooks, laptops, and games machines, actually work. A modern mobile phone would have beaten the fastest supercomputer in the world less than 25 years ago. So where does all this power come from? What drives this seemingly relentless growth in computer technology? And what does the future hold?
 ```
 
 This may be the first self-service course you have worked through, so to help you get the best learning experience we have prepared a few tips for you. Hopefully, they will help you get the most out of the course.
 
-The course material is presented as a mixture of videos, articles, exercises and quizzes. The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of your local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people’s knowledge.
+The course material is presented as a mixture of videos, articles, exercises and quizzes. The course is no longer fully facilitated so we would like to encourage you to interact with others taking the course if many of your local team are working through the content. If there is anything that you find confusing, ask, and if you know an answer to a question, answer it. You will find that both asking and answering questions helps to consolidate not only your but also other people's knowledge.
 
 ---
 
@@ -75,7 +75,7 @@ With a team of more than 110 highly qualified specialists, we have an exceptiona
 
 EPCC aims to accelerate the effective exploitation of novel computing throughout industry, academia and commerce. 
 
-This has been our mission for over 30 years as we strive to be the UK’s premier Supercomputing centre, renowned internationally for innovation and leading-edge research.
+This has been our mission for over 30 years as we strive to be the UK's premier Supercomputing centre, renowned internationally for innovation and leading-edge research.
 
 Our work is guided by key goals and objectives that support this mission and place EPCC at the heart of the Exascale era.
 
@@ -100,7 +100,7 @@ This course has been adapted with EuroCC funding to update the original course d
 
 ## Acknowledgements
 
-This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty and Weronika Filinger at EPCC under funding from EuroCC.
+This material has been developed by James Richings, Stephen Farr, Manos Farsarakis, David Henty, and Weronika Filinger at EPCC under funding from EuroCC.
 This was developed from original material developed, with additional contributions from Zheng Meyer-Zhao at Surfsara, under funding from PRACE.
 
 This new course benefits from the Sphinx template developed by the Swedish NCC which was also funded by EuroCC.
